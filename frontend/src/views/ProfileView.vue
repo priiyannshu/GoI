@@ -225,13 +225,6 @@
             </div>
           </div>
 
-          <!-- Geoinformatics Branch Guidance Note -->
-          <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40 text-xs text-slate-700 dark:text-slate-300 space-y-1">
-            <span class="font-bold text-emerald-700 dark:text-emerald-400">💡 Geoinformatics / GIS Degree Guidance:</span>
-            <p class="leading-relaxed">
-              If your degree is in <strong>Geoinformatics, Remote Sensing, Geomatics, or GIS</strong>, select <em>Geoinformatics / Remote Sensing / GIS</em>. The system automatically qualifies you for Science and Engineering cadres. For technical examinations that strictly accept only the four traditional branches (such as UPSC ESE or standard State AE), Geoinformatics is officially considered an allied engineering sub-discipline under <strong>Civil Engineering</strong>.
-            </p>
-          </div>
 
           <!-- Final Year Toggle & 10+2 Marks -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-slate-200 dark:border-slate-800 items-center">

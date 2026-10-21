@@ -123,15 +123,7 @@
             </div>
 
             <!-- Drawer Footer -->
-            <div class="pt-6 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 space-y-1">
-              <div class="flex items-center justify-between text-[11px]">
-                <span class="font-semibold text-slate-700 dark:text-slate-300">Government of India</span>
-                <span class="font-mono text-emerald-600 dark:text-emerald-400">Official Portal</span>
-              </div>
-              <p class="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                Statutory eligibility, recruitment cadres, syllabus intelligence, and career benefits.
-              </p>
-            </div>
+            <div class="pt-6 border-t border-slate-200 dark:border-slate-800"></div>
           </div>
         </div>
       </transition>
