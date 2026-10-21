@@ -56,14 +56,11 @@
             <span class="text-lg">🆔</span>
             <h3 class="text-base font-bold text-slate-900 dark:text-white">Candidate Identity & Demographics</h3>
           </div>
-          <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Core Details</span>
         </div>
 
         <!-- Full Name -->
         <div>
-          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-            Candidate Full Name <span class="text-slate-400 font-normal">(Shown in hamburger navigation menu)</span>
-          </label>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Candidate Full Name</label>
           <input
             type="text"
             v-model="profile.full_name"
@@ -75,9 +72,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           <!-- DOB -->
           <div>
-            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-              Date of Birth <span class="text-slate-400 font-normal">(Leave empty if not filling now)</span>
-            </label>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Date of Birth</label>
             <input
               type="date"
               v-model="profile.dob"
@@ -158,7 +153,6 @@
             <span class="text-lg">🎓</span>
             <h3 class="text-base font-bold text-slate-900 dark:text-white">Academic Qualifications</h3>
           </div>
-          <span class="text-xs text-slate-500 dark:text-slate-400">Leave fields empty if unready</span>
         </div>
 
         <div class="space-y-4">
@@ -215,7 +209,7 @@
                 min="35"
                 max="100"
                 v-model.number="profile.graduation_aggregate_pct"
-                placeholder="e.g. 65.50 (leave empty if unready)"
+                placeholder="e.g. 65.50"
                 class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
               />
               <span class="text-[10px] text-slate-500">Strict non-rounding (e.g. 59.99% &lt; 60%)</span>
@@ -266,7 +260,6 @@
             <span class="text-lg">🗺️</span>
             <h3 class="text-base font-bold text-slate-900 dark:text-white">Home State Domicile & Regional Languages</h3>
           </div>
-          <span class="text-xs text-slate-500 dark:text-slate-400">Controls State PSC reservation benefits</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
