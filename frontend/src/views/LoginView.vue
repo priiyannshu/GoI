@@ -92,6 +92,30 @@
           <span v-else>Continue</span>
         </button>
       </form>
+
+      <!-- Guest Access Option -->
+      <div class="pt-2">
+        <div class="relative flex items-center justify-center my-4">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-slate-200 dark:border-slate-800"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <span class="bg-white dark:bg-slate-900 px-3 text-xs uppercase tracking-wider font-semibold text-slate-400 dark:text-slate-500">
+              or
+            </span>
+          </div>
+        </div>
+        <button
+          type="button"
+          @click="handleGuestAccess"
+          class="w-full py-3 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 border border-slate-200 dark:border-slate-700 transition-all flex items-center justify-center space-x-2 shadow-xs active:scale-[0.99]"
+        >
+          <span>Continue as Guest</span>
+          <svg class="w-4 h-4 text-slate-400 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -160,5 +184,10 @@ async function handleCreateNew() {
   } else {
     errorMessage.value = authStore.authError || 'Could not create candidate ID.';
   }
+}
+
+function handleGuestAccess() {
+  authStore.continueAsGuest();
+  router.push('/');
 }
 </script>

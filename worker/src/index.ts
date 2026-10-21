@@ -494,6 +494,38 @@ app.post('/api/v1/profile/sync', async (c) => {
     priorAttemptsJson = JSON.stringify(body.prior_attempts);
   }
 
+  // Parse and validate hidden_exams_json if present
+  let hiddenExamsJson: string = '[]';
+  if (body.hidden_exams != null || body.hidden_exams_json != null) {
+    const raw = body.hidden_exams ?? body.hidden_exams_json;
+    if (typeof raw === 'string') {
+      try {
+        const parsed = JSON.parse(raw);
+        hiddenExamsJson = Array.isArray(parsed) ? JSON.stringify(parsed) : '[]';
+      } catch {
+        hiddenExamsJson = '[]';
+      }
+    } else if (Array.isArray(raw)) {
+      hiddenExamsJson = JSON.stringify(raw);
+    }
+  }
+
+  // Parse and validate hidden_posts_json if present
+  let hiddenPostsJson: string = '[]';
+  if (body.hidden_posts != null || body.hidden_posts_json != null) {
+    const raw = body.hidden_posts ?? body.hidden_posts_json;
+    if (typeof raw === 'string') {
+      try {
+        const parsed = JSON.parse(raw);
+        hiddenPostsJson = Array.isArray(parsed) ? JSON.stringify(parsed) : '[]';
+      } catch {
+        hiddenPostsJson = '[]';
+      }
+    } else if (Array.isArray(raw)) {
+      hiddenPostsJson = JSON.stringify(raw);
+    }
+  }
+
   // Normalization for gender enum: MALE, FEMALE, OTHER
   const validGenders = ['MALE', 'FEMALE', 'OTHER'];
   const gender = validGenders.includes(genderRaw) ? genderRaw : 'OTHER';
@@ -529,8 +561,9 @@ app.post('/api/v1/profile/sync', async (c) => {
           graduation_degree, graduation_discipline, graduation_aggregate_pct,
           is_final_year, state_domicile, mother_tongue,
           height_cm, chest_cm, vision_specs, prior_attempts_json,
+          hidden_exams_json, hidden_posts_json,
           updated_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
       `)
         .bind(
           userId,
@@ -547,7 +580,9 @@ app.post('/api/v1/profile/sync', async (c) => {
           heightCm,
           chestCm,
           visionSpecs,
-          priorAttemptsJson
+          priorAttemptsJson,
+          hiddenExamsJson,
+          hiddenPostsJson
         )
         .run();
       persisted = true;

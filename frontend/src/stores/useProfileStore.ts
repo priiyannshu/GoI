@@ -4,6 +4,7 @@ import type { UserProfileInput } from '../types/profile';
 import { indexedDbStorage } from '../services/indexedDbStorage';
 import { syncProfileToEdge } from '../services/apiWorkerClient';
 import { useAuthStore } from './useAuthStore';
+import { useHiddenStore } from './useHiddenStore';
 
 export const DEFAULT_PROFILE: UserProfileInput = {
   user_id: '',
@@ -103,6 +104,7 @@ export const useProfileStore = defineStore('userProfile', () => {
     const p = profile.value;
     const userId = p.user_id || authStore.candidateId || `cand_${Date.now().toString(36)}`;
     const candidateName = p.full_name || authStore.candidateName || 'Candidate';
+    const hiddenStore = useHiddenStore();
 
     return {
       user_id: userId,
@@ -119,6 +121,8 @@ export const useProfileStore = defineStore('userProfile', () => {
       height_cm: p.height_cm != null ? Number(p.height_cm) : null,
       chest_cm: p.chest_cm != null ? Number(p.chest_cm) : null,
       prior_attempts: p.prior_attempts || {},
+      hidden_exams: hiddenStore.hiddenExamIds || [],
+      hidden_posts: hiddenStore.hiddenPostIds || [],
     };
   }
 
@@ -242,6 +246,33 @@ export const useProfileStore = defineStore('userProfile', () => {
       try {
         profile.value.prior_attempts = JSON.parse(remote.prior_attempts_json);
       } catch {}
+    }
+
+    // Apply synced hidden exams and posts if present in cloud profile
+    const hiddenStore = useHiddenStore();
+    let remoteHiddenExams: string[] | undefined = undefined;
+    let remoteHiddenPosts: string[] | undefined = undefined;
+
+    if (remote.hidden_exams_json) {
+      try {
+        const parsed = JSON.parse(remote.hidden_exams_json);
+        if (Array.isArray(parsed)) remoteHiddenExams = parsed;
+      } catch {}
+    } else if (Array.isArray(remote.hidden_exams)) {
+      remoteHiddenExams = remote.hidden_exams;
+    }
+
+    if (remote.hidden_posts_json) {
+      try {
+        const parsed = JSON.parse(remote.hidden_posts_json);
+        if (Array.isArray(parsed)) remoteHiddenPosts = parsed;
+      } catch {}
+    } else if (Array.isArray(remote.hidden_posts)) {
+      remoteHiddenPosts = remote.hidden_posts;
+    }
+
+    if (remoteHiddenExams !== undefined || remoteHiddenPosts !== undefined) {
+      hiddenStore.setHiddenItemsFromRemote(remoteHiddenExams, remoteHiddenPosts);
     }
 
     lastSyncedAt.value = remote.updated_at || new Date().toISOString();
@@ -385,6 +416,7 @@ export const useProfileStore = defineStore('userProfile', () => {
     syncError,
     isProfileCompleteForD1,
     getMissingMandatoryFields,
+    getD1Payload,
     propagateToCloudflareDB,
     applyRemoteProfile,
     calculatedAge2027Aug1,
