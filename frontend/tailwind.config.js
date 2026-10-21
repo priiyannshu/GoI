@@ -8,6 +8,33 @@ export default {
   theme: {
     extend: {
       colors: {
+        theme: {
+          bg: 'var(--bg)',
+          surface: 'var(--surface)',
+          surface2: 'var(--surface2)',
+          hover: 'var(--surface-hover)',
+          border: 'var(--border)',
+          'border-light': 'var(--border-light)',
+          text: 'var(--text)',
+          dim: 'var(--text-dim)',
+          accent: 'var(--accent)',
+          purple: 'var(--accent-purple)',
+          yellow: 'var(--accent-yellow)',
+          correct: {
+            bg: 'var(--correct-bg)',
+            border: 'var(--correct-border)',
+            text: 'var(--correct-text)',
+          },
+          incorrect: {
+            bg: 'var(--incorrect-bg)',
+            border: 'var(--incorrect-border)',
+            text: 'var(--incorrect-text)',
+          },
+          selected: {
+            bg: 'var(--selected-bg)',
+            border: 'var(--selected-border)',
+          },
+        },
         'slate-900': '#0F172A',
         'emerald-500': '#10B981',
         slate: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-200 max-w-full overflow-x-hidden">
+  <div class="min-h-screen flex flex-col app-root transition-colors duration-200 max-w-full overflow-x-hidden">
     <AppHeader />
     
     <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 min-w-0">

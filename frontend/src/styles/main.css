@@ -2,8 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: light dark;
+/* ===== SFIIL PWA THEMES ===== */
+:root,
+html.theme-neon,
+body.theme-neon {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #21262d;
+  --surface-hover: #292e36;
+  --border: #30363d;
+  --border-light: #484f58;
+  --text: #e6edf3;
+  --text-dim: #8b949e;
+  --accent: #58d4f5;
+  --accent-purple: #bc8cff;
+  --accent-yellow: #f0e150;
+  --correct-bg: rgba(46, 160, 67, 0.18);
+  --correct-border: #3fb950;
+  --correct-text: #56d364;
+  --incorrect-bg: rgba(248, 81, 73, 0.18);
+  --incorrect-border: #f85149;
+  --incorrect-text: #ff7b72;
+  --selected-bg: rgba(88, 212, 245, 0.14);
+  --selected-border: #58d4f5;
+  --reader-bg: #11161d;
+  --reader-text: #d2d9e0;
+  --badge-bg: rgba(88, 212, 245, 0.12);
+  --badge-text: #58d4f5;
+}
+
+html.theme-paper,
+body.theme-paper {
+  --bg: #fbf7ee;
+  --surface: #f4ecdc;
+  --surface2: #eae0ce;
+  --surface-hover: #e0d5c1;
+  --border: #d8c8af;
+  --border-light: #c2b093;
+  --text: #2a231b;
+  --text-dim: #6d5f52;
+  --accent: #0b7285;
+  --accent-purple: #6741d9;
+  --accent-yellow: #b17900;
+  --correct-bg: rgba(43, 138, 62, 0.16);
+  --correct-border: #2b8a3e;
+  --correct-text: #2b8a3e;
+  --incorrect-bg: rgba(201, 42, 42, 0.16);
+  --incorrect-border: #c92a2a;
+  --incorrect-text: #c92a2a;
+  --selected-bg: rgba(11, 114, 133, 0.14);
+  --selected-border: #0b7285;
+  --reader-bg: #fffdf9;
+  --reader-text: #221d17;
+  --badge-bg: rgba(11, 114, 133, 0.12);
+  --badge-text: #0b7285;
+}
+
+html.theme-amoled,
+body.theme-amoled {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface2: #141414;
+  --surface-hover: #1e1e1e;
+  --border: #222222;
+  --border-light: #333333;
+  --text: #f3f4f6;
+  --text-dim: #9ca3af;
+  --accent: #00e5ff;
+  --accent-purple: #c084fc;
+  --accent-yellow: #facc15;
+  --correct-bg: rgba(74, 222, 128, 0.18);
+  --correct-border: #4ade80;
+  --correct-text: #4ade80;
+  --incorrect-bg: rgba(248, 113, 113, 0.18);
+  --incorrect-border: #f87171;
+  --incorrect-text: #f87171;
+  --selected-bg: rgba(0, 229, 255, 0.16);
+  --selected-border: #00e5ff;
+  --reader-bg: #050505;
+  --reader-text: #e5e7eb;
+  --badge-bg: rgba(0, 229, 255, 0.12);
+  --badge-text: #00e5ff;
 }
 
 html, body {
@@ -15,14 +94,277 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: #F8FAFC;
-  color: #0F172A;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-html.dark body {
-  background-color: #0F172A;
-  color: #F8FAFC;
+.app-root {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* SFIIL Signature Gradient Line */
+.sfiil-gradient-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-purple), var(--accent-yellow));
+}
+
+/* Theme-adaptive styling for Neon (Dark Cyberpunk / GitHub Dark Dimmed) */
+html.dark.theme-neon body,
+html.dark.theme-neon .app-root {
+  background-color: #0d1117;
+  color: #e6edf3;
+}
+
+html.dark.theme-neon .bg-slate-900,
+html.dark.theme-neon .dark\:bg-slate-900,
+html.dark.theme-neon .bg-slate-950,
+html.dark.theme-neon .dark\:bg-slate-950 {
+  background-color: #0d1117;
+}
+
+html.dark.theme-neon .bg-slate-850,
+html.dark.theme-neon .dark\:bg-slate-850 {
+  background-color: #161b22;
+}
+
+html.dark.theme-neon .bg-slate-800,
+html.dark.theme-neon .dark\:bg-slate-800 {
+  background-color: #21262d;
+}
+
+html.dark.theme-neon .hover\:bg-slate-800:hover,
+html.dark.theme-neon .dark\:hover\:bg-slate-800:hover,
+html.dark.theme-neon .hover\:bg-slate-750:hover,
+html.dark.theme-neon .dark\:hover\:bg-slate-750:hover,
+html.dark.theme-neon .bg-slate-700,
+html.dark.theme-neon .dark\:bg-slate-700 {
+  background-color: #292e36;
+}
+
+html.dark.theme-neon .border-slate-800,
+html.dark.theme-neon .dark\:border-slate-800,
+html.dark.theme-neon .border-slate-700,
+html.dark.theme-neon .dark\:border-slate-700 {
+  border-color: #30363d;
+}
+
+html.dark.theme-neon .border-slate-600,
+html.dark.theme-neon .dark\:border-slate-600 {
+  border-color: #484f58;
+}
+
+html.dark.theme-neon .text-slate-100,
+html.dark.theme-neon .text-slate-200,
+html.dark.theme-neon .dark\:text-slate-100,
+html.dark.theme-neon .dark\:text-white {
+  color: #e6edf3;
+}
+
+html.dark.theme-neon .text-slate-400,
+html.dark.theme-neon .text-slate-500,
+html.dark.theme-neon .dark\:text-slate-400 {
+  color: #8b949e;
+}
+
+html.dark.theme-neon .text-emerald-400,
+html.dark.theme-neon .dark\:text-emerald-400 {
+  color: #58d4f5;
+}
+
+html.dark.theme-neon .bg-emerald-500 {
+  background-color: #58d4f5;
+  color: #0d1117;
+}
+
+html.dark.theme-neon .hover\:bg-emerald-600:hover {
+  background-color: #79e0f8;
+}
+
+html.dark.theme-neon .border-emerald-500,
+html.dark.theme-neon .border-emerald-500\/30,
+html.dark.theme-neon .border-emerald-500\/20 {
+  border-color: #58d4f5;
+}
+
+html.dark.theme-neon .bg-emerald-500\/10,
+html.dark.theme-neon .bg-emerald-500\/20 {
+  background-color: rgba(88, 212, 245, 0.14);
+}
+
+/* Theme-adaptive styling for AMOLED (Deep Black) */
+html.dark.theme-amoled body,
+html.dark.theme-amoled .app-root {
+  background-color: #000000;
+  color: #f3f4f6;
+}
+
+html.dark.theme-amoled .bg-slate-900,
+html.dark.theme-amoled .dark\:bg-slate-900,
+html.dark.theme-amoled .bg-slate-950,
+html.dark.theme-amoled .dark\:bg-slate-950 {
+  background-color: #000000;
+}
+
+html.dark.theme-amoled .bg-slate-850,
+html.dark.theme-amoled .dark\:bg-slate-850 {
+  background-color: #0a0a0a;
+}
+
+html.dark.theme-amoled .bg-slate-800,
+html.dark.theme-amoled .dark\:bg-slate-800 {
+  background-color: #141414;
+}
+
+html.dark.theme-amoled .hover\:bg-slate-800:hover,
+html.dark.theme-amoled .dark\:hover\:bg-slate-800:hover,
+html.dark.theme-amoled .hover\:bg-slate-750:hover,
+html.dark.theme-amoled .dark\:hover\:bg-slate-750:hover,
+html.dark.theme-amoled .bg-slate-700,
+html.dark.theme-amoled .dark\:bg-slate-700 {
+  background-color: #1e1e1e;
+}
+
+html.dark.theme-amoled .border-slate-800,
+html.dark.theme-amoled .dark\:border-slate-800,
+html.dark.theme-amoled .border-slate-700,
+html.dark.theme-amoled .dark\:border-slate-700 {
+  border-color: #222222;
+}
+
+html.dark.theme-amoled .border-slate-600,
+html.dark.theme-amoled .dark\:border-slate-600 {
+  border-color: #333333;
+}
+
+html.dark.theme-amoled .text-slate-100,
+html.dark.theme-amoled .text-slate-200,
+html.dark.theme-amoled .dark\:text-slate-100,
+html.dark.theme-amoled .dark\:text-white {
+  color: #f3f4f6;
+}
+
+html.dark.theme-amoled .text-slate-400,
+html.dark.theme-amoled .text-slate-500,
+html.dark.theme-amoled .dark\:text-slate-400 {
+  color: #9ca3af;
+}
+
+html.dark.theme-amoled .text-emerald-400,
+html.dark.theme-amoled .dark\:text-emerald-400 {
+  color: #00e5ff;
+}
+
+html.dark.theme-amoled .bg-emerald-500 {
+  background-color: #00e5ff;
+  color: #000000;
+}
+
+html.dark.theme-amoled .hover\:bg-emerald-600:hover {
+  background-color: #33ebff;
+}
+
+html.dark.theme-amoled .border-emerald-500,
+html.dark.theme-amoled .border-emerald-500\/30,
+html.dark.theme-amoled .border-emerald-500\/20 {
+  border-color: #00e5ff;
+}
+
+html.dark.theme-amoled .bg-emerald-500\/10,
+html.dark.theme-amoled .bg-emerald-500\/20 {
+  background-color: rgba(0, 229, 255, 0.16);
+}
+
+/* Theme-adaptive styling for Paper (Warm Parchment) */
+html.theme-paper body,
+html.theme-paper .app-root {
+  background-color: #fbf7ee;
+  color: #2a231b;
+}
+
+html.theme-paper .bg-white,
+html.theme-paper .bg-slate-50,
+html.theme-paper .bg-slate-900,
+html.theme-paper .bg-slate-950,
+html.theme-paper .dark\:bg-slate-900 {
+  background-color: #f4ecdc;
+}
+
+html.theme-paper .bg-slate-850,
+html.theme-paper .dark\:bg-slate-850 {
+  background-color: #eae0ce;
+}
+
+html.theme-paper .bg-slate-100,
+html.theme-paper .bg-slate-800,
+html.theme-paper .dark\:bg-slate-800 {
+  background-color: #eae0ce;
+}
+
+html.theme-paper .hover\:bg-slate-100:hover,
+html.theme-paper .hover\:bg-slate-800:hover,
+html.theme-paper .dark\:hover\:bg-slate-800:hover,
+html.theme-paper .bg-slate-200,
+html.theme-paper .bg-slate-700,
+html.theme-paper .dark\:bg-slate-700 {
+  background-color: #e0d5c1;
+}
+
+html.theme-paper .border-slate-200,
+html.theme-paper .border-slate-300,
+html.theme-paper .border-slate-700,
+html.theme-paper .border-slate-800,
+html.theme-paper .dark\:border-slate-800,
+html.theme-paper .dark\:border-slate-700 {
+  border-color: #d8c8af;
+}
+
+html.theme-paper .border-slate-100,
+html.theme-paper .border-slate-600 {
+  border-color: #c2b093;
+}
+
+html.theme-paper .text-slate-900,
+html.theme-paper .text-slate-800,
+html.theme-paper .text-slate-700,
+html.theme-paper .text-white,
+html.theme-paper .dark\:text-white {
+  color: #2a231b;
+}
+
+html.theme-paper .text-slate-600,
+html.theme-paper .text-slate-500,
+html.theme-paper .text-slate-400,
+html.theme-paper .dark\:text-slate-400 {
+  color: #6d5f52;
+}
+
+html.theme-paper .text-emerald-600,
+html.theme-paper .text-emerald-500,
+html.theme-paper .text-emerald-400,
+html.theme-paper .dark\:text-emerald-400 {
+  color: #0b7285;
+}
+
+html.theme-paper .bg-emerald-500 {
+  background-color: #0b7285;
+  color: #ffffff;
+}
+
+html.theme-paper .hover\:bg-emerald-600:hover {
+  background-color: #095c6b;
+}
+
+html.theme-paper .border-emerald-500,
+html.theme-paper .border-emerald-500\/30,
+html.theme-paper .border-emerald-500\/20 {
+  border-color: #0b7285;
+}
+
+html.theme-paper .bg-emerald-500\/10,
+html.theme-paper .bg-emerald-500\/20 {
+  background-color: rgba(11, 114, 133, 0.14);
 }
 
 /* Custom scrollbars */
@@ -31,25 +373,25 @@ html.dark body {
   height: 8px;
 }
 html.dark ::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: var(--bg);
 }
 html.dark ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: var(--surface2);
   border-radius: 4px;
 }
 html.dark ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: var(--surface-hover);
 }
 
-html:not(.dark) ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+html.theme-paper ::-webkit-scrollbar-track {
+  background: var(--bg);
 }
-html:not(.dark) ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+html.theme-paper ::-webkit-scrollbar-thumb {
+  background: var(--border);
   border-radius: 4px;
 }
-html:not(.dark) ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+html.theme-paper ::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
 }
 
 /* Transitions */

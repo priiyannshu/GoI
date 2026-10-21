@@ -1,5 +1,7 @@
 <template>
   <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <!-- SFIIL Signature Accent Gradient Stripe -->
+    <div class="sfiil-gradient-bar w-full"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <!-- Left: Hamburger Drawer Trigger & Brand Logo -->
       <div class="flex items-center space-x-3">
@@ -122,8 +124,28 @@
               </nav>
             </div>
 
-            <!-- Drawer Footer -->
-            <div class="pt-6 border-t border-slate-200 dark:border-slate-800"></div>
+            <!-- Drawer Footer: Theme Picker -->
+            <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                PWA Theme
+              </span>
+              <div class="grid grid-cols-3 gap-2">
+                <button
+                  v-for="t in themeStore.THEMES"
+                  :key="t.id"
+                  @click="themeStore.setTheme(t.id)"
+                  class="flex flex-col items-center justify-center p-2 rounded-xl text-xs font-medium border transition-colors"
+                  :class="
+                    themeStore.currentTheme === t.id
+                      ? 'border-emerald-500 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold'
+                      : 'border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600'
+                  "
+                >
+                  <span class="text-base">{{ t.icon }}</span>
+                  <span class="text-[11px] mt-1">{{ t.name }}</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </transition>
@@ -137,12 +159,14 @@ import { useRoute } from 'vue-router';
 import { useProfileStore } from '@/stores/useProfileStore';
 import { useEligibilityStore } from '@/stores/useEligibilityStore';
 import { useHiddenStore } from '@/stores/useHiddenStore';
+import { useThemeStore } from '@/stores/useThemeStore';
 import ThemeToggle from '@/components/common/ThemeToggle.vue';
 
 const route = useRoute();
 const profileStore = useProfileStore();
 const eligibilityStore = useEligibilityStore();
 const hiddenStore = useHiddenStore();
+const themeStore = useThemeStore();
 
 const isDrawerOpen = ref(false);
 

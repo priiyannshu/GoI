@@ -3,10 +3,10 @@
     <!-- Mode 1: Quiz Stepper Flow (Steps 1 to 5) -->
     <div v-if="viewMode === 'quiz'">
       <div class="text-center mb-8">
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Indian Grade A Examinations Profiler
         </h1>
-        <p class="text-sm text-slate-400 mt-2 max-w-xl mx-auto">
+        <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-xl mx-auto">
           Answer 5 brief statutory sections to instantly determine your eligibility across all 36 central civil, regulatory, defense, state PSC, and PSU posts for 2027.
         </p>
       </div>
