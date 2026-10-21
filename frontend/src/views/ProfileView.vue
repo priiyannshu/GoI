@@ -7,22 +7,6 @@
       </div>
 
       <div class="flex flex-wrap items-center gap-2">
-        <!-- Save Profile Button -->
-        <button
-          @click="saveProfile"
-          :disabled="isSavingProfile"
-          class="inline-flex items-center space-x-1.5 py-1.5 px-3.5 rounded-xl text-xs font-bold transition-all shadow-sm bg-emerald-600 hover:bg-emerald-500 text-white disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
-        >
-          <svg v-if="isSavingProfile" class="animate-spin h-3.5 w-3.5 text-white" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-          <svg v-else class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-          </svg>
-          <span>{{ isSavingProfile ? 'Saving...' : 'Save Profile' }}</span>
-        </button>
-
         <!-- Tab Switcher -->
         <div class="flex rounded-xl bg-slate-100 dark:bg-slate-800 p-1 border border-slate-200 dark:border-slate-700/80">
           <button
@@ -457,9 +441,6 @@
           </span>
           <span v-else-if="profileStore.syncStatus === 'synced_online'" class="text-emerald-600 dark:text-emerald-400">
             ✓ Synced to cloud
-          </span>
-          <span v-else>
-            Changes save automatically to local storage and sync online when ready.
           </span>
         </div>
 

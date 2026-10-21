@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 import type { EligibilityVerdict, UserProfileInput, ExamRecord } from '../types/profile';
 import { evaluateAllExams as runEligibilityEvaluation, AUTHORITATIVE_EXAM_RULES } from '../services/eligibilityEngine';
 import { indexedDbStorage } from '../services/indexedDbStorage';
+import { CONSOLIDATED_PSU_EXAM_IDS } from './useExamMasterStore';
 
 export const useEligibilityStore = defineStore('eligibilityReport', () => {
   // State
@@ -21,7 +22,12 @@ export const useEligibilityStore = defineStore('eligibilityReport', () => {
 
   // --- Getters ---
 
-  const verdictList = computed<EligibilityVerdict[]>(() => Object.values(verdicts.value));
+  // Authoritative list of active primary examination verdicts (excluding consolidated PSU posts & internal aliases)
+  const verdictList = computed<EligibilityVerdict[]>(() => {
+    return Object.values(verdicts.value).filter(
+      (v) => !CONSOLIDATED_PSU_EXAM_IDS.has(v.exam_id) && v.exam_id !== 'PSU_BARC_OCES'
+    );
+  });
 
   const eligibleCount = computed(
     () => verdictList.value.filter((v) => v.status === 'ELIGIBLE').length

@@ -36,84 +36,20 @@
       </router-link>
     </div>
 
-    <!-- Universal Government Family Benefits Banner -->
-    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-xs space-y-3">
-      <div class="flex items-center justify-between cursor-pointer" @click="showUniversalPerks = !showUniversalPerks">
-        <div class="flex items-center space-x-2.5">
-          <div class="w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center p-1 text-sky-400 flex-shrink-0">
-            <AppEmblem class="w-full h-full" />
-          </div>
-          <div>
-            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
-              Universal Government Family Benefits (Common to All Audited Posts)
-            </h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400">
-              Fundamental statutory protections, healthcare, and education allowances guaranteed by the Indian Union.
-            </p>
-          </div>
-        </div>
-        <button class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline">
-          {{ showUniversalPerks ? 'Collapse ▲' : 'Expand Details ▼' }}
-        </button>
-      </div>
-
-      <div v-if="showUniversalPerks" class="grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-3 border-t border-slate-200 dark:border-slate-800 text-xs">
-        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-1">
-          <div class="font-bold text-slate-900 dark:text-white flex items-center space-x-1.5">
-            <span>👨‍👩‍👧‍👦</span>
-            <span>Children's Education (CEA)</span>
-          </div>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-[11px]">
-            {{ COMMON_GOVERNMENT_BENEFITS.children_education.amount }}
-          </p>
-        </div>
-
-        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-1">
-          <div class="font-bold text-slate-900 dark:text-white flex items-center space-x-1.5">
-            <span>🏥</span>
-            <span>Comprehensive Medical</span>
-          </div>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-[11px]">
-            {{ COMMON_GOVERNMENT_BENEFITS.medical.coverage }} {{ COMMON_GOVERNMENT_BENEFITS.medical.schemes }}
-          </p>
-        </div>
-
-        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-1">
-          <div class="font-bold text-slate-900 dark:text-white flex items-center space-x-1.5">
-            <span>💰</span>
-            <span>Assured Pension & Security</span>
-          </div>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-[11px]">
-            {{ COMMON_GOVERNMENT_BENEFITS.pension.details }} Article 311 job security.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cluster Filters & Expand All Toggle -->
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
-        <button
-          v-for="c in clusters"
-          :key="c.value"
-          @click="selectedCluster = c.value"
-          class="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all shadow-xs"
-          :class="
-            selectedCluster === c.value
-              ? 'bg-emerald-500 text-white'
-              : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-750 border border-slate-200 dark:border-slate-700'
-          "
-        >
-          {{ c.label }}
-        </button>
-      </div>
-
+    <!-- Cluster Filters -->
+    <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
       <button
-        v-if="displayedPosts.length > 0"
-        @click="toggleExpandAll"
-        class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-colors shadow-xs"
+        v-for="c in clusters"
+        :key="c.value"
+        @click="selectedCluster = c.value"
+        class="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all shadow-xs"
+        :class="
+          selectedCluster === c.value
+            ? 'bg-emerald-500 text-white'
+            : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-750 border border-slate-200 dark:border-slate-700'
+        "
       >
-        {{ areAllExpanded ? 'Collapse All Posts' : 'Expand All Posts' }}
+        {{ c.label }}
       </button>
     </div>
 
@@ -298,13 +234,11 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
-import AppEmblem from '@/components/common/AppEmblem.vue';
-import { AUDITED_POSTS_DATA, COMMON_GOVERNMENT_BENEFITS } from '@/data/postsData';
+import { AUDITED_POSTS_DATA } from '@/data/postsData';
 import { useHiddenStore } from '@/stores/useHiddenStore';
 
 const hiddenStore = useHiddenStore();
 
-const showUniversalPerks = ref<boolean>(false);
 const selectedCluster = ref<string>('ALL');
 const searchQuery = ref<string>('');
 const expandedPostIds = ref<Set<string>>(new Set());
@@ -318,21 +252,6 @@ function toggleExpand(id: string) {
     expandedPostIds.value.delete(id);
   } else {
     expandedPostIds.value.add(id);
-  }
-}
-
-const areAllExpanded = computed(() => {
-  return (
-    displayedPosts.value.length > 0 &&
-    displayedPosts.value.every((p) => expandedPostIds.value.has(p.post_id))
-  );
-});
-
-function toggleExpandAll() {
-  if (areAllExpanded.value) {
-    expandedPostIds.value.clear();
-  } else {
-    displayedPosts.value.forEach((p) => expandedPostIds.value.add(p.post_id));
   }
 }
 

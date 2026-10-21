@@ -50,14 +50,14 @@ export const GATE_EXAM_RECORD: ExamRecord = {
   }
 };
 
-// Construct 21 primary examinations: 20 non-PSU + GATE
+// Construct primary examinations: non-PSU + GATE (15 total)
 function buildInitialPrimaryExams(): ExamRecord[] {
   const filtered = RAW_BUNDLED_EXAMS.filter((e) => !CONSOLIDATED_PSU_EXAM_IDS.has(e.exam_id));
   return [GATE_EXAM_RECORD, ...filtered];
 }
 
 export const useExamMasterStore = defineStore('examMaster', () => {
-  // Pre-seed with the 21 primary examinations
+  // Pre-seed with the primary examinations (15 total)
   const exams = ref<ExamRecord[]>(buildInitialPrimaryExams());
   // Store all audited exams including PSUs for direct lookup and backward compatibility
   const allAuditedRecords = ref<ExamRecord[]>([GATE_EXAM_RECORD, ...RAW_BUNDLED_EXAMS]);
@@ -68,7 +68,7 @@ export const useExamMasterStore = defineStore('examMaster', () => {
 
   async function loadExams() {
     // Already populated synchronously from bundled assets
-    if (exams.value.length >= 21) return;
+    if (exams.value.length >= 15) return;
     isLoading.value = true;
     error.value = null;
     try {
@@ -87,7 +87,7 @@ export const useExamMasterStore = defineStore('examMaster', () => {
     }
   }
 
-  // Lookup map containing ALL records (21 primary + 11 PSUs) so no routes 404
+  // Lookup map containing ALL records (primary + PSUs) so no routes 404
   const examsMap = computed<Record<string, ExamRecord>>(() => {
     const map: Record<string, ExamRecord> = {};
     for (const exam of allAuditedRecords.value) {
