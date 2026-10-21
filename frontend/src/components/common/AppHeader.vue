@@ -70,36 +70,22 @@
                 </button>
               </div>
 
-              <!-- Profile Summary Card in Drawer -->
-              <router-link
-                to="/profile"
-                @click="isDrawerOpen = false"
-                class="block p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 transition-colors group"
+              <!-- Candidate Card in Drawer (Non-clickable, Name & ID only) -->
+              <div
+                class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800"
               >
-                <div class="flex items-center justify-between mb-2">
-                  <div class="flex items-center space-x-2 min-w-0">
-                    <span class="text-base flex-shrink-0">👤</span>
-                    <div class="min-w-0">
-                      <div class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
-                        {{ candidateDisplayName }}
-                      </div>
-                      <div v-if="authStore.candidateId" class="text-[9px] font-mono text-emerald-600 dark:text-emerald-400 font-bold truncate">
-                        ID: {{ authStore.candidateId }}
-                      </div>
+                <div class="flex items-center space-x-2.5 min-w-0">
+                  <span class="text-base flex-shrink-0">👤</span>
+                  <div class="min-w-0 flex-1">
+                    <div class="text-xs font-bold text-slate-900 dark:text-white truncate">
+                      {{ candidateDisplayName }}
+                    </div>
+                    <div v-if="authStore.candidateId" class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold truncate">
+                      ID: {{ authStore.candidateId }}
                     </div>
                   </div>
-                  <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 flex-shrink-0">
-                    {{ profileStore.completionPercentage }}%
-                  </span>
                 </div>
-                <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mb-2">
-                  <div class="bg-emerald-500 h-full transition-all duration-300" :style="{ width: `${profileStore.completionPercentage}%` }"></div>
-                </div>
-                <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
-                  <span>{{ eligibilityStore.eligibleCount }} Exams Eligible</span>
-                  <span class="text-emerald-600 dark:text-emerald-400 font-medium">Edit Profile →</span>
-                </div>
-              </router-link>
+              </div>
 
               <!-- Navigation Links -->
               <nav class="space-y-1 text-sm font-medium">

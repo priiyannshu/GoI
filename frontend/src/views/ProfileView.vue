@@ -35,22 +35,6 @@
 
     <!-- TAB 1: MY PROFILE (INDIVIDUAL SKIPPABLE FIELDS) -->
     <div v-if="activeTab === 'profile'" class="space-y-6">
-      <!-- Profile Completion Gauge -->
-      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 shadow-sm dark:shadow-lg">
-        <div class="space-y-1">
-          <div class="flex items-center space-x-2">
-            <span class="text-xs font-bold text-slate-700 dark:text-white uppercase tracking-wider">Profile Completeness</span>
-            <span class="text-xs font-mono font-bold text-emerald-500 dark:text-emerald-400">{{ profileStore.completionPercentage }}%</span>
-          </div>
-          <div class="w-full sm:w-80 h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
-            <div
-              class="h-full bg-emerald-500 transition-all duration-500"
-              :style="{ width: `${profileStore.completionPercentage}%` }"
-            ></div>
-          </div>
-        </div>
-      </div>
-
       <!-- SECTION 1: CANDIDATE IDENTITY & DEMOGRAPHICS -->
       <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm dark:shadow-lg space-y-5">
         <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
