@@ -285,12 +285,15 @@ export const useProfileStore = defineStore('userProfile', () => {
   const completionPercentage = computed(() => {
     let filled = 0;
     const p = profile.value;
+    // Section 1: Candidate Identity & Demographics
     if (p.dob && p.gender && p.category) filled++;
+    // Section 2: Academic Qualifications
     if (p.graduation_degree && p.graduation_discipline && p.graduation_aggregate_pct != null) filled++;
+    // Section 3: Home State Domicile & Languages
     if (p.state_domicile) filled++;
-    if (p.height_cm != null) filled++;
-    if (p.prior_attempts && Object.keys(p.prior_attempts).length > 0) filled++;
-    return Math.round((filled / 5) * 100);
+    // Section 4: Physical & Medical Standards
+    if (p.height_cm != null || p.weight_kg != null || p.chest_cm != null || p.has_color_blindness) filled++;
+    return Math.round((filled / 4) * 100);
   });
 
   function toggleFieldSkipped(field: string) {
@@ -316,7 +319,7 @@ export const useProfileStore = defineStore('userProfile', () => {
     authStore.initAuth();
     const saved = await indexedDbStorage.loadProfile();
     if (saved) {
-      profile.value = { ...DEFAULT_PROFILE, ...saved };
+      Object.assign(profile.value, DEFAULT_PROFILE, saved);
     }
     if (authStore.candidateId && !profile.value.user_id) {
       profile.value.user_id = authStore.candidateId;
@@ -358,7 +361,7 @@ export const useProfileStore = defineStore('userProfile', () => {
   }
 
   function resetToDefaults() {
-    profile.value = { ...DEFAULT_PROFILE };
+    Object.assign(profile.value, DEFAULT_PROFILE);
     currentStep.value = 1;
     indexedDbStorage.clearProfile();
   }
