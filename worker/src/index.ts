@@ -54,6 +54,9 @@ app.get('/', (c) => {
       syllabus_matrix: '/api/v1/syllabus/matrix',
       profile_evaluate: '/api/v1/profile/evaluate',
       profile_sync: '/api/v1/profile/sync',
+      auth_login: '/api/v1/auth/login',
+      auth_register: '/api/v1/auth/register',
+      profile_by_id: '/api/v1/profile/:userId',
     },
   });
 });
@@ -564,6 +567,271 @@ app.post('/api/v1/profile/sync', async (c) => {
       synced_at: new Date().toISOString(),
     },
     200
+  );
+});
+
+// Helper to hash 4-digit PIN with candidate name and salt
+async function hashPin(pin: string, name: string): Promise<string> {
+  const enc = new TextEncoder();
+  const data = enc.encode(`salt_grade_a_auth_2027:${pin.trim()}:${name.trim().toLowerCase()}`);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+// Generate human-friendly unique Candidate ID (e.g. CAN-7K9A2M1P)
+function generateCandidateId(): string {
+  const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+  let rand = '';
+  for (let i = 0; i < 8; i++) {
+    rand += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return `CAN-${rand}`;
+}
+
+// 7. POST /api/v1/auth/register
+// Registers a candidate with their Name & 4-digit PIN, generating a unique Candidate ID
+app.post('/api/v1/auth/register', async (c) => {
+  let body: any;
+  try {
+    body = await c.req.json();
+  } catch {
+    return c.json({ success: false, error: 'Malformed JSON', message: 'Invalid JSON payload in request.' }, 400);
+  }
+
+  const candidateName = (body.candidate_name || body.name || '').toString().trim();
+  const pin = (body.pin || '').toString().trim();
+
+  if (!candidateName) {
+    return c.json({ success: false, error: 'Validation Error', message: 'Candidate name is required.' }, 400);
+  }
+
+  if (!/^\d{4}$/.test(pin)) {
+    return c.json({ success: false, error: 'Validation Error', message: 'PIN must be exactly 4 numeric digits.' }, 400);
+  }
+
+  const pinHash = await hashPin(pin, candidateName);
+  const uniqueCandidateId = generateCandidateId();
+  const accountId = 'acc_' + (typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : Math.random().toString(36).slice(2));
+
+  if (c.env?.DB) {
+    try {
+      // Check if exact same candidate name and PIN already registered
+      const existing = await c.env.DB.prepare(
+        'SELECT unique_candidate_id, candidate_name FROM candidate_accounts WHERE LOWER(TRIM(candidate_name)) = LOWER(TRIM(?)) AND pin_hash = ?'
+      )
+        .bind(candidateName, pinHash)
+        .first();
+
+      if (existing) {
+        return c.json({
+          success: true,
+          user_id: (existing as any).unique_candidate_id,
+          candidate_name: (existing as any).candidate_name,
+          message: 'Account already exists for this Name and PIN. Logged in successfully.',
+          is_existing: true,
+        });
+      }
+
+      await c.env.DB.prepare(`
+        INSERT INTO candidate_accounts (account_id, candidate_name, pin_hash, unique_candidate_id, created_at, updated_at)
+        VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+      `)
+        .bind(accountId, candidateName, pinHash, uniqueCandidateId)
+        .run();
+    } catch (err: any) {
+      console.error('Registration D1 error:', err);
+      return c.json({ success: false, error: 'Database Error', message: err.message }, 500);
+    }
+  }
+
+  return c.json({
+    success: true,
+    user_id: uniqueCandidateId,
+    candidate_name: candidateName,
+    message: `Candidate account created successfully. Unique Candidate ID: ${uniqueCandidateId}`,
+  });
+});
+
+// 8. POST /api/v1/auth/login
+// Logs in with Candidate Name and 4-digit PIN; uses unique ID behind the scenes
+app.post('/api/v1/auth/login', async (c) => {
+  let body: any;
+  try {
+    body = await c.req.json();
+  } catch {
+    return c.json({ success: false, error: 'Malformed JSON', message: 'Invalid JSON payload in request.' }, 400);
+  }
+
+  const candidateName = (body.candidate_name || body.name || '').toString().trim();
+  const pin = (body.pin || '').toString().trim();
+  const uniqueId = (body.unique_id || body.candidate_id || '').toString().trim().toUpperCase();
+
+  if (!candidateName && !uniqueId) {
+    return c.json(
+      { success: false, error: 'Validation Error', message: 'Candidate name or unique candidate ID is required.' },
+      400
+    );
+  }
+
+  if (!/^\d{4}$/.test(pin)) {
+    return c.json({ success: false, error: 'Validation Error', message: 'PIN must be exactly 4 numeric digits.' }, 400);
+  }
+
+  if (!c.env?.DB) {
+    const mockId = uniqueId || `CAN-${Math.random().toString(36).substring(2, 10).toUpperCase()}`;
+    return c.json({
+      success: true,
+      user_id: mockId,
+      candidate_name: candidateName || 'Candidate',
+      profile: null,
+      message: 'Logged in successfully (bundled mode).',
+    });
+  }
+
+  try {
+    let accounts: any[] = [];
+    if (uniqueId) {
+      // Disambiguated direct lookup by unique ID
+      const rows = await c.env.DB.prepare(
+        'SELECT * FROM candidate_accounts WHERE UPPER(unique_candidate_id) = ?'
+      )
+        .bind(uniqueId)
+        .all();
+      accounts = rows.results || [];
+    } else {
+      // Lookup by candidate name
+      const rows = await c.env.DB.prepare(
+        'SELECT * FROM candidate_accounts WHERE LOWER(TRIM(candidate_name)) = LOWER(TRIM(?))'
+      )
+        .bind(candidateName)
+        .all();
+      accounts = rows.results || [];
+    }
+
+    if (accounts.length === 0) {
+      return c.json(
+        {
+          success: false,
+          not_found: true,
+          error: 'Candidate Not Found',
+          message: `No candidate account found for '${candidateName || uniqueId}'. Please click 'Create New Profile' to register.`,
+        },
+        404
+      );
+    }
+
+    // Verify PIN against candidate records
+    const matchingAccounts: any[] = [];
+    for (const acc of accounts) {
+      const pinHash = await hashPin(pin, acc.candidate_name);
+      if (acc.pin_hash === pinHash) {
+        matchingAccounts.push(acc);
+      }
+    }
+
+    if (matchingAccounts.length === 0) {
+      return c.json(
+        {
+          success: false,
+          error: 'Invalid Credentials',
+          message: 'Incorrect 4-digit PIN for this candidate name.',
+        },
+        401
+      );
+    }
+
+    if (matchingAccounts.length > 1 && !uniqueId) {
+      return c.json(
+        {
+          success: false,
+          multiple_accounts: true,
+          accounts: matchingAccounts.map((a: any) => ({
+            user_id: a.unique_candidate_id,
+            candidate_name: a.candidate_name,
+            created_at: a.created_at,
+          })),
+          message: 'Multiple candidate records found with identical name and PIN. Please select your unique Candidate ID.',
+        },
+        300
+      );
+    }
+
+    const matchedAccount: any = matchingAccounts[0];
+
+    // Update last active timestamp
+    await c.env.DB.prepare(
+      'UPDATE candidate_accounts SET updated_at = CURRENT_TIMESTAMP WHERE account_id = ?'
+    )
+      .bind(matchedAccount.account_id)
+      .run();
+
+    // Fetch existing profile if previously synced
+    const profileRow = await c.env.DB.prepare(
+      'SELECT * FROM user_profiles WHERE user_id = ?'
+    )
+      .bind(matchedAccount.unique_candidate_id)
+      .first();
+
+    return c.json({
+      success: true,
+      user_id: matchedAccount.unique_candidate_id,
+      candidate_name: matchedAccount.candidate_name,
+      profile: profileRow || null,
+      message: `Welcome back, ${matchedAccount.candidate_name}!`,
+    });
+  } catch (err: any) {
+    console.error('Login error:', err);
+    return c.json({ success: false, error: 'Database Error', message: err.message }, 500);
+  }
+});
+
+// 9. GET /api/v1/profile/:userId
+// Retrieves candidate profile from D1 by unique candidate ID
+app.get('/api/v1/profile/:userId', async (c) => {
+  const userId = c.req.param('userId');
+  if (userId === 'sync' || userId === 'evaluate') {
+    return c.json(
+      {
+        success: false,
+        error: 'Method Not Allowed',
+        message: `Method GET is not allowed on /api/v1/profile/${userId}. Allowed methods: POST`,
+      },
+      405
+    );
+  }
+  if (!userId) {
+    return c.json({ success: false, error: 'Missing user ID' }, 400);
+  }
+
+  if (c.env?.DB) {
+    try {
+      const row = await c.env.DB.prepare(
+        'SELECT * FROM user_profiles WHERE user_id = ?'
+      )
+        .bind(userId)
+        .first();
+
+      if (row) {
+        return c.json({
+          success: true,
+          user_id: userId,
+          profile: row,
+        });
+      }
+    } catch (err: any) {
+      console.warn('Profile fetch error:', err);
+    }
+  }
+
+  return c.json(
+    {
+      success: false,
+      error: 'Not Found',
+      message: `No profile found for user '${userId}'.`,
+    },
+    404
   );
 });
 

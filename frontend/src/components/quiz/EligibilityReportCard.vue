@@ -336,7 +336,8 @@ function getExamTitle(examId: string): string {
 }
 
 function getExamCategory(examId: string): string {
-  return props.examsMap?.[examId]?.category || 'Grade A';
+  const cat = props.examsMap?.[examId]?.category || 'Grade A';
+  return cat.replace(/-/g, ' ');
 }
 
 function getExamAdminBody(examId: string): string {

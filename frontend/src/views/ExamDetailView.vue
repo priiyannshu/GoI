@@ -70,7 +70,7 @@
               {{ exam.short_code }}
             </span>
             <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700">
-              {{ exam.category }}
+              {{ formatCategory(exam.category) }}
             </span>
             <span class="text-xs text-slate-400 hidden sm:inline">•</span>
             <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">{{ exam.administering_body }}</span>
@@ -477,6 +477,10 @@ function getStatusIcon(status: string): string {
     default:
       return 'ℹ️';
   }
+}
+
+function formatCategory(category?: string): string {
+  return category ? category.replace(/-/g, ' ') : '';
 }
 
 function getStatusBadgeClass(status: string): string {

@@ -157,10 +157,10 @@
             <div class="space-y-1.5">
               <div class="flex flex-wrap items-center gap-2">
                 <span class="px-2.5 py-0.5 rounded-md text-xs font-bold font-mono bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 border border-slate-200 dark:border-slate-700">
-                  {{ post.post_id }}
+                  {{ post.badge || post.post_id }}
                 </span>
                 <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                  {{ post.cluster }}
+                  {{ formatCluster(post.cluster) }}
                 </span>
                 <span class="px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border border-sky-200 dark:border-sky-500/30">
                   {{ post.pay_info.starting_level }}
@@ -211,9 +211,14 @@
             </div>
             <div>
               <span class="text-slate-500 dark:text-slate-400 block text-[11px]">Starting Basic Pay</span>
-              <span class="text-base font-extrabold font-mono text-sky-600 dark:text-sky-400">
-                ₹{{ post.pay_info.starting_basic.toLocaleString('en-IN') }} / mo ({{ post.pay_info.pay_system }})
-              </span>
+              <div class="flex items-baseline space-x-1.5 flex-wrap">
+                <span class="text-base font-extrabold font-mono text-sky-600 dark:text-sky-400">
+                  ₹{{ post.pay_info.starting_basic.toLocaleString('en-IN') }} / mo
+                </span>
+                <span class="text-[11px] font-sans font-medium px-1.5 py-0.5 rounded bg-sky-100 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800">
+                  {{ formatPaySystem(post.pay_info.pay_system) }}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -327,13 +332,32 @@ function toggleExpandAll() {
 }
 
 const clusters = [
-  { label: 'All Posts (50+)', value: 'ALL' },
+  { label: `All Posts (${AUDITED_POSTS_DATA.length})`, value: 'ALL' },
   { label: 'Central Civil', value: 'Central-Civil' },
   { label: 'Regulatory', value: 'Regulatory' },
   { label: 'Defense', value: 'Defense' },
   { label: 'State PSC', value: 'State-PSC' },
   { label: 'PSU', value: 'PSU' },
 ];
+
+function formatPaySystem(system: string): string {
+  switch (system) {
+    case '7th_CPC':
+      return '7th CPC';
+    case 'IDA':
+      return 'IDA';
+    case 'Regulator':
+      return 'Regulatory';
+    case 'Military':
+      return 'Military / MSP';
+    default:
+      return system.replace(/_/g, ' ');
+  }
+}
+
+function formatCluster(cluster: string): string {
+  return cluster.replace(/-/g, ' ');
+}
 
 onMounted(() => {
   hiddenStore.loadHiddenItems();
@@ -356,6 +380,7 @@ const displayedPosts = computed(() => {
     list = list.filter(
       (p) =>
         p.post_name.toLowerCase().includes(q) ||
+        (p.badge && p.badge.toLowerCase().includes(q)) ||
         p.post_id.toLowerCase().includes(q) ||
         p.designation_at_entry.toLowerCase().includes(q) ||
         p.parent_exam_title.toLowerCase().includes(q) ||

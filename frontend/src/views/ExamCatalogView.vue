@@ -121,7 +121,7 @@
           <!-- Top Row: Cluster Pill, Live Eligibility Pill & Hide Button -->
           <div class="flex items-center justify-between gap-2">
             <span class="text-[11px] px-2.5 py-0.5 rounded-md font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-              {{ exam.category }}
+              {{ formatCategory(exam.category) }}
             </span>
 
             <div class="flex items-center space-x-2">
@@ -270,6 +270,10 @@ function formatTimeline(timeline: any): string {
     }
   }
   return timeline.prelims_stage_1 || timeline.prelims_date || timeline.prelims_or_interview || timeline.notification_month || 'Tentative 2027';
+}
+
+function formatCategory(category?: string): string {
+  return category ? category.replace(/-/g, ' ') : '';
 }
 
 function formatStatus(status: string): string {

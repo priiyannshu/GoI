@@ -67,7 +67,7 @@
             <div class="flex items-center justify-between">
               <span class="font-mono text-xs font-bold text-slate-800 dark:text-white">{{ exam.short_code }}</span>
               <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                {{ exam.category }}
+                {{ formatCluster(exam.category) }}
               </span>
             </div>
 
@@ -121,8 +121,8 @@
         >
           <div class="space-y-1.5">
             <div class="flex items-center justify-between">
-              <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">{{ post.post_id }}</span>
-              <span class="text-[11px] text-slate-500 dark:text-slate-400">{{ post.cluster }}</span>
+              <span class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400">{{ post.badge || post.post_id }}</span>
+              <span class="text-[11px] text-slate-500 dark:text-slate-400">{{ formatCluster(post.cluster) }}</span>
             </div>
 
             <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-snug break-words">
@@ -169,6 +169,10 @@ const hiddenStore = useHiddenStore();
 const examStore = useExamMasterStore();
 
 const activeTab = ref<'exams' | 'posts'>('exams');
+
+function formatCluster(val?: string): string {
+  return val ? val.replace(/-/g, ' ') : '';
+}
 
 onMounted(async () => {
   hiddenStore.loadHiddenItems();

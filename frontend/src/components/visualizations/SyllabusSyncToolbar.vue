@@ -77,7 +77,7 @@
                     <span class="font-bold font-mono text-white">{{ cand.short_code }}</span>
                     <span class="text-slate-300 text-[11px] truncate max-w-[150px]">{{ cand.title }}</span>
                   </div>
-                  <span class="text-[10px] text-slate-500">{{ cand.category }}</span>
+                  <span class="text-[10px] text-slate-500">{{ cand.category.replace(/-/g, ' ') }}</span>
                 </div>
               </div>
             </transition>

@@ -1,5 +1,6 @@
 export interface GovernmentPost {
   post_id: string;
+  badge?: string;
   post_name: string;
   parent_exam_id: string;
   parent_exam_title: string;
@@ -70,6 +71,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   // --------------------------------------------------------------------------
   {
     post_id: 'IAS',
+    badge: 'IAS',
     post_name: 'Indian Administrative Service (IAS)',
     parent_exam_id: 'UPSC_CSE',
     parent_exam_title: 'Civil Services Examination',
@@ -116,6 +118,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'IPS',
+    badge: 'IPS',
     post_name: 'Indian Police Service (IPS)',
     parent_exam_id: 'UPSC_CSE',
     parent_exam_title: 'Civil Services Examination',
@@ -161,6 +164,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'IFS_DIPLOMAT',
+    badge: 'IFS',
     post_name: 'Indian Foreign Service (IFS)',
     parent_exam_id: 'UPSC_CSE',
     parent_exam_title: 'Civil Services Examination',
@@ -205,6 +209,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'IRS',
+    badge: 'IRS',
     post_name: 'Indian Revenue Service (IRS - IT & Customs)',
     parent_exam_id: 'UPSC_CSE',
     parent_exam_title: 'Civil Services Examination',
@@ -249,6 +254,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'UPSC_ESE_AEE',
+    badge: 'ESE (AEE)',
     post_name: 'Assistant Executive Engineer (AEE)',
     parent_exam_id: 'UPSC_ESE',
     parent_exam_title: 'Engineering Services Examination',
@@ -292,6 +298,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'IFOS_ACF',
+    badge: 'IFoS',
     post_name: 'Assistant Conservator of Forests (ACF)',
     parent_exam_id: 'UPSC_IFOS',
     parent_exam_title: 'Indian Forest Service Examination',
@@ -335,6 +342,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'CAPF_AC',
+    badge: 'CAPF (AC)',
     post_name: 'Assistant Commandant (AC)',
     parent_exam_id: 'UPSC_CAPF_AC',
     parent_exam_title: 'Central Armed Police Forces (AC) Examination',
@@ -378,6 +386,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'DEFENCE_LIEUTENANT',
+    badge: 'Armed Forces',
     post_name: 'Lieutenant (Indian Army / Navy / Air Force)',
     parent_exam_id: 'UPSC_CDS',
     parent_exam_title: 'Combined Defence Services Examination',
@@ -422,6 +431,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'AFCAT_FLYING_OFFICER',
+    badge: 'IAF AFCAT',
     post_name: 'Flying Officer (IAF Flying Branch & Ground Duty)',
     parent_exam_id: 'IAF_AFCAT',
     parent_exam_title: 'Air Force Common Admission Test',
@@ -466,6 +476,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'CGSE_SCIENTIST_B',
+    badge: 'GSI / CGSE',
     post_name: 'Scientist B / Geologist (GSI & CGWB)',
     parent_exam_id: 'UPSC_CGSE',
     parent_exam_title: 'Combined Geo-Scientist Examination',
@@ -509,6 +520,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'IES_ISS_DIRECTOR',
+    badge: 'IES / ISS',
     post_name: 'Assistant Director (IES / ISS)',
     parent_exam_id: 'UPSC_IES_ISS',
     parent_exam_title: 'Indian Economic / Statistical Service Examination',
@@ -556,6 +568,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   // --------------------------------------------------------------------------
   {
     post_id: 'RBI_GRADE_B',
+    badge: 'RBI Gr B',
     post_name: 'Manager (RBI Grade B)',
     parent_exam_id: 'RBI_GRADE_B',
     parent_exam_title: 'RBI Grade B Officers Examination',
@@ -606,6 +619,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'SEBI_GRADE_A',
+    badge: 'SEBI Gr A',
     post_name: 'Assistant Manager (SEBI Grade A)',
     parent_exam_id: 'SEBI_GRADE_A',
     parent_exam_title: 'SEBI Grade A Assistant Manager Examination',
@@ -649,6 +663,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'IFSCA_GRADE_A',
+    badge: 'IFSCA Gr A',
     post_name: 'Assistant Manager (IFSCA Grade A)',
     parent_exam_id: 'IFSCA_GRADE_A',
     parent_exam_title: 'IFSCA Grade A Assistant Manager Examination',
@@ -692,6 +707,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'PFRDA_GRADE_A',
+    badge: 'PFRDA Gr A',
     post_name: 'Assistant Manager (PFRDA Grade A)',
     parent_exam_id: 'PFRDA_GRADE_A',
     parent_exam_title: 'PFRDA Grade A Assistant Manager Examination',
@@ -735,6 +751,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'NABARD_GRADE_A',
+    badge: 'NABARD Gr A',
     post_name: 'Assistant Manager (NABARD Grade A - RDBS)',
     parent_exam_id: 'NABARD_GRADE_A',
     parent_exam_title: 'NABARD Grade A Assistant Manager Examination',
@@ -778,6 +795,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'SIDBI_GRADE_A',
+    badge: 'SIDBI Gr A',
     post_name: 'Assistant Manager (SIDBI Grade A)',
     parent_exam_id: 'SIDBI_GRADE_A',
     parent_exam_title: 'SIDBI Grade A Assistant Manager Examination',
@@ -821,6 +839,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'EXIM_BANK_MT',
+    badge: 'EXIM Bank MT',
     post_name: 'Deputy Manager (India EXIM Bank)',
     parent_exam_id: 'EXIM_BANK_MT',
     parent_exam_title: 'India EXIM Bank Management Trainee Examination',
@@ -868,6 +887,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   // --------------------------------------------------------------------------
   {
     post_id: 'UPPSC_SDM',
+    badge: 'UPPSC PCS',
     post_name: 'Sub-Divisional Magistrate (UPPSC PCS)',
     parent_exam_id: 'UPPSC_PCS',
     parent_exam_title: 'UPPSC Combined State / Upper Subordinate Exam',
@@ -912,6 +932,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'BPSC_SDM',
+    badge: 'BPSC CCE',
     post_name: 'Senior Deputy Collector (BPSC CCE)',
     parent_exam_id: 'BPSC_CCE',
     parent_exam_title: 'Bihar Combined Competitive Examination',
@@ -959,6 +980,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   // --------------------------------------------------------------------------
   {
     post_id: 'ONGC_GT',
+    badge: 'ONGC (GT)',
     post_name: 'Graduate Trainee (ONGC E1 Grade)',
     parent_exam_id: 'ONGC_GT',
     parent_exam_title: 'ONGC Graduate Trainee Examination (GATE/CBT)',
@@ -1006,6 +1028,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'IOCL_OFFICER',
+    badge: 'IOCL Officer',
     post_name: 'Engineer / Officer (IOCL E2 Grade)',
     parent_exam_id: 'IOCL_OFFICERS',
     parent_exam_title: 'IOCL Officers / Engineers Recruitment (GATE/Written)',
@@ -1049,6 +1072,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'NTPC_ET',
+    badge: 'NTPC (ET)',
     post_name: 'Executive Trainee (NTPC E1/E2 Grade)',
     parent_exam_id: 'NTPC_ET',
     parent_exam_title: 'NTPC Executive Trainee Examination',
@@ -1092,6 +1116,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'BARC_NPCIL_SCIENTIFIC_OFFICER',
+    badge: 'BARC / NPCIL',
     post_name: 'Scientific Officer C (BARC / NPCIL)',
     parent_exam_id: 'BARC_NPCIL_OCES',
     parent_exam_title: 'BARC OCES / DGFS Scientific Officer Recruitment',
@@ -1140,6 +1165,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'BHEL_ET',
+    badge: 'BHEL (ET)',
     post_name: 'Engineer Trainee (BHEL E2 Grade)',
     parent_exam_id: 'BHEL_ET',
     parent_exam_title: 'BHEL Engineer Trainee Examination',
@@ -1182,6 +1208,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
   },
   {
     post_id: 'COAL_INDIA_MT',
+    badge: 'Coal India (MT)',
     post_name: 'Management Trainee (Coal India E2 Grade)',
     parent_exam_id: 'COAL_INDIA_MT',
     parent_exam_title: 'Coal India Management Trainee Examination',

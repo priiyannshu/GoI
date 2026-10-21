@@ -71,7 +71,7 @@
             class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5"
           >
             <div class="flex items-center justify-between gap-2">
-              <span class="font-bold text-white font-mono">{{ m.exam_id }}</span>
+              <span class="font-bold text-white font-mono">{{ getExamLabel(m.exam_id) }}</span>
               <span
                 class="px-2 py-0.5 rounded text-[10px] font-bold font-mono text-white"
                 :class="getDepthBadgeClass(m.depth_level)"
@@ -102,11 +102,18 @@ import {
   useSyllabusVisualizationStore,
   DOMAIN_COLORS,
 } from '@/stores/useSyllabusVisualizationStore';
+import { useExamMasterStore } from '@/stores/useExamMasterStore';
 import type { DepthLevel } from '@/types/syllabus';
 
 const store = useSyllabusVisualizationStore();
+const examMaster = useExamMasterStore();
 
 const detail = computed(() => store.activeTopicDetail);
+
+function getExamLabel(examId: string): string {
+  const exam = examMaster.examsMap[examId];
+  return exam?.short_code || examId.replace(/^(UPSC_|PSU_|IAF_)/, '').replace(/_/g, ' ');
+}
 
 function getDomainColor(domain?: string): string {
   if (!domain) return '#38BDF8';
