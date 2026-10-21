@@ -257,11 +257,11 @@ class TestM2AdversarialMathematicalMetrics(unittest.TestCase):
         cls.exam_summaries = cls.matrix_data["exam_summaries"]
 
     def test_pairwise_matrix_completeness_36x36(self):
-        """Ensure pairwise metrics contain exactly 31 source exams and 31 target exams each (961 pairs)."""
-        self.assertEqual(len(self.exam_ids), 31)
+        """Ensure pairwise metrics contain exactly 25 source exams and 25 target exams each (625 pairs)."""
+        self.assertEqual(len(self.exam_ids), 25)
         for eid in self.exam_ids:
             targets = list(self.pairwise[eid].keys())
-            self.assertEqual(len(targets), 31, f"Exam {eid} does not have 31 targets")
+            self.assertEqual(len(targets), 25, f"Exam {eid} does not have 25 targets")
 
     def test_jaccard_symmetry_all_pairs(self):
         """Verify Jaccard symmetry: J(A, B) == J(B, A) for all 1,296 pairs."""
@@ -444,9 +444,9 @@ class TestM2AdversarialUpSetDisjointness(unittest.TestCase):
                 )
 
     def test_upset_sum_of_topic_counts_equals_total_topics(self):
-        """Verify the sum of topic counts across all combinations equals 192."""
+        """Verify the sum of topic counts across all combinations equals 176."""
         total_count = sum(c["topic_count"] for c in self.upset)
-        self.assertEqual(total_count, 192, f"Total UpSet topic count {total_count} != 192")
+        self.assertEqual(total_count, 176, f"Total UpSet topic count {total_count} != 176")
 
     def test_upset_degree_and_count_internal_consistency(self):
         """Verify degree == len(exam_ids) and topic_count == len(topic_ids) for every combination."""

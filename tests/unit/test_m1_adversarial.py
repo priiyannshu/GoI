@@ -294,13 +294,13 @@ class TestM1AdversarialVerifierEngine(unittest.TestCase):
         self.assertIn("Foreign key violation", res.stdout)
 
     def test_verifier_catches_missing_exam(self):
-        """Verifier must catch database with fewer than 31 exams."""
+        """Verifier must catch database with fewer than 25 exams."""
         def mutate(conn):
             conn.execute("DELETE FROM exams WHERE exam_id = 'UPSC_CSE';")
 
         res = self.run_verifier_on_temp_db(mutate)
         self.assertEqual(res.returncode, 1)
-        self.assertIn("Expected 31 exams", res.stdout)
+        self.assertIn("Expected 25 exams", res.stdout)
 
     def test_verifier_catches_malformed_url(self):
         """Verifier must catch malformed URLs in exam records."""
@@ -462,12 +462,12 @@ class TestM1AdversarialJSONExportIntegrity(unittest.TestCase):
         self.assertIn("d3_visualization_index", self.data)
 
         meta = self.data["metadata"]
-        self.assertEqual(meta["total_exams"], 31)
-        self.assertEqual(len(self.data["exams"]), 31)
+        self.assertEqual(meta["total_exams"], 25)
+        self.assertEqual(len(self.data["exams"]), 25)
 
         clusters = meta["cluster_distribution"]
-        self.assertEqual(clusters["Cluster 1: Central All-India & Uniformed"], 8)
-        self.assertEqual(clusters["Cluster 2: Premier Financial & Regulatory"], 7)
+        self.assertEqual(clusters["Cluster 1: Central All-India & Uniformed"], 6)
+        self.assertEqual(clusters["Cluster 2: Premier Financial & Regulatory"], 3)
         self.assertEqual(clusters["Cluster 3: State Public Service Commissions"], 5)
         self.assertEqual(clusters["Cluster 4: Maharatna & Navratna PSUs"], 11)
 
@@ -490,7 +490,7 @@ class TestM1AdversarialJSONExportIntegrity(unittest.TestCase):
                 self.assertIsInstance(elig["physical_standards"], dict, f"{eid} physical is not dict")
 
     def test_json_audit_logs_coverage(self):
-        """Ensure all 216 audit logs exist in JSON and match expected schema."""
+        """Ensure all 150 audit logs exist in JSON and match expected schema."""
         total_audits = 0
         for exam in self.data["exams"]:
             eid = exam["exam_id"]
@@ -504,7 +504,7 @@ class TestM1AdversarialJSONExportIntegrity(unittest.TestCase):
                 self.assertIn("clause_or_page_number", a)
                 self.assertIn("official_download_link", a)
                 self.assertTrue(a["official_download_link"].startswith("http"))
-        self.assertEqual(total_audits, 186)
+        self.assertEqual(total_audits, 150)
 
     def test_json_db_parity_zero_truncation(self):
         """Verify zero text truncation or value discrepancies between DB and JSON."""

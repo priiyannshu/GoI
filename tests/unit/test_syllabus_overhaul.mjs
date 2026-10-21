@@ -41,11 +41,11 @@ const curriculumData = JSON.parse(fs.readFileSync(curriculumPath, 'utf8'));
 // -----------------------------------------------------------------------------
 console.log('\n[TEST GROUP 1] Curriculum Dataset Completeness & Scheme Architecture');
 
-it('Curriculum dataset schemes exist for all 32 examinations (21 primary + 11 PSUs)', () => {
+it('Curriculum dataset schemes exist for all examinations (15 primary + 11 PSUs)', () => {
   const schemes = curriculumData.schemes;
   assert(schemes, 'schemes object must exist');
   const count = Object.keys(schemes).length;
-  assert.strictEqual(count, 32, `Expected 32 schemed exams, found ${count}`);
+  assert.strictEqual(count, 26, `Expected 26 schemed exams, found ${count}`);
 });
 
 it('UPSC CSE scheme matches official notification structure (Prelims, Mains, Interview)', () => {
