@@ -356,6 +356,82 @@
         </div>
       </div>
 
+      <!-- Grade A PSU Recruitment Opportunities (Collapsible card for GATE) -->
+      <div
+        v-if="examId === 'GATE'"
+        class="bg-white dark:bg-slate-900 rounded-2xl border border-sky-200 dark:border-sky-800/70 shadow-sm dark:shadow-lg overflow-hidden"
+      >
+        <button
+          type="button"
+          @click="isPsuOpportunitiesOpen = !isPsuOpportunitiesOpen"
+          class="w-full p-6 flex items-center justify-between text-left transition-colors hover:bg-sky-50/50 dark:hover:bg-slate-850/50 select-none cursor-pointer"
+        >
+          <div class="flex items-center space-x-3">
+            <span class="text-xl">🏢</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white tracking-wide">
+                  Grade A PSU Recruitment Opportunities via GATE 2027
+                </h3>
+                <span class="hidden sm:inline-flex px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30">
+                  11 Maharatna & Navratna PSUs
+                </span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Executive Engineer & Management Trainee direct recruitment using GATE scores
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg
+              class="w-4 h-4 text-slate-500 transform transition-transform duration-200 shrink-0"
+              :class="isPsuOpportunitiesOpen ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </button>
+
+        <div v-show="isPsuOpportunitiesOpen" class="px-6 pb-6 pt-0 border-t border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-4">
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              Top Public Sector Undertakings (PSUs) utilize valid GATE scores to shortlist Executive Engineers and Scientific Officers with starting CTCs ranging from ₹15.5L to ₹21L.
+            </p>
+            <router-link
+              to="/posts"
+              class="px-3 py-1.5 rounded-xl text-xs font-bold bg-sky-500 text-white hover:bg-sky-600 transition-colors self-start sm:self-auto shrink-0 shadow-xs"
+            >
+              Explore All 11 PSU Posts →
+            </router-link>
+          </div>
+
+          <!-- PSU Quick Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+            <div
+              v-for="(psu, psuIdx) in psuOpportunities"
+              :key="psuIdx"
+              class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850/80 border border-slate-200 dark:border-slate-800 space-y-1.5 hover:border-sky-400 dark:hover:border-sky-600 transition-colors shadow-2xs"
+            >
+              <div class="flex items-center justify-between">
+                <strong class="font-bold text-slate-900 dark:text-white">{{ psu.company }}</strong>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20">
+                  {{ psu.cadre }}
+                </span>
+              </div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">
+                Starting Pay: <span class="font-semibold text-slate-800 dark:text-slate-200">{{ psu.pay }}</span>
+              </div>
+              <div class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono">
+                Selection: {{ psu.weightage }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- REDESIGNED ASPIRANT-FIRST EXAMINATION SYLLABUS & PATTERN SECTION -->
       <ExamSyllabusSection
         v-if="curriculumScheme"
@@ -395,6 +471,22 @@ const curriculumScheme = computed(() => trackerStore.getScheme(examId.value));
 // Collapsible section states (start collapsed)
 const isScheduleOpen = ref(false);
 const isRequirementsOpen = ref(false);
+const isPsuOpportunitiesOpen = ref(false);
+
+// 11 Connected PSUs for GATE
+const psuOpportunities = [
+  { company: 'IOCL', cadre: 'Executive Trainee (E-2)', pay: '₹60,000 – ₹1,80,000 (CTC ~₹17L)', weightage: '85% GATE + 3% GD + 12% PI' },
+  { company: 'ONGC', cadre: 'Graduate Trainee (E-1)', pay: '₹60,000 – ₹1,80,000 (CTC ~₹21L)', weightage: '60% GATE + 25% Qual + 15% PI' },
+  { company: 'NTPC', cadre: 'Engg Exec Trainee (EET)', pay: '₹60,000 – ₹1,80,000 (CTC ~₹16.5L)', weightage: '85% GATE + 15% GD & PI' },
+  { company: 'PowerGrid', cadre: 'Engineer Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹18L)', weightage: '85% GATE + 3% GD + 12% PI' },
+  { company: 'BPCL', cadre: 'Management Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹18.5L)', weightage: 'GATE Score + Case Study + PI' },
+  { company: 'HPCL', cadre: 'Officer Engineering', pay: '₹60,000 – ₹1,80,000 (CTC ~₹16.8L)', weightage: '85% GATE/CBT + 5% GT + 10% PI' },
+  { company: 'SAIL', cadre: 'Management Trainee Tech', pay: '₹60,000 – ₹1,80,000 (CTC ~₹16L)', weightage: 'GATE Score + GD & Interview' },
+  { company: 'GAIL', cadre: 'Executive Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹18L)', weightage: '85% GATE + 15% GD & PI' },
+  { company: 'Coal India', cadre: 'Management Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹16L)', weightage: 'GATE Score / CBT + Interview' },
+  { company: 'BHEL', cadre: 'Engineer Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹15.5L)', weightage: '75% GATE/CBT + 25% Interview' },
+  { company: 'BARC / NPCIL', cadre: 'Scientific Officer / ET', pay: 'Level 10 (7th CPC) / E-1', weightage: 'GATE Score Screening + Tech Viva' }
+];
 
 onMounted(async () => {
   hiddenStore.loadHiddenItems();

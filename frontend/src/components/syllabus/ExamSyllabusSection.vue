@@ -161,53 +161,6 @@
         </div>
       </div>
 
-      <!-- 6. Connected PSU Recruitment Opportunities Panel (Special for GATE) -->
-      <div
-        v-if="scheme.exam_id === 'GATE'"
-        class="rounded-2xl border border-sky-200 dark:border-sky-800/60 bg-sky-50/40 dark:bg-sky-950/20 p-5 space-y-4"
-      >
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div class="flex items-center space-x-2">
-            <span class="text-xl">🏢</span>
-            <div>
-              <h3 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
-                Grade A PSU Recruitment Opportunities via GATE 2027
-              </h3>
-              <p class="text-xs text-slate-600 dark:text-slate-300">
-                11 Maharatna & Navratna PSUs directly recruit Executive Engineers using GATE scores.
-              </p>
-            </div>
-          </div>
-          <router-link
-            to="/posts"
-            class="px-3 py-1.5 rounded-xl text-xs font-bold bg-sky-500 text-white hover:bg-sky-600 transition-colors self-start sm:self-auto shrink-0 shadow-xs"
-          >
-            Explore All 11 PSU Posts →
-          </router-link>
-        </div>
-
-        <!-- PSU Quick Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs">
-          <div
-            v-for="(psu, psuIdx) in psuOpportunities"
-            :key="psuIdx"
-            class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1 hover:border-sky-400 transition-colors shadow-2xs"
-          >
-            <div class="flex items-center justify-between">
-              <strong class="font-bold text-slate-900 dark:text-white">{{ psu.company }}</strong>
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20">
-                {{ psu.cadre }}
-              </span>
-            </div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400">
-              Starting Pay: <span class="font-semibold text-slate-800 dark:text-slate-200">{{ psu.pay }}</span>
-            </div>
-            <div class="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono">
-              Selection: {{ psu.weightage }}
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- 7. Active Stage Content: Collapsible Paper Cards -->
       <div v-if="activeStage" class="space-y-4">
@@ -497,21 +450,6 @@ function handleDrawerToggle() {
     trackerStore.toggleTopic(props.scheme.exam_id, selectedDrawerTopic.value.topic_id);
   }
 }
-
-// 11 Connected PSUs for GATE
-const psuOpportunities = [
-  { company: 'IOCL', cadre: 'Executive Trainee (E-2)', pay: '₹60,000 – ₹1,80,000 (CTC ~₹17L)', weightage: '85% GATE + 3% GD + 12% PI' },
-  { company: 'ONGC', cadre: 'Graduate Trainee (E-1)', pay: '₹60,000 – ₹1,80,000 (CTC ~₹21L)', weightage: '60% GATE + 25% Qual + 15% PI' },
-  { company: 'NTPC', cadre: 'Engg Exec Trainee (EET)', pay: '₹60,000 – ₹1,80,000 (CTC ~₹16.5L)', weightage: '85% GATE + 15% GD & PI' },
-  { company: 'PowerGrid', cadre: 'Engineer Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹18L)', weightage: '85% GATE + 3% GD + 12% PI' },
-  { company: 'BPCL', cadre: 'Management Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹18.5L)', weightage: 'GATE Score + Case Study + PI' },
-  { company: 'HPCL', cadre: 'Officer Engineering', pay: '₹60,000 – ₹1,80,000 (CTC ~₹16.8L)', weightage: '85% GATE/CBT + 5% GT + 10% PI' },
-  { company: 'SAIL', cadre: 'Management Trainee Tech', pay: '₹60,000 – ₹1,80,000 (CTC ~₹16L)', weightage: 'GATE Score + GD & Interview' },
-  { company: 'GAIL', cadre: 'Executive Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹18L)', weightage: '85% GATE + 15% GD & PI' },
-  { company: 'Coal India', cadre: 'Management Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹16L)', weightage: 'GATE Score / CBT + Interview' },
-  { company: 'BHEL', cadre: 'Engineer Trainee', pay: '₹60,000 – ₹1,80,000 (CTC ~₹15.5L)', weightage: '75% GATE/CBT + 25% Interview' },
-  { company: 'BARC / NPCIL', cadre: 'Scientific Officer / ET', pay: 'Level 10 (7th CPC) / E-1', weightage: 'GATE Score Screening + Tech Viva' }
-];
 </script>
 
 <style scoped>
