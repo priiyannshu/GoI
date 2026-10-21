@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 E2E Test Runner for Indian Grade A Government Examinations Platform.
-Discovers and executes all 4 test tiers, logs individual test results,
+Discovers and executes all 5 test tiers, logs individual test results,
 and returns exit code 0 when all tests pass, or exit code 1 if any fail.
 """
 
@@ -51,6 +51,11 @@ TIER_MODULES = {
         "name": "Tier 4: Real-World Application Scenarios",
         "module": "tests.e2e.tier4_real_world_scenarios",
         "description": "High-complexity end-to-end workload simulations reflecting realistic candidate user journeys."
+    },
+    5: {
+        "name": "Tier 5: Adversarial Hardening & Acceptance",
+        "module": "tests.e2e.tier5_adversarial_hardening",
+        "description": "White-box security hardening, SQLi resistance, precision tolerances, and D3 physics stability."
     }
 }
 
@@ -155,7 +160,7 @@ def print_banner():
     banner = f"""
 {CYAN}========================================================================================
    INDIAN GRADE A GOVERNMENT EXAMINATIONS INTELLIGENCE PLATFORM
-   Comprehensive Opaque-Box E2E Test Suite Harness (Tiers 1 - 4)
+   Comprehensive Opaque-Box E2E Test Suite Harness (Tiers 1 - 5)
 ========================================================================================{RESET}
 """
     print(banner)
@@ -163,7 +168,7 @@ def print_banner():
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Grade A Examinations Platform E2E Test Runner")
-    parser.add_argument("--tier", choices=["1", "2", "3", "4", "all"], default="all", help="Target test tier to execute (default: all)")
+    parser.add_argument("--tier", choices=["1", "2", "3", "4", "5", "all"], default="all", help="Target test tier to execute (default: all)")
     parser.add_argument("--feature", type=str, default=None, help="Filter tests by feature key (e.g. f01, f15, upset)")
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose per-test execution logging")
     parser.add_argument("--json", type=str, default=None, help="Optional output path to export test results in JSON format")
@@ -172,7 +177,7 @@ def main() -> int:
 
     print_banner()
 
-    target_tiers = [1, 2, 3, 4] if args.tier == "all" else [int(args.tier)]
+    target_tiers = [1, 2, 3, 4, 5] if args.tier == "all" else [int(args.tier)]
     total_passed = 0
     total_failed = 0
     total_errors = 0

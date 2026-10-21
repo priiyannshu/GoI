@@ -311,6 +311,28 @@ app.post('/api/v1/profile/evaluate', async (c) => {
   const profileInput: UserProfileInput = body.profile ? body.profile : body;
   const targetExamId: string | undefined = body.exam_id || c.req.query('exam_id');
 
+  // Validate that profile.dob is provided, non-empty, and follows a valid YYYY-MM-DD date format
+  const dobRaw = profileInput ? (profileInput as any).dob : undefined;
+  const dobStr = typeof dobRaw === 'string' ? dobRaw.trim() : '';
+  const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+  let isValidDate = false;
+  if (dobStr && dateRegex.test(dobStr)) {
+    const [y, m, d] = dobStr.split('-').map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d));
+    isValidDate = dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d;
+  }
+
+  if (!dobStr || !isValidDate) {
+    return c.json(
+      {
+        success: false,
+        error: 'Validation Error',
+        message: 'Missing candidate date of birth (dob)',
+      },
+      400
+    );
+  }
+
   // Single exam evaluation
   if (targetExamId) {
     const rule = AUTHORITATIVE_EXAM_RULES[targetExamId];
