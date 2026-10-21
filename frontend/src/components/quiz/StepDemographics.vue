@@ -3,7 +3,7 @@
     <div class="border-b border-slate-800 pb-4">
       <h3 class="text-lg font-semibold text-white">Candidate Demographics & Statutory Category</h3>
       <p class="text-sm text-slate-400">
-        Your exact age on the statutory reference cutoff dates determines your eligibility across all 36 Grade A examinations.
+        Your exact age on the statutory reference cutoff dates determines your eligibility across all 31 Grade A examinations.
       </p>
     </div>
 

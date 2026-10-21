@@ -3,7 +3,7 @@
 scripts/build_database.py
 =========================
 Master Ingestion & Database Population Pipeline for Indian Grade A Government Examinations.
-Populates all 36 examinations across Clusters 1, 2, 3, and 4, all 36 eligibility criteria records,
+Populates all 31 examinations across Clusters 1, 2, 3, and 4, all 31 eligibility criteria records,
 and all 216 verified source_audit_log records (6 fact types per exam) using normalized seed data.
 Also seeds foundation universal syllabus taxonomy and stage mappings.
 """
@@ -54,7 +54,7 @@ def load_map_seeds(seed_path: Optional[Path] = None) -> List[Dict[str, Any]]:
 # -----------------------------------------------------------------------------
 
 def load_master_seed_dataset(seed_path: Optional[Path] = None) -> Dict[str, List[Dict[str, Any]]]:
-    """Loads normalized 36-exam master seed dataset from data/master_seed_data.json."""
+    """Loads normalized 31-exam master seed dataset from data/master_seed_data.json."""
     if seed_path is None:
         base_dir = Path(__file__).resolve().parent.parent
         seed_path = base_dir / "data" / "master_seed_data.json"

@@ -221,7 +221,7 @@ const hiddenStore = useHiddenStore();
 const statusFilter = ref<string>('ALL');
 
 const clusterFilters = [
-  { label: 'All Exams (36)', value: 'ALL' },
+  { label: 'All Exams (31)', value: 'ALL' },
   { label: 'Central Civil', value: 'Central-Civil' },
   { label: 'Regulatory', value: 'Regulatory' },
   { label: 'Defense', value: 'Defense' },

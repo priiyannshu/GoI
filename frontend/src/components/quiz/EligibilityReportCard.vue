@@ -14,7 +14,7 @@
             Statutory Eligibility Report Card
           </h1>
           <p class="text-sm text-slate-400 mt-2 max-w-2xl">
-            Multi-dimensional evaluation across all 36 Indian Grade A civil, regulatory, defense, state PSC, and PSU examinations audited against gazette notification clauses.
+            Multi-dimensional evaluation across all 31 Indian Grade A civil, regulatory, defense, state PSC, and PSU examinations audited against gazette notification clauses.
           </p>
         </div>
 
@@ -286,7 +286,7 @@ const statusFilters = [
 ];
 
 const clusterFilters = [
-  { id: 'ALL', label: 'All 36 Exams' },
+  { id: 'ALL', label: 'All 31 Exams' },
   { id: 'Central-Civil', label: 'Central Civil' },
   { id: 'Regulatory', label: 'Regulatory & Finance' },
   { id: 'Defense', label: 'Defense' },

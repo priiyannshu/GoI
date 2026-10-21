@@ -18,11 +18,11 @@
  *   3. Academic Degree & Accepted Discipline Mapping (Bachelor, Master, Professional, Dual)
  *   4. Strict Non-Rounding Percentage Threshold Enforcement (59.99% < 60.0%; 64.99% < 65.0%)
  *   5. Final-Year Student Permissibility & Conditional Eligibility Mechanics
- *   6. Category-Aware Attempt Limits (UPSC CSE 6/9/∞; RBI Phase-1 6/∞; MPSC 6/9/∞; KPSC 5/7/∞)
+ *   6. Category-Aware Attempt Limits (UPSC CSE 6/9/∞; RBI Phase-1 6/∞; )
  *   7. Domicile & Compulsory Regional Language Firewalls (Marathi, Bengali, Kannada, Tamil, etc.)
  *   8. Physical & Medical Standards (Height, Chest Expansion, Color Vision, LASIK parameters)
  *
- * COVERS ALL 36 GRADE A EXAMINATIONS ACROSS ALL 4 CLUSTERS:
+ * COVERS ALL 31 GRADE A EXAMINATIONS ACROSS ALL 4 CLUSTERS:
  *   - Cluster 1: Central Civil & Uniformed Services (8)
  *   - Cluster 2: Financial & Regulatory Apex Bodies (7)
  *   - Cluster 3: State Public Service Commissions (10)
@@ -174,7 +174,7 @@ export interface EligibilityVerdict {
 }
 
 // ==============================================================================
-// 2. AUTHORITATIVE SPECIFICATIONS CATALOG FOR ALL 36 EXAMINATIONS
+// 2. AUTHORITATIVE SPECIFICATIONS CATALOG FOR ALL 31 EXAMINATIONS
 // ==============================================================================
 
 export const AUTHORITATIVE_EXAM_RULES: Record<string, ExamEligibilityRule> = {
@@ -1176,7 +1176,7 @@ export function getStatutoryBirthWindow(
       };
     case 'JULY_1_EXAM_YEAR':
       return {
-        minDob: new Date(Date.UTC(examYear - allowedMaxAge, 6, 1)), // UPPSC/TNPSC inclusive July 1
+        minDob: new Date(Date.UTC(examYear - allowedMaxAge, 6, 1)), // UPPSC inclusive July 1
         maxDob: new Date(Date.UTC(examYear - rule.min_age_gen, 6, 1)),
       };
     case 'APRIL_1_EXAM_YEAR':
@@ -1756,7 +1756,7 @@ export function evaluateEligibility(
 // ==============================================================================
 
 /**
- * Evaluates candidate profile across all 36 authoritative examinations.
+ * Evaluates candidate profile across all 31 authoritative examinations.
  */
 export function evaluateAllExams(
   profile: UserProfileInput,

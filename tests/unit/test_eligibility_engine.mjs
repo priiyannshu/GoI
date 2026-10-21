@@ -78,11 +78,11 @@ it('Resolves JANUARY_1_EXAM_YEAR correctly (e.g. UPSC ESE, CGSE, IES/ISS)', () =
   assert.strictEqual(getCutoffDate('JANUARY_1_EXAM_YEAR', 2027), '2027-01-01');
 });
 
-it('Resolves JULY_1_EXAM_YEAR correctly (e.g. UPPSC PCS, BPSC CCE, TNPSC)', () => {
+it('Resolves JULY_1_EXAM_YEAR correctly (e.g. UPPSC PCS, BPSC CCE)', () => {
   assert.strictEqual(getCutoffDate('JULY_1_EXAM_YEAR', 2027), '2027-07-01');
 });
 
-it('Resolves APRIL_1_EXAM_YEAR correctly (e.g. KPSC KAS)', () => {
+it('Resolves APRIL_1_EXAM_YEAR correctly', () => {
   assert.strictEqual(getCutoffDate('APRIL_1_EXAM_YEAR', 2027), '2027-04-01');
 });
 
@@ -98,7 +98,7 @@ it('Resolves FEBRUARY_1_EXAM_YEAR correctly (PSU ONGC GT)', () => {
   assert.strictEqual(getCutoffDate('FEBRUARY_1_EXAM_YEAR', 2027), '2027-02-01');
 });
 
-it('Resolves NOVEMBER_1_EXAM_YEAR correctly (MPSC Rajyaseva)', () => {
+it('Resolves NOVEMBER_1_EXAM_YEAR correctly', () => {
   assert.strictEqual(getCutoffDate('NOVEMBER_1_EXAM_YEAR', 2027), '2027-11-01');
 });
 

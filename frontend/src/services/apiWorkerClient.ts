@@ -11,7 +11,7 @@ const STATIC_EXAMS: ExamRecord[] = (rawExamsJson.exams || (rawExamsJson as any).
 
 export async function fetchExamsList(): Promise<ExamRecord[]> {
   // If we already have the bundled list, return it immediately while refreshing cache
-  if (Array.isArray(STATIC_EXAMS) && STATIC_EXAMS.length >= 36) {
+  if (Array.isArray(STATIC_EXAMS) && STATIC_EXAMS.length >= 31) {
     // Cache in IndexedDB for offline resilience in background
     indexedDbStorage.cacheExams(STATIC_EXAMS).catch(() => {});
     
@@ -25,7 +25,7 @@ export async function fetchExamsList(): Promise<ExamRecord[]> {
   // Fallback to IndexedDB cache
   try {
     const cached = await indexedDbStorage.getCachedExams();
-    if (cached && cached.length >= 36) {
+    if (cached && cached.length >= 31) {
       return cached;
     }
   } catch {

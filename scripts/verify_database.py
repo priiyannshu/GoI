@@ -6,7 +6,7 @@ Comprehensive Automated Verification Engine for the Indian Grade A Examinations 
 
 Verifies:
 1. SQLite relational integrity (PRAGMA integrity_check == 'ok', PRAGMA foreign_key_check == 0).
-2. Schema & Master non-null/JSON compliance across all 36 examinations.
+2. Schema & Master non-null/JSON compliance across all 31 examinations.
 3. 100% coverage in source_audit_log with valid HTTP/HTTPS URLs and verified citations.
 4. Automated eligibility edge-case test harness:
    - Cutoff date algorithms (Aug 1, Jan 1, Jul 1, Apr 1, forward-year Jan 1).
@@ -39,7 +39,7 @@ CYAN = "\033[96m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
 
-# Canonical Catalog of 36 Grade A Examinations
+# Canonical Catalog of 31 Grade A Examinations
 EXPECTED_EXAM_IDS = {
     # Cluster 1: Central All-India & Uniformed Services (8)
     "UPSC_CSE", "UPSC_ESE", "UPSC_IFOS", "UPSC_CAPF_AC",
@@ -591,18 +591,7 @@ class EligibilityEdgeCaseHarness:
         user_mother_tongue = profile.get("mother_tongue", "").lower()
 
         if lang_cfg:
-            if exam_id == "WBPSC_WBCS":
-                if "bengali" not in user_langs and user_mother_tongue != "nepali":
-                    is_eligible = False
-                    reasons.append("WBPSC requires Bengali reading, writing, and speaking ability (exempted only for Nepali mother tongue)")
-            elif exam_id == "MPSC_RAJYASEVA":
-                if "marathi" not in user_langs:
-                    is_eligible = False
-                    reasons.append("MPSC Rajyaseva mandates fluent Marathi reading, writing, and speaking ability")
-            elif exam_id == "TNPSC_GROUP_1":
-                if "tamil" not in user_langs:
-                    is_eligible = False
-                    reasons.append("TNPSC Group 1 mandates Tamil SSLC standard qualifying paper")
+            pass
 
         # 6. Physical Standards Gate (Police / Uniformed Cadres)
         phys_cfg = json.loads(phys_json) if phys_json else None
@@ -871,7 +860,7 @@ class EligibilityEdgeCaseHarness:
 # =============================================================================
 
 class SyllabusTaxonomyAndMatrixValidator:
-    """Verifies Universal Syllabus Taxonomy, 36 Exams Stage Mappings, and JSON Matrix Exports."""
+    """Verifies Universal Syllabus Taxonomy, 31 Exams Stage Mappings, and JSON Matrix Exports."""
 
     def __init__(self, conn: sqlite3.Connection, project_root: str):
         self.conn = conn
@@ -910,7 +899,7 @@ class SyllabusTaxonomyAndMatrixValidator:
             if not title or not title.strip():
                 errors.append(f"Empty topic_title for topic_id '{tid}'")
 
-        # 3. Validate exam_syllabus_map coverage across all 36 examinations
+        # 3. Validate exam_syllabus_map coverage across all 31 examinations
         cursor.execute("SELECT COUNT(DISTINCT exam_id) FROM exam_syllabus_map;")
         mapped_exams_count = cursor.fetchone()[0]
         if mapped_exams_count != 31:
@@ -1022,7 +1011,7 @@ def main():
         print(f"  {GREEN}PASSED (PRAGMA integrity_check 'ok', 0 FK violations, all tables/indexes intact){RESET}")
 
     # 2. Exam Master & Eligibility Criteria Checks
-    print(f"\n{BOLD}[2/5] Checking 36 Exams Master & Eligibility Non-Null/JSON Schema...{RESET}")
+    print(f"\n{BOLD}[2/5] Checking 31 Exams Master & Eligibility Non-Null/JSON Schema...{RESET}")
     master_validator = ExamMasterValidator(conn)
     master_errors = master_validator.verify()
     if master_errors:
@@ -1031,7 +1020,7 @@ def main():
         for err in master_errors:
             print(f"    - {err}")
     else:
-        print(f"  {GREEN}PASSED (All 36 exams verified with non-null constraints and valid JSON structures){RESET}")
+        print(f"  {GREEN}PASSED (All 31 exams verified with non-null constraints and valid JSON structures){RESET}")
 
     # 3. Source Audit Log & URL Checks
     print(f"\n{BOLD}[3/5] Checking 100% Source Audit Log Coverage & URL Formatting...{RESET}")
@@ -1063,7 +1052,7 @@ def main():
         print(f"  {GREEN}PASSED (All 20+ multi-vector statutory edge cases passed perfectly){RESET}")
 
     # 5. Syllabus Taxonomy & Overlap Matrix Checks (Milestone 2)
-    print(f"\n{BOLD}[5/5] Checking Syllabus Taxonomy, 36 Exams Stage Mapping & Matrix Exports...{RESET}")
+    print(f"\n{BOLD}[5/5] Checking Syllabus Taxonomy, 31 Exams Stage Mapping & Matrix Exports...{RESET}")
     syllabus_validator = SyllabusTaxonomyAndMatrixValidator(conn, project_root)
     syllabus_errors = syllabus_validator.verify()
     if syllabus_errors:
@@ -1072,7 +1061,7 @@ def main():
         for err in syllabus_errors:
             print(f"    - {err}")
     else:
-        print(f"  {GREEN}PASSED (>=120 topics, 6 domains, all 36 exams mapped with valid depth levels, 0 orphans, valid JSON matrix){RESET}")
+        print(f"  {GREEN}PASSED (>=120 topics, 6 domains, all 31 exams mapped with valid depth levels, 0 orphans, valid JSON matrix){RESET}")
 
     conn.close()
 

@@ -15,7 +15,7 @@ export const useExamMasterStore = defineStore('examMaster', () => {
   const searchQuery = ref<string>('');
 
   async function loadExams() {
-    if (exams.value.length >= 36) return;
+    if (exams.value.length >= 31) return;
     isLoading.value = true;
     error.value = null;
     try {

@@ -7,7 +7,7 @@
           Indian Grade A Examinations Profiler
         </h1>
         <p class="text-sm text-slate-600 dark:text-slate-400 mt-2 max-w-xl mx-auto">
-          Answer 5 brief statutory sections to instantly determine your eligibility across all 36 central civil, regulatory, defense, state PSC, and PSU posts for 2027.
+          Answer 5 brief statutory sections to instantly determine your eligibility across all 31 central civil, regulatory, defense, state PSC, and PSU posts for 2027.
         </p>
       </div>
 

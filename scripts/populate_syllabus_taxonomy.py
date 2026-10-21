@@ -4,7 +4,7 @@ scripts/populate_syllabus_taxonomy.py
 ======================================
 Atomic Ingestion Engine for Milestone 2:
 Populates Universal Syllabus Taxonomy (>=120 topics across 6 domains)
-and comprehensive Cross-Exam Stage Mappings for all 36 Grade A examinations.
+and comprehensive Cross-Exam Stage Mappings for all 31 Grade A examinations.
 Enforces foreign key integrity, check constraints, and transactional safety.
 """
 

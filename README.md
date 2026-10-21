@@ -1,6 +1,6 @@
 # Indian Grade A Government Examinations Intelligence Platform (GoI)
 
-An exhaustive research database, verifiable statutory ground-truth audit trail, universal syllabus ontology, and Cloudflare-hosted Vue 3 Progressive Web Application (PWA) with D3.js multi-view set visualizations and multidimensional eligibility profiling across 36 premier Indian Grade A examinations.
+An exhaustive research database, verifiable statutory ground-truth audit trail, universal syllabus ontology, and Cloudflare-hosted Vue 3 Progressive Web Application (PWA) with D3.js multi-view set visualizations and multidimensional eligibility profiling across 31 premier Indian Grade A examinations.
 
 [![Live PWA](https://img.shields.io/badge/PWA-grade--a--exams.pages.dev-0284c7?style=flat-square&logo=cloudflare)](https://grade-a-exams.pages.dev)
 [![API Edge Worker](https://img.shields.io/badge/API-grade--a--api.workers.dev-f97316?style=flat-square&logo=cloudflare-workers)](https://grade-a-api.priyanshukh1201.workers.dev)
@@ -46,7 +46,7 @@ An exhaustive research database, verifiable statutory ground-truth audit trail, 
 
 ---
 
-## 📊 Exam Coverage (36 Statutory Audits)
+## 📊 Exam Coverage (31 Statutory Audits)
 
 ### 1. Central Civil & Uniformed Services (8 Exams)
 - **UPSC CSE** (Civil Services Examination — IAS, IFS, IPS, IRS)
@@ -70,14 +70,9 @@ An exhaustive research database, verifiable statutory ground-truth audit trail, 
 ### 3. State Public Service Commissions (10 Exams)
 - **UPPSC PCS** (Uttar Pradesh Combined State / Upper Subordinate Services)
 - **BPSC CCE** (Bihar Combined Competitive Examination — 70th CCE)
-- **MPSC Rajyaseva** (Maharashtra Gazetted Civil Services Combined Examination)
 - **MPPSC SSE** (Madhya Pradesh State Service Examination)
 - **RPSC RAS/RTS** (Rajasthan Administrative & Subordinate Services)
-- **TNPSC Group 1** (Tamil Nadu Combined Civil Services-I)
-- **APPSC Group 1** (Andhra Pradesh Public Service Commission Group-1)
 - **TSPSC Group 1** (Telangana State Public Service Commission Group-1)
-- **WBPSC WBCS** (West Bengal Civil Service Executive)
-- **KPSC KAS** (Karnataka Public Service Commission — Gazetted Probationers)
 
 ### 4. Maharatna & Navratna PSUs via GATE (11 Organizations)
 - **ONGC GT** (Oil and Natural Gas Corporation — Graduate Trainee)
@@ -101,7 +96,7 @@ An exhaustive research database, verifiable statutory ground-truth audit trail, 
 ├── data/
 │   ├── schema.sql                       # Relational DDL with CHECK constraints & JSON validations
 │   ├── grade_a_exams.db                 # Master SQLite 3.38+ database
-│   ├── grade_a_exams.json               # Master JSON export of all 36 exams and eligibility
+│   ├── grade_a_exams.json               # Master JSON export of all 31 exams and eligibility
 │   ├── syllabus_taxonomy.json           # 192 normalized taxonomy topics across 6 domains
 │   └── exam_syllabus_matrix.json        # 1,123 stage-to-topic mapping pairs with depth levels
 ├── scripts/

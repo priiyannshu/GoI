@@ -65,7 +65,7 @@ app.get('/health', (c) => c.json({ status: 'ok', timestamp: new Date().toISOStri
 app.get('/api/v1/health', (c) => c.json({ status: 'ok', timestamp: new Date().toISOString() }));
 
 // 1. GET /api/v1/exams
-// Returns all 36 Grade A exams with count and success flag
+// Returns all 31 Grade A exams with count and success flag
 app.get('/api/v1/exams', async (c) => {
   const categoryFilter = c.req.query('category');
   const clusterFilter = c.req.query('cluster');
@@ -360,7 +360,7 @@ app.post('/api/v1/profile/evaluate', async (c) => {
     });
   }
 
-  // Batch evaluation across all 36 examinations
+  // Batch evaluation across all 31 examinations
   const allVerdicts = evaluateAllExams(profileInput, AUTHORITATIVE_EXAM_RULES, 2027);
   const eligible = Object.values(allVerdicts)
     .filter((v) => v.status === 'ELIGIBLE')

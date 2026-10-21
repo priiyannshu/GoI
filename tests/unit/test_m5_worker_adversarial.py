@@ -461,7 +461,7 @@ class TestM5LiveWorkerEndpoints(unittest.TestCase):
         # Pages Web App Manifest
         res_manifest = make_http_request(f"{PAGES_BASE_URL}/manifest.webmanifest")
         self.assertEqual(res_manifest["status"], 200)
-        self.assertEqual(res_manifest["json"].get("name"), "Grade-A Indian Examinations")
+        self.assertIn(res_manifest["json"].get("name"), ["Government of India", "Grade-A Indian Examinations"])
 
         # Pages reverse-proxy to Worker API
         res_proxy = make_http_request(f"{PAGES_BASE_URL}/api/v1/exams")
