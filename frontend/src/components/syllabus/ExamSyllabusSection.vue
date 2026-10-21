@@ -16,7 +16,7 @@
             </span>
           </div>
           <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Authoritative curriculum audited directly from the commission's official gazette notification.
+            Authoritative curriculum audited directly from the commission's official notification.
           </p>
         </div>
 
@@ -34,17 +34,6 @@
             <span class="text-slate-400 font-normal">Penalty:</span>
             <strong class="text-rose-600 dark:text-rose-400">{{ scheme.negative_marking_rule || 'Standard Rule' }}</strong>
           </div>
-          <a
-            v-if="scheme.official_notification_url"
-            :href="scheme.official_notification_url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center space-x-1 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors font-medium"
-            title="Open Gazette Document"
-          >
-            <span>Official Gazette</span>
-            <span>↗</span>
-          </a>
         </div>
       </div>
 
@@ -69,12 +58,23 @@
             :style="{ width: `${overallProgress.pct}%` }"
           ></div>
         </div>
+
+        <!-- Small Reset Progress Link Under Preparation Bar -->
+        <div class="flex items-center justify-end pt-0.5">
+          <button
+            @click="confirmReset"
+            class="text-[11px] text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 underline transition-colors cursor-pointer"
+            title="Reset checked topics for this examination"
+          >
+            Reset Progress
+          </button>
+        </div>
       </div>
 
-      <!-- 3. Utility Toolbar: Search, Expand All, Reset, Print -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+      <!-- 3. Utility Toolbar: Search Filter -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
         <!-- Live Topic Search -->
-        <div class="w-full sm:w-72 relative">
+        <div class="w-full sm:w-80 relative">
           <input
             v-model="searchFilter"
             type="text"
@@ -88,32 +88,6 @@
             class="absolute right-2.5 top-2 text-slate-400 hover:text-slate-600 dark:hover:text-white text-xs p-0.5"
           >
             ✕
-          </button>
-        </div>
-
-        <!-- Toolbar Action Buttons -->
-        <div class="flex items-center space-x-2 self-end sm:self-auto text-xs">
-          <button
-            @click="toggleExpandAll"
-            class="px-3 py-1.5 rounded-xl font-medium bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition-colors"
-          >
-            {{ areAllExpanded ? 'Collapse All Cards' : 'Expand All Cards' }}
-          </button>
-
-          <button
-            @click="confirmReset"
-            class="px-3 py-1.5 rounded-xl font-medium bg-slate-100 dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-950/30 text-slate-700 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 border border-slate-200 dark:border-slate-700 transition-colors"
-            title="Reset checked topics for this examination"
-          >
-            Reset Progress
-          </button>
-
-          <button
-            @click="handlePrint"
-            class="px-3 py-1.5 rounded-xl font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 transition-colors flex items-center space-x-1"
-          >
-            <span>🖨️</span>
-            <span>Print / Export</span>
           </button>
         </div>
       </div>
@@ -318,26 +292,8 @@
 
           <!-- Paper Topics Checklist Grid (Shown when expanded) -->
           <div v-if="isPaperExpanded(paper.paper_id)" class="p-5 border-t border-slate-200 dark:border-slate-800 space-y-4">
-            <!-- Paper Sub-Actions -->
-            <div class="flex items-center justify-between text-xs pb-2 border-b border-slate-100 dark:border-slate-800/60">
-              <span class="text-slate-500 text-[11px]">
-                Check topics as you prepare. Progress persists automatically offline.
-              </span>
-              <div class="flex items-center space-x-2">
-                <button
-                  @click.stop="trackerStore.markPaperDone(scheme.exam_id, paper)"
-                  class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
-                >
-                  Mark All Done
-                </button>
-                <span class="text-slate-300 dark:text-slate-700">|</span>
-                <button
-                  @click.stop="trackerStore.resetPaper(scheme.exam_id, paper)"
-                  class="text-[11px] font-semibold text-slate-500 hover:text-rose-600 dark:hover:text-rose-400"
-                >
-                  Reset Paper
-                </button>
-              </div>
+            <div class="text-xs text-slate-500 text-[11px] pb-1 border-b border-slate-100 dark:border-slate-800/60">
+              Check topics as you prepare. Progress persists automatically offline.
             </div>
 
             <!-- Topics Grid -->
@@ -404,7 +360,7 @@
                   type="button"
                   @click.stop="openTopicDrawer(topic, paper, activeStage)"
                   class="absolute right-3 top-3 p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-white dark:hover:bg-slate-800 border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all text-xs"
-                  title="Inspect detailed official syllabus scope & gazette clause"
+                  title="Inspect detailed official syllabus scope"
                 >
                   <span>ⓘ</span>
                 </button>
@@ -422,7 +378,6 @@
       :paper-name="selectedDrawerPaper?.paper_name"
       :stage-name="selectedDrawerStage?.stage_name"
       :is-completed="selectedDrawerTopic ? trackerStore.isTopicCompleted(scheme.exam_id, selectedDrawerTopic.topic_id) : false"
-      :gazette-url="scheme.official_notification_url"
       @close="isDrawerOpen = false"
       @toggle-completed="handleDrawerToggle"
     />
@@ -499,20 +454,6 @@ function togglePaper(paperId: string) {
   }
 }
 
-const areAllExpanded = computed(() => {
-  return displayedPapers.value.every((p) => expandedPaperIds.value.has(p.paper_id));
-});
-
-function toggleExpandAll() {
-  if (areAllExpanded.value) {
-    expandedPaperIds.value.clear();
-  } else {
-    for (const p of displayedPapers.value) {
-      expandedPaperIds.value.add(p.paper_id);
-    }
-  }
-}
-
 function getFilteredTopicsForPaper(paper: SchemePaper): SyllabusTopic[] {
   if (!searchFilter.value.trim()) {
     return paper.topics;
@@ -534,16 +475,6 @@ function confirmReset() {
   if (window.confirm(`Reset all checklist progress for ${props.scheme.exam_title}?`)) {
     trackerStore.resetExam(props.scheme.exam_id);
   }
-}
-
-function handlePrint() {
-  // Expand all cards before printing
-  for (const p of displayedPapers.value) {
-    expandedPaperIds.value.add(p.paper_id);
-  }
-  setTimeout(() => {
-    window.print();
-  }, 100);
 }
 
 // Drawer State

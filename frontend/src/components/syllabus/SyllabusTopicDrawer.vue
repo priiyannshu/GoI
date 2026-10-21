@@ -135,10 +135,10 @@
               </p>
             </div>
 
-            <!-- Statutory Gazette Reference -->
+            <!-- Official Curriculum Reference -->
             <div class="space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
               <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                Statutory Gazette Authority
+                Official Curriculum Authority
               </h3>
               <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-2">
                 <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
@@ -148,18 +148,6 @@
                       {{ topic?.source_clause || 'Official Examination Notification Syllabus Clause' }}
                     </span>
                   </div>
-                </div>
-
-                <div v-if="gazetteUrl" class="pt-1">
-                  <a
-                    :href="gazetteUrl"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center space-x-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
-                  >
-                    <span>View Official Commission Gazette Notification</span>
-                    <span>↗</span>
-                  </a>
                 </div>
               </div>
             </div>
@@ -202,7 +190,6 @@ const props = defineProps<{
   paperName?: string;
   stageName?: string;
   isCompleted: boolean;
-  gazetteUrl?: string;
 }>();
 
 const emit = defineEmits<{
