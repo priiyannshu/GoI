@@ -24,10 +24,10 @@ jobs:
       - name: Checkout Codebase
         uses: actions/checkout@v4
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
           cache-dependency-path: |
             frontend/package-lock.json
@@ -58,7 +58,7 @@ jobs:
 
       # --- Automated Unit & Adversarial Test Suites ---
       - name: Run Node.js Eligibility Engine Test Suite
-        run: node tests/unit/test_eligibility_engine.mjs
+        run: node --experimental-strip-types tests/unit/test_eligibility_engine.mjs
 
       - name: Run Node.js Bipartite Adversarial Test Suite
         run: node tests/unit/test_m4_bipartite_adversarial.mjs
@@ -95,10 +95,10 @@ jobs:
       - name: Checkout Codebase
         uses: actions/checkout@v4
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
           cache-dependency-path: worker/package-lock.json
 
@@ -133,10 +133,10 @@ jobs:
       - name: Checkout Codebase
         uses: actions/checkout@v4
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
           cache-dependency-path: frontend/package-lock.json
 
