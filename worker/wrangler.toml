@@ -1,0 +1,19 @@
+name = "grade-a-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+account_id = "913053598d368551936e69dd07298da5"
+
+[vars]
+ENVIRONMENT = "production"
+API_VERSION = "v1"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "grade_a_db"
+database_id = "0a591154-d727-43ba-b8f9-005cb5dc58c6"
+migrations_dir = "migrations"
+
+[observability]
+enabled = true

@@ -1,0 +1,1346 @@
+[
+  {
+    "topic_id": "gs.polity.constitution_features",
+    "domain": "General Studies",
+    "sub_domain": "polity",
+    "topic_title": "Constitutional Framework, Historical Underpinnings & Basic Structure",
+    "description": "Preamble, Fundamental Rights, Directive Principles of State Policy, Fundamental Duties, Amendments, and Basic Structure Doctrine."
+  },
+  {
+    "topic_id": "gs.polity.union_state_executive",
+    "domain": "General Studies",
+    "sub_domain": "polity",
+    "topic_title": "Union and State Executives & Cabinets",
+    "description": "President, Governor, Prime Minister, Council of Ministers, Ordinance Making, Pardoning Power, and Cabinet Committees."
+  },
+  {
+    "topic_id": "gs.polity.parliament_legislatures",
+    "domain": "General Studies",
+    "sub_domain": "polity",
+    "topic_title": "Parliament & State Legislatures",
+    "description": "Lok Sabha, Rajya Sabha, State Assemblies, Money Bills, Legislative Procedures, and Parliamentary Privileges."
+  },
+  {
+    "topic_id": "gs.polity.judiciary_system",
+    "domain": "General Studies",
+    "sub_domain": "polity",
+    "topic_title": "Indian Judicial Architecture & Legal Safeguards",
+    "description": "Supreme Court, High Courts, Collegium System, Judicial Activism, PIL, and Constitutional Writs under Articles 32 and 226."
+  },
+  {
+    "topic_id": "gs.polity.federal_relations",
+    "domain": "General Studies",
+    "sub_domain": "polity",
+    "topic_title": "Federalism, Center-State Relations & Emergency Provisions",
+    "description": "Seventh Schedule legislative distribution, Inter-State Councils, and Emergency provisions under Articles 352, 356, and 360."
+  },
+  {
+    "topic_id": "gs.polity.local_governance",
+    "domain": "General Studies",
+    "sub_domain": "polity",
+    "topic_title": "Local Self-Government, Panchayati Raj & Municipalities",
+    "description": "73rd and 74th Constitutional Amendments, Eleventh and Twelfth Schedules, Gram Sabha, PRIs, ULBs, and PESA Act 1996."
+  },
+  {
+    "topic_id": "gs.polity.statutory_bodies",
+    "domain": "General Studies",
+    "sub_domain": "polity",
+    "topic_title": "Constitutional, Statutory, Regulatory & Quasi-Judicial Bodies",
+    "description": "ECI, CAG, UPSC, Finance Commission, NHRC, NITI Aayog, Central Information Commission, and CVC."
+  },
+  {
+    "topic_id": "gs.history.british_expansion",
+    "domain": "General Studies",
+    "sub_domain": "history",
+    "topic_title": "British Colonial Expansion & Administrative Framework (1757–1857)",
+    "description": "Plassey, Buxar, Subsidiary Alliance, Doctrine of Lapse, Permanent Settlement, Ryotwari, and colonial economic drain."
+  },
+  {
+    "topic_id": "gs.history.revolt_1857_uprisings",
+    "domain": "General Studies",
+    "sub_domain": "history",
+    "topic_title": "The 1857 Revolt & Early Resistance Movements",
+    "description": "1857 Revolt causes, leadership, Government of India Act 1858, Santhal Rebellion, Munda Uprising, and peasant revolts."
+  },
+  {
+    "topic_id": "gs.history.socio_religious_reforms",
+    "domain": "General Studies",
+    "sub_domain": "history",
+    "topic_title": "Socio-Religious Reform Movements & Renaissance",
+    "description": "Brahmo Samaj, Arya Samaj, Ramakrishna Mission, Satyashodhak Samaj, Aligarh Movement, and anti-caste struggles."
+  },
+  {
+    "topic_id": "gs.history.national_movement_early",
+    "domain": "General Studies",
+    "sub_domain": "history",
+    "topic_title": "Early Nationalism, Moderate-Extremist Era & Swadeshi Movement",
+    "description": "INC formation (1885), Moderate constitutionalism, Extremist resurgence, Bengal Partition (1905), and Swadeshi Movement."
+  },
+  {
+    "topic_id": "gs.history.gandhian_era_mass_struggle",
+    "domain": "General Studies",
+    "sub_domain": "history",
+    "topic_title": "Gandhian Era, Mass Struggles & Road to Independence",
+    "description": "Non-Cooperation Movement, Civil Disobedience, Dandi March, Quit India Movement 1942, Subhas Chandra Bose, INA, and 1947 Partition."
+  },
+  {
+    "topic_id": "gs.history.post_independence_consolidation",
+    "domain": "General Studies",
+    "sub_domain": "history",
+    "topic_title": "Post-Independence Consolidation & Nation Building",
+    "description": "Integration of Princely States, States Reorganisation Act 1956, tribal policies, linguistic states, and initial Five Year Plans."
+  },
+  {
+    "topic_id": "gs.ancient_medieval.indus_vedic",
+    "domain": "General Studies",
+    "sub_domain": "ancient_medieval",
+    "topic_title": "Indus Valley Civilization & Vedic Period",
+    "description": "Harappan urban architecture, trade links, Rig Vedic and Later Vedic society, religion, and iron age developments."
+  },
+  {
+    "topic_id": "gs.ancient_medieval.mauryan_gupta",
+    "domain": "General Studies",
+    "sub_domain": "ancient_medieval",
+    "topic_title": "Rise of Heterodox Sects, Mauryan & Gupta Empires",
+    "description": "Buddhism, Jainism, Mahajanapadas, Ashoka's Dhamma, Arthashastra, and Gupta golden age in art and sciences."
+  },
+  {
+    "topic_id": "gs.ancient_medieval.delhi_sultanate_mughal",
+    "domain": "General Studies",
+    "sub_domain": "ancient_medieval",
+    "topic_title": "Delhi Sultanate, Mughal Empire & Bhakti-Sufi Movements",
+    "description": "Sultanate administration, Mughal Mansabdari system, Akbar's policies, Maratha rise under Shivaji, and Bhakti/Sufi movements."
+  },
+  {
+    "topic_id": "gs.ancient_medieval.south_indian_dynasties",
+    "domain": "General Studies",
+    "sub_domain": "ancient_medieval",
+    "topic_title": "South Indian Dynasties, Maritime Trade & Vijayanagara",
+    "description": "Sangam Age literature, Chola local self-governance and naval expeditions, Pallavas, and Vijayanagara Empire."
+  },
+  {
+    "topic_id": "gs.art_culture.architecture_sculpture",
+    "domain": "General Studies",
+    "sub_domain": "art_culture",
+    "topic_title": "Indian Architecture, Sculptural Styles & Rock-Cut Traditions",
+    "description": "Nagara, Dravida, and Vesara temple styles, Buddhist stupas, rock-cut caves (Ajanta, Ellora), and Indo-Islamic monuments."
+  },
+  {
+    "topic_id": "gs.art_culture.performing_visual_arts",
+    "domain": "General Studies",
+    "sub_domain": "art_culture",
+    "topic_title": "Performing Arts, Classical Music & Traditional Paintings",
+    "description": "Eight classical dances, Hindustani and Carnatic classical music, and traditional Indian paintings (Mughal, Madhubani, Warli)."
+  },
+  {
+    "topic_id": "gs.art_culture.literature_philosophy",
+    "domain": "General Studies",
+    "sub_domain": "art_culture",
+    "topic_title": "Classical Literature, Philosophical Schools & UNESCO Cultural Heritage",
+    "description": "Shad-Darshana philosophical schools, classical Indian languages, Sanskrit epics, and UNESCO tangible/intangible heritage."
+  },
+  {
+    "topic_id": "gs.geography_physical.geomorphology",
+    "domain": "General Studies",
+    "sub_domain": "geography_physical",
+    "topic_title": "Geomorphology, Earth's Interior & Landform Evolution",
+    "description": "Earth interior, plate tectonics, continental drift, earthquakes, volcanoes, weathering, and fluvial/glacial/aeolian landforms."
+  },
+  {
+    "topic_id": "gs.geography_physical.climatology_ocean",
+    "domain": "General Studies",
+    "sub_domain": "geography_physical",
+    "topic_title": "Climatology, Atmospheric Circulation & Oceanography",
+    "description": "Atmospheric structure, heat budget, planetary winds, cyclones, ocean currents, salinity, tides, and El Nino/La Nina/IOD."
+  },
+  {
+    "topic_id": "gs.geography_india_world.physiography_drainage",
+    "domain": "General Studies",
+    "sub_domain": "geography_india_world",
+    "topic_title": "Physiography of India & Drainage Systems",
+    "description": "Himalayas, Indo-Gangetic plains, Peninsular plateau, coastal plains, and Himalayan and Peninsular river basins."
+  },
+  {
+    "topic_id": "gs.geography_india_world.climate_soils_veg",
+    "domain": "General Studies",
+    "sub_domain": "geography_india_world",
+    "topic_title": "Indian Monsoon, Soils & Natural Vegetation",
+    "description": "South-West monsoon mechanism, western disturbances, major soil groups of India, and forest vegetation classifications."
+  },
+  {
+    "topic_id": "gs.geography_india_world.resources_agriculture",
+    "domain": "General Studies",
+    "sub_domain": "geography_india_world",
+    "topic_title": "Natural Resources, Mineral Wealth & Agricultural Patterns",
+    "description": "Distribution of metallic/non-metallic minerals, coal, petroleum, renewable energy, and major cropping patterns."
+  },
+  {
+    "topic_id": "gs.geography_india_world.population_economic",
+    "domain": "General Studies",
+    "sub_domain": "geography_india_world",
+    "topic_title": "Human Geography, Demographics & Economic Geography",
+    "description": "Demographic trends, Census data, urbanization, industrial clusters, and transportation networks (highways, freight corridors)."
+  },
+  {
+    "topic_id": "gs.environment.ecosystems_ecology",
+    "domain": "General Studies",
+    "sub_domain": "environment",
+    "topic_title": "Ecosystem Dynamics, Biomes & Ecological Principles",
+    "description": "Trophic levels, food chains and webs, ecological pyramids, ecological succession, and biogeochemical nutrient cycles."
+  },
+  {
+    "topic_id": "gs.environment.biodiversity_conservation",
+    "domain": "General Studies",
+    "sub_domain": "environment",
+    "topic_title": "Biodiversity Hotspots, In-Situ/Ex-Situ Conservation & Wildlife",
+    "description": "Biodiversity hotspots in India, IUCN Red List, National Parks, Sanctuaries, Biosphere Reserves, and Project Tiger/Elephant."
+  },
+  {
+    "topic_id": "gs.environment.climate_change_treaties",
+    "domain": "General Studies",
+    "sub_domain": "environment",
+    "topic_title": "Global Climate Change, Greenhouse Effect & International Treaties",
+    "description": "UNFCCC, Paris Agreement (NDCs), global warming, greenhouse gases, IPCC assessments, and Montreal Protocol."
+  },
+  {
+    "topic_id": "gs.environment.pollution_legislation",
+    "domain": "General Studies",
+    "sub_domain": "environment",
+    "topic_title": "Environmental Pollution, Solid Waste & Regulatory Framework",
+    "description": "Air Quality Index (AQI), water pollution, plastic waste rules, Wildlife Protection Act 1972, EPA 1986, and NGT."
+  },
+  {
+    "topic_id": "gs.science_tech.everyday_science",
+    "domain": "General Studies",
+    "sub_domain": "science_tech",
+    "topic_title": "General Science, Human Biology, Nutrition & Public Health",
+    "description": "Human physiology, genetics, communicable and lifestyle diseases, immunology, vaccines, antibiotics, and nutrition."
+  },
+  {
+    "topic_id": "gs.science_tech.space_astronomy",
+    "domain": "General Studies",
+    "sub_domain": "science_tech",
+    "topic_title": "Space Technology, ISRO Missions & Satellite Architecture",
+    "description": "ISRO launch vehicles (PSLV, LVM3), satellite orbits, NavIC GPS, Chandrayaan, Gaganyaan, and Aditya-L1 missions."
+  },
+  {
+    "topic_id": "gs.science_tech.defense_nuclear",
+    "domain": "General Studies",
+    "sub_domain": "science_tech",
+    "topic_title": "Defense Technologies, Missiles & Nuclear Energy Program",
+    "description": "DRDO missile systems (Agni, BrahMos), aircraft carriers, submarines, and India's three-stage nuclear power program."
+  },
+  {
+    "topic_id": "gs.science_tech.emerging_technologies",
+    "domain": "General Studies",
+    "sub_domain": "science_tech",
+    "topic_title": "Emerging & Frontier Technologies",
+    "description": "Artificial Intelligence, Quantum Computing, Blockchain, CRISPR gene editing, 5G/6G telecom, and nanotechnology."
+  },
+  {
+    "topic_id": "gs.economy_gen.planning_niti_growth",
+    "domain": "General Studies",
+    "sub_domain": "economy_gen",
+    "topic_title": "Economic Planning, Growth Models & NITI Aayog Strategy",
+    "description": "Transition from Planning Commission to NITI Aayog, sustainable development goals (SDGs), and inclusive economic growth."
+  },
+  {
+    "topic_id": "gs.economy_gen.poverty_inequality_employment",
+    "domain": "General Studies",
+    "sub_domain": "economy_gen",
+    "topic_title": "Poverty Alleviation, Inequality & Employment Generation",
+    "description": "Poverty measurement methodologies, Multidimensional Poverty Index (MPI), Gini coefficient, PLFS data, and MGNREGA."
+  },
+  {
+    "topic_id": "gs.economy_gen.agriculture_rural_economy",
+    "domain": "General Studies",
+    "sub_domain": "economy_gen",
+    "topic_title": "Agricultural Economics, Food Security & Rural Development",
+    "description": "MSP, CACP pricing, PM-KISAN, crop insurance schemes, National Food Security Act (NFSA 2013), and PDS reforms."
+  },
+  {
+    "topic_id": "gs.economy_gen.infrastructure_industrial",
+    "domain": "General Studies",
+    "sub_domain": "economy_gen",
+    "topic_title": "Infrastructure, Industrial Policy & Manufacturing Growth",
+    "description": "PM Gati Shakti, National Infrastructure Pipeline, Make in India, PLI schemes, SEZs, and industrial corridors."
+  },
+  {
+    "topic_id": "gs.ir_security.foreign_policy_neighborhood",
+    "domain": "General Studies",
+    "sub_domain": "ir_security",
+    "topic_title": "India's Foreign Policy, Bilateral Alliances & Neighborhood",
+    "description": "Neighborhood First, Act East policy, SAGAR doctrine, Indo-Pacific diplomacy, and strategic bilateral partnerships."
+  },
+  {
+    "topic_id": "gs.ir_security.multilateral_orgs",
+    "domain": "General Studies",
+    "sub_domain": "ir_security",
+    "topic_title": "Global Governance, Multilateral Institutions & Regional Blocs",
+    "description": "UNSC reforms, WTO dispute settlement, IMF, World Bank, G20 Presidency priorities, BRICS, SCO, and Quad alliance."
+  },
+  {
+    "topic_id": "gs.ir_security.internal_security_threats",
+    "domain": "General Studies",
+    "sub_domain": "ir_security",
+    "topic_title": "Internal Security Challenges, Border Management & Extremism",
+    "description": "Cross-border terrorism, Left-Wing Extremism (LWE), border management, CAPF roles, NIA, and UAPA statutory provisions."
+  },
+  {
+    "topic_id": "gs.ir_security.cyber_financial_crimes",
+    "domain": "General Studies",
+    "sub_domain": "ir_security",
+    "topic_title": "Cyber Security, Critical Information Infrastructure & Financial Crimes",
+    "description": "Cyber warfare, CERT-In guidelines, critical information infrastructure protection, PMLA 2002, and FATF regulations."
+  },
+  {
+    "topic_id": "gs.ethics.ethical_frameworks",
+    "domain": "General Studies",
+    "sub_domain": "ethics",
+    "topic_title": "Ethics, Human Values & Moral Philosophy",
+    "description": "Determinants and consequences of ethics, moral philosophers (Indian and Western), deontological and utilitarian ethics."
+  },
+  {
+    "topic_id": "gs.ethics.attitude_emotional_intel",
+    "domain": "General Studies",
+    "sub_domain": "ethics",
+    "topic_title": "Attitude, Moral Aptitude & Emotional Intelligence in Governance",
+    "description": "Moral and political attitudes, social influence, persuasion, and emotional intelligence in civil administration."
+  },
+  {
+    "topic_id": "gs.ethics.public_probity_governance",
+    "domain": "General Studies",
+    "sub_domain": "ethics",
+    "topic_title": "Probity in Governance, Transparency & Anti-Corruption Mechanisms",
+    "description": "Probity in public service, Right to Information (RTI Act 2005), Citizen's Charters, codes of conduct, and Lokpal."
+  },
+  {
+    "topic_id": "gs.ethics.administrative_case_studies",
+    "domain": "General Studies",
+    "sub_domain": "ethics",
+    "topic_title": "Administrative Case Studies & Dilemma Resolution",
+    "description": "Practical administrative ethical dilemmas, public interest vs executive pressure, conflict of interest, and case analysis."
+  },
+  {
+    "topic_id": "gs.state_gk.history_culture_regional",
+    "domain": "General Studies",
+    "sub_domain": "state_gk",
+    "topic_title": "State-Specific History, Heritage & Cultural Movements",
+    "description": "State history, regional dynasties, freedom struggle contributions, regional art, literature, and local folk festivals."
+  },
+  {
+    "topic_id": "gs.state_gk.geography_environment_regional",
+    "domain": "General Studies",
+    "sub_domain": "state_gk",
+    "topic_title": "State Physiography, River Basins & Environmental Profiling",
+    "description": "State physical divisions, river basins, regional mineral reserves, state wildlife sanctuaries, and climatic features."
+  },
+  {
+    "topic_id": "gs.state_gk.polity_governance_regional",
+    "domain": "General Studies",
+    "sub_domain": "state_gk",
+    "topic_title": "State Administrative Structure, Judiciary & Local Governance",
+    "description": "State Vidhan Sabha/Parishad, Governor's role, State High Court, State Public Service Commission, and Panchayati Raj."
+  },
+  {
+    "topic_id": "gs.state_gk.economy_development_regional",
+    "domain": "General Studies",
+    "sub_domain": "state_gk",
+    "topic_title": "State Economic Profile, Sectoral Allocations & Flagship Schemes",
+    "description": "State Gross Domestic Product (SGDP), state budget, fiscal deficits, regional industrial hubs, and state welfare schemes."
+  },
+  {
+    "topic_id": "quant.arithmetic.percentages_profit_loss",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "arithmetic",
+    "topic_title": "Percentages, Profit, Loss, Mark-up & Discounts",
+    "description": "Successive percentage changes, profit and loss margins, marked price, discounts, and dishonest dealer problems."
+  },
+  {
+    "topic_id": "quant.arithmetic.simple_compound_interest",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "arithmetic",
+    "topic_title": "Simple & Compound Interest, Compounding Periods & Installments",
+    "description": "Simple interest, compound interest (annual/half-yearly), difference between CI and SI, and equated loan installments."
+  },
+  {
+    "topic_id": "quant.arithmetic.ratio_proportion_variation",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "arithmetic",
+    "topic_title": "Ratio, Proportion & Direct/Inverse Variation",
+    "description": "Compounded ratios, mean and third/fourth proportionals, direct and inverse variations, and proportional division."
+  },
+  {
+    "topic_id": "quant.arithmetic.mixtures_alligations",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "arithmetic",
+    "topic_title": "Mixtures, Alligation Rules & Repeated Replacement",
+    "description": "Rule of alligation, combining solutions of different concentrations, and repeated replacement of liquids from vessels."
+  },
+  {
+    "topic_id": "quant.arithmetic.partnership_shares",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "arithmetic",
+    "topic_title": "Business Partnerships, Capital-Duration Ratio & Profit Distribution",
+    "description": "Partnership investments, capital-time ratio, working versus sleeping partners, and profit-sharing computations."
+  },
+  {
+    "topic_id": "quant.averages_ages.average_concepts",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "averages_ages",
+    "topic_title": "Averages, Weighted Averages & Inclusions/Exclusions",
+    "description": "Arithmetic mean, weighted average formula, change in average on inclusion or replacement of members, and batting averages."
+  },
+  {
+    "topic_id": "quant.averages_ages.problems_on_ages",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "averages_ages",
+    "topic_title": "Linear Age Relations & Time-Shift Projections",
+    "description": "Formulation and solution of linear equations based on past, present, and future chronological age ratios."
+  },
+  {
+    "topic_id": "quant.time_work.work_efficiency_wages",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "time_work",
+    "topic_title": "Time, Work, Worker Efficiency & Wage Distribution",
+    "description": "Unitary work method, individual and combined worker efficiencies, alternate day working, and proportional wages."
+  },
+  {
+    "topic_id": "quant.time_work.pipes_cisterns",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "time_work",
+    "topic_title": "Pipes, Cisterns, Inflow/Outflow Rates & Leakages",
+    "description": "Inlet and outlet pipe flow rates, tank emptying times via leakages, and alternating pipe filling problems."
+  },
+  {
+    "topic_id": "quant.time_distance.speed_time_relative",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "time_distance",
+    "topic_title": "Speed, Time, Distance Basics & Relative Velocity",
+    "description": "Average speed calculations, unit conversions (km/h to m/s), and relative velocity in same and opposite directions."
+  },
+  {
+    "topic_id": "quant.time_distance.trains_platforms",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "time_distance",
+    "topic_title": "Problems on Trains, Platforms, Bridges & Tunnels",
+    "description": "Trains crossing stationary poles/persons, platforms, bridges, and trains moving on parallel tracks."
+  },
+  {
+    "topic_id": "quant.time_distance.boats_streams_races",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "time_distance",
+    "topic_title": "Boats, Streams, River Currents & Linear/Circular Races",
+    "description": "Upstream and downstream river velocities, still water boat speeds, headstarts, and circular track lap meetings."
+  },
+  {
+    "topic_id": "quant.number_systems.properties_divisibility",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "number_systems",
+    "topic_title": "Classification of Numbers, Divisibility Rules & Remainder Theorems",
+    "description": "Prime numbers, divisibility tests, remainder arithmetic, Euler totient theorem, and Fermat's little theorem."
+  },
+  {
+    "topic_id": "quant.number_systems.hcf_lcm_indices",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "number_systems",
+    "topic_title": "HCF, LCM, Surds, Indices & Power Simplifications",
+    "description": "Highest common factor, least common multiple, surds rationalization, and algebraic laws of indices."
+  },
+  {
+    "topic_id": "quant.number_systems.unit_digit_factorials",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "number_systems",
+    "topic_title": "Unit Digit Determination, Factorials & Trailing Zeros",
+    "description": "Cyclicity of powers, finding unit digits of large expressions, Legendre's formula, and counting trailing zeros in factorials."
+  },
+  {
+    "topic_id": "quant.algebra.linear_equations",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "algebra",
+    "topic_title": "Linear Equations in One, Two & Three Variables",
+    "description": "Simultaneous equations, consistency and inconsistency of systems, and algebraic formulation of word problems."
+  },
+  {
+    "topic_id": "quant.algebra.quadratic_equations",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "algebra",
+    "topic_title": "Quadratic Equations, Nature of Roots & Optimization",
+    "description": "Standard quadratic form, discriminant, nature of roots, Vieta's relations, and quadratic graph optimization."
+  },
+  {
+    "topic_id": "quant.algebra.inequalities_polynomials",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "algebra",
+    "topic_title": "Algebraic Identities, Polynomial Factorization & Inequalities",
+    "description": "Polynomial factorizations, remainder theorem, absolute value modulus equations, and linear/quadratic inequalities."
+  },
+  {
+    "topic_id": "quant.algebra.progressions_series",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "algebra",
+    "topic_title": "Arithmetic, Geometric & Harmonic Progressions (AP, GP, HP)",
+    "description": "nth term and sum of n terms of AP, GP, infinite geometric series, harmonic progressions, and series summations."
+  },
+  {
+    "topic_id": "quant.geometry.lines_angles_triangles",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "geometry",
+    "topic_title": "Lines, Angles & Triangle Geometry",
+    "description": "Parallel lines, transversals, triangle congruence, similarity theorems, centroid, incenter, and Pythagoras theorem."
+  },
+  {
+    "topic_id": "quant.geometry.circles_polygons",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "geometry",
+    "topic_title": "Circle Theorems, Chords, Tangents & Polygons",
+    "description": "Chords, cyclic quadrilaterals, tangent-secant properties, alternate segment theorem, and interior/exterior angles of polygons."
+  },
+  {
+    "topic_id": "quant.geometry.coordinate_geometry",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "geometry",
+    "topic_title": "Coordinate Geometry of Straight Lines & Conics Basics",
+    "description": "Distance formula, section formula, slope of straight lines, collinearity, and standard equations of straight lines."
+  },
+  {
+    "topic_id": "quant.mensuration.mensuration_2d",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "mensuration",
+    "topic_title": "2D Mensuration: Perimeter & Area of Planar Figures",
+    "description": "Perimeter and area of triangles (Heron's formula), rectangles, parallelograms, rhombuses, trapeziums, and circles."
+  },
+  {
+    "topic_id": "quant.mensuration.mensuration_3d",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "mensuration",
+    "topic_title": "3D Mensuration: Surface Area & Volume of Solids",
+    "description": "Surface area and volume of cubes, cuboids, cylinders, cones, spheres, hemispheres, prisms, and frustums."
+  },
+  {
+    "topic_id": "quant.trigonometry.ratios_identities",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "trigonometry",
+    "topic_title": "Trigonometric Ratios, Standard Angles & Pythagorean Identities",
+    "description": "Fundamental trigonometric ratios, standard angle evaluations (0 to 90 degrees), and Pythagorean identities."
+  },
+  {
+    "topic_id": "quant.trigonometry.heights_distances",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "trigonometry",
+    "topic_title": "Heights and Distances & Angular Observations",
+    "description": "Angle of elevation, angle of depression, line of sight, and distance/height problems involving towers and ships."
+  },
+  {
+    "topic_id": "quant.modern_math.permutations_combinations",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "modern_math",
+    "topic_title": "Permutations, Combinations & Counting Principles",
+    "description": "Fundamental counting principle, linear and circular permutations, combinations nCr, and distribution into teams."
+  },
+  {
+    "topic_id": "quant.modern_math.probability_set_theory",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "modern_math",
+    "topic_title": "Probability Theory, Compound Events & Set Operations",
+    "description": "Sample spaces, classical probability, addition and multiplication rules, conditional probability, and Bayes' theorem."
+  },
+  {
+    "topic_id": "quant.di_ds.tables_bar_line_charts",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "di_ds",
+    "topic_title": "Data Interpretation: Tables, Bar Charts & Line Graphs",
+    "description": "Tabular data extraction, single and stacked bar charts, histograms, and time-series line graphs."
+  },
+  {
+    "topic_id": "quant.di_ds.pie_radar_mixed_charts",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "di_ds",
+    "topic_title": "Data Interpretation: Pie Charts, Radar Plots & Mixed Graphs",
+    "description": "Single/double pie charts, degree to percentage conversions, radar charts, and mixed composite graph sets."
+  },
+  {
+    "topic_id": "quant.di_ds.caselet_di",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "di_ds",
+    "topic_title": "Data Interpretation: Caselets & Paragraph-Based Sets",
+    "description": "Unstructured paragraph caselets, Venn diagram caselets, and multi-variable arithmetic narrative interpretation."
+  },
+  {
+    "topic_id": "quant.di_ds.data_sufficiency",
+    "domain": "Quantitative Aptitude",
+    "sub_domain": "di_ds",
+    "topic_title": "Data Sufficiency in Quantitative Problem Solving",
+    "description": "Two-statement and three-statement data sufficiency evaluation across arithmetic, algebra, and geometry problems."
+  },
+  {
+    "topic_id": "reasoning.puzzles_seating.linear_circular_seating",
+    "domain": "Reasoning",
+    "sub_domain": "puzzles_seating",
+    "topic_title": "Linear & Circular/Polygonal Seating Arrangements",
+    "description": "Single/double row seating facing North/South, and circular/polygonal table seating facing inward and outward."
+  },
+  {
+    "topic_id": "reasoning.puzzles_seating.floor_box_puzzles",
+    "domain": "Reasoning",
+    "sub_domain": "puzzles_seating",
+    "topic_title": "Floor, Flat & Box Stacking Arrangement Puzzles",
+    "description": "Multi-floor building puzzles (floors 1 to 10), flat-floor combinations, and vertical box stacking order."
+  },
+  {
+    "topic_id": "reasoning.puzzles_seating.scheduling_matrix",
+    "domain": "Reasoning",
+    "sub_domain": "puzzles_seating",
+    "topic_title": "Day, Month, Year Scheduling & Multi-Attribute Matrix Puzzles",
+    "description": "Scheduling across days of the week, months and dates, and multi-attribute matrix matching grids."
+  },
+  {
+    "topic_id": "reasoning.coding_decoding.letter_symbol_coding",
+    "domain": "Reasoning",
+    "sub_domain": "coding_decoding",
+    "topic_title": "Letter Shifting, Substitution & Symbol Coding",
+    "description": "Letter shifts, reverse alphabet, symbol coding, conditional matrix coding, and fictitious language ciphering."
+  },
+  {
+    "topic_id": "reasoning.coding_decoding.number_alphabet_series",
+    "domain": "Reasoning",
+    "sub_domain": "coding_decoding",
+    "topic_title": "Number Series, Alphanumeric Sequences & Pattern Completion",
+    "description": "Arithmetic and geometric difference series, alphanumeric sequences, and wrong term identification."
+  },
+  {
+    "topic_id": "reasoning.blood_relations.family_tree_logic",
+    "domain": "Reasoning",
+    "sub_domain": "blood_relations",
+    "topic_title": "Family Tree Construction & Direct Relational Puzzles",
+    "description": "Narrative family tree construction, generation linking, and 'pointing to a person' relationship problems."
+  },
+  {
+    "topic_id": "reasoning.blood_relations.coded_blood_relations",
+    "domain": "Reasoning",
+    "sub_domain": "blood_relations",
+    "topic_title": "Symbol-Coded Blood Relations & Kinship Derivations",
+    "description": "Deciphering kinship relations encoded via mathematical symbols and multi-step expression evaluation."
+  },
+  {
+    "topic_id": "reasoning.direction_distance.compass_directions",
+    "domain": "Reasoning",
+    "sub_domain": "direction_distance",
+    "topic_title": "Cardinal Directions, Turn Angles & Pythagorean Distance",
+    "description": "Eight compass directions, clockwise/anticlockwise turns, displacement vectors, and Pythagoras distance."
+  },
+  {
+    "topic_id": "reasoning.direction_distance.shadow_clock_angles",
+    "domain": "Reasoning",
+    "sub_domain": "direction_distance",
+    "topic_title": "Shadow Direction Dynamics & Clock Hand Orientations",
+    "description": "Sun-shadow dynamics at sunrise and sunset, facing directions, and directional clock hand orientation."
+  },
+  {
+    "topic_id": "reasoning.verbal_logic.syllogisms_standard",
+    "domain": "Reasoning",
+    "sub_domain": "verbal_logic",
+    "topic_title": "Categorical Syllogisms & Deductive Logic",
+    "description": "Standard two/three statement categorical syllogisms using Venn logic (All, Some, No, Some not)."
+  },
+  {
+    "topic_id": "reasoning.verbal_logic.syllogisms_possibility",
+    "domain": "Reasoning",
+    "sub_domain": "verbal_logic",
+    "topic_title": "Modern Syllogisms: 'Only a Few', Possibility Cases & Reverse Syllogisms",
+    "description": "Advanced syllogisms featuring 'Only a few', possibility conclusions, 'can never be', and reverse syllogisms."
+  },
+  {
+    "topic_id": "reasoning.verbal_logic.logical_venn_diagrams",
+    "domain": "Reasoning",
+    "sub_domain": "verbal_logic",
+    "topic_title": "Logical Venn Diagrams & Set Categorization",
+    "description": "Classifying real-world objects and groups into overlapping geometric figures (circles, triangles, rectangles)."
+  },
+  {
+    "topic_id": "reasoning.critical_reasoning.statement_assumptions",
+    "domain": "Reasoning",
+    "sub_domain": "critical_reasoning",
+    "topic_title": "Statement and Assumptions: Unstated Premises & Validity",
+    "description": "Identifying implicit, unstated premises upon which a stated argument or policy relies."
+  },
+  {
+    "topic_id": "reasoning.critical_reasoning.statement_arguments",
+    "domain": "Reasoning",
+    "sub_domain": "critical_reasoning",
+    "topic_title": "Statement and Arguments: Strong vs. Weak Arguments",
+    "description": "Evaluating arguments on controversial policies; differentiating strong fact-based arguments from weak biased ones."
+  },
+  {
+    "topic_id": "reasoning.critical_reasoning.course_of_action",
+    "domain": "Reasoning",
+    "sub_domain": "critical_reasoning",
+    "topic_title": "Statement and Course of Action: Feasibility & Proportionality",
+    "description": "Judging executive courses of action proposed in response to a problem for feasibility and proportionality."
+  },
+  {
+    "topic_id": "reasoning.critical_reasoning.cause_and_effect",
+    "domain": "Reasoning",
+    "sub_domain": "critical_reasoning",
+    "topic_title": "Cause and Effect Analysis & Event Relationships",
+    "description": "Analyzing pairs of events to establish direct causation, independent effects, or effects of a common cause."
+  },
+  {
+    "topic_id": "reasoning.critical_reasoning.drawing_inferences",
+    "domain": "Reasoning",
+    "sub_domain": "critical_reasoning",
+    "topic_title": "Drawing Inferences & Statement Conclusions",
+    "description": "Deriving logically inescapable conclusions from passages and classifying conclusions by truth certainty."
+  },
+  {
+    "topic_id": "reasoning.order_ranking.linear_ranking",
+    "domain": "Reasoning",
+    "sub_domain": "order_ranking",
+    "topic_title": "Linear Order & Ranking in a Row",
+    "description": "Calculating total count from left/right rankings, intermediate entity counts, and interchanged seat positions."
+  },
+  {
+    "topic_id": "reasoning.order_ranking.comparison_inequalities",
+    "domain": "Reasoning",
+    "sub_domain": "order_ranking",
+    "topic_title": "Comparative Ordering by Attributes (Height, Weight, Marks)",
+    "description": "Sorting entities based on relative comparative attributes (taller/shorter, heavier/lighter, marks)."
+  },
+  {
+    "topic_id": "reasoning.coded_inequalities.symbolic_inequalities",
+    "domain": "Reasoning",
+    "sub_domain": "coded_inequalities",
+    "topic_title": "Mathematical Inequalities & Chain Linkages",
+    "description": "Evaluating direct algebraic inequalities involving relational operators (>, <, =, >=, <=) across multi-statement chains."
+  },
+  {
+    "topic_id": "reasoning.coded_inequalities.coded_relational_magic_box",
+    "domain": "Reasoning",
+    "sub_domain": "coded_inequalities",
+    "topic_title": "Coded Inequalities & Magic Box Technique",
+    "description": "Solving coded inequality relationships where operators are encrypted as symbols using the Magic Box method."
+  },
+  {
+    "topic_id": "reasoning.input_output.word_number_shifting",
+    "domain": "Reasoning",
+    "sub_domain": "input_output",
+    "topic_title": "Machine Input-Output: Word & Number Shifting Rules",
+    "description": "Sequential machine processing algorithms rearranging words alphabetically and numbers in ascending/descending order."
+  },
+  {
+    "topic_id": "reasoning.input_output.mathematical_box_operations",
+    "domain": "Reasoning",
+    "sub_domain": "input_output",
+    "topic_title": "Advanced Machine Input-Output: Mathematical Block Operations",
+    "description": "Multi-step machine input models operating on two-digit numerical blocks via mathematical transformations."
+  },
+  {
+    "topic_id": "reasoning.non_verbal.series_analogy_classification",
+    "domain": "Reasoning",
+    "sub_domain": "non_verbal",
+    "topic_title": "Figure Series, Analogy & Odd-One-Out Classification",
+    "description": "Identifying rotational symmetry, element movement within frames, figure analogies, and odd-one-out figures."
+  },
+  {
+    "topic_id": "reasoning.non_verbal.mirror_water_images",
+    "domain": "Reasoning",
+    "sub_domain": "non_verbal",
+    "topic_title": "Mirror Images, Water Images & Lateral Inversion",
+    "description": "Visual reflections of figures, alphanumeric text, and clocks across vertical (mirror) and horizontal (water) planes."
+  },
+  {
+    "topic_id": "reasoning.non_verbal.paper_folding_cutting",
+    "domain": "Reasoning",
+    "sub_domain": "non_verbal",
+    "topic_title": "Paper Folding, Paper Cutting & Pattern Punching",
+    "description": "Sequential folding of transparent paper, punching geometric cuts, and reconstructing the unfolded pattern."
+  },
+  {
+    "topic_id": "reasoning.non_verbal.cube_dice_embedded",
+    "domain": "Reasoning",
+    "sub_domain": "non_verbal",
+    "topic_title": "Cubes, Dice Opposites & Embedded Figures",
+    "description": "Opposite face determination from multiple dice views, unfolding cube net layouts, and finding embedded figures."
+  },
+  {
+    "topic_id": "english.reading_comprehension.factual_main_idea",
+    "domain": "English",
+    "sub_domain": "reading_comprehension",
+    "topic_title": "Reading Comprehension: Central Idea, Primary Purpose & Factual Recall",
+    "description": "Central thesis identification, primary purpose, appropriate title formulation, and explicit factual retrieval."
+  },
+  {
+    "topic_id": "english.reading_comprehension.inference_author_tone",
+    "domain": "English",
+    "sub_domain": "reading_comprehension",
+    "topic_title": "Reading Comprehension: Implicit Inferences, Mood & Author's Tone",
+    "description": "Implicit meanings, contextual nuance, determining author's attitude/tone (satirical, analytical, objective), and subtext."
+  },
+  {
+    "topic_id": "english.reading_comprehension.structural_argument",
+    "domain": "English",
+    "sub_domain": "reading_comprehension",
+    "topic_title": "Reading Comprehension: Passage Structure, Logical Flow & Counter-Theses",
+    "description": "Paragraph transitions, premise-conclusion arguments, underlying assumptions, and strengthening/weakening propositions."
+  },
+  {
+    "topic_id": "english.grammar_syntax.subject_verb_agreement",
+    "domain": "English",
+    "sub_domain": "grammar_syntax",
+    "topic_title": "Subject-Verb Agreement (Concord) & Pronoun Reference",
+    "description": "Grammatical concord rules, collective noun agreements, compound subjects, and pronoun-antecedent agreement."
+  },
+  {
+    "topic_id": "english.grammar_syntax.tenses_conditionals",
+    "domain": "English",
+    "sub_domain": "grammar_syntax",
+    "topic_title": "Tense Continuity, Sequence of Tenses & Conditionals",
+    "description": "Tense sequence in complex sentences, past/present perfect, and zero, first, second, and third conditional structures."
+  },
+  {
+    "topic_id": "english.grammar_syntax.modifiers_parallelism",
+    "domain": "English",
+    "sub_domain": "grammar_syntax",
+    "topic_title": "Modifiers, Dangling Participles & Parallel Structure",
+    "description": "Avoiding dangling/misplaced modifiers, ensuring parallel grammatical structures, and correlative conjunctions."
+  },
+  {
+    "topic_id": "english.grammar_syntax.prepositions_phrasal_usage",
+    "domain": "English",
+    "sub_domain": "grammar_syntax",
+    "topic_title": "Prepositions, Fixed Prepositional Phrases & Phrasal Verbs",
+    "description": "Prepositions of time/place, fixed prepositional idioms (e.g. abide by, adhere to), and phrasal verb shifts."
+  },
+  {
+    "topic_id": "english.grammar_syntax.active_passive_direct_indirect",
+    "domain": "English",
+    "sub_domain": "grammar_syntax",
+    "topic_title": "Voice Transformation (Active/Passive) & Reported Speech",
+    "description": "Active to passive voice conversions and direct speech to indirect reported speech transformations."
+  },
+  {
+    "topic_id": "english.vocabulary_usage.synonyms_antonyms",
+    "domain": "English",
+    "sub_domain": "vocabulary_usage",
+    "topic_title": "Contextual Synonyms, Antonyms & Semantic Nuances",
+    "description": "Contextual synonyms and antonyms, nuanced connotations, and distinguishing formal from colloquial lexicon."
+  },
+  {
+    "topic_id": "english.vocabulary_usage.idioms_phrases",
+    "domain": "English",
+    "sub_domain": "vocabulary_usage",
+    "topic_title": "Idiomatic Expressions, Proverbial Meanings & Figurative Usage",
+    "description": "Classical English idioms, administrative turns of phrase, proverbs, and figurative language usage."
+  },
+  {
+    "topic_id": "english.vocabulary_usage.one_word_substitution",
+    "domain": "English",
+    "sub_domain": "vocabulary_usage",
+    "topic_title": "One-Word Substitutions & Specialized Terminology",
+    "description": "Concise lexical replacements for verbose phrases, legal terms, scientific classifications, and administrative titles."
+  },
+  {
+    "topic_id": "english.vocabulary_usage.spelling_confusing_words",
+    "domain": "English",
+    "sub_domain": "vocabulary_usage",
+    "topic_title": "Spelling Accuracy, Homophones, Homonyms & Paronyms",
+    "description": "Correct spelling of complex words, commonly confused word pairs (affect/effect), and homophonic clarity."
+  },
+  {
+    "topic_id": "english.verbal_ability.para_jumbles_sentence_rearrangement",
+    "domain": "English",
+    "sub_domain": "verbal_ability",
+    "topic_title": "Para Jumbles & Sentence Rearrangement for Coherence",
+    "description": "Paragraph coherence from jumbled sentence fragments, identifying opening/topic sentences and transition markers."
+  },
+  {
+    "topic_id": "english.verbal_ability.cloze_test_fillers",
+    "domain": "English",
+    "sub_domain": "verbal_ability",
+    "topic_title": "Cloze Tests, Single/Double Sentence Fillers & Fill-in-the-Blanks",
+    "description": "Thematic passage completion (cloze test) and single/double sentence fillers requiring grammatical agreement."
+  },
+  {
+    "topic_id": "english.verbal_ability.sentence_improvement_connectors",
+    "domain": "English",
+    "sub_domain": "verbal_ability",
+    "topic_title": "Sentence Improvement, Sentence Starters & Discourse Connectors",
+    "description": "Sentence correction, sentence starters, and joining clauses using logical discourse connectors."
+  },
+  {
+    "topic_id": "english.descriptive_writing.essay_composition",
+    "domain": "English",
+    "sub_domain": "descriptive_writing",
+    "topic_title": "Descriptive Essay Formulation & Argumentative Composition",
+    "description": "Structured descriptive, analytical, and argumentative essays on socio-economic, governance, and policy topics."
+  },
+  {
+    "topic_id": "english.descriptive_writing.precis_writing",
+    "domain": "English",
+    "sub_domain": "descriptive_writing",
+    "topic_title": "Precis Writing: Summarization & Salient Point Retention",
+    "description": "Condensing extended passages into precisely one-third length, retaining core arguments and avoiding verbatim copying."
+  },
+  {
+    "topic_id": "english.descriptive_writing.formal_letter_memo",
+    "domain": "English",
+    "sub_domain": "descriptive_writing",
+    "topic_title": "Official Correspondence: Formal Letters, Memoranda & Representations",
+    "description": "Official government letters, representations, business correspondence, and internal office memoranda protocol."
+  },
+  {
+    "topic_id": "english.descriptive_writing.report_counter_argument",
+    "domain": "English",
+    "sub_domain": "descriptive_writing",
+    "topic_title": "Analytical Report Writing & Pro/Con Argument Drafting",
+    "description": "Formal administrative event reports and writing balanced arguments for and against controversial propositions."
+  },
+  {
+    "topic_id": "econ_fin.macroeconomics.national_income_aggregates",
+    "domain": "Economics & Finance",
+    "sub_domain": "macroeconomics",
+    "topic_title": "National Income Aggregates, GVA & Output Accounting",
+    "description": "GDP, GNP, NNP, National Income at Factor Cost versus Market Prices, Gross Value Added (GVA), and GDP Deflator."
+  },
+  {
+    "topic_id": "econ_fin.macroeconomics.inflation_price_indices",
+    "domain": "Economics & Finance",
+    "sub_domain": "macroeconomics",
+    "topic_title": "Inflation Dynamics, Price Indices & Phillips Curve",
+    "description": "Demand-pull and cost-push inflation, CPI-Combined, WPI, Core vs Headline inflation, and Phillips curve trade-offs."
+  },
+  {
+    "topic_id": "econ_fin.macroeconomics.consumption_investment_models",
+    "domain": "Economics & Finance",
+    "sub_domain": "macroeconomics",
+    "topic_title": "Keynesian Aggregate Demand, Investment Multiplier & IS-LM Model",
+    "description": "Keynesian consumption function, marginal propensity to consume/save, investment multiplier, and IS-LM framework."
+  },
+  {
+    "topic_id": "econ_fin.macroeconomics.business_cycles_growth",
+    "domain": "Economics & Finance",
+    "sub_domain": "macroeconomics",
+    "topic_title": "Business Cycles, Potential Output & Economic Growth Theories",
+    "description": "Phases of business cycles, output gap, potential GDP, and exogenous/endogenous growth models (Solow, Harrod-Domar)."
+  },
+  {
+    "topic_id": "econ_fin.monetary_policy.rbi_framework_instruments",
+    "domain": "Economics & Finance",
+    "sub_domain": "monetary_policy",
+    "topic_title": "RBI Monetary Policy Framework, MPC & Inflation Targeting",
+    "description": "RBI Act 1934 provisions, Monetary Policy Committee (MPC) voting, and statutory Flexible Inflation Targeting (4±2%)."
+  },
+  {
+    "topic_id": "econ_fin.monetary_policy.liquidity_operations",
+    "domain": "Economics & Finance",
+    "sub_domain": "monetary_policy",
+    "topic_title": "Liquidity Management Instruments: Repo, SDF, MSF & Reserve Ratios",
+    "description": "Policy Repo Rate, Standing Deposit Facility (SDF), Marginal Standing Facility (MSF), CRR, SLR, and OMO operations."
+  },
+  {
+    "topic_id": "econ_fin.monetary_policy.money_supply_aggregates",
+    "domain": "Economics & Finance",
+    "sub_domain": "monetary_policy",
+    "topic_title": "Monetary Aggregates, High-Powered Money & Money Multiplier",
+    "description": "Reserve money (M0), narrow money (M1), broad money (M3), currency-deposit ratio, and money multiplier mechanics."
+  },
+  {
+    "topic_id": "econ_fin.fiscal_policy.union_budget_deficits",
+    "domain": "Economics & Finance",
+    "sub_domain": "fiscal_policy",
+    "topic_title": "Union Budget Concepts, Deficit Metrics & FRBM Act",
+    "description": "Revenue and Capital accounts, Revenue/Fiscal/Primary Deficits, and FRBM Act 2003 fiscal targets."
+  },
+  {
+    "topic_id": "econ_fin.fiscal_policy.taxation_direct_indirect",
+    "domain": "Economics & Finance",
+    "sub_domain": "fiscal_policy",
+    "topic_title": "Tax Policy, Direct Taxes & GST Framework",
+    "description": "Canons of taxation, Corporate income tax, Goods and Services Tax (GST) architecture, GST Council, and Input Tax Credit."
+  },
+  {
+    "topic_id": "econ_fin.fiscal_policy.public_debt_finance_commission",
+    "domain": "Economics & Finance",
+    "sub_domain": "fiscal_policy",
+    "topic_title": "Public Debt Management & Finance Commission Transfers",
+    "description": "Internal and external public debt, debt-to-GDP ratios, Finance Commission horizontal/vertical devolution criteria."
+  },
+  {
+    "topic_id": "econ_fin.financial_markets.money_market_instruments",
+    "domain": "Economics & Finance",
+    "sub_domain": "financial_markets",
+    "topic_title": "Money Market Architecture & Short-Term Instruments",
+    "description": "Call money, Treasury Bills (91, 182, 364 days), Commercial Paper (CP), Certificates of Deposit (CD), and TREPS."
+  },
+  {
+    "topic_id": "econ_fin.financial_markets.capital_markets_equity_debt",
+    "domain": "Economics & Finance",
+    "sub_domain": "financial_markets",
+    "topic_title": "Capital Markets: Primary Equity Issues & Bond Valuations",
+    "description": "Primary market offerings (IPO, FPO, Rights Issue), secondary trading, G-Secs, bond valuation, YTM, and duration."
+  },
+  {
+    "topic_id": "econ_fin.financial_markets.derivatives_risk_management",
+    "domain": "Economics & Finance",
+    "sub_domain": "financial_markets",
+    "topic_title": "Financial Derivatives, Option Pricing & Hedging Strategies",
+    "description": "Forwards, Futures, European/American Call and Put options, interest rate swaps, hedging, and Black-Scholes model."
+  },
+  {
+    "topic_id": "econ_fin.financial_markets.sebi_regulatory_framework",
+    "domain": "Economics & Finance",
+    "sub_domain": "financial_markets",
+    "topic_title": "SEBI Governance, Securities Laws & Market Infrastructure",
+    "description": "SEBI Act 1992, ICDR Regulations, LODR Regulations, Prohibition of Insider Trading (PIT), and Depositories Act."
+  },
+  {
+    "topic_id": "econ_fin.banking_systems.structure_commercial_banks",
+    "domain": "Economics & Finance",
+    "sub_domain": "banking_systems",
+    "topic_title": "Structure & Evolution of the Indian Banking System",
+    "description": "Scheduled commercial banks, Small Finance Banks, Payments Banks, Regional Rural Banks, and Banking Regulation Act 1949."
+  },
+  {
+    "topic_id": "econ_fin.banking_systems.basel_capital_framework",
+    "domain": "Economics & Finance",
+    "sub_domain": "banking_systems",
+    "topic_title": "Basel Capital Accords, CRAR & Prudential Norms",
+    "description": "Basel III standards, Capital Adequacy Ratio (CRAR), Tier 1/2 capital, Leverage Ratio, LCR, and NSFR ratios."
+  },
+  {
+    "topic_id": "econ_fin.banking_systems.npa_resolution_ibc",
+    "domain": "Economics & Finance",
+    "sub_domain": "banking_systems",
+    "topic_title": "Non-Performing Assets (NPAs), Provisioning & IBC 2016",
+    "description": "Asset classification (SMA-0/1/2, Substandard, Doubtful, Loss), SARFAESI Act, IBC 2016, and Bad Bank (NARCL-IDRCL)."
+  },
+  {
+    "topic_id": "econ_fin.banking_systems.priority_sector_financial_inclusion",
+    "domain": "Economics & Finance",
+    "sub_domain": "banking_systems",
+    "topic_title": "Priority Sector Lending (PSL) & Financial Inclusion Architecture",
+    "description": "RBI Priority Sector Lending (PSL) mandates, PM Jan Dhan Yojana, PM Mudra Yojana, and Financial Inclusion Index."
+  },
+  {
+    "topic_id": "econ_fin.regulatory_bodies.pension_architecture_pfrda",
+    "domain": "Economics & Finance",
+    "sub_domain": "regulatory_bodies",
+    "topic_title": "Pension Regulatory Framework, PFRDA & National Pension System (NPS)",
+    "description": "PFRDA Act 2013, National Pension System (NPS) architecture, Tier I/II accounts, and Atal Pension Yojana (APY)."
+  },
+  {
+    "topic_id": "econ_fin.regulatory_bodies.ifsca_gift_city",
+    "domain": "Economics & Finance",
+    "sub_domain": "regulatory_bodies",
+    "topic_title": "International Financial Services Centres Authority (IFSCA) & GIFT City",
+    "description": "IFSCA Act 2019, GIFT City ecosystem, offshore banking units, bullion exchange, and aircraft/ship leasing rules."
+  },
+  {
+    "topic_id": "econ_fin.regulatory_bodies.nabard_rural_credit",
+    "domain": "Economics & Finance",
+    "sub_domain": "regulatory_bodies",
+    "topic_title": "NABARD Mandate, Rural Infrastructure Development Fund (RIDF) & Agri-Credit",
+    "description": "NABARD Act 1981, Rural Infrastructure Development Fund (RIDF), agri-credit refinancing, and cooperative banking supervision."
+  },
+  {
+    "topic_id": "econ_fin.regulatory_bodies.sidbi_msme_ecosystem",
+    "domain": "Economics & Finance",
+    "sub_domain": "regulatory_bodies",
+    "topic_title": "SIDBI Mandate, MSME Credit Architecture & Trade Receivables (TReDS)",
+    "description": "SIDBI, MSMED Act 2006 classification criteria, CGTMSE credit guarantee funds, and TReDS factoring platform."
+  },
+  {
+    "topic_id": "econ_fin.corporate_finance.financial_statement_analysis",
+    "domain": "Economics & Finance",
+    "sub_domain": "corporate_finance",
+    "topic_title": "Corporate Financial Statements: Balance Sheet, P&L & Cash Flow",
+    "description": "Balance Sheet, Statement of Profit and Loss, and Cash Flow Statement analysis across operating, investing, and financing."
+  },
+  {
+    "topic_id": "econ_fin.corporate_finance.ratio_analysis_liquidity_solvency",
+    "domain": "Economics & Finance",
+    "sub_domain": "corporate_finance",
+    "topic_title": "Financial Ratio Analysis: Liquidity, Solvency, Activity & Profitability",
+    "description": "Current/Quick ratios, Debt-to-Equity, Interest Coverage, Return on Equity (ROE), ROCE, and DuPont analysis."
+  },
+  {
+    "topic_id": "econ_fin.corporate_finance.capital_budgeting_cost_of_capital",
+    "domain": "Economics & Finance",
+    "sub_domain": "corporate_finance",
+    "topic_title": "Capital Budgeting Evaluation & Weighted Average Cost of Capital (WACC)",
+    "description": "Capital budgeting (NPV, IRR, Payback Period), Cost of Equity (CAPM), and Weighted Average Cost of Capital (WACC)."
+  },
+  {
+    "topic_id": "econ_fin.accounting_costing.accounting_standards_indas",
+    "domain": "Economics & Finance",
+    "sub_domain": "accounting_costing",
+    "topic_title": "Accounting Principles, Indian Accounting Standards (Ind AS) & Auditing",
+    "description": "Fundamental accounting assumptions, Ind AS aligned with IFRS, revenue recognition rules, and statutory auditing."
+  },
+  {
+    "topic_id": "econ_fin.accounting_costing.cost_accounting_marginal",
+    "domain": "Economics & Finance",
+    "sub_domain": "accounting_costing",
+    "topic_title": "Cost Accounting, Marginal Costing & Break-Even Analysis",
+    "description": "Elements of cost, Marginal Costing, Cost-Volume-Profit (CVP) analysis, Contribution margin, and Break-Even Point (BEP)."
+  },
+  {
+    "topic_id": "econ_fin.management_org.management_principles_theories",
+    "domain": "Economics & Finance",
+    "sub_domain": "management_org",
+    "topic_title": "Foundational Management Thought & Organizational Principles",
+    "description": "Scientific Management (Taylor), 14 Principles of Management (Fayol), Bureaucracy (Weber), and Hawthorne studies (Mayo)."
+  },
+  {
+    "topic_id": "econ_fin.management_org.organizational_behavior_leadership",
+    "domain": "Economics & Finance",
+    "sub_domain": "management_org",
+    "topic_title": "Organizational Behavior, Motivation Models & Leadership Styles",
+    "description": "Motivation models (Maslow, Herzberg, Vroom), leadership styles (transformational, transactional), and group dynamics."
+  },
+  {
+    "topic_id": "econ_fin.management_org.corporate_governance_ethics",
+    "domain": "Economics & Finance",
+    "sub_domain": "management_org",
+    "topic_title": "Corporate Governance Principles, Board Mandates & CSR",
+    "description": "Codes of corporate governance, role of Independent Directors, Board audit committees, and Section 135 CSR mandates."
+  },
+  {
+    "topic_id": "tech.computer_science.data_structures",
+    "domain": "Technical",
+    "sub_domain": "computer_science",
+    "topic_title": "Data Structures: Arrays, Linked Lists, Trees, Heaps & Graphs",
+    "description": "Arrays, linked lists, stacks, queues, binary search trees (BST), AVL trees, binary heaps, hash tables, and graphs."
+  },
+  {
+    "topic_id": "tech.computer_science.algorithms_complexity",
+    "domain": "Technical",
+    "sub_domain": "computer_science",
+    "topic_title": "Algorithms & Asymptotic Complexity Analysis",
+    "description": "Asymptotic notations (Big O), Master Theorem, Quicksort, Mergesort, Dynamic Programming, Dijkstra, and NP-completeness."
+  },
+  {
+    "topic_id": "tech.computer_science.operating_systems",
+    "domain": "Technical",
+    "sub_domain": "computer_science",
+    "topic_title": "Operating Systems: Process Scheduling, Concurrency & Virtual Memory",
+    "description": "Process scheduling, threads, semaphores, mutexes, deadlock avoidance (Banker's algorithm), and virtual memory."
+  },
+  {
+    "topic_id": "tech.computer_science.database_management",
+    "domain": "Technical",
+    "sub_domain": "computer_science",
+    "topic_title": "Database Management Systems (DBMS), Relational Algebra & SQL",
+    "description": "Relational data model, relational algebra, SQL DDL/DML, normalization up to BCNF, indexing, and ACID transactions."
+  },
+  {
+    "topic_id": "tech.computer_science.computer_networks",
+    "domain": "Technical",
+    "sub_domain": "computer_science",
+    "topic_title": "Computer Networks: OSI/TCP-IP Protocols, Routing & Security",
+    "description": "OSI and TCP/IP protocol architectures, IPv4/IPv6 subnetting, routing protocols (OSPF, BGP), and TCP flow control."
+  },
+  {
+    "topic_id": "tech.computer_science.software_eng_cloud",
+    "domain": "Technical",
+    "sub_domain": "computer_science",
+    "topic_title": "Software Engineering, Cloud Computing & System Design",
+    "description": "SDLC, Agile Scrum methodologies, design patterns, microservices architecture, REST APIs, and cloud computing (IaaS/PaaS)."
+  },
+  {
+    "topic_id": "tech.electronics_comm.semiconductor_devices",
+    "domain": "Technical",
+    "sub_domain": "electronics_comm",
+    "topic_title": "Semiconductor Physics, Diodes, Transistors & Op-Amps",
+    "description": "PN junction diodes, Zener diodes, BJT characteristics, MOSFET operational physics, and Op-Amp circuits."
+  },
+  {
+    "topic_id": "tech.electronics_comm.digital_circuits",
+    "domain": "Technical",
+    "sub_domain": "electronics_comm",
+    "topic_title": "Digital Electronic Circuits, Logic Gates & Sequential Systems",
+    "description": "Boolean algebra, Karnaugh maps (K-maps), combinational logic (adders, multiplexers), and sequential flip-flops."
+  },
+  {
+    "topic_id": "tech.electronics_comm.signals_systems",
+    "domain": "Technical",
+    "sub_domain": "electronics_comm",
+    "topic_title": "Signals and Systems: Fourier, Laplace & Z-Transforms",
+    "description": "Continuous/discrete-time signals, LTI systems, convolution, Fourier Transform, Laplace Transform, and Z-Transform."
+  },
+  {
+    "topic_id": "tech.electronics_comm.analog_digital_comm",
+    "domain": "Technical",
+    "sub_domain": "electronics_comm",
+    "topic_title": "Analog & Digital Communication Systems",
+    "description": "AM, FM, sampling theorem, Pulse Code Modulation (PCM), digital modulation (ASK, FSK, PSK, QAM), and channel capacity."
+  },
+  {
+    "topic_id": "tech.electrical_eng.electric_circuits_fields",
+    "domain": "Technical",
+    "sub_domain": "electrical_eng",
+    "topic_title": "Electric Circuits, Network Theorems & Transient Analysis",
+    "description": "Kirchhoff's laws, Thevenin and Norton theorems, transient response of RL/RC/RLC circuits, and three-phase circuits."
+  },
+  {
+    "topic_id": "tech.electrical_eng.electrical_machines",
+    "domain": "Technical",
+    "sub_domain": "electrical_eng",
+    "topic_title": "Electrical Machines: Transformers, Induction & Synchronous Machines",
+    "description": "Single/three-phase transformers, DC machines, three-phase induction motor torque-slip curves, and synchronous generators."
+  },
+  {
+    "topic_id": "tech.electrical_eng.power_systems_grid",
+    "domain": "Technical",
+    "sub_domain": "electrical_eng",
+    "topic_title": "Power System Transmission, Fault Analysis & Grid Protection",
+    "description": "Overhead transmission lines, per-unit system, symmetrical/unsymmetrical fault analysis, and power flow studies."
+  },
+  {
+    "topic_id": "tech.electrical_eng.control_systems",
+    "domain": "Technical",
+    "sub_domain": "electrical_eng",
+    "topic_title": "Control Systems Engineering: Transfer Functions & Stability Analysis",
+    "description": "Transfer function derivation, block diagrams, signal flow graphs, Routh-Hurwitz stability, Root Locus, and Bode plots."
+  },
+  {
+    "topic_id": "tech.electrical_eng.power_electronics",
+    "domain": "Technical",
+    "sub_domain": "electrical_eng",
+    "topic_title": "Power Electronics: Converters, Inverters & Motor Drives",
+    "description": "SCR, MOSFET, IGBT characteristics, phase-controlled rectifiers, DC-DC buck/boost converters, and PWM inverters."
+  },
+  {
+    "topic_id": "tech.mechanical_eng.thermodynamics_cycles",
+    "domain": "Technical",
+    "sub_domain": "mechanical_eng",
+    "topic_title": "Thermodynamics, Thermodynamic Cycles & Power Plant Engineering",
+    "description": "Laws of thermodynamics, entropy, ideal gas power cycles (Carnot, Otto, Diesel, Brayton), and Rankine steam cycle."
+  },
+  {
+    "topic_id": "tech.mechanical_eng.fluid_mechanics_turbo",
+    "domain": "Technical",
+    "sub_domain": "mechanical_eng",
+    "topic_title": "Fluid Mechanics, Boundary Layer Theory & Turbo-Machinery",
+    "description": "Fluid statics, Navier-Stokes equations, Bernoulli's theorem, boundary layer theory, hydraulic turbines, and pumps."
+  },
+  {
+    "topic_id": "tech.mechanical_eng.heat_transfer",
+    "domain": "Technical",
+    "sub_domain": "mechanical_eng",
+    "topic_title": "Heat Transfer: Conduction, Convection, Radiation & Heat Exchangers",
+    "description": "Fourier's law, free/forced convection (dimensionless numbers), thermal radiation (Stefan-Boltzmann), and heat exchangers."
+  },
+  {
+    "topic_id": "tech.mechanical_eng.engineering_mechanics_som",
+    "domain": "Technical",
+    "sub_domain": "mechanical_eng",
+    "topic_title": "Engineering Mechanics & Strength of Materials (SOM)",
+    "description": "Free body diagrams, trusses, Mohr's circle of stress, shear force and bending moment diagrams, and torsion of shafts."
+  },
+  {
+    "topic_id": "tech.mechanical_eng.theory_of_machines",
+    "domain": "Technical",
+    "sub_domain": "mechanical_eng",
+    "topic_title": "Theory of Machines, Mechanisms & Mechanical Vibrations",
+    "description": "Kinematic inversions, gear trains, flywheels, governors, balancing of rotating masses, and single-DOF vibrations."
+  },
+  {
+    "topic_id": "tech.mechanical_eng.manufacturing_materials",
+    "domain": "Technical",
+    "sub_domain": "mechanical_eng",
+    "topic_title": "Manufacturing Engineering, Material Science & Metrology",
+    "description": "Metal casting, forming, welding, metal cutting (Merchant circle), Iron-Carbon phase equilibrium diagram, and metrology."
+  },
+  {
+    "topic_id": "tech.civil_eng.structural_analysis",
+    "domain": "Technical",
+    "sub_domain": "civil_eng",
+    "topic_title": "Structural Analysis: Determinate & Indeterminate Structures",
+    "description": "Trusses, beams, frames analysis, moment distribution method, slope-deflection, and stiffness matrix methods."
+  },
+  {
+    "topic_id": "tech.civil_eng.design_concrete_steel",
+    "domain": "Technical",
+    "sub_domain": "civil_eng",
+    "topic_title": "Design of Reinforced Concrete (RCC) & Steel Structures",
+    "description": "Limit State RCC design (IS 456) for beams/slabs/columns, prestressed concrete, and design of steel connections (IS 800)."
+  },
+  {
+    "topic_id": "tech.civil_eng.geotechnical_soil_mechanics",
+    "domain": "Technical",
+    "sub_domain": "civil_eng",
+    "topic_title": "Geotechnical Engineering, Soil Mechanics & Foundation Design",
+    "description": "Soil classification, permeability, consolidation theory, Mohr-Coulomb shear strength, and foundation bearing capacity."
+  },
+  {
+    "topic_id": "tech.civil_eng.water_resources_environmental",
+    "domain": "Technical",
+    "sub_domain": "civil_eng",
+    "topic_title": "Water Resources, Irrigation Engineering & Environmental Engineering",
+    "description": "Hydrological cycle, unit hydrograph, irrigation water requirements, water treatment processes, and wastewater BOD/COD."
+  },
+  {
+    "topic_id": "tech.civil_eng.transportation_surveying",
+    "domain": "Technical",
+    "sub_domain": "civil_eng",
+    "topic_title": "Transportation Engineering, Pavement Design & Modern Surveying",
+    "description": "Highway geometric design, sight distances, pavement design, theodolite surveying, levelling, and GPS/GIS fundamentals."
+  },
+  {
+    "topic_id": "tech.geology_geophysics.physical_structural_geology",
+    "domain": "Technical",
+    "sub_domain": "geology_geophysics",
+    "topic_title": "Physical Geology, Geodynamics & Structural Geology",
+    "description": "Earth interior, plate tectonics, rock deformation mechanics, folds, faults, joints, unconformities, and geological mapping."
+  },
+  {
+    "topic_id": "tech.geology_geophysics.mineralogy_petrology",
+    "domain": "Technical",
+    "sub_domain": "geology_geophysics",
+    "topic_title": "Crystallography, Optical Mineralogy & Petrology",
+    "description": "Crystal symmetry classes, optical properties of minerals, petrology of igneous/sedimentary/metamorphic rocks."
+  },
+  {
+    "topic_id": "tech.geology_geophysics.economic_hydrogeology",
+    "domain": "Technical",
+    "sub_domain": "geology_geophysics",
+    "topic_title": "Economic Geology, Mineral Deposits of India & Hydrogeology",
+    "description": "Ore forming processes, mineral deposits of India, groundwater hydrology, aquifer types, and well hydraulics."
+  },
+  {
+    "topic_id": "tech.geology_geophysics.applied_geophysics",
+    "domain": "Technical",
+    "sub_domain": "geology_geophysics",
+    "topic_title": "Applied Exploration Geophysics: Seismic, Gravity, Magnetic & Electrical",
+    "description": "Seismic reflection/refraction, gravity and magnetic prospecting, electrical resistivity surveys, and well logging."
+  },
+  {
+    "topic_id": "tech.statistics_econometrics.probability_distributions",
+    "domain": "Technical",
+    "sub_domain": "statistics_econometrics",
+    "topic_title": "Probability Distributions, Random Variables & Limit Theorems",
+    "description": "Random variables, Binomial, Poisson, Normal, Exponential distributions, Central Limit Theorem, and Chebyshev inequality."
+  },
+  {
+    "topic_id": "tech.statistics_econometrics.statistical_inference_tests",
+    "domain": "Technical",
+    "sub_domain": "statistics_econometrics",
+    "topic_title": "Statistical Inference, Estimation & Hypothesis Testing",
+    "description": "Point and interval estimation, Maximum Likelihood, hypothesis testing (z, t, F, Chi-Square tests), and ANOVA."
+  },
+  {
+    "topic_id": "tech.statistics_econometrics.sampling_design",
+    "domain": "Technical",
+    "sub_domain": "statistics_econometrics",
+    "topic_title": "Survey Sampling Theory & Experimental Designs",
+    "description": "Simple random sampling, stratified sampling, cluster sampling, systematic sampling, and randomized block designs."
+  },
+  {
+    "topic_id": "tech.statistics_econometrics.regression_econometric_models",
+    "domain": "Technical",
+    "sub_domain": "statistics_econometrics",
+    "topic_title": "Econometrics, Multiple Regression & Time Series Forecasting",
+    "description": "Classical linear regression (OLS), Gauss-Markov theorem, multicollinearity, heteroscedasticity, and ARIMA models."
+  }
+]

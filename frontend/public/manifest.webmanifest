@@ -1,0 +1,29 @@
+{
+  "name": "Grade-A Indian Examinations",
+  "short_name": "Grade-A",
+  "description": "Exhaustive syllabus taxonomy, multi-view set visualizations, and 2027 eligibility intelligence for all Indian Grade A posts.",
+  "theme_color": "#0F172A",
+  "background_color": "#0F172A",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+# ==============================================================================
+# Indian Grade A Government Examinations Intelligence Platform (.gitignore)
+# ==============================================================================
+
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build and distribution artifacts
+dist/
+frontend/dist/
+dist-ssr/
+*.local
+
+# Cloudflare & Wrangler runtime state & local SQLite copies
+.wrangler/
+worker/.wrangler/
+.mf/
+
+# Python compiled bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+.venv/
+env/
+
+# Multi-agent internal runtime state & agent checkpoints
+.agents/
+
+# Auxiliary research subfolders (non-source third-party dependencies)
+rea-reverse-engineer-anything/
+
+# Environment secrets and tokens
+.env
+.env.*
+!.env.example
+
+# Operating system & IDE clutter
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
