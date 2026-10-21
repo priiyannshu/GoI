@@ -18,41 +18,30 @@
 
         <!-- Brand Mark: Government of India -->
         <router-link to="/" class="flex items-center space-x-2.5 group">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-bold text-base group-hover:scale-105 transition-transform">
+          <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-base group-hover:scale-105 transition-transform">
             🏛️
           </div>
           <div class="flex items-baseline space-x-1.5">
-            <span class="font-goi-cursive font-bold text-lg sm:text-xl text-slate-900 dark:text-white tracking-tight">Govt. of India</span>
+            <span class="font-goi-cursive font-bold text-lg sm:text-xl text-slate-900 dark:text-white tracking-tight">Government of India</span>
           </div>
         </router-link>
       </div>
 
       <!-- Right: Profile & Eligibility Link + Working Theme Toggle -->
       <div class="flex items-center space-x-2 sm:space-x-3">
-        <!-- Candidate Login / Profile Link -->
-        <router-link
-          v-if="!authStore.isAuthenticated"
-          to="/login"
-          class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all"
-        >
-          <span>🔑</span>
-          <span>Login</span>
-        </router-link>
-
         <router-link
           to="/profile"
-          class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 transition-colors border border-slate-200 dark:border-slate-700/60"
+          class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-sky-500 dark:hover:text-sky-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 transition-colors border border-slate-200 dark:border-slate-700/60"
           title="Candidate Profile & Statutory Eligibility"
         >
           <span>👤</span>
           <span class="hidden sm:inline font-medium max-w-[120px] truncate">{{ candidateDisplayName }}</span>
           <span
             v-if="authStore.candidateId"
-            class="hidden md:inline px-1.5 py-0.2 rounded font-mono text-[9px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+            class="hidden md:inline px-1.5 py-0.2 rounded font-mono text-[9px] font-bold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30"
           >
             {{ authStore.candidateId }}
           </span>
-          <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400">{{ profileStore.completionPercentage }}%</span>
         </router-link>
         <ThemeToggle />
       </div>
@@ -78,11 +67,11 @@
             <div class="space-y-6">
               <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center space-x-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-bold text-base">
+                  <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-base">
                     🏛️
                   </div>
                   <div>
-                    <span class="font-goi-cursive font-bold text-lg sm:text-xl text-slate-900 dark:text-white">Govt. of India</span>
+                    <span class="font-goi-cursive font-bold text-lg sm:text-xl text-slate-900 dark:text-white">Government of India</span>
                   </div>
                 </div>
 
@@ -151,36 +140,22 @@
                     {{ item.badge }}
                   </span>
                 </router-link>
-
-                <!-- Dedicated Login / Logout Drawer Row -->
-                <router-link
-                  v-if="!authStore.isAuthenticated"
-                  to="/login"
-                  @click="isDrawerOpen = false"
-                  class="flex items-center justify-between px-3.5 py-3 rounded-xl text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/10 font-bold transition-colors"
-                >
-                  <div class="flex items-center space-x-3">
-                    <span class="text-lg">🔑</span>
-                    <span>Candidate Portal Login</span>
-                  </div>
-                  <span class="text-xs">→</span>
-                </router-link>
-
-                <button
-                  v-else
-                  @click="authStore.logout(); isDrawerOpen = false"
-                  class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 text-xs font-semibold transition-colors"
-                >
-                  <div class="flex items-center space-x-3">
-                    <span>🚪</span>
-                    <span>Sign Out ({{ authStore.candidateId }})</span>
-                  </div>
-                </button>
               </nav>
             </div>
 
-            <!-- Drawer Footer -->
-            <div class="pt-6 border-t border-slate-200 dark:border-slate-800"></div>
+            <!-- Drawer Footer: Just Sign Out Icon -->
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <button
+                @click="handleLogout"
+                class="p-2.5 rounded-xl text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-all flex items-center justify-center"
+                title="Sign Out"
+                aria-label="Sign Out"
+              >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </transition>
@@ -190,7 +165,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useProfileStore } from '@/stores/useProfileStore';
 import { useEligibilityStore } from '@/stores/useEligibilityStore';
 import { useHiddenStore } from '@/stores/useHiddenStore';
@@ -198,12 +173,19 @@ import { useAuthStore } from '@/stores/useAuthStore';
 import ThemeToggle from '@/components/common/ThemeToggle.vue';
 
 const route = useRoute();
+const router = useRouter();
 const profileStore = useProfileStore();
 const eligibilityStore = useEligibilityStore();
 const hiddenStore = useHiddenStore();
 const authStore = useAuthStore();
 
 const isDrawerOpen = ref(false);
+
+function handleLogout() {
+  authStore.logout();
+  isDrawerOpen.value = false;
+  router.push('/login');
+}
 
 const candidateDisplayName = computed(() => {
   return authStore.candidateName || profileStore.profile.full_name?.trim() || 'Candidate Profile';

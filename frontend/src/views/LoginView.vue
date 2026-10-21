@@ -1,63 +1,41 @@
 <template>
-  <div class="max-w-md mx-auto py-16 px-4 sm:px-6">
+  <div class="max-w-sm mx-auto py-20 px-4 sm:px-6">
     <!-- Super Clean Card -->
-    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-lg p-6 sm:p-8 space-y-6">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl p-6 sm:p-8 space-y-6">
       <!-- Simple Heading -->
       <h1 class="text-2xl font-bold text-center text-slate-900 dark:text-white tracking-tight">
         Portal Access
       </h1>
 
-      <!-- Already Logged In State -->
-      <div v-if="authStore.isAuthenticated" class="text-center space-y-4 py-2">
-        <p class="text-sm text-slate-600 dark:text-slate-300">
-          Signed in as <strong class="text-slate-900 dark:text-white">{{ authStore.candidateName }}</strong>
-        </p>
-        <div class="flex items-center justify-center space-x-3">
-          <router-link
-            to="/profile"
-            class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
-          >
-            Go to Profile →
-          </router-link>
-          <button
-            @click="authStore.logout()"
-            class="px-4 py-2 rounded-xl text-xs font-medium text-slate-500 hover:text-rose-500 dark:text-slate-400 dark:hover:text-rose-400 transition-colors"
-          >
-            Sign Out
-          </button>
-        </div>
-      </div>
-
       <!-- Login Form -->
-      <form v-else @submit.prevent="handleLogin" class="space-y-4">
+      <form @submit.prevent="handleLogin" class="space-y-4">
         <!-- Error / Feedback -->
         <div
           v-if="errorMessage && !notFound"
-          class="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 text-xs text-rose-600 dark:text-rose-400"
+          class="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 text-xs text-rose-600 dark:text-rose-400 text-center"
         >
           {{ errorMessage }}
         </div>
 
-        <!-- Not Found: Direct prompt to create new candidate profile -->
+        <!-- Not Found Prompt: Stays right on this simple screen -->
         <div
           v-if="notFound"
-          class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-3 text-center"
+          class="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-3 text-center"
         >
-          <p class="text-xs text-slate-600 dark:text-slate-300">
-            No profile found for <strong>{{ candidateName }}</strong>. Create a new profile with this PIN?
+          <p class="text-xs text-slate-600 dark:text-slate-400">
+            Candidate ID does not exist for <strong>{{ candidateName }}</strong>. Create a new ID with this Name & PIN?
           </p>
           <button
             type="button"
             @click="handleCreateNew"
             :disabled="authStore.isLoading"
-            class="w-full py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center justify-center space-x-1.5"
+            class="w-full py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all"
           >
-            <span v-if="authStore.isLoading">Creating...</span>
-            <span v-else>Create New Profile</span>
+            <span v-if="authStore.isLoading">Creating ID...</span>
+            <span v-else>Create New ID</span>
           </button>
         </div>
 
-        <!-- Success Message -->
         <div
           v-if="successMessage"
           class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 text-xs text-emerald-600 dark:text-emerald-400 text-center"
@@ -150,10 +128,9 @@ async function handleLogin() {
     }
 
     setTimeout(() => {
-      router.push('/profile');
-    }, 400);
+      router.push('/');
+    }, 300);
   } else {
-    // Check if account not found
     if (authStore.authError?.toLowerCase().includes('not found') || authStore.authError?.toLowerCase().includes('register')) {
       notFound.value = true;
     } else {
@@ -166,19 +143,16 @@ async function handleCreateNew() {
   errorMessage.value = null;
   const ok = await authStore.register(candidateName.value.trim(), pin.value);
   if (ok) {
-    successMessage.value = 'Profile created!';
+    successMessage.value = 'New Candidate ID created!';
+    // Create new ID with an empty profile
     profileStore.profile.user_id = authStore.candidateId;
     profileStore.profile.full_name = authStore.candidateName;
 
-    if (profileStore.isProfileCompleteForD1) {
-      await profileStore.propagateToCloudflareDB();
-    }
-
     setTimeout(() => {
-      router.push('/profile');
-    }, 400);
+      router.push('/');
+    }, 300);
   } else {
-    errorMessage.value = authStore.authError || 'Could not create profile.';
+    errorMessage.value = authStore.authError || 'Could not create candidate ID.';
   }
 }
 </script>

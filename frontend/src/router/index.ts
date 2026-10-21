@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -72,6 +73,22 @@ const router = createRouter({
     }
     return { top: 0 };
   },
+});
+
+router.beforeEach((to, _from, next) => {
+  const authStore = useAuthStore();
+  if (!authStore.candidateId) {
+    authStore.initAuth();
+  }
+
+  // Guard: You shouldn't be inside the app without having logged in
+  if (!authStore.isAuthenticated && to.path !== '/login') {
+    next({ path: '/login' });
+  } else if (authStore.isAuthenticated && to.path === '/login') {
+    next({ path: '/' });
+  } else {
+    next();
+  }
 });
 
 router.afterEach((to) => {

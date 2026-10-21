@@ -8,7 +8,6 @@
         @keydown.escape="authStore.closeLoginModal"
       >
         <div class="relative w-full max-w-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-6 sm:p-7 space-y-5">
-          <!-- Close Button -->
           <button
             @click="authStore.closeLoginModal"
             class="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors"
@@ -17,14 +16,11 @@
             ✕
           </button>
 
-          <!-- Simple Heading -->
           <h2 class="text-xl font-bold text-center text-slate-900 dark:text-white tracking-tight">
             Portal Access
           </h2>
 
-          <!-- Form -->
           <form @submit.prevent="handleLogin" class="space-y-3.5">
-            <!-- Error -->
             <div
               v-if="errorMessage && !notFound"
               class="p-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 text-xs text-rose-600 dark:text-rose-400"
@@ -32,13 +28,12 @@
               {{ errorMessage }}
             </div>
 
-            <!-- Not Found Prompt -->
             <div
               v-if="notFound"
-              class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2.5 text-center"
+              class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-2.5 text-center"
             >
               <p class="text-xs text-slate-600 dark:text-slate-300">
-                No profile found for <strong>{{ candidateName }}</strong>. Create a new profile?
+                Candidate ID does not exist for <strong>{{ candidateName }}</strong>. Create a new one?
               </p>
               <button
                 type="button"
@@ -46,8 +41,8 @@
                 :disabled="authStore.isLoading"
                 class="w-full py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
               >
-                <span v-if="authStore.isLoading">Creating...</span>
-                <span v-else>Create New Profile</span>
+                <span v-if="authStore.isLoading">Creating ID...</span>
+                <span v-else>Create New ID</span>
               </button>
             </div>
 
@@ -58,7 +53,6 @@
               {{ successMessage }}
             </div>
 
-            <!-- Candidate Name Field -->
             <div>
               <input
                 type="text"
@@ -71,7 +65,6 @@
               />
             </div>
 
-            <!-- Access PIN Field -->
             <div>
               <input
                 type="password"
@@ -109,9 +102,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useProfileStore } from '@/stores/useProfileStore';
 
+const router = useRouter();
 const authStore = useAuthStore();
 const profileStore = useProfileStore();
 
@@ -141,7 +136,8 @@ async function handleLogin() {
 
     setTimeout(() => {
       authStore.closeLoginModal();
-    }, 400);
+      router.push('/');
+    }, 300);
   } else {
     if (authStore.authError?.toLowerCase().includes('not found') || authStore.authError?.toLowerCase().includes('register')) {
       notFound.value = true;
@@ -155,19 +151,16 @@ async function handleCreateNew() {
   errorMessage.value = null;
   const ok = await authStore.register(candidateName.value.trim(), pin.value);
   if (ok) {
-    successMessage.value = 'Profile created!';
+    successMessage.value = 'New Candidate ID created!';
     profileStore.profile.user_id = authStore.candidateId;
     profileStore.profile.full_name = authStore.candidateName;
 
-    if (profileStore.isProfileCompleteForD1) {
-      await profileStore.propagateToCloudflareDB();
-    }
-
     setTimeout(() => {
       authStore.closeLoginModal();
-    }, 400);
+      router.push('/');
+    }, 300);
   } else {
-    errorMessage.value = authStore.authError || 'Could not create profile.';
+    errorMessage.value = authStore.authError || 'Could not create candidate ID.';
   }
 }
 </script>
