@@ -178,38 +178,71 @@
       </div>
 
       <!-- Two-Column Layout: 2027 Timeline & Statutory Rules -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         <!-- Card 1: 2027 Key Dates & Timeline -->
-        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm dark:shadow-lg space-y-4">
-          <div class="flex items-center space-x-2 pb-3 border-b border-slate-200 dark:border-slate-800">
-            <span class="text-lg">📅</span>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white tracking-wide">2027 Examination Schedule & Dates</h3>
-          </div>
-
-          <div v-if="!timelineEntries.length" class="text-xs text-slate-500 dark:text-slate-400 py-4">
-            Tentative schedule for 2027 cycle pending official gazette release.
-          </div>
-
-          <div v-else class="space-y-2.5">
-            <div
-              v-for="item in timelineEntries"
-              :key="item.label"
-              class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800/80 gap-1"
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-lg overflow-hidden">
+          <button
+            type="button"
+            @click="isScheduleOpen = !isScheduleOpen"
+            class="w-full p-6 flex items-center justify-between text-left transition-colors hover:bg-slate-50/60 dark:hover:bg-slate-850/40 select-none cursor-pointer"
+          >
+            <div class="flex items-center space-x-2">
+              <span class="text-lg">📅</span>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white tracking-wide">2027 Examination Schedule & Dates</h3>
+            </div>
+            <svg
+              class="w-4 h-4 text-slate-500 transform transition-transform duration-200 shrink-0"
+              :class="isScheduleOpen ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <span class="text-xs font-medium text-slate-600 dark:text-slate-300">{{ item.label }}</span>
-              <span class="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400 break-words">{{ item.value }}</span>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div v-show="isScheduleOpen" class="px-6 pb-6 pt-0 border-t border-slate-200 dark:border-slate-800 space-y-4">
+            <div v-if="!timelineEntries.length" class="text-xs text-slate-500 dark:text-slate-400 pt-4">
+              Tentative schedule for 2027 cycle pending official gazette release.
+            </div>
+
+            <div v-else class="space-y-2.5 pt-4">
+              <div
+                v-for="item in timelineEntries"
+                :key="item.label"
+                class="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800/80 gap-1"
+              >
+                <span class="text-xs font-medium text-slate-600 dark:text-slate-300">{{ item.label }}</span>
+                <span class="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400 break-words">{{ item.value }}</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Card 2: Official Statutory Rules Summary -->
-        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm dark:shadow-lg space-y-4 min-w-0">
-          <div class="flex items-center space-x-2 pb-3 border-b border-slate-200 dark:border-slate-800">
-            <span class="text-lg">⚖️</span>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white tracking-wide">Official Statutory Requirements</h3>
-          </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-lg overflow-hidden min-w-0">
+          <button
+            type="button"
+            @click="isRequirementsOpen = !isRequirementsOpen"
+            class="w-full p-6 flex items-center justify-between text-left transition-colors hover:bg-slate-50/60 dark:hover:bg-slate-850/40 select-none cursor-pointer"
+          >
+            <div class="flex items-center space-x-2">
+              <span class="text-lg">⚖️</span>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white tracking-wide">Official Statutory Requirements</h3>
+            </div>
+            <svg
+              class="w-4 h-4 text-slate-500 transform transition-transform duration-200 shrink-0"
+              :class="isRequirementsOpen ? 'rotate-180' : ''"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
 
-          <div class="space-y-2 text-xs text-slate-700 dark:text-slate-300">
+          <div v-show="isRequirementsOpen" class="px-6 pb-6 pt-0 border-t border-slate-200 dark:border-slate-800">
+            <div class="space-y-2 text-xs text-slate-700 dark:text-slate-300 pt-4">
             <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-slate-200 dark:border-slate-800 gap-1">
               <span class="text-slate-500 dark:text-slate-400 shrink-0">Reference Cutoff Rule:</span>
               <span class="font-medium text-slate-900 dark:text-white break-words sm:text-right">{{ examRule?.cutoff_rule || 'Exam Year Cycle' }}</span>
@@ -288,6 +321,7 @@
               <strong class="text-slate-700 dark:text-slate-300">Gazette Citation:</strong>
               <div class="font-mono text-slate-600 dark:text-slate-400 mt-0.5 break-words">{{ examRule?.citation || exam.latest_gazette_ref || 'Official Notification' }}</div>
             </div>
+            </div>
           </div>
         </div>
       </div>
@@ -357,6 +391,10 @@ const examId = computed(() => route.params.id as string);
 const exam = computed(() => examStore.examsMap[examId.value]);
 const examRule = computed(() => AUTHORITATIVE_EXAM_RULES[examId.value]);
 const curriculumScheme = computed(() => trackerStore.getScheme(examId.value));
+
+// Collapsible section states (start collapsed)
+const isScheduleOpen = ref(false);
+const isRequirementsOpen = ref(false);
 
 onMounted(async () => {
   hiddenStore.loadHiddenItems();

@@ -1,42 +1,54 @@
 <template>
   <div class="space-y-6">
     <!-- Redesigned Aspirant-First Syllabus Container -->
-    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm dark:shadow-xl space-y-6">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-xl overflow-hidden">
       
-      <!-- 1. Scheme Summary Top Bar -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-slate-200 dark:border-slate-800">
-        <div class="space-y-1">
-          <div class="flex items-center space-x-2">
-            <span class="text-xl">📚</span>
-            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Examination Syllabus & Pattern
-            </h2>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-              Official Scheme
-            </span>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Authoritative curriculum audited directly from the commission's official notification.
-          </p>
+      <!-- 1. Scheme Summary Top Bar / Collapsible Header -->
+      <button
+        type="button"
+        @click="isSectionOpen = !isSectionOpen"
+        class="w-full p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-4 text-left hover:bg-slate-50/60 dark:hover:bg-slate-850/40 transition-colors select-none cursor-pointer"
+        :class="isSectionOpen ? 'border-b border-slate-200 dark:border-slate-800' : ''"
+      >
+        <div class="flex items-center space-x-2">
+          <span class="text-xl">📚</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Examination Syllabus & Pattern
+          </h2>
         </div>
 
-        <!-- Pattern High-Level Metric Badges -->
-        <div class="flex flex-wrap items-center gap-2 text-xs">
-          <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">
-            <span class="text-slate-400 font-normal">Total Marks:</span>
-            <strong class="text-slate-900 dark:text-white font-mono">{{ scheme.total_marks }}</strong>
+        <div class="flex items-center justify-between lg:justify-end gap-3 w-full lg:w-auto">
+          <!-- Pattern High-Level Metric Badges -->
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">
+              <span class="text-slate-400 font-normal">Total Marks:</span>
+              <strong class="text-slate-900 dark:text-white font-mono">{{ scheme.total_marks }}</strong>
+            </div>
+            <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">
+              <span class="text-slate-400 font-normal">Stages:</span>
+              <strong class="text-slate-900 dark:text-white">{{ scheme.stages.length }}</strong>
+            </div>
+            <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">
+              <span class="text-slate-400 font-normal">Penalty:</span>
+              <strong class="text-rose-600 dark:text-rose-400">{{ scheme.negative_marking_rule || 'Standard Rule' }}</strong>
+            </div>
           </div>
-          <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">
-            <span class="text-slate-400 font-normal">Stages:</span>
-            <strong class="text-slate-900 dark:text-white">{{ scheme.stages.length }}</strong>
-          </div>
-          <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">
-            <span class="text-slate-400 font-normal">Penalty:</span>
-            <strong class="text-rose-600 dark:text-rose-400">{{ scheme.negative_marking_rule || 'Standard Rule' }}</strong>
-          </div>
-        </div>
-      </div>
 
+          <!-- Section Expand/Collapse Chevron -->
+          <svg
+            class="w-5 h-5 text-slate-500 transform transition-transform duration-200 shrink-0 ml-1"
+            :class="isSectionOpen ? 'rotate-180' : ''"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </button>
+
+      <!-- Collapsible Body Content -->
+      <div v-show="isSectionOpen" class="p-6 sm:p-8 space-y-6">
       <!-- 2. Overall Preparation Progress Bar -->
       <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800/80 space-y-2.5">
         <div class="flex items-center justify-between text-xs sm:text-sm">
@@ -369,6 +381,7 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
 
     <!-- 8. Slide-Over Topic Detail Drawer -->
@@ -410,22 +423,11 @@ const activeDiscipline = computed(() => {
 // Search Filter
 const searchFilter = ref<string>('');
 
-// Paper Expansion State
+// Section Collapsible State (starts collapsed)
+const isSectionOpen = ref(false);
+
+// Paper Expansion State (starts collapsed, no cards expanded on their own)
 const expandedPaperIds = ref<Set<string>>(new Set());
-
-// Default expand first paper of active stage on mount
-onMounted(() => {
-  if (activeStage.value && activeStage.value.papers.length > 0) {
-    expandedPaperIds.value.add(activeStage.value.papers[0].paper_id);
-  }
-});
-
-// Watch stage changes to ensure at least first paper is open
-watch(activeStageId, () => {
-  if (activeStage.value && activeStage.value.papers.length > 0) {
-    expandedPaperIds.value.add(activeStage.value.papers[0].paper_id);
-  }
-});
 
 const activeStage = computed<SchemeStage | undefined>(() => {
   return props.scheme.stages.find((s) => s.stage_id === activeStageId.value);
