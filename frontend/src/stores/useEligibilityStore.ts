@@ -26,9 +26,7 @@ export const useEligibilityStore = defineStore('eligibilityReport', () => {
   const eligibleCount = computed(
     () => verdictList.value.filter((v) => v.status === 'ELIGIBLE').length
   );
-  const conditionallyEligibleCount = computed(
-    () => verdictList.value.filter((v) => v.status === 'CONDITIONALLY_ELIGIBLE').length
-  );
+  const conditionallyEligibleCount = computed(() => 0);
   const needsInfoCount = computed(
     () => verdictList.value.filter((v) => v.status === 'NEEDS_INFO').length
   );

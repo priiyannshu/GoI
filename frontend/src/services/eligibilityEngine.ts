@@ -1321,26 +1321,23 @@ export function evaluateEligibility(
   // ----------------------------------------------------------------------------
   // A. Profile Property Normalization & Schema Fault-Tolerance
   // ----------------------------------------------------------------------------
-  const isSkippedCheckEnabled =
-    profile.enable_skipped_check === true ||
-    (Array.isArray(profile.skipped_fields) && profile.skipped_fields.length > 0);
+  const isSkippedCheckEnabled = true;
 
-  const normalizedGender = (profile.gender || 'MALE').trim().toUpperCase();
+  const normalizedGender = (profile.gender || '').trim().toUpperCase();
   const isFemale = normalizedGender === 'FEMALE';
-  const rawCategory = (profile.category || 'GEN').trim().toUpperCase();
+  const rawCategory = (profile.category || '').trim().toUpperCase();
   const rawDiscipline = profile.graduation_discipline ?? profile.discipline;
   const rawDegree = profile.graduation_degree ?? profile.degree;
   const rawPct = profile.graduation_aggregate_pct ?? profile.aggregate_pct;
 
-  const discipline = isSkippedCheckEnabled ? (rawDiscipline ?? '') : (rawDiscipline ?? 'ANY');
-  const degree = isSkippedCheckEnabled ? (rawDegree ?? '') : (rawDegree ?? 'Bachelor');
-  const aggregate_pct = isSkippedCheckEnabled
-    ? (rawPct !== undefined && rawPct !== null ? Number(rawPct) : null)
-    : (rawPct !== undefined && rawPct !== null ? Number(rawPct) : 0.0);
+  const discipline = (rawDiscipline ?? '').trim();
+  const degree = (rawDegree ?? '').trim();
+  const aggregate_pct =
+    rawPct !== undefined && rawPct !== null && rawPct !== ('' as any) && !isNaN(Number(rawPct))
+      ? Number(rawPct)
+      : null;
   const domicile_state = (profile.state_domicile ?? profile.domicile_state ?? '').trim();
-  const fluent_languages = isSkippedCheckEnabled
-    ? (profile.fluent_languages ?? [])
-    : (profile.fluent_languages ?? ['Hindi', 'English']);
+  const fluent_languages = profile.fluent_languages ?? [];
   const prior_attempts = profile.prior_attempts ?? {};
 
   // ----------------------------------------------------------------------------
@@ -1477,10 +1474,15 @@ export function evaluateEligibility(
   // ----------------------------------------------------------------------------
   // D. Statutory Dimension 1: Cutoff Date & Exact Statutory Birth Window
   // ----------------------------------------------------------------------------
+  if (!profile.gender) {
+    skipped_requirements.push('Candidate gender required for eligibility verification');
+  }
+  if (!profile.category) {
+    skipped_requirements.push('Statutory category required (e.g. General, OBC, SC, ST)');
+  }
+
   if (!profile.dob) {
-    if (isSkippedCheckEnabled) {
-      skipped_requirements.push('Date of birth required for age verification');
-    }
+    skipped_requirements.push('Date of birth required for age verification');
   } else {
     const cutoff_date = getCutoffDate(rule.cutoff_rule, examYear);
     const [bY, bM, bD] = profile.dob.split('-').map(Number);
@@ -1566,11 +1568,21 @@ export function evaluateEligibility(
         const normProfDisc = normalizeDiscipline(discipline);
         const isMatched = accepted_disc.some(d => {
           const normAccepted = normalizeDiscipline(d);
-          return (
+          if (
             normProfDisc === normAccepted ||
             normProfDisc.includes(normAccepted) ||
             normAccepted.includes(normProfDisc)
-          );
+          ) {
+            return true;
+          }
+          // Geoinformatics is officially an allied engineering discipline to Civil Engineering, Geology & General Engineering
+          if (
+            (normProfDisc.includes('geoinformatics') || normProfDisc.includes('geomatics') || normProfDisc.includes('gis')) &&
+            (normAccepted === 'civil' || normAccepted === 'engineering' || normAccepted === 'science' || normAccepted === 'geology')
+          ) {
+            return true;
+          }
+          return false;
         });
 
         if (!isMatched) {
@@ -1787,7 +1799,7 @@ export function evaluateEligibility(
     if (skipped_requirements.length > 0) {
       status = 'NEEDS_INFO';
     } else {
-      status = is_conditional ? 'CONDITIONALLY_ELIGIBLE' : 'ELIGIBLE';
+      status = 'ELIGIBLE';
     }
   }
 
@@ -1801,6 +1813,7 @@ export function evaluateEligibility(
     }
   } else if (is_conditional) {
     finalReasons.push(...reasons);
+    finalReasons.push('Meets all statutory eligibility criteria (Provisional pending final year degree proof)');
   } else {
     finalReasons.push('Meets all statutory eligibility criteria');
   }

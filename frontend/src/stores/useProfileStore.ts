@@ -5,37 +5,34 @@ import { indexedDbStorage } from '../services/indexedDbStorage';
 import { syncProfileToEdge } from '../services/apiWorkerClient';
 
 export const DEFAULT_PROFILE: UserProfileInput = {
-  dob: '2001-07-01',
-  gender: 'Male',
-  category: 'GEN',
+  dob: '',
+  gender: '' as any,
+  category: '' as any,
   is_ex_serviceman: false,
   ex_service_years: 0,
   marital_status: 'Unmarried',
   has_children: false,
 
-  graduation_degree: 'Bachelor',
-  degree: 'Bachelor',
-  graduation_discipline: 'Civil',
-  discipline: 'Civil',
-  graduation_aggregate_pct: 65.0,
-  aggregate_pct: 65.0,
+  graduation_degree: '' as any,
+  degree: '' as any,
+  graduation_discipline: '',
+  discipline: '',
+  graduation_aggregate_pct: null as any,
+  aggregate_pct: null as any,
   is_final_year: false,
   ten_plus_two_maths_pct: null,
   ten_plus_two_physics_pct: null,
 
-  state_domicile: 'Delhi',
-  domicile_state: 'Delhi',
-  fluent_languages: ['Hindi', 'English'],
+  state_domicile: '',
+  domicile_state: '',
+  fluent_languages: [],
 
-  prior_attempts: {
-    UPSC_CSE: 0,
-    RBI_GRADE_B: 0,
-  },
+  prior_attempts: {},
   prior_selected_as_ac: false,
 
-  height_cm: 170.0,
-  chest_cm: 84.0,
-  chest_expansion_cm: 5.0,
+  height_cm: null,
+  chest_cm: null,
+  chest_expansion_cm: null,
   has_color_blindness: false,
   has_lasik: false,
   lasik_age: null,
@@ -146,10 +143,10 @@ export const useProfileStore = defineStore('userProfile', () => {
     let filled = 0;
     const p = profile.value;
     if (p.dob && p.gender && p.category) filled++;
-    if (p.graduation_degree && p.graduation_discipline) filled++;
+    if (p.graduation_degree && p.graduation_discipline && p.graduation_aggregate_pct != null) filled++;
     if (p.state_domicile) filled++;
-    if (p.height_cm != null || p.skipped_fields?.includes('physical_standards')) filled++;
-    if (p.prior_attempts) filled++;
+    if (p.height_cm != null) filled++;
+    if (p.prior_attempts && Object.keys(p.prior_attempts).length > 0) filled++;
     return Math.round((filled / 5) * 100);
   });
 

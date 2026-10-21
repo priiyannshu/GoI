@@ -3,6 +3,16 @@ import { ref, computed } from 'vue';
 import type { DepthLevel, TopicRecord, ExamSyllabusMapping, BipartiteGraphData, BipartiteGraphNode, BipartiteGraphLink } from '@/types/syllabus';
 import type { ExamRecord } from '@/types/profile';
 import { useExamMasterStore } from './useExamMasterStore';
+import rawTaxonomyJson from '../data/syllabus_taxonomy.json';
+import rawMapSeedData from '../data/exam_syllabus_map_seed.json';
+
+const BUNDLED_TOPICS: TopicRecord[] = (rawTaxonomyJson as any).topics_flat || [];
+const BUNDLED_MAPPINGS: ExamSyllabusMapping[] = (rawMapSeedData as any).default || rawMapSeedData || [];
+
+const INITIAL_TOPICS_MAP: Record<string, TopicRecord> = {};
+for (const t of BUNDLED_TOPICS) {
+  INITIAL_TOPICS_MAP[t.topic_id] = t;
+}
 
 export const DEPTH_WEIGHTS: Record<DepthLevel, number> = {
   Foundation: 1,
@@ -95,13 +105,13 @@ export const useSyllabusVisualizationStore = defineStore('syllabusViz', () => {
 
   // Loading & Cache State
   const isLoading = ref<boolean>(false);
-  const isDataLoaded = ref<boolean>(false);
+  const isDataLoaded = ref<boolean>(BUNDLED_TOPICS.length > 0);
   const error = ref<string | null>(null);
 
-  // Raw Data Buffers
-  const allTopics = ref<TopicRecord[]>([]);
-  const topicsMap = ref<Record<string, TopicRecord>>({});
-  const allMappings = ref<ExamSyllabusMapping[]>([]);
+  // Raw Data Buffers (Pre-seeded synchronously for instant display)
+  const allTopics = ref<TopicRecord[]>([...BUNDLED_TOPICS]);
+  const topicsMap = ref<Record<string, TopicRecord>>({ ...INITIAL_TOPICS_MAP });
+  const allMappings = ref<ExamSyllabusMapping[]>([...BUNDLED_MAPPINGS]);
   const domainsList = ref<string[]>([
     'General Studies',
     'Quantitative Aptitude',

@@ -5,6 +5,7 @@
 set -euo pipefail
 
 # 1. Environment & Credentials
+export NODE_OPTIONS="${NODE_OPTIONS:-} --dns-result-order=ipv4first"
 export CLOUDFLARE_ACCOUNT_ID="913053598d368551936e69dd07298da5"
 D1_DB_NAME="grade_a_db"
 PAGES_PROJECT="grade-a-exams"

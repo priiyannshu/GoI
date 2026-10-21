@@ -2,9 +2,13 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { fetchExamsList } from '../services/apiWorkerClient';
 import type { ExamRecord } from '../types/profile';
+import rawExamsJson from '../data/grade_a_exams.json';
+
+const BUNDLED_EXAMS: ExamRecord[] = (rawExamsJson.exams || (rawExamsJson as any).default?.exams || rawExamsJson) as ExamRecord[];
 
 export const useExamMasterStore = defineStore('examMaster', () => {
-  const exams = ref<ExamRecord[]>([]);
+  // Pre-seed synchronously so exams are immediately available on 1st tick
+  const exams = ref<ExamRecord[]>(Array.isArray(BUNDLED_EXAMS) ? [...BUNDLED_EXAMS] : []);
   const isLoading = ref<boolean>(false);
   const error = ref<string | null>(null);
   const selectedCluster = ref<string>('ALL');
@@ -16,7 +20,9 @@ export const useExamMasterStore = defineStore('examMaster', () => {
     error.value = null;
     try {
       const data = await fetchExamsList();
-      exams.value = data;
+      if (data && data.length > 0) {
+        exams.value = data;
+      }
     } catch (err: any) {
       error.value = err.message || 'Failed to load exams.';
     } finally {

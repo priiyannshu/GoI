@@ -48,10 +48,10 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: 'Grade-A Indian Examinations',
-        short_name: 'Grade-A',
+        name: 'Government of India Examinations & Posts Portal',
+        short_name: 'Govt of India',
         description:
-          'Exhaustive syllabus taxonomy, multi-view set visualizations, and 2027 eligibility intelligence for all Indian Grade A posts.',
+          'Official portal for audited government examinations, cadres, posts, statutory eligibility, and syllabus curriculum.',
         theme_color: '#0F172A',
         background_color: '#0F172A',
         display: 'standalone',

@@ -1,49 +1,49 @@
 <template>
   <div class="space-y-6 pb-16">
     <!-- Profile View Header & Tabs -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
       <div>
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Candidate Profile & Eligibility</h1>
-        <p class="text-xs sm:text-sm text-slate-400 mt-1">
-          Save your academic, statutory, and physical attributes. Sections are skippable to audit exams with whatever details you provide.
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Candidate Profile & Statutory Eligibility</h1>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+          Record your academic, statutory, and physical attributes. Details can be left empty if not immediately available and filled in later.
         </p>
       </div>
 
       <!-- Tab Switcher -->
-      <div class="flex rounded-xl bg-slate-800 p-1 border border-slate-700/80 self-start sm:self-auto">
+      <div class="flex rounded-xl bg-slate-100 dark:bg-slate-800 p-1 border border-slate-200 dark:border-slate-700/80 self-start sm:self-auto">
         <button
           @click="activeTab = 'profile'"
           class="py-1.5 px-4 rounded-lg text-xs font-semibold transition-all"
-          :class="activeTab === 'profile' ? 'bg-emerald-500 text-white shadow' : 'text-slate-400 hover:text-white'"
+          :class="activeTab === 'profile' ? 'bg-emerald-500 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
         >
           👤 My Profile
         </button>
         <button
           @click="activeTab = 'summary'"
           class="py-1.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5"
-          :class="activeTab === 'summary' ? 'bg-emerald-500 text-white shadow' : 'text-slate-400 hover:text-white'"
+          :class="activeTab === 'summary' ? 'bg-emerald-500 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
         >
           <span>🎯 Eligibility Summary</span>
           <span
-            v-if="eligibilityStore.needsInfoCount > 0"
-            class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40"
+            v-if="eligibilityStore.eligibleCount > 0"
+            class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40"
           >
-            {{ eligibilityStore.needsInfoCount }}
+            {{ eligibilityStore.eligibleCount }}
           </span>
         </button>
       </div>
     </div>
 
-    <!-- TAB 1: MY PROFILE (SKIPPABLE SECTIONS) -->
+    <!-- TAB 1: MY PROFILE (INDIVIDUAL SKIPPABLE FIELDS) -->
     <div v-if="activeTab === 'profile'" class="space-y-6">
       <!-- Profile Completion Gauge & Auto-Save Banner -->
-      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-lg">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm dark:shadow-lg">
         <div class="space-y-1">
           <div class="flex items-center space-x-2">
-            <span class="text-xs font-bold text-white uppercase tracking-wider">Profile Completeness</span>
-            <span class="text-xs font-mono font-bold text-emerald-400">{{ profileStore.completionPercentage }}%</span>
+            <span class="text-xs font-bold text-slate-700 dark:text-white uppercase tracking-wider">Profile Completeness</span>
+            <span class="text-xs font-mono font-bold text-emerald-500 dark:text-emerald-400">{{ profileStore.completionPercentage }}%</span>
           </div>
-          <div class="w-48 sm:w-64 h-2 rounded-full bg-slate-800 overflow-hidden">
+          <div class="w-48 sm:w-64 h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
             <div
               class="h-full bg-emerald-500 transition-all duration-500"
               :style="{ width: `${profileStore.completionPercentage}%` }"
@@ -51,59 +51,65 @@
           </div>
         </div>
 
-        <div class="flex items-center space-x-3 text-xs text-slate-400">
-          <span class="flex items-center space-x-1 text-slate-400">
+        <div class="flex items-center space-x-4 text-xs text-slate-500 dark:text-slate-400">
+          <span class="flex items-center space-x-1.5">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>All changes saved automatically</span>
+            <span>All details saved locally</span>
           </span>
           <button
             @click="profileStore.resetToDefaults()"
-            class="text-xs text-slate-500 hover:text-rose-400 underline transition-colors"
+            class="text-xs text-slate-400 hover:text-rose-500 underline transition-colors"
           >
-            Reset All
+            Clear Profile
           </button>
         </div>
       </div>
 
       <!-- SECTION 1: DEMOGRAPHICS -->
-      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 shadow-lg space-y-5">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm dark:shadow-lg space-y-5">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
           <div class="flex items-center space-x-2">
             <span class="text-lg">🆔</span>
-            <h3 class="text-base font-bold text-white">Demographics & Statutory Category</h3>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Demographics & Statutory Category</h3>
           </div>
-          <span class="text-xs text-emerald-400 font-medium">Core Category & Age</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Core Age & Category</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           <!-- DOB -->
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">
-              Date of Birth <span class="text-rose-400">*</span>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Date of Birth <span class="text-slate-400 font-normal">(Leave empty if not filling now)</span>
             </label>
             <input
               type="date"
               v-model="profile.dob"
-              class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500"
+              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
             />
             <p class="text-[11px] text-slate-500 mt-1">Calculates age against 2027 statutory reference cutoff dates.</p>
           </div>
 
           <!-- Calculated Age Badges -->
-          <div class="bg-slate-850 border border-slate-800 rounded-xl p-3 flex items-center justify-around text-center">
+          <div class="bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-xl p-3 flex items-center justify-around text-center">
             <div>
-              <span class="text-xs text-slate-400 block">Aug 1, 2027 (UPSC)</span>
-              <span class="text-lg font-bold font-mono text-emerald-400">{{ profileStore.calculatedAge2027Aug1 }} yrs</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 block">Aug 1, 2027 (UPSC)</span>
+              <span class="text-lg font-bold font-mono text-emerald-500 dark:text-emerald-400">
+                {{ profile.dob ? `${profileStore.calculatedAge2027Aug1} yrs` : '—' }}
+              </span>
             </div>
-            <div class="w-px h-8 bg-slate-750"></div>
+            <div class="w-px h-8 bg-slate-200 dark:bg-slate-750"></div>
             <div>
-              <span class="text-xs text-slate-400 block">Jan 1, 2027 (ESE)</span>
-              <span class="text-lg font-bold font-mono text-sky-400">{{ profileStore.calculatedAge2027Jan1 }} yrs</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 block">Jan 1, 2027 (ESE)</span>
+              <span class="text-lg font-bold font-mono text-sky-500 dark:text-sky-400">
+                {{ profile.dob ? `${profileStore.calculatedAge2027Jan1} yrs` : '—' }}
+              </span>
             </div>
-            <div class="w-px h-8 bg-slate-750"></div>
+            <div class="w-px h-8 bg-slate-200 dark:bg-slate-750"></div>
             <div>
-              <span class="text-xs text-slate-400 block">Jul 1, 2027 (State)</span>
-              <span class="text-lg font-bold font-mono text-purple-400">{{ profileStore.calculatedAge2027Jul1 }} yrs</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400 block">Jul 1, 2027 (State)</span>
+              <span class="text-lg font-bold font-mono text-purple-500 dark:text-purple-400">
+                {{ profile.dob ? `${profileStore.calculatedAge2027Jul1} yrs` : '—' }}
+              </span>
             </div>
           </div>
         </div>
@@ -112,15 +118,15 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
           <!-- Gender -->
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Gender</label>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Gender</label>
             <div class="grid grid-cols-3 gap-2">
               <button
                 v-for="g in ['Male', 'Female', 'Other']"
                 :key="g"
                 type="button"
-                @click="profile.gender = g as any"
+                @click="profile.gender = (profile.gender === g ? ('' as any) : (g as any))"
                 class="py-2 px-3 rounded-xl text-xs font-semibold border transition-all"
-                :class="profile.gender === g ? 'bg-emerald-500 text-white border-emerald-500' : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-750'"
+                :class="profile.gender === g ? 'bg-emerald-500 text-white border-emerald-500' : 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-750'"
               >
                 {{ g }}
               </button>
@@ -129,11 +135,12 @@
 
           <!-- Social Category -->
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Reservation Category</label>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Reservation Category</label>
             <select
               v-model="profile.category"
-              class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500"
+              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
             >
+              <option value="">Select Social Category</option>
               <option value="GEN">General (UR)</option>
               <option value="EWS">Economically Weaker Section (EWS)</option>
               <option value="OBC">Other Backward Classes (OBC-NCL)</option>
@@ -147,35 +154,26 @@
         </div>
       </div>
 
-      <!-- SECTION 2: ACADEMICS (SKIPPABLE) -->
-      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 shadow-lg space-y-5">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <!-- SECTION 2: ACADEMICS -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm dark:shadow-lg space-y-5">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
           <div class="flex items-center space-x-2">
             <span class="text-lg">🎓</span>
-            <h3 class="text-base font-bold text-white">Academic Qualifications</h3>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Academic Qualifications</h3>
           </div>
-          <div class="flex items-center space-x-2">
-            <label class="flex items-center space-x-1.5 cursor-pointer text-xs text-slate-400 hover:text-white">
-              <input
-                type="checkbox"
-                :checked="profileStore.isFieldSkipped('academics')"
-                @change="profileStore.toggleFieldSkipped('academics')"
-                class="rounded border-slate-700 text-emerald-500 focus:ring-0"
-              />
-              <span>Skip Academics for now</span>
-            </label>
-          </div>
+          <span class="text-xs text-slate-500 dark:text-slate-400">Leave fields empty if unready</span>
         </div>
 
-        <div v-if="!profileStore.isFieldSkipped('academics')" class="space-y-4">
+        <div class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- Degree Level -->
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Degree Level</label>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Degree Level</label>
               <select
                 v-model="profile.graduation_degree"
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"
+                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
               >
+                <option value="">Select Degree Level</option>
                 <option value="Bachelor">Bachelor Degree (B.A., B.Sc., B.Tech, etc.)</option>
                 <option value="Master">Master Degree (M.A., M.Sc., M.Tech, etc.)</option>
                 <option value="Dual_UG_and_MBA">Dual UG and MBA / Professional</option>
@@ -184,12 +182,14 @@
 
             <!-- Discipline -->
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Discipline / Branch</label>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Discipline / Branch</label>
               <select
                 v-model="profile.graduation_discipline"
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"
+                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
               >
+                <option value="">Select Discipline / Branch</option>
                 <option value="ANY">Any / General Graduate</option>
+                <option value="Geoinformatics">Geoinformatics / Remote Sensing / GIS</option>
                 <option value="Civil">Civil Engineering</option>
                 <option value="Mechanical">Mechanical Engineering</option>
                 <option value="Electrical">Electrical Engineering</option>
@@ -211,102 +211,135 @@
 
             <!-- Aggregate Percentage -->
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Graduation Aggregate %</label>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Graduation Aggregate %</label>
               <input
                 type="number"
                 step="0.01"
                 min="35"
                 max="100"
                 v-model.number="profile.graduation_aggregate_pct"
-                placeholder="e.g. 65.50"
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"
+                placeholder="e.g. 65.50 (leave empty if unready)"
+                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
               />
               <span class="text-[10px] text-slate-500">Strict non-rounding (e.g. 59.99% &lt; 60%)</span>
             </div>
           </div>
 
+          <!-- Geoinformatics Branch Guidance Note -->
+          <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/40 text-xs text-slate-700 dark:text-slate-300 space-y-1">
+            <span class="font-bold text-emerald-700 dark:text-emerald-400">💡 Geoinformatics / GIS Degree Guidance:</span>
+            <p class="leading-relaxed">
+              If your degree is in <strong>Geoinformatics, Remote Sensing, Geomatics, or GIS</strong>, select <em>Geoinformatics / Remote Sensing / GIS</em>. The system automatically qualifies you for Science and Engineering cadres. For technical examinations that strictly accept only the four traditional branches (such as UPSC ESE or standard State AE), Geoinformatics is officially considered an allied engineering sub-discipline under <strong>Civil Engineering</strong>.
+            </p>
+          </div>
+
           <!-- Final Year Toggle & 10+2 Marks -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-slate-800 items-center">
-            <label class="flex items-center space-x-2 text-xs text-slate-300 cursor-pointer">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-slate-200 dark:border-slate-800 items-center">
+            <label class="flex items-center space-x-2 text-xs text-slate-700 dark:text-slate-300 cursor-pointer">
               <input
                 type="checkbox"
                 v-model="profile.is_final_year"
-                class="rounded border-slate-700 text-emerald-500 focus:ring-0"
+                class="rounded border-slate-300 dark:border-slate-700 text-emerald-500 focus:ring-0"
               />
               <span>Currently in Final Year of Graduation</span>
             </label>
 
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">10+2 Maths % (AFCAT/Defense)</label>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">10+2 Maths % (AFCAT/Defense)</label>
               <input
                 type="number"
                 step="0.1"
                 v-model.number="profile.ten_plus_two_maths_pct"
                 placeholder="Optional (min 50% for Flying)"
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
+                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
               />
             </div>
 
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">10+2 Physics % (AFCAT/Defense)</label>
+              <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">10+2 Physics % (AFCAT/Defense)</label>
               <input
                 type="number"
                 step="0.1"
                 v-model.number="profile.ten_plus_two_physics_pct"
                 placeholder="Optional (min 50% for Flying)"
-                class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
+                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
               />
             </div>
           </div>
         </div>
-
-        <div v-else class="text-xs text-amber-300/80 bg-amber-500/10 p-3 rounded-xl border border-amber-500/20">
-          ⚠️ Academics marked as skipped. Examinations with strict degree or percentage requirements will indicate <strong>Needs Info</strong>.
-        </div>
       </div>
 
-      <!-- SECTION 3: DOMICILE & LANGUAGES (SKIPPABLE) -->
-      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 shadow-lg space-y-5">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <!-- SECTION 3: DOMICILE & LANGUAGES -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm dark:shadow-lg space-y-5">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
           <div class="flex items-center space-x-2">
             <span class="text-lg">🗺️</span>
-            <h3 class="text-base font-bold text-white">Domicile & Regional Languages</h3>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Home State Domicile & Regional Languages</h3>
           </div>
-          <span class="text-xs text-slate-400">Controls State PSC reservation benefits</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">Controls State PSC reservation benefits</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Home State Domicile</label>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Home State Domicile (All 28 States & 8 UTs)</label>
             <select
               v-model="profile.state_domicile"
-              class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500"
+              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
             >
-              <option value="Delhi">Delhi (NCT)</option>
-              <option value="Uttar Pradesh">Uttar Pradesh</option>
-              <option value="Bihar">Bihar</option>
-              <option value="Maharashtra">Maharashtra</option>
-              <option value="Madhya Pradesh">Madhya Pradesh</option>
-              <option value="Rajasthan">Rajasthan</option>
-              <option value="Tamil Nadu">Tamil Nadu</option>
-              <option value="Karnataka">Karnataka</option>
-              <option value="Andhra Pradesh">Andhra Pradesh</option>
-              <option value="Telangana">Telangana</option>
-              <option value="West Bengal">West Bengal</option>
-              <option value="Other">Other State / UT</option>
+              <option value="">Select your Home State / UT</option>
+              <optgroup label="States (28)">
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+              </optgroup>
+              <optgroup label="Union Territories (8)">
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                <option value="Delhi">Delhi (NCT)</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Ladakh">Ladakh</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Puducherry">Puducherry</option>
+              </optgroup>
             </select>
           </div>
 
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Fluent Regional Languages</label>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Fluent Regional Languages</label>
             <div class="flex flex-wrap gap-2">
               <button
-                v-for="lang in ['Hindi', 'English', 'Marathi', 'Bengali', 'Kannada', 'Tamil', 'Telugu', 'Nepali']"
+                v-for="lang in ['Hindi', 'English', 'Marathi', 'Bengali', 'Kannada', 'Tamil', 'Telugu', 'Nepali', 'Gujarati', 'Odia', 'Punjabi', 'Assamese', 'Malayalam']"
                 :key="lang"
                 type="button"
                 @click="toggleLanguage(lang)"
                 class="px-2.5 py-1 rounded-lg text-xs font-medium border transition-colors"
-                :class="profile.fluent_languages?.includes(lang) ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300' : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-slate-200'"
+                :class="profile.fluent_languages?.includes(lang) ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-600 dark:text-emerald-300 font-bold' : 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'"
               >
                 {{ lang }} {{ profile.fluent_languages?.includes(lang) ? '✓' : '' }}
               </button>
@@ -315,123 +348,127 @@
         </div>
       </div>
 
-      <!-- SECTION 4: PHYSICAL STANDARDS (SKIPPABLE) -->
-      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 shadow-lg space-y-5">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <!-- SECTION 4: PHYSICAL STANDARDS -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm dark:shadow-lg space-y-5">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
           <div class="flex items-center space-x-2">
             <span class="text-lg">🏃</span>
-            <h3 class="text-base font-bold text-white">Physical & Medical Standards</h3>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Physical & Medical Standards</h3>
           </div>
-          <label class="flex items-center space-x-1.5 cursor-pointer text-xs text-slate-400 hover:text-white">
-            <input
-              type="checkbox"
-              :checked="profileStore.isFieldSkipped('physical_standards')"
-              @change="profileStore.toggleFieldSkipped('physical_standards')"
-              class="rounded border-slate-700 text-emerald-500 focus:ring-0"
-            />
-            <span>Not targeting uniformed posts (Skip)</span>
-          </label>
+          <span class="text-xs text-slate-500 dark:text-slate-400">Relevant for CAPF, Defense & Police Cadres</span>
         </div>
 
-        <div v-if="!profileStore.isFieldSkipped('physical_standards')" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Height (cm)</label>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Height (cm)</label>
             <input
               type="number"
               v-model.number="profile.height_cm"
-              placeholder="e.g. 170"
-              class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"
+              placeholder="e.g. 170 (optional)"
+              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
             />
             <span class="text-[10px] text-slate-500">CAPF AC / Defense / Police entry</span>
           </div>
 
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Chest (cm, Unexpanded)</label>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Chest (cm, Unexpanded)</label>
             <input
               type="number"
               v-model.number="profile.chest_cm"
-              placeholder="e.g. 84"
-              class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"
+              placeholder="e.g. 84 (optional)"
+              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
             />
             <span class="text-[10px] text-slate-500">Male uniformed standard: min 81–84 cm</span>
           </div>
 
           <div class="flex items-center space-x-3 pt-4">
-            <label class="flex items-center space-x-2 text-xs text-slate-300 cursor-pointer">
+            <label class="flex items-center space-x-2 text-xs text-slate-700 dark:text-slate-300 cursor-pointer">
               <input
                 type="checkbox"
                 v-model="profile.has_color_blindness"
-                class="rounded border-slate-700 text-emerald-500 focus:ring-0"
+                class="rounded border-slate-300 dark:border-slate-700 text-emerald-500 focus:ring-0"
               />
               <span>Color Blindness</span>
             </label>
           </div>
         </div>
-
-        <div v-else class="text-xs text-amber-300/80 bg-amber-500/10 p-3 rounded-xl border border-amber-500/20">
-          ⚠️ Physical standards skipped. Uniformed posts (CAPF AC, CDS, State Police DSP) will show <strong>Needs Info</strong> regarding height and chest.
-        </div>
       </div>
     </div>
 
-    <!-- TAB 2: ELIGIBILITY SUMMARY REPORT -->
+    <!-- TAB 2: ELIGIBILITY SUMMARY REPORT (NO CONDITIONAL TIER) -->
     <div v-else-if="activeTab === 'summary'" class="space-y-6">
-      <!-- 4-Tier Metrics Row -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <!-- 3-Tier Metrics Row: Eligible, Needs Info, Ineligible -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div
           @click="statusFilter = 'ELIGIBLE'"
-          class="p-4 rounded-2xl bg-emerald-950/20 border border-emerald-500/30 cursor-pointer hover:border-emerald-500 transition-all text-center space-y-1"
+          class="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-300 dark:border-emerald-500/30 cursor-pointer hover:border-emerald-500 transition-all text-center space-y-1 shadow-sm"
           :class="statusFilter === 'ELIGIBLE' ? 'ring-2 ring-emerald-500' : ''"
         >
-          <span class="text-xs uppercase font-bold text-emerald-400">Eligible</span>
-          <span class="block text-2xl font-extrabold text-white font-mono">{{ eligibilityStore.eligibleCount }}</span>
-        </div>
-
-        <div
-          @click="statusFilter = 'CONDITIONALLY_ELIGIBLE'"
-          class="p-4 rounded-2xl bg-blue-950/20 border border-blue-500/30 cursor-pointer hover:border-blue-500 transition-all text-center space-y-1"
-          :class="statusFilter === 'CONDITIONALLY_ELIGIBLE' ? 'ring-2 ring-blue-500' : ''"
-        >
-          <span class="text-xs uppercase font-bold text-blue-400">Conditional</span>
-          <span class="block text-2xl font-extrabold text-white font-mono">{{ eligibilityStore.conditionallyEligibleCount }}</span>
+          <span class="text-xs uppercase font-bold text-emerald-700 dark:text-emerald-400">Eligible Examinations</span>
+          <span class="block text-3xl font-extrabold text-slate-900 dark:text-white font-mono">{{ eligibilityStore.eligibleCount }}</span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400">Statutory rules fulfilled</span>
         </div>
 
         <div
           @click="statusFilter = 'NEEDS_INFO'"
-          class="p-4 rounded-2xl bg-amber-950/20 border border-amber-500/30 cursor-pointer hover:border-amber-500 transition-all text-center space-y-1"
+          class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/20 border border-amber-300 dark:border-amber-500/30 cursor-pointer hover:border-amber-500 transition-all text-center space-y-1 shadow-sm"
           :class="statusFilter === 'NEEDS_INFO' ? 'ring-2 ring-amber-500' : ''"
         >
-          <span class="text-xs uppercase font-bold text-amber-400">Needs Info</span>
-          <span class="block text-2xl font-extrabold text-white font-mono">{{ eligibilityStore.needsInfoCount }}</span>
+          <span class="text-xs uppercase font-bold text-amber-700 dark:text-amber-400">Missing Information</span>
+          <span class="block text-3xl font-extrabold text-slate-900 dark:text-white font-mono">{{ eligibilityStore.needsInfoCount }}</span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400">Additional candidate inputs required</span>
         </div>
 
         <div
           @click="statusFilter = 'INELIGIBLE'"
-          class="p-4 rounded-2xl bg-rose-950/20 border border-rose-500/30 cursor-pointer hover:border-rose-500 transition-all text-center space-y-1"
+          class="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/20 border border-rose-300 dark:border-rose-500/30 cursor-pointer hover:border-rose-500 transition-all text-center space-y-1 shadow-sm"
           :class="statusFilter === 'INELIGIBLE' ? 'ring-2 ring-rose-500' : ''"
         >
-          <span class="text-xs uppercase font-bold text-rose-400">Ineligible</span>
-          <span class="block text-2xl font-extrabold text-white font-mono">{{ eligibilityStore.ineligibleCount }}</span>
+          <span class="text-xs uppercase font-bold text-rose-700 dark:text-rose-400">Ineligible Examinations</span>
+          <span class="block text-3xl font-extrabold text-slate-900 dark:text-white font-mono">{{ eligibilityStore.ineligibleCount }}</span>
+          <span class="text-[11px] text-slate-500 dark:text-slate-400">Barred by statutory cutoff rules</span>
         </div>
+      </div>
+
+      <!-- Empty Profile Warning Banner if 0 fields filled -->
+      <div
+        v-if="profileStore.completionPercentage === 0"
+        class="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-500/40 text-amber-900 dark:text-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+      >
+        <div class="space-y-1">
+          <div class="font-bold text-sm flex items-center space-x-2">
+            <span>ℹ️</span>
+            <span>Your candidate profile is currently empty.</span>
+          </div>
+          <p class="text-xs text-amber-800 dark:text-amber-300">
+            Eligibility cannot be computed until you fill in your Date of Birth, Qualification, and Category under the My Profile tab.
+          </p>
+        </div>
+        <button
+          @click="activeTab = 'profile'"
+          class="self-start sm:self-auto px-4 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-700 text-white transition-colors"
+        >
+          Fill Profile Now →
+        </button>
       </div>
 
       <!-- Filter / Search Row -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div class="flex items-center space-x-2 text-xs">
-          <span class="text-slate-400">Showing:</span>
-          <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-white font-semibold">
-            {{ statusFilter === 'ALL' ? 'All 36 Audited Exams' : statusFilter }}
+          <span class="text-slate-500 dark:text-slate-400">Showing:</span>
+          <span class="px-2.5 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white font-semibold">
+            {{ statusFilter === 'ALL' ? 'All Audited Examinations' : formatStatus(statusFilter) }}
           </span>
           <button
             v-if="statusFilter !== 'ALL'"
             @click="statusFilter = 'ALL'"
-            class="text-xs text-slate-500 hover:text-white underline ml-2"
+            class="text-xs text-slate-500 hover:text-slate-900 dark:hover:text-white underline ml-2"
           >
             Show All
           </button>
         </div>
 
-        <div class="text-xs text-slate-400">
+        <div class="text-xs text-slate-500 dark:text-slate-400">
           Click any card to inspect full statutory rules, syllabus & 2027 dates
         </div>
       </div>
@@ -442,12 +479,12 @@
           v-for="verdict in summaryVerdicts"
           :key="verdict.exam_id"
           @click="router.push(`/exams/${verdict.exam_id}`)"
-          class="p-4 rounded-xl bg-slate-850 border hover:border-slate-700 transition-all cursor-pointer flex flex-col justify-between space-y-3 group shadow"
+          class="p-4 rounded-xl bg-white dark:bg-slate-850 border hover:border-slate-400 dark:hover:border-slate-700 transition-all cursor-pointer flex flex-col justify-between space-y-3 group shadow-sm dark:shadow"
           :class="getCardBorder(verdict.status)"
         >
           <div class="space-y-2">
             <div class="flex items-center justify-between">
-              <span class="font-mono text-xs font-bold text-white">{{ getExamCode(verdict.exam_id) }}</span>
+              <span class="font-mono text-xs font-bold text-slate-800 dark:text-white">{{ getExamCode(verdict.exam_id) }}</span>
               <span
                 class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider"
                 :class="getStatusBadgeClass(verdict.status)"
@@ -456,28 +493,28 @@
               </span>
             </div>
 
-            <h4 class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors leading-snug">
+            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors leading-snug">
               {{ getExamTitle(verdict.exam_id) }}
             </h4>
 
             <!-- Skipped criteria callout if Needs Info -->
             <div
               v-if="verdict.status === 'NEEDS_INFO' && verdict.skipped_requirements?.length"
-              class="p-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[11px] text-amber-300 space-y-0.5"
+              class="p-2 rounded-lg bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30 text-[11px] text-amber-800 dark:text-amber-300 space-y-0.5"
             >
               <div class="font-semibold">Missing from profile:</div>
-              <div class="truncate text-amber-200">{{ verdict.skipped_requirements[0] }}</div>
+              <div class="truncate text-amber-700 dark:text-amber-200">{{ verdict.skipped_requirements[0] }}</div>
             </div>
 
             <!-- Reasons Snippet -->
-            <div class="text-[11px] text-slate-400 line-clamp-2">
+            <div class="text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2">
               {{ verdict.reasons[0] }}
             </div>
           </div>
 
-          <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
+          <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
             <span class="text-slate-500">{{ getExamAdmin(verdict.exam_id) }}</span>
-            <span class="text-emerald-400 font-semibold group-hover:translate-x-0.5 transition-transform">
+            <span class="text-emerald-600 dark:text-emerald-400 font-semibold group-hover:translate-x-0.5 transition-transform">
               Audit Details →
             </span>
           </div>
@@ -556,10 +593,8 @@ function formatStatus(status: string): string {
   switch (status) {
     case 'ELIGIBLE':
       return 'Eligible';
-    case 'CONDITIONALLY_ELIGIBLE':
-      return 'Conditional';
     case 'NEEDS_INFO':
-      return 'Needs Info';
+      return 'Missing Info';
     case 'INELIGIBLE':
       return 'Ineligible';
     default:
@@ -570,30 +605,26 @@ function formatStatus(status: string): string {
 function getStatusBadgeClass(status: string): string {
   switch (status) {
     case 'ELIGIBLE':
-      return 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40';
-    case 'CONDITIONALLY_ELIGIBLE':
-      return 'bg-blue-500/15 text-blue-300 border-blue-500/40';
+      return 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-300 border-emerald-500/40';
     case 'NEEDS_INFO':
-      return 'bg-amber-500/15 text-amber-300 border-amber-500/40';
+      return 'bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/40';
     case 'INELIGIBLE':
-      return 'bg-rose-500/15 text-rose-300 border-rose-500/40';
+      return 'bg-rose-500/15 text-rose-600 dark:text-rose-300 border-rose-500/40';
     default:
-      return 'bg-slate-800 text-slate-300 border-slate-700';
+      return 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700';
   }
 }
 
 function getCardBorder(status: string): string {
   switch (status) {
     case 'ELIGIBLE':
-      return 'border-emerald-500/30 hover:border-emerald-500/60';
-    case 'CONDITIONALLY_ELIGIBLE':
-      return 'border-blue-500/30 hover:border-blue-500/60';
+      return 'border-emerald-300 dark:border-emerald-500/30 hover:border-emerald-500/60';
     case 'NEEDS_INFO':
-      return 'border-amber-500/30 hover:border-amber-500/60';
+      return 'border-amber-300 dark:border-amber-500/30 hover:border-amber-500/60';
     case 'INELIGIBLE':
-      return 'border-slate-800 hover:border-slate-700';
+      return 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700';
     default:
-      return 'border-slate-800';
+      return 'border-slate-200 dark:border-slate-800';
   }
 }
 </script>

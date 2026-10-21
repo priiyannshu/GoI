@@ -6,7 +6,7 @@ export const useThemeStore = defineStore('theme', () => {
 
   function initTheme() {
     if (typeof window === 'undefined') return;
-    const saved = localStorage.getItem('grade_a_theme');
+    const saved = localStorage.getItem('goi_theme') || localStorage.getItem('grade_a_theme');
     if (saved) {
       isDark.value = saved === 'dark';
     } else {
@@ -18,7 +18,7 @@ export const useThemeStore = defineStore('theme', () => {
   function toggleTheme() {
     isDark.value = !isDark.value;
     if (typeof window !== 'undefined') {
-      localStorage.setItem('grade_a_theme', isDark.value ? 'dark' : 'light');
+      localStorage.setItem('goi_theme', isDark.value ? 'dark' : 'light');
     }
     applyTheme();
   }
@@ -27,8 +27,10 @@ export const useThemeStore = defineStore('theme', () => {
     if (typeof document === 'undefined') return;
     if (isDark.value) {
       document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
     } else {
       document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
     }
   }
 
