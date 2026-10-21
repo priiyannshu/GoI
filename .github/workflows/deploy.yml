@@ -63,6 +63,9 @@ jobs:
       - name: Run Node.js Bipartite Adversarial Test Suite
         run: node tests/unit/test_m4_bipartite_adversarial.mjs
 
+      - name: Run Node.js Syllabus Overhaul & GATE Test Suite
+        run: node tests/unit/test_syllabus_overhaul.mjs
+
       - name: Run Python Adversarial & Boundary Test Suites
         env:
           PYTHONPATH: .
