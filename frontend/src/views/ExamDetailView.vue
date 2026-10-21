@@ -292,91 +292,41 @@
         </div>
       </div>
 
-      <!-- DIRECT COMPLETE SYLLABUS SECTION -->
-      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm dark:shadow-lg space-y-5">
-        <!-- Syllabus Header with Stats -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-slate-800">
-          <div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-wide flex items-center space-x-2">
-              <span>📚 Examination Syllabus & Mapped Curriculum</span>
-              <span class="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-bold">
-                {{ filteredTopics.length }} Topics
-              </span>
-            </h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              Official topics audited from the commission's syllabus notification with cognitive depth classifications.
-            </p>
+      <!-- PSU Notice Banner (if viewing a consolidated PSU recruitment) -->
+      <div
+        v-if="examStore.isPsuRecruitment(examId)"
+        class="p-4 sm:p-5 rounded-2xl bg-sky-50 dark:bg-sky-950/30 border border-sky-300 dark:border-sky-500/40 text-xs text-sky-900 dark:text-sky-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs"
+      >
+        <div class="space-y-1">
+          <div class="font-bold flex items-center space-x-1.5 text-sky-800 dark:text-sky-300 text-sm">
+            <span>ℹ️</span>
+            <span>PSU Grade A Recruitment through GATE 2027</span>
           </div>
-
-          <!-- Quick Search Inside Syllabus -->
-          <div class="w-full sm:w-64">
-            <input
-              v-model="syllabusSearch"
-              type="text"
-              placeholder="Filter topics..."
-              class="w-full px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500"
-            />
-          </div>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+            This Maharatna / Navratna PSU cadre shortlists candidates using primary GATE examination scores followed by group discussion and technical interview.
+          </p>
         </div>
-
-        <!-- Domain Filter Pills -->
-        <div class="flex flex-wrap items-center gap-1.5 pb-2">
-          <button
-            v-for="d in availableDomains"
-            :key="d"
-            @click="selectedSyllabusDomain = d"
-            class="px-2.5 py-1 rounded-lg text-xs font-medium transition-all"
-            :class="
-              selectedSyllabusDomain === d
-                ? 'bg-emerald-500 text-white font-bold shadow-sm'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700'
-            "
+        <div class="flex items-center space-x-2 shrink-0">
+          <router-link
+            to="/exams/GATE"
+            class="px-3.5 py-2 rounded-xl font-bold bg-sky-500 text-white hover:bg-sky-600 transition-colors shadow-xs"
           >
-            {{ d }} ({{ getTopicCountForDomain(d) }})
-          </button>
-        </div>
-
-        <!-- Topics Grid -->
-        <div v-if="filteredTopics.length === 0" class="py-12 text-center text-slate-400 text-xs">
-          No syllabus topics match the selected domain or filter.
-        </div>
-
-        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
-          <div
-            v-for="item in filteredTopics"
-            :key="item.topic_id"
-            class="p-4 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all space-y-2 shadow-xs"
+            Inspect GATE Syllabus →
+          </router-link>
+          <router-link
+            to="/posts"
+            class="px-3 py-2 rounded-xl font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 transition-colors"
           >
-            <!-- Domain & Depth Badges -->
-            <div class="flex items-center justify-between text-[11px] gap-1">
-              <span class="px-2 py-0.5 rounded bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-semibold truncate">
-                {{ item.domain }}
-              </span>
-              <span
-                class="px-2 py-0.5 rounded font-mono text-[10px] font-bold border"
-                :class="getDepthBadgeClass(item.depth)"
-              >
-                {{ item.depth || 'Foundation' }}
-              </span>
-            </div>
-
-            <!-- Topic Title -->
-            <h4 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-snug break-words">
-              {{ item.topic_title }}
-            </h4>
-
-            <!-- Subdomain & Stage -->
-            <div class="text-[11px] text-slate-500 dark:text-slate-400 space-y-0.5 pt-1 border-t border-slate-200 dark:border-slate-800/80">
-              <div v-if="item.sub_domain" class="truncate">
-                <span class="text-slate-400">Sub-domain:</span> {{ item.sub_domain }}
-              </div>
-              <div v-if="item.stage_name" class="text-emerald-600 dark:text-emerald-400 font-mono text-[10px] truncate">
-                {{ item.stage_name }}
-              </div>
-            </div>
-          </div>
+            View Post & Perks →
+          </router-link>
         </div>
       </div>
+
+      <!-- REDESIGNED ASPIRANT-FIRST EXAMINATION SYLLABUS & PATTERN SECTION -->
+      <ExamSyllabusSection
+        v-if="curriculumScheme"
+        :scheme="curriculumScheme"
+      />
     </div>
   </div>
 </template>

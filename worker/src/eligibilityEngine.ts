@@ -181,6 +181,43 @@ export const AUTHORITATIVE_EXAM_RULES: Record<string, ExamEligibilityRule> = {
   // ----------------------------------------------------------------------------
   // Cluster 1: Central All-India & Uniformed Services (8)
   // ----------------------------------------------------------------------------
+    GATE: {
+    exam_id: 'GATE',
+    title: 'Graduate Aptitude Test in Engineering',
+    short_code: 'GATE',
+    category: 'Central-Civil',
+    cutoff_rule: 'AUGUST_1_EXAM_YEAR',
+    min_age_gen: 18,
+    max_age_gen: 65,
+    relaxations: {
+      OBC: 0,
+      SC: 0,
+      ST: 0,
+      PWBD_GEN: 0,
+      PWBD_OBC: 0,
+      PWBD_SC_ST: 0,
+      EX_SERVICEMEN: 0,
+    },
+    min_education: 'Bachelor',
+    accepted_disciplines: ['ANY'],
+    min_pct_gen: 0.0,
+    min_pct_res: 0.0,
+    allows_final_year: true,
+    attempt_limits: {
+      GEN: null,
+      EWS: null,
+      OBC: null,
+      SC: null,
+      ST: null,
+      PWBD_GEN: null,
+      PWBD_OBC: null,
+      PWBD_SC_ST: null,
+    },
+    domicile_restrictions: null,
+    language_requirements: null,
+    physical_standards: null,
+    citation: 'GATE Information Brochure, Section 4: Eligibility Criteria (No Age Limit)',
+  },
   UPSC_CSE: {
     exam_id: 'UPSC_CSE',
     title: 'Civil Services Examination',
