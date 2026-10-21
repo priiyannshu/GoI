@@ -1279,7 +1279,7 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
       pension: 'PowerGrid Defined Superannuation Pension Fund + CPF.',
       group_insurance: 'Group term life insurance up to ₹60 Lakh.',
       unique_perks: [
-        'National transmission network: Control over India's Unified National Power Grid wheeling 85% of inter-regional electricity',
+        "National transmission network: Control over India's Unified National Power Grid wheeling 85% of inter-regional electricity",
         'Company laptop, smart phone, and home broadband reimbursement',
         'Low interest vehicle loan and house building advance (HBA)',
       ],

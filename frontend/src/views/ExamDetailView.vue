@@ -339,6 +339,8 @@ import { useProfileStore } from '@/stores/useProfileStore';
 import { useEligibilityStore } from '@/stores/useEligibilityStore';
 import { useSyllabusVisualizationStore } from '@/stores/useSyllabusVisualizationStore';
 import { useHiddenStore } from '@/stores/useHiddenStore';
+import { useSyllabusTrackerStore } from '@/stores/useSyllabusTrackerStore';
+import ExamSyllabusSection from '@/components/syllabus/ExamSyllabusSection.vue';
 import { AUTHORITATIVE_EXAM_RULES } from '@/services/eligibilityEngine';
 import type { EligibilityVerdict } from '@/types/profile';
 
@@ -349,14 +351,12 @@ const profileStore = useProfileStore();
 const eligibilityStore = useEligibilityStore();
 const vizStore = useSyllabusVisualizationStore();
 const hiddenStore = useHiddenStore();
+const trackerStore = useSyllabusTrackerStore();
 
 const examId = computed(() => route.params.id as string);
 const exam = computed(() => examStore.examsMap[examId.value]);
 const examRule = computed(() => AUTHORITATIVE_EXAM_RULES[examId.value]);
-
-// Local Syllabus Domain & Search Filters
-const selectedSyllabusDomain = ref<string>('ALL');
-const syllabusSearch = ref<string>('');
+const curriculumScheme = computed(() => trackerStore.getScheme(examId.value));
 
 onMounted(async () => {
   hiddenStore.loadHiddenItems();
@@ -383,52 +383,6 @@ const timelineEntries = computed(() => {
   if (t.final_result) entries.push({ label: 'Final Result Declaration', value: t.final_result });
 
   return entries;
-});
-
-const allExamTopics = computed(() => {
-  const mappings = vizStore.allMappings.filter((m) => m.exam_id === examId.value);
-  return mappings.map((m) => {
-    const topic = vizStore.topicsMap[m.topic_id];
-    return {
-      topic_id: m.topic_id,
-      topic_title: topic?.topic_title || m.topic_id,
-      domain: topic?.domain || 'General Studies',
-      sub_domain: topic?.sub_domain || 'General',
-      depth: m.depth_level,
-      stage_name: m.stage_name || '',
-    };
-  });
-});
-
-const availableDomains = computed(() => {
-  const set = new Set<string>();
-  set.add('ALL');
-  for (const t of allExamTopics.value) {
-    if (t.domain) set.add(t.domain);
-  }
-  return Array.from(set);
-});
-
-function getTopicCountForDomain(domain: string): number {
-  if (domain === 'ALL') return allExamTopics.value.length;
-  return allExamTopics.value.filter((t) => t.domain === domain).length;
-}
-
-const filteredTopics = computed(() => {
-  let list = allExamTopics.value;
-  if (selectedSyllabusDomain.value !== 'ALL') {
-    list = list.filter((t) => t.domain === selectedSyllabusDomain.value);
-  }
-  if (syllabusSearch.value.trim()) {
-    const q = syllabusSearch.value.toLowerCase().trim();
-    list = list.filter(
-      (t) =>
-        t.topic_title.toLowerCase().includes(q) ||
-        t.sub_domain.toLowerCase().includes(q) ||
-        t.stage_name.toLowerCase().includes(q)
-    );
-  }
-  return list;
 });
 
 function formatStatus(status: string): string {
@@ -484,21 +438,6 @@ function getVerdictContainerClass(status: string): string {
       return 'bg-rose-50/70 dark:bg-rose-950/20 border-rose-300 dark:border-rose-500/30';
     default:
       return 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800';
-  }
-}
-
-function getDepthBadgeClass(depth?: string): string {
-  switch (depth) {
-    case 'Foundation':
-      return 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700';
-    case 'Intermediate':
-      return 'bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400 border-sky-300 dark:border-sky-500/30';
-    case 'Advanced':
-      return 'bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400 border-purple-300 dark:border-purple-500/30';
-    case 'Analytical':
-      return 'bg-pink-50 dark:bg-pink-950/30 text-pink-700 dark:text-pink-400 border-pink-300 dark:border-pink-500/30';
-    default:
-      return 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
   }
 }
 </script>

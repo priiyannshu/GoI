@@ -13,7 +13,7 @@
       <div class="flex items-center space-x-3 bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 text-xs shadow-xs">
         <div>
           <span class="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-semibold">Audited Exams</span>
-          <span class="text-slate-900 dark:text-white font-mono font-bold text-sm">31</span>
+          <span class="text-slate-900 dark:text-white font-mono font-bold text-sm">{{ examStore.totalExamsCount }}</span>
         </div>
         <div class="w-px h-6 bg-slate-300 dark:bg-slate-700"></div>
         <div>
@@ -57,14 +57,17 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useSyllabusVisualizationStore } from '@/stores/useSyllabusVisualizationStore';
+import { useExamMasterStore } from '@/stores/useExamMasterStore';
 import SyllabusSyncToolbar from '@/components/visualizations/SyllabusSyncToolbar.vue';
 import OverlapMatrixView from '@/components/visualizations/OverlapMatrixView.vue';
 import UpsetMatrixView from '@/components/visualizations/UpsetMatrixView.vue';
 import TopicDetailPanel from '@/components/visualizations/TopicDetailPanel.vue';
 
 const store = useSyllabusVisualizationStore();
+const examStore = useExamMasterStore();
 
 onMounted(async () => {
+  await examStore.loadExams();
   await store.loadSyllabusData();
 });
 </script>

@@ -155,14 +155,17 @@ import { useRoute, useRouter } from 'vue-router';
 import AppEmblem from '@/components/common/AppEmblem.vue';
 import { useProfileStore } from '@/stores/useProfileStore';
 import { useEligibilityStore } from '@/stores/useEligibilityStore';
+import { useExamMasterStore } from '@/stores/useExamMasterStore';
 import { useHiddenStore } from '@/stores/useHiddenStore';
 import { useAuthStore } from '@/stores/useAuthStore';
+import { AUDITED_POSTS_DATA } from '@/data/postsData';
 import ThemeToggle from '@/components/common/ThemeToggle.vue';
 
 const route = useRoute();
 const router = useRouter();
 const profileStore = useProfileStore();
 const eligibilityStore = useEligibilityStore();
+const examStore = useExamMasterStore();
 const hiddenStore = useHiddenStore();
 const authStore = useAuthStore();
 
@@ -180,8 +183,18 @@ const candidateDisplayName = computed(() => {
 
 const appNavItems = computed(() => [
   { title: 'Profile & Eligibility', path: '/profile', icon: '👤' },
-  { title: 'Official Examinations', path: '/exams', icon: '📋' },
-  { title: 'Posts & Lifestyle Perks', path: '/posts', icon: '🏛️' },
+  {
+    title: 'Official Examinations',
+    path: '/exams',
+    icon: '📋',
+    badge: examStore.totalExamsCount,
+  },
+  {
+    title: 'Posts & Lifestyle Perks',
+    path: '/posts',
+    icon: '🏛️',
+    badge: AUDITED_POSTS_DATA.length,
+  },
   {
     title: 'Hidden Items',
     path: '/hidden',

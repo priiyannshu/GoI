@@ -220,14 +220,13 @@ const hiddenStore = useHiddenStore();
 
 const statusFilter = ref<string>('ALL');
 
-const clusterFilters = [
-  { label: 'All Exams (31)', value: 'ALL' },
-  { label: 'Central Civil', value: 'Central-Civil' },
-  { label: 'Regulatory', value: 'Regulatory' },
-  { label: 'Defense', value: 'Defense' },
-  { label: 'State PSC', value: 'State-PSC' },
-  { label: 'PSU', value: 'PSU' },
-];
+const clusterFilters = computed(() => [
+  { label: `All Exams (${examStore.totalExamsCount})`, value: 'ALL' },
+  { label: `Central Civil (${examStore.getClusterCount('Central-Civil')})`, value: 'Central-Civil' },
+  { label: `Regulatory (${examStore.getClusterCount('Regulatory')})`, value: 'Regulatory' },
+  { label: `Defense (${examStore.getClusterCount('Defense')})`, value: 'Defense' },
+  { label: `State PSC (${examStore.getClusterCount('State-PSC')})`, value: 'State-PSC' },
+]);
 
 onMounted(async () => {
   hiddenStore.loadHiddenItems();

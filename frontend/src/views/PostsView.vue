@@ -336,14 +336,19 @@ function toggleExpandAll() {
   }
 }
 
-const clusters = [
+function getClusterPostCount(cluster: string): number {
+  if (cluster === 'ALL') return AUDITED_POSTS_DATA.length;
+  return AUDITED_POSTS_DATA.filter((p) => p.cluster === cluster).length;
+}
+
+const clusters = computed(() => [
   { label: `All Posts (${AUDITED_POSTS_DATA.length})`, value: 'ALL' },
-  { label: 'Central Civil', value: 'Central-Civil' },
-  { label: 'Regulatory', value: 'Regulatory' },
-  { label: 'Defense', value: 'Defense' },
-  { label: 'State PSC', value: 'State-PSC' },
-  { label: 'PSU', value: 'PSU' },
-];
+  { label: `Central Civil (${getClusterPostCount('Central-Civil')})`, value: 'Central-Civil' },
+  { label: `Regulatory (${getClusterPostCount('Regulatory')})`, value: 'Regulatory' },
+  { label: `Defense (${getClusterPostCount('Defense')})`, value: 'Defense' },
+  { label: `State PSC (${getClusterPostCount('State-PSC')})`, value: 'State-PSC' },
+  { label: `PSU (${getClusterPostCount('PSU')})`, value: 'PSU' },
+]);
 
 function formatPaySystem(system: string): string {
   switch (system) {
