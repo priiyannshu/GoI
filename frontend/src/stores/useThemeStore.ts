@@ -16,7 +16,7 @@ export const THEMES: ThemeOption[] = [
     id: 'theme-neon',
     name: 'Neon',
     description: 'Cyberpunk dark mode with electric cyan & purple accents',
-    icon: '⚡',
+    icon: '🔮',
     metaColor: '#0d1117',
   },
   {

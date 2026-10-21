@@ -1,38 +1,18 @@
 <template>
   <div class="relative inline-flex items-center">
-    <!-- SFIIL Theme Cycle Button -->
+    <!-- SFIIL Theme Cycle Button (Icon Only) -->
     <button
       id="btnCycleTheme"
       @click="themeStore.cycleTheme"
-      class="group inline-flex items-center space-x-2 px-3 py-1.5 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/50"
+      class="group inline-flex items-center justify-center p-2 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/50"
       :class="buttonThemeClasses"
-      title="Switch Theme (Neon / Paper / AMOLED)"
-      aria-label="Switch Theme (Neon / Paper / AMOLED)"
+      title="Switch Theme"
+      aria-label="Switch Theme"
     >
-      <!-- Active Theme Icon -->
-      <span class="text-sm transform group-hover:rotate-12 transition-transform duration-200">
+      <!-- Active Theme Emoji Icon -->
+      <span class="text-base leading-none transform group-hover:scale-110 transition-transform duration-200">
         {{ themeStore.currentThemeMeta.icon }}
       </span>
-
-      <!-- Theme Name Badge -->
-      <span class="text-xs font-bold tracking-wide font-mono">
-        {{ themeStore.currentThemeMeta.name }}
-      </span>
-
-      <!-- Rotating Cycle Icon -->
-      <svg
-        class="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:rotate-180 transition-all duration-300"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-        />
-      </svg>
     </button>
   </div>
 </template>
