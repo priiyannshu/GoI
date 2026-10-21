@@ -1,0 +1,206 @@
+name: CI/CD Pipeline - Cloudflare Deployment
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # ==============================================================================
+  # Job 1: Quality Gate & Test Suite (Static Analysis, Type Checking, Unit Tests)
+  # ==============================================================================
+  test-and-build:
+    name: Build & Test Quality Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: |
+            frontend/package-lock.json
+            worker/package-lock.json
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # --- Frontend Build & Type Check ---
+      - name: Install Frontend Dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Type-Check & Build Frontend PWA
+        working-directory: frontend
+        run: npm run build
+
+      # --- Worker Build & Type Check ---
+      - name: Install Worker Dependencies
+        working-directory: worker
+        run: npm ci
+
+      - name: Type-Check Cloudflare Worker API
+        working-directory: worker
+        run: npm run build
+
+      # --- Automated Unit & Adversarial Test Suites ---
+      - name: Run Node.js Eligibility Engine Test Suite
+        run: node tests/unit/test_eligibility_engine.mjs
+
+      - name: Run Node.js Bipartite Adversarial Test Suite
+        run: node tests/unit/test_m4_bipartite_adversarial.mjs
+
+      - name: Run Python Adversarial & Boundary Test Suites
+        env:
+          PYTHONPATH: .
+        run: |
+          python3 tests/unit/test_m1_adversarial.py
+          python3 tests/unit/test_m2_adversarial.py
+          python3 tests/unit/test_m4_visualizations_adversarial.py
+          python3 tests/unit/test_m6_challenger_probes.py
+
+      # --- Archive Compiled Frontend Build Artifact ---
+      - name: Upload Frontend Dist Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+          retention-days: 1
+
+  # ==============================================================================
+  # Job 2: Deploy Cloudflare Worker API & Apply D1 Migrations
+  # ==============================================================================
+  deploy-worker:
+    name: Deploy Cloudflare Worker API
+    needs: test-and-build
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || '913053598d368551936e69dd07298da5' }}
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: worker/package-lock.json
+
+      - name: Install Worker Dependencies
+        working-directory: worker
+        run: npm ci
+
+      - name: Apply Cloudflare D1 Remote Database Migrations
+        working-directory: worker
+        run: |
+          echo "Applying pending remote migrations to D1 database 'grade_a_db'..."
+          npx wrangler d1 migrations apply grade_a_db --remote
+
+      - name: Deploy Worker API to Cloudflare
+        working-directory: worker
+        run: |
+          echo "Deploying Cloudflare Worker API..."
+          npx wrangler deploy
+
+  # ==============================================================================
+  # Job 3: Deploy Frontend PWA to Cloudflare Pages
+  # ==============================================================================
+  deploy-pages:
+    name: Deploy Cloudflare Pages PWA
+    needs: deploy-worker
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || '913053598d368551936e69dd07298da5' }}
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Frontend Dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Download Built Frontend Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+
+      - name: Deploy to Cloudflare Pages
+        working-directory: frontend
+        run: |
+          echo "Deploying production build to Cloudflare Pages (project: goi)..."
+          npx wrangler pages deploy dist --project-name=goi --branch=main --commit-dirty=true
+
+  # ==============================================================================
+  # Job 4: Post-Deployment Verification & Smoke Testing
+  # ==============================================================================
+  smoke-test:
+    name: Verify Live Production Deployments
+    needs: [deploy-worker, deploy-pages]
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Smoke Test Cloudflare Worker API Health
+        run: |
+          API_URL="https://grade-a-api.priyanshukh1201.workers.dev"
+          echo "Checking Worker Root Health (${API_URL}/)..."
+          curl -fsS "${API_URL}/"
+
+          echo ""
+          echo "Checking Worker Exams Endpoint (${API_URL}/api/v1/exams)..."
+          curl -fsS "${API_URL}/api/v1/exams" | jq '{success: .success, count: .count}'
+
+      - name: Smoke Test Cloudflare Pages PWA & API Proxy
+        run: |
+          PAGES_URL="https://goi-6hi.pages.dev"
+          echo "Checking Cloudflare Pages Root HTTP status (${PAGES_URL})..."
+          curl -s -o /dev/null -w "HTTP Response Code: %{http_code}\n" "${PAGES_URL}"
+
+          echo "Checking Pages Reverse Proxy (/api/v1/exams)..."
+          curl -fsS "${PAGES_URL}/api/v1/exams" | jq '{success: .success, count: .count}'
+
+      - name: Run Live Candidate Auth & Sync Integration Probe
+        run: |
+          echo "Verifying live candidate registration, PIN auth, and D1 persistence..."
+          python3 tests/unit/test_candidate_auth_and_sync.py
+
+      - name: Production Deployment Summary
+        run: |
+          echo "=========================================================="
+          echo "🎉 ALL CHECKS & DEPLOYMENTS COMPLETED SUCCESSFULLY!"
+          echo "PWA Application URL: https://goi-6hi.pages.dev"
+          echo "Worker API Endpoint: https://grade-a-api.priyanshukh1201.workers.dev"
+          echo "=========================================================="

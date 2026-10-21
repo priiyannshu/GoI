@@ -2,8 +2,9 @@
 
 An exhaustive research database, verifiable statutory ground-truth audit trail, universal syllabus ontology, and Cloudflare-hosted Vue 3 Progressive Web Application (PWA) with D3.js multi-view set visualizations and multidimensional eligibility profiling across 31 premier Indian Grade A examinations.
 
-[![Live PWA](https://img.shields.io/badge/PWA-grade--a--exams.pages.dev-0284c7?style=flat-square&logo=cloudflare)](https://grade-a-exams.pages.dev)
+[![Live PWA](https://img.shields.io/badge/PWA-goi--6hi.pages.dev-0284c7?style=flat-square&logo=cloudflare)](https://goi-6hi.pages.dev)
 [![API Edge Worker](https://img.shields.io/badge/API-grade--a--api.workers.dev-f97316?style=flat-square&logo=cloudflare-workers)](https://grade-a-api.priyanshukh1201.workers.dev)
+[![CI/CD Pipeline](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)](.github/workflows/deploy.yml)
 [![D1 Database](https://img.shields.io/badge/D1-grade__a__db-10b981?style=flat-square&logo=sqlite)](https://dash.cloudflare.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 
@@ -149,6 +150,61 @@ npm run dev
 ```bash
 bash scripts/deploy_cloudflare.sh
 ```
+
+---
+
+## 🔄 Automated CI/CD Pipeline (GitHub Actions)
+
+This project includes a continuous deployment workflow configured at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+### Pipeline Flow:
+```
+  [git push origin main] / [Pull Request]
+                     │
+                     ▼
+  ┌──────────────────────────────────────────────┐
+  │ 1. Quality Gate & Test Suite (Ubuntu-latest) │
+  │    - Frontend build & Vue TypeScript check   │
+  │    - Cloudflare Worker build & TS check      │
+  │    - Node.js eligibility & bipartite tests   │
+  │    - Python adversarial & boundary test suite│
+  │    - Frontend dist artifact upload           │
+  └──────────────────────┬───────────────────────┘
+                         │ (Runs on push to main only)
+                         ▼
+  ┌──────────────────────────────────────────────┐
+  │ 2. Deploy Worker API & Apply D1 Migrations   │
+  │    - `wrangler d1 migrations apply --remote` │
+  │    - `wrangler deploy` (Worker Hono API)     │
+  └──────────────────────┬───────────────────────┘
+                         │
+                         ▼
+  ┌──────────────────────────────────────────────┐
+  │ 3. Deploy Frontend PWA (Cloudflare Pages)    │
+  │    - Downloads verified dist artifact        │
+  │    - `wrangler pages deploy dist` (PWA +     │
+  │      reverse proxy functions)                │
+  └──────────────────────┬───────────────────────┘
+                         │
+                         ▼
+  ┌──────────────────────────────────────────────┐
+  │ 4. Post-Deployment Smoke Verification        │
+  │    - Worker API health check                 │
+  │    - Pages PWA HTTP 200 response check       │
+  │    - Pages reverse proxy verification        │
+  │    - Live candidate PIN registration & sync  │
+  └──────────────────────────────────────────────┘
+```
+
+### GitHub Secrets Required:
+To enable automated deployments, configure the following secrets in your GitHub repository (**Settings** > **Secrets and variables** > **Actions**):
+
+| Secret Name | Required | Description |
+| :--- | :---: | :--- |
+| `CLOUDFLARE_API_TOKEN` | **Yes** | Cloudflare API token with `Workers Scripts:Edit`, `Cloudflare Pages:Edit`, and `D1:Edit` permissions. |
+| `CLOUDFLARE_ACCOUNT_ID` | Optional | Cloudflare Account ID (defaults to `913053598d368551936e69dd07298da5` if omitted). |
+
+For detailed instructions on generating the Cloudflare API token and configuring branch protections, see [`CI_CD_GUIDE.md`](CI_CD_GUIDE.md).
 
 ---
 

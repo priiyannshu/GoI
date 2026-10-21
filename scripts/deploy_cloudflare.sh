@@ -30,6 +30,9 @@ wrangler d1 execute "${D1_DB_NAME}" --remote --file="${ROOT_DIR}/worker/migratio
 echo "Executing 0002_seed_data.sql..."
 wrangler d1 execute "${D1_DB_NAME}" --remote --file="${ROOT_DIR}/worker/migrations/0002_seed_data.sql" -y
 
+echo "Executing 0003_candidate_auth.sql..."
+wrangler d1 execute "${D1_DB_NAME}" --remote --file="${ROOT_DIR}/worker/migrations/0003_candidate_auth.sql" -y
+
 echo "=== [4/6] Deploying Cloudflare Worker API (Hono) ==="
 cd "${ROOT_DIR}/worker"
 if [ ! -d "node_modules" ]; then
