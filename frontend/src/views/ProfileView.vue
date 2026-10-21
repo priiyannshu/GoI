@@ -6,28 +6,46 @@
         <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Candidate Profile & Statutory Eligibility</h1>
       </div>
 
-      <!-- Tab Switcher -->
-      <div class="flex rounded-xl bg-slate-100 dark:bg-slate-800 p-1 border border-slate-200 dark:border-slate-700/80 self-start sm:self-auto">
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- Save Profile Button -->
         <button
-          @click="activeTab = 'profile'"
-          class="py-1.5 px-4 rounded-lg text-xs font-semibold transition-all"
-          :class="activeTab === 'profile' ? 'bg-emerald-500 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+          @click="saveProfile"
+          :disabled="isSavingProfile"
+          class="inline-flex items-center space-x-1.5 py-1.5 px-3.5 rounded-xl text-xs font-bold transition-all shadow-sm bg-emerald-600 hover:bg-emerald-500 text-white disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
         >
-          👤 My Profile
+          <svg v-if="isSavingProfile" class="animate-spin h-3.5 w-3.5 text-white" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <svg v-else class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+          </svg>
+          <span>{{ isSavingProfile ? 'Saving...' : 'Save Profile' }}</span>
         </button>
-        <button
-          @click="activeTab = 'summary'"
-          class="py-1.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5"
-          :class="activeTab === 'summary' ? 'bg-emerald-500 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
-        >
-          <span>🎯 Eligibility Summary</span>
-          <span
-            v-if="eligibilityStore.eligibleCount > 0"
-            class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40"
+
+        <!-- Tab Switcher -->
+        <div class="flex rounded-xl bg-slate-100 dark:bg-slate-800 p-1 border border-slate-200 dark:border-slate-700/80">
+          <button
+            @click="activeTab = 'profile'"
+            class="py-1.5 px-4 rounded-lg text-xs font-semibold transition-all cursor-pointer"
+            :class="activeTab === 'profile' ? 'bg-emerald-500 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
           >
-            {{ eligibilityStore.eligibleCount }}
-          </span>
-        </button>
+            👤 My Profile
+          </button>
+          <button
+            @click="activeTab = 'summary'"
+            class="py-1.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 cursor-pointer"
+            :class="activeTab === 'summary' ? 'bg-emerald-500 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+          >
+            <span>🎯 Eligibility Summary</span>
+            <span
+              v-if="eligibilityStore.eligibleCount > 0"
+              class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40"
+            >
+              {{ eligibilityStore.eligibleCount }}
+            </span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -427,6 +445,39 @@
           </div>
         </div>
       </div>
+
+      <!-- Bottom Save Action Bar -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 shadow-sm dark:shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-2 text-xs text-slate-600 dark:text-slate-400">
+          <span v-if="saveMessage" class="font-medium text-emerald-600 dark:text-emerald-400 flex items-center space-x-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{{ saveMessage }}</span>
+          </span>
+          <span v-else-if="profileStore.syncStatus === 'synced_online'" class="text-emerald-600 dark:text-emerald-400">
+            ✓ Synced to cloud
+          </span>
+          <span v-else>
+            Changes save automatically to local storage and sync online when ready.
+          </span>
+        </div>
+
+        <button
+          @click="saveProfile"
+          :disabled="isSavingProfile"
+          class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 py-2.5 px-6 rounded-xl text-sm font-bold transition-all shadow-sm bg-emerald-600 hover:bg-emerald-500 text-white disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+        >
+          <svg v-if="isSavingProfile" class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <svg v-else class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+          </svg>
+          <span>{{ isSavingProfile ? 'Saving...' : 'Save Profile' }}</span>
+        </button>
+      </div>
     </div>
 
     <!-- TAB 2: ELIGIBILITY SUMMARY REPORT (NO CONDITIONAL TIER) -->
@@ -572,8 +623,26 @@ const authStore = useAuthStore();
 
 const activeTab = ref<'profile' | 'summary'>('profile');
 const statusFilter = ref<string>('ALL');
+const isSavingProfile = ref(false);
+const saveMessage = ref<string | null>(null);
 
 const profile = profileStore.profile;
+
+async function saveProfile() {
+  isSavingProfile.value = true;
+  saveMessage.value = null;
+  try {
+    await profileStore.saveProgress();
+    saveMessage.value = 'Profile saved successfully!';
+  } catch (err: any) {
+    saveMessage.value = 'Profile saved locally.';
+  } finally {
+    isSavingProfile.value = false;
+    setTimeout(() => {
+      saveMessage.value = null;
+    }, 4000);
+  }
+}
 
 onMounted(async () => {
   await examStore.loadExams();
