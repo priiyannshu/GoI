@@ -6,7 +6,7 @@
       </div>
       <h1 class="text-2xl font-bold text-slate-900 dark:text-white">No Eligibility Profile Evaluated Yet</h1>
       <p class="text-sm text-slate-600 dark:text-slate-400">
-        Complete our 5-step intake quiz to determine your statutory eligibility across all 31 Indian Grade A examinations.
+        Complete our 5-step intake quiz to determine your statutory eligibility across audited Indian Grade A examinations.
       </p>
       <router-link
         to="/quiz"
