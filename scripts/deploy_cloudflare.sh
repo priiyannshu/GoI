@@ -8,7 +8,7 @@ set -euo pipefail
 export NODE_OPTIONS="${NODE_OPTIONS:-} --dns-result-order=ipv4first"
 export CLOUDFLARE_ACCOUNT_ID="913053598d368551936e69dd07298da5"
 D1_DB_NAME="grade_a_db"
-PAGES_PROJECT="grade-a-exams"
+PAGES_PROJECT="goi"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
@@ -55,7 +55,7 @@ wrangler pages deploy dist --project-name "${PAGES_PROJECT}" --commit-dirty=true
 
 echo "=== [6/6] Verifying Live Production Deployments ==="
 API_URL="https://grade-a-api.priyanshukh1201.workers.dev"
-PAGES_URL="https://grade-a-exams.pages.dev"
+PAGES_URL="https://goi-6hi.pages.dev"
 
 echo "Checking Worker Health (${API_URL}/)..."
 curl -fsS "${API_URL}/" | jq .
