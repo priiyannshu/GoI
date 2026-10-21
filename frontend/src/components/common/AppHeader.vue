@@ -22,20 +22,36 @@
             🏛️
           </div>
           <div class="flex items-baseline space-x-1.5">
-            <span class="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight">Government of India</span>
+            <span class="font-goi-cursive font-bold text-lg sm:text-xl text-slate-900 dark:text-white tracking-tight">Govt. of India</span>
           </div>
         </router-link>
       </div>
 
       <!-- Right: Profile & Eligibility Link + Working Theme Toggle -->
       <div class="flex items-center space-x-2 sm:space-x-3">
+        <!-- Candidate Login / Profile Link -->
+        <router-link
+          v-if="!authStore.isAuthenticated"
+          to="/login"
+          class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all"
+        >
+          <span>🔑</span>
+          <span>Login</span>
+        </router-link>
+
         <router-link
           to="/profile"
           class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 transition-colors border border-slate-200 dark:border-slate-700/60"
           title="Candidate Profile & Statutory Eligibility"
         >
           <span>👤</span>
-          <span class="hidden sm:inline font-medium max-w-[140px] truncate">{{ candidateDisplayName }}</span>
+          <span class="hidden sm:inline font-medium max-w-[120px] truncate">{{ candidateDisplayName }}</span>
+          <span
+            v-if="authStore.candidateId"
+            class="hidden md:inline px-1.5 py-0.2 rounded font-mono text-[9px] font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"
+          >
+            {{ authStore.candidateId }}
+          </span>
           <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400">{{ profileStore.completionPercentage }}%</span>
         </router-link>
         <ThemeToggle />
@@ -66,7 +82,7 @@
                     🏛️
                   </div>
                   <div>
-                    <span class="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white">Government of India</span>
+                    <span class="font-goi-cursive font-bold text-lg sm:text-xl text-slate-900 dark:text-white">Govt. of India</span>
                   </div>
                 </div>
 
@@ -88,9 +104,14 @@
                 <div class="flex items-center justify-between mb-2">
                   <div class="flex items-center space-x-2 min-w-0">
                     <span class="text-base flex-shrink-0">👤</span>
-                    <span class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
-                      {{ candidateDisplayName }}
-                    </span>
+                    <div class="min-w-0">
+                      <div class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
+                        {{ candidateDisplayName }}
+                      </div>
+                      <div v-if="authStore.candidateId" class="text-[9px] font-mono text-emerald-600 dark:text-emerald-400 font-bold truncate">
+                        ID: {{ authStore.candidateId }}
+                      </div>
+                    </div>
                   </div>
                   <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 flex-shrink-0">
                     {{ profileStore.completionPercentage }}%
@@ -130,6 +151,31 @@
                     {{ item.badge }}
                   </span>
                 </router-link>
+
+                <!-- Dedicated Login / Logout Drawer Row -->
+                <router-link
+                  v-if="!authStore.isAuthenticated"
+                  to="/login"
+                  @click="isDrawerOpen = false"
+                  class="flex items-center justify-between px-3.5 py-3 rounded-xl text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/10 font-bold transition-colors"
+                >
+                  <div class="flex items-center space-x-3">
+                    <span class="text-lg">🔑</span>
+                    <span>Candidate Portal Login</span>
+                  </div>
+                  <span class="text-xs">→</span>
+                </router-link>
+
+                <button
+                  v-else
+                  @click="authStore.logout(); isDrawerOpen = false"
+                  class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-rose-600 dark:text-rose-400 hover:bg-rose-500/10 text-xs font-semibold transition-colors"
+                >
+                  <div class="flex items-center space-x-3">
+                    <span>🚪</span>
+                    <span>Sign Out ({{ authStore.candidateId }})</span>
+                  </div>
+                </button>
               </nav>
             </div>
 
@@ -148,17 +194,19 @@ import { useRoute } from 'vue-router';
 import { useProfileStore } from '@/stores/useProfileStore';
 import { useEligibilityStore } from '@/stores/useEligibilityStore';
 import { useHiddenStore } from '@/stores/useHiddenStore';
+import { useAuthStore } from '@/stores/useAuthStore';
 import ThemeToggle from '@/components/common/ThemeToggle.vue';
 
 const route = useRoute();
 const profileStore = useProfileStore();
 const eligibilityStore = useEligibilityStore();
 const hiddenStore = useHiddenStore();
+const authStore = useAuthStore();
 
 const isDrawerOpen = ref(false);
 
 const candidateDisplayName = computed(() => {
-  return profileStore.profile.full_name?.trim() || 'Candidate Profile';
+  return authStore.candidateName || profileStore.profile.full_name?.trim() || 'Candidate Profile';
 });
 
 const appNavItems = computed(() => [

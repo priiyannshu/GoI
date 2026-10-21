@@ -35,6 +35,7 @@ export type ExamCategory =
 
 export interface UserProfileInput {
   // Identity
+  user_id?: string;
   full_name?: string;
 
   // Demographics
@@ -68,6 +69,10 @@ export interface UserProfileInput {
 
   // Physical & Medical Standards
   height_cm: number | null;
+  sitting_height_cm?: number | null;
+  leg_length_cm?: number | null;
+  thigh_length_cm?: number | null;
+  weight_kg?: number | null;
   chest_cm: number | null;
   chest_expansion_cm: number | null;
   has_color_blindness: boolean;

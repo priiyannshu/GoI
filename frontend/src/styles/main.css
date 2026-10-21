@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Local font fallbacks for offline support */
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/DancingScript-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/DancingScript-Bold.ttf') format('truetype');
+}
+
+.font-goi-cursive {
+  font-family: 'Dancing Script', 'Great Vibes', 'Brush Script MT', 'Segoe Script', cursive, sans-serif !important;
+  letter-spacing: 0.02em;
+}
+
 /* ===== SFIIL PWA THEMES ===== */
 :root,
 html.theme-neon,

@@ -27,6 +27,12 @@ const routes: Array<RouteRecordRaw> = [
     meta: { title: 'Government Posts & Lifestyle — Government of India' },
   },
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/LoginView.vue'),
+    meta: { title: 'Candidate Login & Access — Government of India' },
+  },
+  {
     path: '/profile',
     name: 'profile',
     component: () => import('@/views/ProfileView.vue'),

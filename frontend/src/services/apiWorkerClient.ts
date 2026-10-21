@@ -1,4 +1,5 @@
 import type { ExamRecord } from '../types/profile';
+import type { AuthResponse } from '../types/auth';
 import { indexedDbStorage } from './indexedDbStorage';
 import rawExamsJson from '../data/grade_a_exams.json';
 import rawTaxonomyJson from '../data/syllabus_taxonomy.json';
@@ -60,6 +61,51 @@ export async function fetchSyllabusTaxonomy(): Promise<any> {
   return { domains: [], total_topics: 0 };
 }
 
+export async function loginCandidate(
+  candidateName: string,
+  pin: string,
+  uniqueId?: string
+): Promise<AuthResponse> {
+  const payload: any = { candidate_name: candidateName, pin };
+  if (uniqueId) {
+    payload.unique_id = uniqueId;
+  }
+  const res = await fetch(`${API_BASE}/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const data = await res.json();
+  if (!res.ok && res.status !== 300) {
+    throw new Error(data.message || data.error || `Login failed: HTTP ${res.status}`);
+  }
+  return data;
+}
+
+export async function registerCandidate(
+  candidateName: string,
+  pin: string
+): Promise<AuthResponse> {
+  const res = await fetch(`${API_BASE}/auth/register`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ candidate_name: candidateName, pin }),
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.message || data.error || `Registration failed: HTTP ${res.status}`);
+  }
+  return data;
+}
+
+export async function fetchCandidateProfile(userId: string): Promise<any> {
+  const res = await fetch(`${API_BASE}/profile/${encodeURIComponent(userId)}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load profile for ${userId}: HTTP ${res.status}`);
+  }
+  return await res.json();
+}
+
 export async function syncProfileToEdge(profileData: any): Promise<any> {
   try {
     const res = await fetch(`${API_BASE}/profile/sync`, {
@@ -67,8 +113,11 @@ export async function syncProfileToEdge(profileData: any): Promise<any> {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(profileData),
     });
-    if (!res.ok) throw new Error(`Profile sync failed: HTTP ${res.status}`);
-    return await res.json();
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.message || data.error || `Profile sync failed: HTTP ${res.status}`);
+    }
+    return data;
   } catch (error) {
     console.warn('Edge sync failed, queuing in IndexedDB outbox:', error);
     await indexedDbStorage.enqueueSync(profileData, 'sync_profile');

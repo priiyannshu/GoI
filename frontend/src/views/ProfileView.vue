@@ -33,6 +33,105 @@
 
     <!-- TAB 1: MY PROFILE (INDIVIDUAL SKIPPABLE FIELDS) -->
     <div v-if="activeTab === 'profile'" class="space-y-6">
+      <!-- Candidate Account & Cloudflare D1 Propagation Banner -->
+      <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl p-5 border border-slate-700 shadow-md space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-xl">
+              ☁️
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Cloudflare D1 Database</span>
+                <span
+                  class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold"
+                  :class="profileStore.syncStatus === 'synced_online' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'"
+                >
+                  {{ profileStore.syncStatus === 'synced_online' ? 'Synced to DB ✓' : 'Local / Pending Sync' }}
+                </span>
+              </div>
+              <div class="text-sm font-bold text-slate-100 flex items-center space-x-2">
+                <span v-if="authStore.isAuthenticated">Candidate: {{ authStore.candidateName }}</span>
+                <span v-else class="text-slate-300">Candidate Session: Guest</span>
+                <span
+                  v-if="authStore.candidateId"
+                  class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-emerald-400 border border-slate-700"
+                >
+                  ID: {{ authStore.candidateId }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center space-x-2 self-start sm:self-auto">
+            <button
+              v-if="!authStore.isAuthenticated"
+              @click="authStore.openLoginModal()"
+              class="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all flex items-center space-x-1.5"
+            >
+              <span>🔑</span>
+              <span>Candidate Login (4-Digit PIN)</span>
+            </button>
+
+            <button
+              @click="handlePropagate"
+              :disabled="profileStore.isSyncing"
+              class="px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5"
+              :class="
+                profileStore.isSyncing
+                  ? 'bg-slate-700 text-slate-400 cursor-not-allowed'
+                  : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold shadow'
+              "
+            >
+              <span v-if="profileStore.isSyncing" class="inline-block animate-spin">🔄</span>
+              <span v-else>☁️</span>
+              <span>{{ profileStore.isSyncing ? 'Propagating...' : 'Propagate to Cloudflare DB' }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sync Details & Feedback Alerts -->
+        <div class="pt-2 border-t border-slate-700/80 flex flex-col sm:flex-row sm:items-center justify-between text-[11px] text-slate-300 gap-2">
+          <div>
+            <span v-if="profileStore.lastSyncedAt">
+              Last propagated: <strong class="text-slate-100">{{ formatTimestamp(profileStore.lastSyncedAt) }}</strong>
+            </span>
+            <span v-else>
+              Profile not yet propagated to Cloudflare remote database. Fill mandatory fields and click Propagate.
+            </span>
+          </div>
+
+          <div v-if="!authStore.isAuthenticated" class="text-amber-300 flex items-center space-x-1">
+            <span>💡</span>
+            <span>Login with a 4-digit PIN to establish a unique statutory candidate ID in case of identical names.</span>
+          </div>
+        </div>
+
+        <!-- Propagate Feedback Toast -->
+        <div
+          v-if="propagateFeedback"
+          class="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/50 text-xs font-semibold text-emerald-300 flex items-center justify-between"
+        >
+          <div class="flex items-center space-x-2">
+            <span>✓</span>
+            <span>{{ propagateFeedback }}</span>
+          </div>
+          <button @click="propagateFeedback = null" class="text-emerald-400 hover:text-white text-xs">✕</button>
+        </div>
+
+        <div
+          v-if="propagateError"
+          class="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/50 text-xs font-semibold text-rose-300 flex items-center justify-between"
+        >
+          <div class="flex items-center space-x-2">
+            <span>⚠️</span>
+            <span>{{ propagateError }}</span>
+          </div>
+          <button @click="propagateError = null" class="text-rose-400 hover:text-white text-xs">✕</button>
+        </div>
+      </div>
+
       <!-- Profile Completion Gauge & Auto-Save Banner -->
       <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm dark:shadow-lg">
         <div class="space-y-1">
@@ -530,17 +629,48 @@ import { useRouter } from 'vue-router';
 import { useProfileStore } from '@/stores/useProfileStore';
 import { useEligibilityStore } from '@/stores/useEligibilityStore';
 import { useExamMasterStore } from '@/stores/useExamMasterStore';
+import { useAuthStore } from '@/stores/useAuthStore';
 import type { EligibilityVerdict } from '@/types/profile';
 
 const router = useRouter();
 const profileStore = useProfileStore();
 const eligibilityStore = useEligibilityStore();
 const examStore = useExamMasterStore();
+const authStore = useAuthStore();
 
 const activeTab = ref<'profile' | 'summary'>('profile');
 const statusFilter = ref<string>('ALL');
+const propagateFeedback = ref<string | null>(null);
+const propagateError = ref<string | null>(null);
 
 const profile = profileStore.profile;
+
+async function handlePropagate() {
+  propagateFeedback.value = null;
+  propagateError.value = null;
+
+  if (!authStore.isAuthenticated) {
+    authStore.openLoginModal();
+    return;
+  }
+
+  const res = await profileStore.propagateToCloudflareDB();
+  if (res.success) {
+    propagateFeedback.value = res.message;
+  } else {
+    propagateError.value = res.message;
+  }
+}
+
+function formatTimestamp(isoStr: string | null): string {
+  if (!isoStr) return 'Never';
+  try {
+    const d = new Date(isoStr);
+    return isNaN(d.getTime()) ? isoStr : d.toLocaleString();
+  } catch {
+    return isoStr;
+  }
+}
 
 onMounted(async () => {
   await examStore.loadExams();

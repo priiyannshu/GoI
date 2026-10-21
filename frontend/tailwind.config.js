@@ -7,6 +7,10 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        cursive: ['"Dancing Script"', '"Great Vibes"', 'cursive', 'system-ui'],
+        script: ['"Dancing Script"', 'cursive'],
+      },
       colors: {
         theme: {
           bg: 'var(--bg)',
