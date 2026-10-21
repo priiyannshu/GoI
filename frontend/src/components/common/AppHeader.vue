@@ -27,21 +27,8 @@
         </router-link>
       </div>
 
-      <!-- Right: Profile & Eligibility Link + Working Theme Toggle -->
+      <!-- Right: Working Theme Toggle -->
       <div class="flex items-center space-x-2 sm:space-x-3">
-        <router-link
-          to="/profile"
-          class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-sky-500 dark:hover:text-sky-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 transition-colors border border-slate-200 dark:border-slate-700/60"
-          title="Candidate Profile & Statutory Eligibility"
-        >
-          <span class="font-medium max-w-[120px] truncate">{{ candidateDisplayName }}</span>
-          <span
-            v-if="authStore.candidateId"
-            class="hidden md:inline px-1.5 py-0.2 rounded font-mono text-[9px] font-bold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30"
-          >
-            {{ authStore.candidateId }}
-          </span>
-        </router-link>
         <ThemeToggle />
       </div>
     </div>
