@@ -1,4 +1,4 @@
-"""Generates standard, maskable, and favicon PWA icons with the official emblem."""
+"""Generates standard, maskable, and favicon PWA icons with the official sky blue emblem."""
 import os
 import subprocess
 
@@ -14,48 +14,53 @@ def generate_icons():
         <!-- Background -->
         <rect width="${size}" height="${size}" rx="${radius}" fill="#0F172A"/>
         
-        <!-- Subtle Accent Ring -->
-        <rect x="${size*0.06}" y="${size*0.06}" width="${size*0.88}" height="${size*0.88}" rx="${radius*0.9}" fill="none" stroke="#10B981" stroke-opacity=\"0.28\" stroke-width="${Math.max(2, size*0.015)}"/>
+        <!-- Subtle Sky Blue Accent Ring -->
+        <rect x="${size*0.06}" y="${size*0.06}" width="${size*0.88}" height="${size*0.88}" rx="${radius*0.9}" fill="none" stroke="#38BDF8" stroke-opacity="0.35" stroke-width="${Math.max(2, size*0.015)}"/>
         
-        <!-- Inner Emerald Container Matching AppHeader -->
-        <rect x="${size*0.14}" y="${size*0.14}" width="${size*0.72}" height="${size*0.72}" rx="${radius*0.7}" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-opacity="0.4" stroke-width="${Math.max(2, size*0.018)}"/>
+        <!-- Inner Sky Blue Container Matching AppHeader -->
+        <rect x="${size*0.14}" y="${size*0.14}" width="${size*0.72}" height="${size*0.72}" rx="${radius*0.7}" fill="#0284C7" fill-opacity="0.15" stroke="#38BDF8" stroke-opacity="0.45" stroke-width="${Math.max(2, size*0.018)}"/>
         
-        <!-- Classical Government Building Emblem (🏛️) -->
+        <!-- Perfectly Symmetrical Classical Emblem in Sky Blue (🏛️) -->
         <g transform="translate(${size*0.22}, ${size*0.24}) scale(${(size*0.56)/240})">
           <!-- Pediment Roof Triangle -->
-          <path d="M120 16 L228 78 L12 78 Z" fill="#10B981" stroke="#34D399" stroke-width="6" stroke-linejoin="round"/>
-          <circle cx="120" cy="54" r="12" fill="#0F172A" stroke="#34D399" stroke-width="4"/>
+          <path d="M120 16 L228 78 L12 78 Z" fill="#0284C7" stroke="#38BDF8" stroke-width="6" stroke-linejoin="round"/>
+          <circle cx="120" cy="54" r="12" fill="#0F172A" stroke="#38BDF8" stroke-width="4"/>
+          <circle cx="120" cy="54" r="4.5" fill="#38BDF8"/>
           <!-- Architrave / Entablature below triangle -->
-          <rect x="14" y="82" width="212" height="20" rx="5" fill="#34D399"/>
+          <rect x="12" y="82" width="216" height="18" rx="4" fill="#38BDF8"/>
           
-          <!-- 4 Majestic Columns with fluted details -->
-          <rect x="22" y="106" width="40" height="9" rx="2" fill="#34D399"/>
-          <rect x="28" y="115" width="28" height="88" rx="4" fill="#10B981"/>
-          <line x1="37" y1="118" x2="37" y2="199" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="47" y1="118" x2="47" y2="199" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
-          <rect x="22" y="203" width="40" height="9" rx="2" fill="#34D399"/>
+          <!-- 4 Symmetrical Columns -->
+          <!-- Column 1 (Center: 39) -->
+          <rect x="21" y="104" width="36" height="9" rx="2" fill="#38BDF8"/>
+          <rect x="26" y="113" width="26" height="90" rx="3" fill="#0284C7"/>
+          <line x1="34" y1="116" x2="34" y2="200" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="44" y1="116" x2="44" y2="200" stroke="#0369A1" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="21" y="203" width="36" height="9" rx="2" fill="#38BDF8"/>
           
-          <rect x="78" y="106" width="40" height="9" rx="2" fill="#34D399"/>
-          <rect x="84" y="115" width="28" height="88" rx="4" fill="#10B981"/>
-          <line x1="93" y1="118" x2="93" y2="199" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="103" y1="118" x2="103" y2="199" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
-          <rect x="78" y="203" width="40" height="9" rx="2" fill="#34D399"/>
+          <!-- Column 2 (Center: 93) -->
+          <rect x="75" y="104" width="36" height="9" rx="2" fill="#38BDF8"/>
+          <rect x="80" y="113" width="26" height="90" rx="3" fill="#0284C7"/>
+          <line x1="88" y1="116" x2="88" y2="200" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="98" y1="116" x2="98" y2="200" stroke="#0369A1" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="75" y="203" width="36" height="9" rx="2" fill="#38BDF8"/>
           
-          <rect x="134" y="106" width="40" height="9" rx="2" fill="#34D399"/>
-          <rect x="140" y="115" width="28" height="88" rx="4" fill="#10B981"/>
-          <line x1="149" y1="118" x2="149" y2="199" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="159" y1="118" x2="159" y2="199" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
-          <rect x="134" y="203" width="40" height="9" rx="2" fill="#34D399"/>
+          <!-- Column 3 (Center: 147) -->
+          <rect x="129" y="104" width="36" height="9" rx="2" fill="#38BDF8"/>
+          <rect x="134" y="113" width="26" height="90" rx="3" fill="#0284C7"/>
+          <line x1="142" y1="116" x2="142" y2="200" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="152" y1="116" x2="152" y2="200" stroke="#0369A1" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="129" y="203" width="36" height="9" rx="2" fill="#38BDF8"/>
           
-          <rect x="190" y="106" width="40" height="9" rx="2" fill="#34D399"/>
-          <rect x="196" y="115" width="28" height="88" rx="4" fill="#10B981"/>
-          <line x1="205" y1="118" x2="205" y2="199" stroke="#34D399" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="215" y1="118" x2="215" y2="199" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
-          <rect x="190" y="203" width="40" height="9" rx="2" fill="#34D399"/>
+          <!-- Column 4 (Center: 201) -->
+          <rect x="183" y="104" width="36" height="9" rx="2" fill="#38BDF8"/>
+          <rect x="188" y="113" width="26" height="90" rx="3" fill="#0284C7"/>
+          <line x1="196" y1="116" x2="196" y2="200" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="206" y1="116" x2="206" y2="200" stroke="#0369A1" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="183" y="203" width="36" height="9" rx="2" fill="#38BDF8"/>
           
           <!-- Stepped Stylobate / Base -->
-          <rect x="10" y="214" width="220" height="14" rx="4" fill="#34D399"/>
-          <rect x="0" y="230" width="240" height="16" rx="4" fill="#10B981"/>
+          <rect x="10" y="214" width="220" height="14" rx="4" fill="#38BDF8"/>
+          <rect x="0" y="230" width="240" height="16" rx="4" fill="#0284C7"/>
         </g>
       </svg>`;
     };
@@ -71,7 +76,7 @@ def generate_icons():
         await sharp(Buffer.from(svgIcon(t.size, t.maskable))).resize(t.size, t.size).png().toFile(t.file);
       }
       fs.writeFileSync('frontend/public/logo.svg', svgIcon(512, false));
-      console.log('Successfully generated icons!');
+      console.log('Successfully generated symmetrical sky-blue icons!');
     }
     run();
     """

@@ -33,32 +33,19 @@
 
     <!-- TAB 1: MY PROFILE (INDIVIDUAL SKIPPABLE FIELDS) -->
     <div v-if="activeTab === 'profile'" class="space-y-6">
-      <!-- Profile Completion Gauge & Auto-Save Banner -->
-      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm dark:shadow-lg">
+      <!-- Profile Completion Gauge -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-5 shadow-sm dark:shadow-lg">
         <div class="space-y-1">
           <div class="flex items-center space-x-2">
             <span class="text-xs font-bold text-slate-700 dark:text-white uppercase tracking-wider">Profile Completeness</span>
             <span class="text-xs font-mono font-bold text-emerald-500 dark:text-emerald-400">{{ profileStore.completionPercentage }}%</span>
           </div>
-          <div class="w-48 sm:w-64 h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+          <div class="w-full sm:w-80 h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
             <div
               class="h-full bg-emerald-500 transition-all duration-500"
               :style="{ width: `${profileStore.completionPercentage}%` }"
             ></div>
           </div>
-        </div>
-
-        <div class="flex items-center space-x-4 text-xs text-slate-500 dark:text-slate-400">
-          <span class="flex items-center space-x-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>All details saved locally</span>
-          </span>
-          <button
-            @click="profileStore.resetToDefaults()"
-            class="text-xs text-slate-400 hover:text-rose-500 underline transition-colors"
-          >
-            Clear Profile
-          </button>
         </div>
       </div>
 

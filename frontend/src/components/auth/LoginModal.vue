@@ -16,9 +16,15 @@
             ✕
           </button>
 
-          <h2 class="text-xl font-bold text-center text-slate-900 dark:text-white tracking-tight">
-            Portal Access
-          </h2>
+          <!-- Header with Emblem -->
+          <div class="text-center space-y-2">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 p-2 text-sky-400 shadow-xs">
+              <AppEmblem class="w-full h-full" />
+            </div>
+            <h2 class="text-xl font-bold text-center text-slate-900 dark:text-white tracking-tight">
+              Portal Access
+            </h2>
+          </div>
 
           <form @submit.prevent="handleLogin" class="space-y-3.5">
             <div
@@ -103,6 +109,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import AppEmblem from '@/components/common/AppEmblem.vue';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useProfileStore } from '@/stores/useProfileStore';
 

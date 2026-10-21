@@ -23,17 +23,6 @@
         >
           <span>{{ hiddenStore.isExamHidden(examId) ? '👁️ Unhide Examination' : '🚫 Hide Examination' }}</span>
         </button>
-
-        <!-- Official Notification Link -->
-        <a
-          v-if="exam?.latest_official_notification_url"
-          :href="exam.latest_official_notification_url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 transition-colors"
-        >
-          <span>Official Notification ↗</span>
-        </a>
       </div>
     </div>
 

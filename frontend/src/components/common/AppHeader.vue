@@ -18,8 +18,8 @@
 
         <!-- Brand Mark: Government of India -->
         <router-link to="/" class="flex items-center space-x-2.5 group">
-          <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-base group-hover:scale-105 transition-transform">
-            🏛️
+          <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center p-1.5 text-sky-400 group-hover:scale-105 transition-transform">
+            <AppEmblem class="w-full h-full" />
           </div>
           <div class="flex items-baseline space-x-1.5">
             <span class="font-goi-cursive font-bold text-lg sm:text-xl text-slate-900 dark:text-white tracking-tight">Government of India</span>
@@ -34,8 +34,7 @@
           class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-sky-500 dark:hover:text-sky-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 transition-colors border border-slate-200 dark:border-slate-700/60"
           title="Candidate Profile & Statutory Eligibility"
         >
-          <span>👤</span>
-          <span class="hidden sm:inline font-medium max-w-[120px] truncate">{{ candidateDisplayName }}</span>
+          <span class="font-medium max-w-[120px] truncate">{{ candidateDisplayName }}</span>
           <span
             v-if="authStore.candidateId"
             class="hidden md:inline px-1.5 py-0.2 rounded font-mono text-[9px] font-bold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30"
@@ -67,8 +66,8 @@
             <div class="space-y-6">
               <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
                 <div class="flex items-center space-x-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-bold text-base">
-                    🏛️
+                  <div class="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center p-1.5 text-sky-400">
+                    <AppEmblem class="w-full h-full" />
                   </div>
                   <div>
                     <span class="font-goi-cursive font-bold text-lg sm:text-xl text-slate-900 dark:text-white">Government of India</span>
@@ -166,6 +165,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import AppEmblem from '@/components/common/AppEmblem.vue';
 import { useProfileStore } from '@/stores/useProfileStore';
 import { useEligibilityStore } from '@/stores/useEligibilityStore';
 import { useHiddenStore } from '@/stores/useHiddenStore';

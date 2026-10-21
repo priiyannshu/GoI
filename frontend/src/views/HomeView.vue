@@ -8,7 +8,7 @@
         <span>2027 Examination Intelligence</span>
       </div>
       <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-        Master All Indian <span class="text-emerald-500 dark:text-emerald-400">Grade A</span> Government Examinations
+        Master All Official <span class="text-sky-500 dark:text-sky-400">Government</span> Examinations
       </h1>
       <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
         Multi-dimensional eligibility profiling, universal syllabus ontology, and interactive D3.js overlap visualizations spanning Central, Financial, State PSC, and PSU cadres.

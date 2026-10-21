@@ -25,12 +25,6 @@
             <!-- Emulated Classical Building Emblem matching the icon -->
             <AppEmblem class="w-full h-full drop-shadow-[0_10px_20px_rgba(56,189,248,0.35)]" />
           </div>
-
-          <!-- Official Portal Badge Pill in Sky Blue Theme -->
-          <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-slate-900 border border-sky-500/40 text-[10px] font-mono tracking-widest text-sky-300 uppercase shadow-md flex items-center gap-1.5 whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></span>
-            <span>Official Portal</span>
-          </div>
         </div>
 
         <!-- Heading: 'Government of India' in Elegant Cursive Font (No text below it) -->

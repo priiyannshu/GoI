@@ -2,10 +2,15 @@
   <div class="max-w-sm mx-auto py-20 px-4 sm:px-6">
     <!-- Super Clean Card -->
     <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl p-6 sm:p-8 space-y-6">
-      <!-- Simple Heading -->
-      <h1 class="text-2xl font-bold text-center text-slate-900 dark:text-white tracking-tight">
-        Portal Access
-      </h1>
+      <!-- Sky Blue Emblem & Simple Heading -->
+      <div class="text-center space-y-3">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/30 p-2.5 text-sky-400 shadow-xs">
+          <AppEmblem class="w-full h-full" />
+        </div>
+        <h1 class="text-2xl font-bold text-center text-slate-900 dark:text-white tracking-tight">
+          Portal Access
+        </h1>
+      </div>
 
       <!-- Login Form -->
       <form @submit.prevent="handleLogin" class="space-y-4">
@@ -94,6 +99,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import AppEmblem from '@/components/common/AppEmblem.vue';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useProfileStore } from '@/stores/useProfileStore';
 

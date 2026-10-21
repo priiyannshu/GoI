@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full flex items-center justify-center select-none" :class="wrapperClass">
-    <!-- Classical Government Architecture Emblem (🏛️) -->
+    <!-- Perfectly Symmetrical Classical Government Architecture Emblem (🏛️) in Sky Blue -->
     <svg
       :viewBox="viewBox"
       class="w-full h-full overflow-visible"
@@ -23,7 +23,7 @@
         </linearGradient>
       </defs>
 
-      <!-- Pediment Roof Triangle -->
+      <!-- Pediment Roof Triangle (Apex at 120, 16; Symmetrical base 12 to 228) -->
       <path
         d="M120 16 L228 78 L12 78 Z"
         fill="url(#emblem-roof-grad)"
@@ -35,39 +35,39 @@
       <circle cx="120" cy="54" r="11" fill="#0F172A" stroke="#38BDF8" stroke-width="3.5" />
       <circle cx="120" cy="54" r="4" fill="#38BDF8" />
 
-      <!-- Architrave / Entablature below triangle -->
-      <rect x="14" y="82" width="212" height="18" rx="4" fill="#38BDF8" />
+      <!-- Architrave / Entablature below triangle (Symmetrical 12 to 228) -->
+      <rect x="12" y="82" width="216" height="18" rx="4" fill="#38BDF8" />
       
-      <!-- 4 Majestic Columns with fluted details -->
-      <!-- Column 1 -->
-      <rect x="22" y="104" width="40" height="9" rx="2" fill="#38BDF8" />
-      <rect x="28" y="113" width="28" height="90" rx="4" fill="url(#emblem-col-grad)" />
-      <line x1="37" y1="116" x2="37" y2="200" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" />
-      <line x1="47" y1="116" x2="47" y2="200" stroke="#0369A1" stroke-width="2.5" stroke-linecap="round" />
-      <rect x="22" y="203" width="40" height="9" rx="2" fill="#38BDF8" />
+      <!-- 4 Majestic Columns with Fluted Details (Mathematically Symmetrical Spacing) -->
+      <!-- Column 1 (Center: 39) -->
+      <rect x="21" y="104" width="36" height="9" rx="2" fill="#38BDF8" />
+      <rect x="26" y="113" width="26" height="90" rx="3" fill="url(#emblem-col-grad)" />
+      <line x1="34" y1="116" x2="34" y2="200" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+      <line x1="44" y1="116" x2="44" y2="200" stroke="#0369A1" stroke-width="2" stroke-linecap="round" />
+      <rect x="21" y="203" width="36" height="9" rx="2" fill="#38BDF8" />
 
-      <!-- Column 2 -->
-      <rect x="78" y="104" width="40" height="9" rx="2" fill="#38BDF8" />
-      <rect x="84" y="113" width="28" height="90" rx="4" fill="url(#emblem-col-grad)" />
-      <line x1="93" y1="116" x2="93" y2="200" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" />
-      <line x1="103" y1="116" x2="103" y2="200" stroke="#0369A1" stroke-width="2.5" stroke-linecap="round" />
-      <rect x="78" y="203" width="40" height="9" rx="2" fill="#38BDF8" />
+      <!-- Column 2 (Center: 93) -->
+      <rect x="75" y="104" width="36" height="9" rx="2" fill="#38BDF8" />
+      <rect x="80" y="113" width="26" height="90" rx="3" fill="url(#emblem-col-grad)" />
+      <line x1="88" y1="116" x2="88" y2="200" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+      <line x1="98" y1="116" x2="98" y2="200" stroke="#0369A1" stroke-width="2" stroke-linecap="round" />
+      <rect x="75" y="203" width="36" height="9" rx="2" fill="#38BDF8" />
 
-      <!-- Column 3 -->
-      <rect x="134" y="104" width="40" height="9" rx="2" fill="#38BDF8" />
-      <rect x="140" y="113" width="28" height="90" rx="4" fill="url(#emblem-col-grad)" />
-      <line x1="149" y1="116" x2="149" y2="200" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" />
-      <line x1="159" y1="116" x2="159" y2="200" stroke="#0369A1" stroke-width="2.5" stroke-linecap="round" />
-      <rect x="134" y="203" width="40" height="9" rx="2" fill="#38BDF8" />
+      <!-- Column 3 (Center: 147) -->
+      <rect x="129" y="104" width="36" height="9" rx="2" fill="#38BDF8" />
+      <rect x="134" y="113" width="26" height="90" rx="3" fill="url(#emblem-col-grad)" />
+      <line x1="142" y1="116" x2="142" y2="200" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+      <line x1="152" y1="116" x2="152" y2="200" stroke="#0369A1" stroke-width="2" stroke-linecap="round" />
+      <rect x="129" y="203" width="36" height="9" rx="2" fill="#38BDF8" />
 
-      <!-- Column 4 -->
-      <rect x="190" y="104" width="40" height="9" rx="2" fill="#38BDF8" />
-      <rect x="196" y="113" width="28" height="90" rx="4" fill="url(#emblem-col-grad)" />
-      <line x1="205" y1="116" x2="205" y2="200" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" />
-      <line x1="215" y1="116" x2="215" y2="200" stroke="#0369A1" stroke-width="2.5" stroke-linecap="round" />
-      <rect x="190" y="203" width="40" height="9" rx="2" fill="#38BDF8" />
+      <!-- Column 4 (Center: 201) -->
+      <rect x="183" y="104" width="36" height="9" rx="2" fill="#38BDF8" />
+      <rect x="188" y="113" width="26" height="90" rx="3" fill="url(#emblem-col-grad)" />
+      <line x1="196" y1="116" x2="196" y2="200" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+      <line x1="206" y1="116" x2="206" y2="200" stroke="#0369A1" stroke-width="2" stroke-linecap="round" />
+      <rect x="183" y="203" width="36" height="9" rx="2" fill="#38BDF8" />
 
-      <!-- Stepped Stylobate / Base -->
+      <!-- Stepped Stylobate / Base (Symmetrical 10 to 230 and 0 to 240) -->
       <rect x="10" y="214" width="220" height="14" rx="4" fill="#38BDF8" />
       <rect x="0" y="230" width="240" height="16" rx="4" fill="#0284C7" />
     </svg>

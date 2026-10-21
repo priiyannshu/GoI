@@ -9,7 +9,8 @@
     <!-- PWA & Apple Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Govt of India" />
+    <meta name="apple-mobile-web-app-title" content="GoI" />
+    <meta name="application-name" content="GoI" />
     
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/pwa-192x192.png" />
@@ -22,8 +23,18 @@
     
     <title>Government of India — Official Examinations & Posts Portal</title>
   </head>
-  <body class="theme-neon antialiased selection:bg-[var(--accent)] selection:text-slate-900 min-h-screen">
-    <div id="app"></div>
+  <body class="theme-neon antialiased selection:bg-[var(--accent)] selection:text-slate-900 min-h-screen bg-slate-950 text-white">
+    <div id="app">
+      <!-- Zero-latency pre-hydration splash screen -->
+      <div style="position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;background-color:#020617;color:#ffffff;overflow:hidden;user-select:none;">
+        <div style="position:relative;width:8rem;height:8rem;border-radius:1.5rem;background:rgba(2,132,199,0.15);border:2px solid rgba(56,189,248,0.4);display:flex;align-items:center;justify-content:center;padding:1.5rem;box-shadow:0 25px 50px -12px rgba(2,132,199,0.25);margin-bottom:1.75rem;">
+          <img src="/logo.svg" alt="Emblem" style="width:100%;height:100%;object-fit:contain;" />
+        </div>
+        <div style="font-family:'Dancing Script','Great Vibes',cursive;font-size:2.5rem;font-weight:700;color:#e0f2fe;text-align:center;letter-spacing:0.02em;text-shadow:0 4px 16px rgba(56,189,248,0.3);">
+          Government of India
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

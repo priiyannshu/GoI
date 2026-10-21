@@ -48,8 +48,8 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: 'Grade-A Indian Examinations',
-        short_name: 'Grade-A',
+        name: 'Government of India',
+        short_name: 'GoI',
         description:
           'Official portal for audited government examinations, cadres, posts, statutory eligibility, and syllabus curriculum.',
         theme_color: '#0d1117',

@@ -40,7 +40,9 @@
     <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-xs space-y-3">
       <div class="flex items-center justify-between cursor-pointer" @click="showUniversalPerks = !showUniversalPerks">
         <div class="flex items-center space-x-2.5">
-          <span class="text-xl">🏛️</span>
+          <div class="w-7 h-7 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center p-1 text-sky-400 flex-shrink-0">
+            <AppEmblem class="w-full h-full" />
+          </div>
           <div>
             <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
               Universal Government Family Benefits (Common to All Audited Posts)
@@ -133,7 +135,9 @@
           @click="toggleExpand(post.post_id)"
         >
           <div class="flex items-center space-x-3 min-w-0">
-            <span class="text-base sm:text-lg flex-shrink-0">🏛️</span>
+            <div class="w-6 h-6 rounded-md bg-sky-500/10 border border-sky-500/30 flex items-center justify-center p-0.5 text-sky-400 flex-shrink-0">
+              <AppEmblem class="w-full h-full" />
+            </div>
             <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight break-words">
               {{ post.post_name }}
             </h2>
