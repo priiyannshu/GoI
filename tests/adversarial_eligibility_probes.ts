@@ -298,14 +298,9 @@ console.log('--- RUNNING SECTION 3: Domicile Reservation Firewall ---');
 const statePscExams = [
   { id: 'UPPSC_PCS', homeState: 'Uttar Pradesh', requiredLang: null, overageOBCDob: '1984-06-01' },
   { id: 'BPSC_CCE', homeState: 'Bihar', requiredLang: null, overageOBCDob: '1988-06-01' },
-  { id: 'MPSC_RAJYASEVA', homeState: 'Maharashtra', requiredLang: 'Marathi', overageOBCDob: '1986-06-01' },
   { id: 'MPPSC_SSE', homeState: 'Madhya Pradesh', requiredLang: null, overageOBCDob: '1984-06-01' },
   { id: 'RPSC_RAS', homeState: 'Rajasthan', requiredLang: null, overageOBCDob: '1984-06-01' },
-  { id: 'TNPSC_GROUP_1', homeState: 'Tamil Nadu', requiredLang: 'Tamil', overageOBCDob: '1990-06-01' },
-  { id: 'APPSC_GROUP_1', homeState: 'Andhra Pradesh', requiredLang: null, overageOBCDob: '1980-06-01' },
   { id: 'TSPSC_GROUP_1', homeState: 'Telangana', requiredLang: null, overageOBCDob: '1980-06-01' },
-  { id: 'WBPSC_WBCS', homeState: 'West Bengal', requiredLang: 'Bengali', overageOBCDob: '1989-06-01' },
-  { id: 'KPSC_KAS', homeState: 'Karnataka', requiredLang: 'Kannada', overageOBCDob: '1990-06-01' },
 ];
 
 for (const psc of statePscExams) {

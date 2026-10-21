@@ -44,16 +44,16 @@ function it(description, fn) {
 // ----------------------------------------------------------------------------
 console.log('\n[TEST GROUP 1] Catalog Registration & Parity');
 
-it('All 36 Official Grade A examinations are registered in AUTHORITATIVE_EXAM_RULES', () => {
+it('All 31 Official Grade A examinations are registered in AUTHORITATIVE_EXAM_RULES', () => {
   const dbExams = [
-    'APPSC_GROUP_1', 'BPSC_CCE', 'EXIM_BANK_MT', 'IAF_AFCAT', 'IFSCA_GRADE_A',
-    'KPSC_KAS', 'MPPSC_SSE', 'MPSC_RAJYASEVA', 'NABARD_GRADE_A', 'PFRDA_GRADE_A',
+    'BPSC_CCE', 'EXIM_BANK_MT', 'IAF_AFCAT', 'IFSCA_GRADE_A',
+    'MPPSC_SSE', 'NABARD_GRADE_A', 'PFRDA_GRADE_A',
     'PSU_BARC_NPCIL_ET', 'PSU_BHEL_ET', 'PSU_BPCL_MT', 'PSU_COAL_INDIA_MT',
     'PSU_GAIL_ET', 'PSU_HPCL_OFFICER', 'PSU_IOCL_ET', 'PSU_NTPC_EET',
     'PSU_ONGC_GT', 'PSU_PGCIL_ET', 'PSU_SAIL_MTT', 'RBI_GRADE_B', 'RPSC_RAS',
-    'SEBI_GRADE_A', 'SIDBI_GRADE_A', 'TNPSC_GROUP_1', 'TSPSC_GROUP_1',
+    'SEBI_GRADE_A', 'SIDBI_GRADE_A', 'TSPSC_GROUP_1',
     'UPPSC_PCS', 'UPSC_CAPF_AC', 'UPSC_CDS', 'UPSC_CGSE', 'UPSC_CSE',
-    'UPSC_ESE', 'UPSC_IES_ISS', 'UPSC_IFOS', 'WBPSC_WBCS'
+    'UPSC_ESE', 'UPSC_IES_ISS', 'UPSC_IFOS'
   ];
 
   for (const id of dbExams) {
@@ -395,8 +395,11 @@ it('BPSC CCE remaps non-Bihar candidates to General', () => {
 // ----------------------------------------------------------------------------
 console.log('\n[TEST GROUP 7] Compulsory Regional Language Gates');
 
-it('MPSC Rajyaseva requires Marathi language proficiency', () => {
-  const rule = AUTHORITATIVE_EXAM_RULES['MPSC_RAJYASEVA'];
+it('Mandatory regional language rule requires language proficiency', () => {
+  const rule = {
+    ...AUTHORITATIVE_EXAM_RULES['UPPSC_PCS'],
+    language_requirements: { mandatory_fluency: 'Marathi' },
+  };
   const pNoMarathi = {
     dob: '2000-01-01',
     gender: 'MALE',
@@ -417,8 +420,11 @@ it('MPSC Rajyaseva requires Marathi language proficiency', () => {
   assert.strictEqual(vPass.status, 'ELIGIBLE');
 });
 
-it('WBPSC WBCS allows either Bengali or Nepali', () => {
-  const rule = AUTHORITATIVE_EXAM_RULES['WBPSC_WBCS'];
+it('Regional language gate allows alternate language (Bengali or Nepali)', () => {
+  const rule = {
+    ...AUTHORITATIVE_EXAM_RULES['UPPSC_PCS'],
+    language_requirements: { mandatory_fluency: 'Bengali' },
+  };
   const pEnglishOnly = {
     dob: '2000-01-01',
     gender: 'MALE',
@@ -442,44 +448,6 @@ it('WBPSC WBCS allows either Bengali or Nepali', () => {
     fluent_languages: ['Nepali', 'English'],
   };
   assert.strictEqual(evaluateEligibility(pNepali, rule, 2027).status, 'ELIGIBLE');
-});
-
-it('KPSC KAS requires Kannada language proficiency', () => {
-  const rule = AUTHORITATIVE_EXAM_RULES['KPSC_KAS'];
-  const pNoKannada = {
-    dob: '2000-01-01',
-    gender: 'MALE',
-    category: 'GEN',
-    fluent_languages: ['English'],
-  };
-  assert.strictEqual(evaluateEligibility(pNoKannada, rule, 2027).status, 'INELIGIBLE');
-
-  const pWithKannada = {
-    dob: '2000-01-01',
-    gender: 'MALE',
-    category: 'GEN',
-    fluent_languages: ['Kannada', 'English'],
-  };
-  assert.strictEqual(evaluateEligibility(pWithKannada, rule, 2027).status, 'ELIGIBLE');
-});
-
-it('TNPSC Group 1 requires Tamil language proficiency', () => {
-  const rule = AUTHORITATIVE_EXAM_RULES['TNPSC_GROUP_1'];
-  const pNoTamil = {
-    dob: '2000-01-01',
-    gender: 'MALE',
-    category: 'GEN',
-    fluent_languages: ['English'],
-  };
-  assert.strictEqual(evaluateEligibility(pNoTamil, rule, 2027).status, 'INELIGIBLE');
-
-  const pWithTamil = {
-    dob: '2000-01-01',
-    gender: 'MALE',
-    category: 'GEN',
-    fluent_languages: ['Tamil', 'English'],
-  };
-  assert.strictEqual(evaluateEligibility(pWithTamil, rule, 2027).status, 'ELIGIBLE');
 });
 
 // ----------------------------------------------------------------------------
@@ -733,7 +701,7 @@ it('evaluateAllExams evaluates all registered exams and filtering methods partit
 
   const verdicts = evaluateAllExams(candidate);
   const totalExamCount = Object.keys(verdicts).length;
-  assert(totalExamCount >= 36, `Expected >= 36 exams, got ${totalExamCount}`);
+  assert(totalExamCount >= 31, `Expected >= 31 exams, got ${totalExamCount}`);
 
   const eligible = filterEligibleExams(verdicts);
   const conditional = filterConditionallyEligibleExams(verdicts);

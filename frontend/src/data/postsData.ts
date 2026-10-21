@@ -953,49 +953,6 @@ export const AUDITED_POSTS_DATA: GovernmentPost[] = [
       career_ceiling: 'Promoted to IAS -> District Magistrate -> Secretary to Government of Bihar.',
     },
   },
-  {
-    post_id: 'MPSC_DEPUTY_COLLECTOR',
-    post_name: 'Deputy Collector (MPSC Rajyaseva)',
-    parent_exam_id: 'MPSC_RAJYASEVA',
-    parent_exam_title: 'Maharashtra State Services Examination',
-    cluster: 'State-PSC',
-    designation_at_entry: 'Deputy Collector / Sub-Divisional Officer',
-    pay_info: {
-      pay_system: '7th_CPC',
-      starting_level: 'S-20 (Basic ₹56,100 – ₹1,77,500)',
-      starting_basic: 56100,
-      estimated_in_hand_monthly: [85000, 98000],
-      estimated_annual_ctc: [1300000, 1550000],
-      unique_allowances: ['Maharashtra State DA', 'Sub-Divisional Allowance', 'Official Vehicle'],
-    },
-    cutoff_info: {
-      exam_stage: 'MPSC Prelims + Mains (Descriptive) + Interview',
-      typical_cutoff_rank: 'All-Maharashtra Top 30 for Deputy Collector',
-    },
-    benefits: {
-      housing: 'Official Deputy Collector quarters in sub-divisional towns or Mantralaya pool flats in Mumbai.',
-      medical: 'Mahatma Jyotirao Phule Jan Arogya Yojana + state civil service medical reimbursement.',
-      education_allowance: 'State government children allowances.',
-      ltc: 'Maharashtra state LTC package.',
-      pension: 'NPS with state government contribution.',
-      group_insurance: 'State government insurance scheme.',
-      unique_perks: [
-        'Official government car with chauffeur and police escort',
-        'Administrative jurisdiction over revenue, land acquisition for MIDC/highways, and disaster response',
-        'Promotion into IAS (Maharashtra Cadre) with high frequency of promotions to senior state departments',
-      ],
-    },
-    lifestyle: {
-      posting_locations: 'Sub-divisions across Maharashtra (Pune, Nashik, Konkan, Marathwada, Vidarbha) and Mantralaya (Mumbai).',
-      transfer_frequency: 'Every 3 years under Maharashtra Government Transfer Act.',
-      work_hours: 'Dynamic field duties balanced with statutory hearings in revenue courts.',
-      authority_level: 'SDM with magisterial and land revenue adjudication jurisdiction.',
-      social_status: 'Top administrative position in Maharashtra; high respect across industry, agriculture, and government.',
-      family_impact: 'Excellent access to developed cities in western Maharashtra.',
-      community_life: 'Maharashtra civil service clubs, Yashada academy alumni network.',
-      career_ceiling: 'Promoted to IAS -> Divisional Commissioner -> Additional Chief Secretary.',
-    },
-  },
 
   // --------------------------------------------------------------------------
   // CLUSTER 4: MAHARATNA & NAVRATNA PSUs (IDA PAY SCALES)

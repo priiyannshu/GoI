@@ -257,11 +257,11 @@ class TestM2AdversarialMathematicalMetrics(unittest.TestCase):
         cls.exam_summaries = cls.matrix_data["exam_summaries"]
 
     def test_pairwise_matrix_completeness_36x36(self):
-        """Ensure pairwise metrics contain exactly 36 source exams and 36 target exams each (1,296 pairs)."""
-        self.assertEqual(len(self.exam_ids), 36)
+        """Ensure pairwise metrics contain exactly 31 source exams and 31 target exams each (961 pairs)."""
+        self.assertEqual(len(self.exam_ids), 31)
         for eid in self.exam_ids:
             targets = list(self.pairwise[eid].keys())
-            self.assertEqual(len(targets), 36, f"Exam {eid} does not have 36 targets")
+            self.assertEqual(len(targets), 31, f"Exam {eid} does not have 31 targets")
 
     def test_jaccard_symmetry_all_pairs(self):
         """Verify Jaccard symmetry: J(A, B) == J(B, A) for all 1,296 pairs."""

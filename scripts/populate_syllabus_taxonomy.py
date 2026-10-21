@@ -112,8 +112,8 @@ class SyllabusIngestionEngine:
             # 1. Verify master exams table
             cursor.execute("SELECT exam_id FROM exams;")
             existing_exam_ids = {row[0] for row in cursor.fetchall()}
-            if len(existing_exam_ids) != 36:
-                raise ValueError(f"Expected exactly 36 exams in master table, found {len(existing_exam_ids)}")
+            if len(existing_exam_ids) != 31:
+                raise ValueError(f"Expected exactly 31 exams in master table, found {len(existing_exam_ids)}")
 
             logger.info("Validating taxonomy and stage mapping records...")
             validated_topics = []
@@ -160,8 +160,8 @@ class SyllabusIngestionEngine:
             # 6. Verify distinct mapped exams
             cursor.execute("SELECT COUNT(DISTINCT exam_id) FROM exam_syllabus_map;")
             mapped_exams_count = cursor.fetchone()[0]
-            if mapped_exams_count != 36:
-                raise ValueError(f"Not all 36 exams were mapped! Only {mapped_exams_count}/36 mapped.")
+            if mapped_exams_count != 31:
+                raise ValueError(f"Not all 31 exams were mapped! Only {mapped_exams_count}/31 mapped.")
 
             # 7. Check orphan topics
             cursor.execute("""

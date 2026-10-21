@@ -1,12 +1,9 @@
 <template>
   <div class="space-y-6 pb-16">
     <!-- Profile View Header & Tabs -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Candidate Profile & Statutory Eligibility</h1>
-        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-          Record your academic, statutory, and physical attributes. Details can be left empty if not immediately available and filled in later.
-        </p>
       </div>
 
       <!-- Tab Switcher -->
@@ -65,14 +62,27 @@
         </div>
       </div>
 
-      <!-- SECTION 1: DEMOGRAPHICS -->
+      <!-- SECTION 1: CANDIDATE IDENTITY & DEMOGRAPHICS -->
       <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm dark:shadow-lg space-y-5">
         <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
           <div class="flex items-center space-x-2">
             <span class="text-lg">🆔</span>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white">Demographics & Statutory Category</h3>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Candidate Identity & Demographics</h3>
           </div>
-          <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Core Age & Category</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Core Details</span>
+        </div>
+
+        <!-- Full Name -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+            Candidate Full Name <span class="text-slate-400 font-normal">(Shown in hamburger navigation menu)</span>
+          </label>
+          <input
+            type="text"
+            v-model="profile.full_name"
+            placeholder="e.g. Priyanshu Kumar"
+            class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+          />
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -390,36 +400,33 @@
 
     <!-- TAB 2: ELIGIBILITY SUMMARY REPORT (NO CONDITIONAL TIER) -->
     <div v-else-if="activeTab === 'summary'" class="space-y-6">
-      <!-- 3-Tier Metrics Row: Eligible, Needs Info, Ineligible -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <!-- 3-Tier Metrics Row: Eligible, Needs Info, Ineligible (compact single-line) -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-3">
         <div
           @click="statusFilter = 'ELIGIBLE'"
-          class="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-300 dark:border-emerald-500/30 cursor-pointer hover:border-emerald-500 transition-all text-center space-y-1 shadow-sm"
+          class="p-2 sm:p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-300 dark:border-emerald-500/30 cursor-pointer hover:border-emerald-500 transition-all text-center shadow-xs"
           :class="statusFilter === 'ELIGIBLE' ? 'ring-2 ring-emerald-500' : ''"
         >
-          <span class="text-xs uppercase font-bold text-emerald-700 dark:text-emerald-400">Eligible Examinations</span>
-          <span class="block text-3xl font-extrabold text-slate-900 dark:text-white font-mono">{{ eligibilityStore.eligibleCount }}</span>
-          <span class="text-[11px] text-slate-500 dark:text-slate-400">Statutory rules fulfilled</span>
+          <span class="text-[10px] sm:text-xs uppercase font-bold text-emerald-700 dark:text-emerald-400 block truncate">Eligible</span>
+          <span class="text-lg sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono leading-tight block">{{ eligibilityStore.eligibleCount }}</span>
         </div>
 
         <div
           @click="statusFilter = 'NEEDS_INFO'"
-          class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/20 border border-amber-300 dark:border-amber-500/30 cursor-pointer hover:border-amber-500 transition-all text-center space-y-1 shadow-sm"
+          class="p-2 sm:p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-300 dark:border-amber-500/30 cursor-pointer hover:border-amber-500 transition-all text-center shadow-xs"
           :class="statusFilter === 'NEEDS_INFO' ? 'ring-2 ring-amber-500' : ''"
         >
-          <span class="text-xs uppercase font-bold text-amber-700 dark:text-amber-400">Missing Information</span>
-          <span class="block text-3xl font-extrabold text-slate-900 dark:text-white font-mono">{{ eligibilityStore.needsInfoCount }}</span>
-          <span class="text-[11px] text-slate-500 dark:text-slate-400">Additional candidate inputs required</span>
+          <span class="text-[10px] sm:text-xs uppercase font-bold text-amber-700 dark:text-amber-400 block truncate">Missing Info</span>
+          <span class="text-lg sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono leading-tight block">{{ eligibilityStore.needsInfoCount }}</span>
         </div>
 
         <div
           @click="statusFilter = 'INELIGIBLE'"
-          class="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/20 border border-rose-300 dark:border-rose-500/30 cursor-pointer hover:border-rose-500 transition-all text-center space-y-1 shadow-sm"
+          class="p-2 sm:p-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 border border-rose-300 dark:border-rose-500/30 cursor-pointer hover:border-rose-500 transition-all text-center shadow-xs"
           :class="statusFilter === 'INELIGIBLE' ? 'ring-2 ring-rose-500' : ''"
         >
-          <span class="text-xs uppercase font-bold text-rose-700 dark:text-rose-400">Ineligible Examinations</span>
-          <span class="block text-3xl font-extrabold text-slate-900 dark:text-white font-mono">{{ eligibilityStore.ineligibleCount }}</span>
-          <span class="text-[11px] text-slate-500 dark:text-slate-400">Barred by statutory cutoff rules</span>
+          <span class="text-[10px] sm:text-xs uppercase font-bold text-rose-700 dark:text-rose-400 block truncate">Ineligible</span>
+          <span class="text-lg sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono leading-tight block">{{ eligibilityStore.ineligibleCount }}</span>
         </div>
       </div>
 

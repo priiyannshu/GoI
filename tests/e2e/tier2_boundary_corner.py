@@ -230,13 +230,13 @@ class TestFeature04Cluster3StatePSCBoundaries(unittest.TestCase):
         v_female = evaluate_statutory_eligibility(p_female, "BPSC_CCE")
         self.assertEqual(v_female["status"], "ELIGIBLE")
 
-    def test_f04_mpsc_open_attempt_limit_six_boundary(self):
+    def test_f04_upsc_cse_open_attempt_limit_six_boundary(self):
         profile = UserProfile(
             dob="1999-01-01", gender="Male", category="GEN", degree="Bachelor",
-            discipline="ANY", aggregate_pct=60.0, prior_attempts={"MPSC_RAJYASEVA": 6},
-            fluent_languages=["Marathi", "English"]
+            discipline="ANY", aggregate_pct=60.0, prior_attempts={"UPSC_CSE": 6},
+            fluent_languages=["Hindi", "English"]
         )
-        verdict = evaluate_statutory_eligibility(profile, "MPSC_RAJYASEVA")
+        verdict = evaluate_statutory_eligibility(profile, "UPSC_CSE")
         self.assertEqual(verdict["status"], "INELIGIBLE")
         self.assertTrue(any("Exceeded maximum allowed attempts" in r for r in verdict["reasons"]))
 
@@ -263,15 +263,15 @@ class TestFeature04Cluster3StatePSCBoundaries(unittest.TestCase):
         v_ok = evaluate_statutory_eligibility(p_eligible, "RPSC_RAS")
         self.assertEqual(v_ok["status"], "ELIGIBLE")
 
-    def test_f04_wbpsc_language_qualification_failure(self):
-        # Candidate lacking Bengali reading/writing (and not native Nepali) is disqualified
-        profile = UserProfile(
-            dob="1998-01-01", gender="Male", category="GEN", degree="Bachelor",
-            discipline="ANY", aggregate_pct=60.0, fluent_languages=["Hindi", "English"]
-        )
-        verdict = evaluate_statutory_eligibility(profile, "WBPSC_WBCS")
-        self.assertEqual(verdict["status"], "INELIGIBLE")
-        self.assertTrue(any("lacks mandatory fluency" in r for r in verdict["reasons"]))
+    def test_f04_tspsc_age_boundary(self):
+        # TSPSC age ceiling is 44 on July 1, 2027
+        p_over = UserProfile(dob="1983-06-30", gender="Male", category="GEN", degree="Bachelor", discipline="ANY", aggregate_pct=60.0)
+        v_over = evaluate_statutory_eligibility(p_over, "TSPSC_GROUP_1")
+        self.assertEqual(v_over["status"], "INELIGIBLE")
+
+        p_ok = UserProfile(dob="1983-07-02", gender="Male", category="GEN", degree="Bachelor", discipline="ANY", aggregate_pct=60.0)
+        v_ok = evaluate_statutory_eligibility(p_ok, "TSPSC_GROUP_1")
+        self.assertEqual(v_ok["status"], "ELIGIBLE")
 
 
 class TestFeature05Cluster4PSUTraineeBoundaries(unittest.TestCase):

@@ -31,7 +31,7 @@
           to="/exams"
           class="px-6 py-3 rounded-lg font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 transition-all hover:border-slate-400 dark:hover:border-slate-600 shadow-xs"
         >
-          Browse 36 Exams
+          Browse All Exams
         </router-link>
       </div>
     </section>
@@ -59,7 +59,7 @@
           C3
         </div>
         <h2 class="text-lg font-bold text-slate-900 dark:text-white">State PSC Commissions</h2>
-        <p class="text-sm text-slate-600 dark:text-slate-400">10 States: UPPSC, BPSC, MPSC, MPPSC, RPSC, TNPSC, APPSC, TSPSC, WBPSC, KPSC.</p>
+        <p class="text-sm text-slate-600 dark:text-slate-400">5 States: UPPSC, BPSC, MPPSC, RPSC, TSPSC.</p>
       </div>
 
       <div class="p-6 rounded-xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-800 space-y-2 shadow-xs">

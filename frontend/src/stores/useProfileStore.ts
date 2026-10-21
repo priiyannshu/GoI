@@ -5,6 +5,7 @@ import { indexedDbStorage } from '../services/indexedDbStorage';
 import { syncProfileToEdge } from '../services/apiWorkerClient';
 
 export const DEFAULT_PROFILE: UserProfileInput = {
+  full_name: '',
   dob: '',
   gender: '' as any,
   category: '' as any,

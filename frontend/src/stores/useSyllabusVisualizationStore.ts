@@ -74,8 +74,8 @@ export const PRESET_OPTIONS: QuickPreset[] = [
   {
     id: 'state_psc_triangle',
     label: 'State PSC Administrative',
-    description: 'Largest state commissions: UPPSC PCS, BPSC CCE & MPSC Civil',
-    examIds: ['UPPSC_PCS', 'BPSC_CCE', 'MPSC_CIVIL'],
+    description: 'Largest state commissions: UPPSC PCS, BPSC CCE & MPPSC SSE',
+    examIds: ['UPPSC_PCS', 'BPSC_CCE', 'MPPSC_SSE'],
   },
   {
     id: 'civil_finance_duo',

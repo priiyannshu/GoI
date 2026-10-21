@@ -1,8 +1,8 @@
 {
   "version": "1.0.0",
-  "total_exams": 36,
-  "total_eligibility_criteria": 36,
-  "total_source_audit_logs": 216,
+  "total_exams": 31,
+  "total_eligibility_criteria": 31,
+  "total_source_audit_logs": 186,
   "exams": [
     {
       "exam_id": "UPSC_CSE",
@@ -226,19 +226,6 @@
       "description": "Combined Competitive Examination for Bihar Administrative Service (BAS / SDM), Bihar Police Service (DSP), and state financial taxation cadres."
     },
     {
-      "exam_id": "MPSC_RAJYASEVA",
-      "title": "Maharashtra Gazetted Civil Services Combined Examination",
-      "short_code": "MPSC Rajyaseva",
-      "category": "State-PSC",
-      "administering_body": "MPSC",
-      "frequency": "Annual",
-      "official_website": "https://mpsc.gov.in",
-      "latest_official_notification_url": "https://mpsc.gov.in/downloadFile/english/8181",
-      "latest_gazette_ref": "Advt. No. 414/2023 & Advt. No. 014/2024 / Maharashtra Civil Services Rules published in Maharashtra Government Gazette",
-      "tentative_timeline_2027": "{\"notification_month\": \"December 2026 / January 2027\", \"prelims_date\": \"April / May 2027\", \"mains_date\": \"September / October 2027\", \"interview_date\": \"February / March 2028\", \"final_result\": \"April 2028\"}",
-      "description": "Premier Maharashtra civil services examination recruiting Deputy Collector, DySP, and Class-1 gazetted state administrative leadership."
-    },
-    {
       "exam_id": "MPPSC_SSE",
       "title": "Madhya Pradesh State Service Examination (SSE)",
       "short_code": "MPPSC SSE",
@@ -265,32 +252,6 @@
       "description": "Rajasthan Administrative Service (RAS) and Rajasthan Police Service (RPS) combined competitive recruitment."
     },
     {
-      "exam_id": "TNPSC_GROUP_1",
-      "title": "Combined Civil Services Examination-I (Group-I Services)",
-      "short_code": "TNPSC Group 1",
-      "category": "State-PSC",
-      "administering_body": "TNPSC",
-      "frequency": "Annual",
-      "official_website": "https://www.tnpsc.gov.in",
-      "latest_official_notification_url": "https://www.tnpsc.gov.in/Document_2024/04_2024_Eng.pdf",
-      "latest_gazette_ref": "Notification No. 04/2024 dated 28.03.2024 / Tamil Nadu State and Subordinate Services Rules",
-      "tentative_timeline_2027": "{\"notification_month\": \"March / April 2027\", \"prelims_date\": \"July 2027\", \"mains_date\": \"December 2027\", \"interview_date\": \"April 2028\", \"final_result\": \"May 2028\"}",
-      "description": "Recruitment to Deputy Collector, DSP (Cat I), and Assistant Commissioner (Commercial Taxes) in Tamil Nadu."
-    },
-    {
-      "exam_id": "APPSC_GROUP_1",
-      "title": "Andhra Pradesh Public Service Commission Group-1 Services Examination",
-      "short_code": "APPSC Group 1",
-      "category": "State-PSC",
-      "administering_body": "APPSC",
-      "frequency": "Periodic",
-      "official_website": "https://psc.ap.gov.in",
-      "latest_official_notification_url": "https://psc.ap.gov.in/Documents/Notification_12_2023.pdf",
-      "latest_gazette_ref": "Notification No. 12/2023 / AP State and Subordinate Service Rules, 1996 published in AP Gazette",
-      "tentative_timeline_2027": "{\"notification_month\": \"December 2026 / January 2027\", \"prelims_date\": \"March / April 2027\", \"mains_date\": \"August / September 2027\", \"interview_date\": \"January 2028\", \"final_result\": \"February 2028\"}",
-      "description": "Group-1 executive service recruitment for Deputy Collectors, Commercial Tax Officers, and District Fire Officers in Andhra Pradesh."
-    },
-    {
       "exam_id": "TSPSC_GROUP_1",
       "title": "Telangana Public Service Commission Group-I Services Examination",
       "short_code": "TSPSC Group 1",
@@ -302,32 +263,6 @@
       "latest_gazette_ref": "Notification No. 02/2024 dated 19.02.2024 / G.O. Ms. No. 42 / Presidential Order 2018",
       "tentative_timeline_2027": "{\"notification_month\": \"February / March 2027\", \"prelims_date\": \"June 2027\", \"mains_date\": \"October / November 2027\", \"interview_date\": \"None (Abolished)\", \"final_result\": \"January 2028\"}",
       "description": "Telangana State Group-I Services examination featuring 100% written merit selection without oral interview."
-    },
-    {
-      "exam_id": "WBPSC_WBCS",
-      "title": "West Bengal Civil Service (Executive) etc. Examination (Group A)",
-      "short_code": "WBPSC WBCS Gr A",
-      "category": "State-PSC",
-      "administering_body": "WBPSC",
-      "frequency": "Annual",
-      "official_website": "https://psc.wb.gov.in",
-      "latest_official_notification_url": "https://psc.wb.gov.in/downloadPdf.action?noticeId=WBCS2023Advt.pdf",
-      "latest_gazette_ref": "Advt. No. 01/2023 / West Bengal Services (Appointment) Rules published in Kolkata Gazette",
-      "tentative_timeline_2027": "{\"notification_month\": \"February / March 2027\", \"prelims_date\": \"June / July 2027\", \"mains_date\": \"October / November 2027\", \"interview_date\": \"March / April 2028\", \"final_result\": \"June 2028\"}",
-      "description": "Flagship recruitment for West Bengal Civil Service (Executive) and allied Group A state services."
-    },
-    {
-      "exam_id": "KPSC_KAS",
-      "title": "Karnataka Gazetted Probationers Examination (KAS Group A & B)",
-      "short_code": "KPSC KAS",
-      "category": "State-PSC",
-      "administering_body": "KPSC",
-      "frequency": "Periodic",
-      "official_website": "https://kpsc.kar.nic.in",
-      "latest_official_notification_url": "https://kpsc.kar.nic.in/Gazetted_Probationers_2024_Notification.pdf",
-      "latest_gazette_ref": "Notification No. e(1) 19/2023-24 dated 26.02.2024 / Karnataka Civil Services Rules",
-      "tentative_timeline_2027": "{\"notification_month\": \"January / February 2027\", \"prelims_date\": \"May / June 2027\", \"mains_date\": \"September / October 2027\", \"interview_date\": \"February / March 2028\", \"final_result\": \"May 2028\"}",
-      "description": "Karnataka Administrative Service (KAS) Group A Assistant Commissioner and DySP recruitment."
     },
     {
       "exam_id": "PSU_ONGC_GT",
@@ -798,25 +733,6 @@
       "source_citation_clause": "Advt No. 23/2024 (70th CCE), Para 3, 4, 6 & 7"
     },
     {
-      "exam_id": "MPSC_RAJYASEVA",
-      "cutoff_reference_date_rule": "April 1 of examination year",
-      "min_age_gen": 19,
-      "max_age_gen": 38,
-      "relaxations_json": "{\"OBC_MH\": 5, \"SC_MH\": 5, \"ST_MH\": 5, \"EWS_MH\": 5, \"VJNT_MH\": 5, \"SBC_MH\": 5, \"PwBD\": 7, \"Ex_Servicemen\": 5}",
-      "min_education_level": "Bachelor",
-      "accepted_disciplines": "[\"ANY\"]",
-      "min_aggregate_percentage_gen": 0.0,
-      "min_aggregate_percentage_reserved": 0.0,
-      "final_year_students_allowed": 1,
-      "attempt_limit_gen": 6,
-      "attempt_limit_obc": 9,
-      "attempt_limit_sc_st": null,
-      "domicile_restrictions": "{\"reservation_benefit\": \"MAHARASHTRA_DOMICILE_ONLY\", \"open_to_all_states\": true}",
-      "language_requirements": "{\"compulsory_language\": \"Marathi\", \"proficiency\": \"Read, Write and Speak Marathi fluently\", \"mains_qualifying_papers\": [\"Marathi\", \"English\"]}",
-      "physical_standards": "{\"dysp_police_cadre\": {\"height_male_cm\": 165, \"chest_male_unexpanded_cm\": 84, \"chest_male_expanded_cm\": 89, \"height_female_cm\": 157}}",
-      "source_citation_clause": "Advt No. 414/2023, Clause 5.1-5.4, Clause 6 & Clause 7"
-    },
-    {
       "exam_id": "MPPSC_SSE",
       "cutoff_reference_date_rule": "January 1 of examination year",
       "min_age_gen": 21,
@@ -855,44 +771,6 @@
       "source_citation_clause": "Advt No. 02/2023-24, Clause 6, 7 & 8"
     },
     {
-      "exam_id": "TNPSC_GROUP_1",
-      "cutoff_reference_date_rule": "July 1 of examination year",
-      "min_age_gen": 21,
-      "max_age_gen": 34,
-      "relaxations_json": "{\"SC_TN\": 5, \"SC_A_TN\": 5, \"ST_TN\": 5, \"MBC_DC_TN\": 5, \"BC_TN\": 5, \"BCM_TN\": 5, \"Destitute_Widows\": 5, \"PwBD\": 10}",
-      "min_education_level": "Bachelor",
-      "accepted_disciplines": "[\"ANY\"]",
-      "min_aggregate_percentage_gen": 0.0,
-      "min_aggregate_percentage_reserved": 0.0,
-      "final_year_students_allowed": 1,
-      "attempt_limit_gen": null,
-      "attempt_limit_obc": null,
-      "attempt_limit_sc_st": null,
-      "domicile_restrictions": "{\"reservation_benefit\": \"TAMIL_NADU_DOMICILE_ONLY\", \"open_to_all_states\": true}",
-      "language_requirements": "{\"mains_paper_1\": \"Tamil Eligibility Test (SSLC Standard)\", \"min_qualifying_marks\": 40, \"evaluation\": \"Qualifying only\"}",
-      "physical_standards": "{\"dsp_police_cadre\": {\"height_male_cm\": 165, \"chest_male_unexpanded_cm\": 86, \"chest_male_expanded_cm\": 91, \"height_female_cm\": 155}}",
-      "source_citation_clause": "Notification No. 04/2024, Para 4B, 4C, 4D & Para 6"
-    },
-    {
-      "exam_id": "APPSC_GROUP_1",
-      "cutoff_reference_date_rule": "July 1 of recruitment year",
-      "min_age_gen": 18,
-      "max_age_gen": 44,
-      "relaxations_json": "{\"SC_AP\": 5, \"ST_AP\": 5, \"BC_AP\": 5, \"EWS_AP\": 5, \"PwBD_AP\": 10, \"Ex_Servicemen\": 3}",
-      "min_education_level": "Bachelor",
-      "accepted_disciplines": "[\"ANY\"]",
-      "min_aggregate_percentage_gen": 0.0,
-      "min_aggregate_percentage_reserved": 0.0,
-      "final_year_students_allowed": 1,
-      "attempt_limit_gen": null,
-      "attempt_limit_obc": null,
-      "attempt_limit_sc_st": null,
-      "domicile_restrictions": "{\"reservation_benefit\": \"ANDHRA_PRADESH_DOMICILE_ONLY\", \"open_to_all_states\": true}",
-      "language_requirements": "{\"qualifying_papers\": [\"Telugu (SSC Standard, 40 marks)\", \"English (SSC Standard, 40 marks)\"], \"evaluation\": \"Qualifying only\"}",
-      "physical_standards": "{\"dsp_measurements\": {\"max_age_dsp\": 30, \"height_male_cm\": 167.6, \"chest_male_unexpanded_cm\": 86.3, \"chest_male_expanded_cm\": 91.3, \"height_female_cm\": 152.5}}",
-      "source_citation_clause": "Notification No. 12/2023, Para 3, 4, 6 & Annexure-II"
-    },
-    {
       "exam_id": "TSPSC_GROUP_1",
       "cutoff_reference_date_rule": "July 1 of examination year",
       "min_age_gen": 18,
@@ -910,44 +788,6 @@
       "language_requirements": "{\"qualifying_paper\": \"General English (Qualifying)\", \"mains_medium\": [\"English\", \"Telugu\", \"Urdu\"]}",
       "physical_standards": "{\"dsp_measurements\": {\"max_age_dsp\": 30, \"height_male_cm\": 167.6, \"chest_male_unexpanded_cm\": 86.3, \"chest_male_expanded_cm\": 91.3, \"height_female_cm\": 152.5}}",
       "source_citation_clause": "Notification No. 02/2024, Para III, IV, VII & Annexure-II"
-    },
-    {
-      "exam_id": "WBPSC_WBCS",
-      "cutoff_reference_date_rule": "January 1 of examination year",
-      "min_age_gen": 21,
-      "max_age_gen": 36,
-      "relaxations_json": "{\"SC_WB\": 5, \"ST_WB\": 5, \"BC_WB\": 3, \"PwBD\": 9}",
-      "min_education_level": "Bachelor",
-      "accepted_disciplines": "[\"ANY\"]",
-      "min_aggregate_percentage_gen": 0.0,
-      "min_aggregate_percentage_reserved": 0.0,
-      "final_year_students_allowed": 1,
-      "attempt_limit_gen": null,
-      "attempt_limit_obc": null,
-      "attempt_limit_sc_st": null,
-      "domicile_restrictions": "{\"reservation_benefit\": \"WEST_BENGAL_DOMICILE_ONLY\", \"open_to_all_states\": true}",
-      "language_requirements": "{\"ability_to_read_write_speak\": \"Bengali (Exempted only for mother tongue Nepali candidates)\", \"mains_compulsory_paper_1\": \"Bengali/Hindi/Urdu/Nepali/Santali (200 marks)\"}",
-      "physical_standards": "{\"wbcs_police_group_b\": {\"height_male_cm\": 165, \"height_female_cm\": 150}}",
-      "source_citation_clause": "Advt No. 01/2023, Para 3, 4, 5 & Scheme"
-    },
-    {
-      "exam_id": "KPSC_KAS",
-      "cutoff_reference_date_rule": "Closing date of online application / April 1 of exam year",
-      "min_age_gen": 21,
-      "max_age_gen": 35,
-      "relaxations_json": "{\"OBC_Cat_2A_2B_3A_3B\": 3, \"SC_ST_Cat_1\": 5, \"PwBD\": 10, \"Ex_Servicemen\": 3}",
-      "min_education_level": "Bachelor",
-      "accepted_disciplines": "[\"ANY\"]",
-      "min_aggregate_percentage_gen": 0.0,
-      "min_aggregate_percentage_reserved": 0.0,
-      "final_year_students_allowed": 1,
-      "attempt_limit_gen": 5,
-      "attempt_limit_obc": 7,
-      "attempt_limit_sc_st": null,
-      "domicile_restrictions": "{\"reservation_benefit\": \"KARNATAKA_DOMICILE_ONLY\", \"open_to_all_states\": true}",
-      "language_requirements": "{\"compulsory_qualifying_paper\": \"Kannada (150 marks, 35% qualifying threshold)\", \"mains_medium\": [\"Kannada\", \"English\"]}",
-      "physical_standards": "{\"dysp_police_cadre\": {\"height_male_cm\": 168, \"chest_male_unexpanded_cm\": 86, \"chest_male_expanded_cm\": 91, \"height_female_cm\": 157}}",
-      "source_citation_clause": "Notification No. e(1) 19/2023-24, Para 4, 5, 6, 8 & Scheme"
     },
     {
       "exam_id": "PSU_ONGC_GT",
@@ -1785,7 +1625,7 @@
       "clause_or_page_number": "Section III & Appendix, Pages 5-8",
       "official_download_link": "https://www.sebi.gov.in/sebiweb/other/careerdetail.jsp?careerId=334",
       "archive_link": "https://web.archive.org/web/sebi_grade_a_2024.pdf",
-      "verifier_notes": "Phase-I & Phase-II Paper 2: Commerce, Accountancy, Management, Finance, Costing, Companies Act, Economics. Phase-II Paper 1: English Descriptive (Essay, Pr\u00e9cis, Comprehension)."
+      "verifier_notes": "Phase-I & Phase-II Paper 2: Commerce, Accountancy, Management, Finance, Costing, Companies Act, Economics. Phase-II Paper 1: English Descriptive (Essay, Précis, Comprehension)."
     },
     {
       "audit_id": "AUD_SEBI_GRADE_A_PATTERN",
@@ -2115,7 +1955,7 @@
       "clause_or_page_number": "Clause 4 Selection Process, Pages 4-6",
       "official_download_link": "https://www.eximbankindia.in/careers",
       "archive_link": "https://web.archive.org/web/exim_mt_2024.pdf",
-      "verifier_notes": "Reasoning, Quant, English, Financial Awareness, and Professional Knowledge in Banking & Trade Finance + Descriptive English (Essay, Pr\u00e9cis) and Trade Finance case questions."
+      "verifier_notes": "Reasoning, Quant, English, Financial Awareness, and Professional Knowledge in Banking & Trade Finance + Descriptive English (Essay, Précis) and Trade Finance case questions."
     },
     {
       "audit_id": "AUD_EXIM_BANK_MT_PATTERN",
@@ -2283,72 +2123,6 @@
       "verifier_notes": "DSP Male: Height min 165 cm (162.5 cm SC/ST), Chest 84-89 cm (+5 cm expansion); DSP Female: Height min 152 cm. Civil administrative posts require general health fitness."
     },
     {
-      "audit_id": "AUD_MPSC_RAJYASEVA_AGE_LIMIT",
-      "exam_id": "MPSC_RAJYASEVA",
-      "fact_type": "Age_Limit",
-      "official_document_title": "MPSC Maharashtra Gazetted Civil Services Combined Examination Advt. No. 414/2023 & 014/2024",
-      "document_date": "2023-12-29",
-      "clause_or_page_number": "Clause 5.1 & 5.2, Page 4",
-      "official_download_link": "https://mpsc.gov.in/downloadFile/english/8181",
-      "archive_link": "https://web.archive.org/web/mpsc_rajyaseva_2024.pdf",
-      "verifier_notes": "Min 19, Max 38 as of 01-04-2027 for Open category; Reserved (OBC/SC/ST/EWS/VJNT/SBC MH) max 43; PwBD max 45. Open category attempt limit: 6; OBC: 9; SC/ST: unlimited."
-    },
-    {
-      "audit_id": "AUD_MPSC_RAJYASEVA_EDUCATION",
-      "exam_id": "MPSC_RAJYASEVA",
-      "fact_type": "Education",
-      "official_document_title": "MPSC Maharashtra Gazetted Civil Services Combined Examination Advt. No. 414/2023 & 014/2024",
-      "document_date": "2023-12-29",
-      "clause_or_page_number": "Clause 5.4, Page 5",
-      "official_download_link": "https://mpsc.gov.in/downloadFile/english/8181",
-      "archive_link": "https://web.archive.org/web/mpsc_rajyaseva_2024.pdf",
-      "verifier_notes": "Bachelor degree of recognized university in any discipline. Final year students eligible to appear in Preliminary exam."
-    },
-    {
-      "audit_id": "AUD_MPSC_RAJYASEVA_SYLLABUS",
-      "exam_id": "MPSC_RAJYASEVA",
-      "fact_type": "Syllabus",
-      "official_document_title": "MPSC Maharashtra Gazetted Civil Services Combined Examination Advt. No. 414/2023 & 014/2024",
-      "document_date": "2023-12-29",
-      "clause_or_page_number": "Clause 7 & Syllabus Appendix, Pages 9-16",
-      "official_download_link": "https://mpsc.gov.in/downloadFile/english/8181",
-      "archive_link": "https://web.archive.org/web/mpsc_rajyaseva_2024.pdf",
-      "verifier_notes": "Prelims: Paper 1 GS (200m) + Paper 2 CSAT (200m, qualifying 33%). Mains: Marathi & English qualifying papers + GS 1-4 + Essay / Optionals descriptive papers (800 marks)."
-    },
-    {
-      "audit_id": "AUD_MPSC_RAJYASEVA_PATTERN",
-      "exam_id": "MPSC_RAJYASEVA",
-      "fact_type": "Pattern",
-      "official_document_title": "MPSC Maharashtra Gazetted Civil Services Combined Examination Advt. No. 414/2023 & 014/2024",
-      "document_date": "2023-12-29",
-      "clause_or_page_number": "Clause 7 Scheme of Examination, Pages 8-10",
-      "official_download_link": "https://mpsc.gov.in/downloadFile/english/8181",
-      "archive_link": "https://web.archive.org/web/mpsc_rajyaseva_2024.pdf",
-      "verifier_notes": "Prelims: 400 marks MCQ (1/4 negative). Mains: 800 marks descriptive. Interview: 100 marks. Total Merit: 900 marks. Compulsory fluent Marathi proficiency."
-    },
-    {
-      "audit_id": "AUD_MPSC_RAJYASEVA_TIMELINE_2027",
-      "exam_id": "MPSC_RAJYASEVA",
-      "fact_type": "Timeline_2027",
-      "official_document_title": "MPSC Maharashtra Gazetted Civil Services Combined Examination Advt. No. 414/2023 & 014/2024",
-      "document_date": "2023-12-29",
-      "clause_or_page_number": "MPSC Annual Calendar Schedule",
-      "official_download_link": "https://mpsc.gov.in/downloadFile/english/8181",
-      "archive_link": "https://web.archive.org/web/mpsc_rajyaseva_2024.pdf",
-      "verifier_notes": "Projected 2027 cycle: Notification Dec 2026/Jan 2027, Prelims Apr/May 2027, Mains Sep/Oct 2027, Interview Feb/Mar 2028, Final Result April 2028."
-    },
-    {
-      "audit_id": "AUD_MPSC_RAJYASEVA_PHYSICAL_STANDARDS",
-      "exam_id": "MPSC_RAJYASEVA",
-      "fact_type": "Physical_Standards",
-      "official_document_title": "MPSC Maharashtra Gazetted Civil Services Combined Examination Advt. No. 414/2023 & 014/2024",
-      "document_date": "2023-12-29",
-      "clause_or_page_number": "Clause 6 Physical Qualifications, Page 7",
-      "official_download_link": "https://mpsc.gov.in/downloadFile/english/8181",
-      "archive_link": "https://web.archive.org/web/mpsc_rajyaseva_2024.pdf",
-      "verifier_notes": "DySP Police Cadre: Height Male min 165 cm, Chest 84-89 cm (+5 cm expansion); Female min 157 cm. Non-uniformed posts require general state civil medical fitness."
-    },
-    {
       "audit_id": "AUD_MPPSC_SSE_AGE_LIMIT",
       "exam_id": "MPPSC_SSE",
       "fact_type": "Age_Limit",
@@ -2481,138 +2255,6 @@
       "verifier_notes": "RPS Police Cadre: Height Male min 168 cm, Chest 81-86 cm (+5 cm expansion); Female min 152 cm, Weight min 47.5 kg."
     },
     {
-      "audit_id": "AUD_TNPSC_GROUP_1_AGE_LIMIT",
-      "exam_id": "TNPSC_GROUP_1",
-      "fact_type": "Age_Limit",
-      "official_document_title": "TNPSC Combined Civil Services Examination-I (Group-I) Notification No. 04/2024",
-      "document_date": "2024-03-28",
-      "clause_or_page_number": "Para 4B, Pages 4-5",
-      "official_download_link": "https://www.tnpsc.gov.in/Document_2024/04_2024_Eng.pdf",
-      "archive_link": "https://web.archive.org/web/tnpsc_group_1_2024.pdf",
-      "verifier_notes": "Min 21, Max 34 as of 01-07-2027 for Others/General; Max 39 for SC, SC(A), ST, MBC/DC, BC, BCM of Tamil Nadu domicile; PwBD max 44. Non-TN candidates evaluated as Others (34)."
-    },
-    {
-      "audit_id": "AUD_TNPSC_GROUP_1_EDUCATION",
-      "exam_id": "TNPSC_GROUP_1",
-      "fact_type": "Education",
-      "official_document_title": "TNPSC Combined Civil Services Examination-I (Group-I) Notification No. 04/2024",
-      "document_date": "2024-03-28",
-      "clause_or_page_number": "Para 4C, Page 6",
-      "official_download_link": "https://www.tnpsc.gov.in/Document_2024/04_2024_Eng.pdf",
-      "archive_link": "https://web.archive.org/web/tnpsc_group_1_2024.pdf",
-      "verifier_notes": "Bachelor degree of recognized university under 10+2+3 pattern in any discipline. Final year students eligible provisionally."
-    },
-    {
-      "audit_id": "AUD_TNPSC_GROUP_1_SYLLABUS",
-      "exam_id": "TNPSC_GROUP_1",
-      "fact_type": "Syllabus",
-      "official_document_title": "TNPSC Combined Civil Services Examination-I (Group-I) Notification No. 04/2024",
-      "document_date": "2024-03-28",
-      "clause_or_page_number": "Para 6 & Annexure-II, Pages 11-20",
-      "official_download_link": "https://www.tnpsc.gov.in/Document_2024/04_2024_Eng.pdf",
-      "archive_link": "https://web.archive.org/web/tnpsc_group_1_2024.pdf",
-      "verifier_notes": "Prelims: GS 175 Qs + Aptitude 25 Qs = 300 marks. Mains: Paper 1 Tamil Eligibility Test (SSLC Std, 100m, qualifying 40%) + Papers 2, 3, 4 of 250m each = 750m."
-    },
-    {
-      "audit_id": "AUD_TNPSC_GROUP_1_PATTERN",
-      "exam_id": "TNPSC_GROUP_1",
-      "fact_type": "Pattern",
-      "official_document_title": "TNPSC Combined Civil Services Examination-I (Group-I) Notification No. 04/2024",
-      "document_date": "2024-03-28",
-      "clause_or_page_number": "Para 6 Scheme of Examination, Pages 9-11",
-      "official_download_link": "https://www.tnpsc.gov.in/Document_2024/04_2024_Eng.pdf",
-      "archive_link": "https://web.archive.org/web/tnpsc_group_1_2024.pdf",
-      "verifier_notes": "Prelims: 300 marks MCQ. Mains: 3 descriptive merit papers 750 marks + Tamil qualifying paper. Interview: 100 marks. Total Merit: 850 marks."
-    },
-    {
-      "audit_id": "AUD_TNPSC_GROUP_1_TIMELINE_2027",
-      "exam_id": "TNPSC_GROUP_1",
-      "fact_type": "Timeline_2027",
-      "official_document_title": "TNPSC Combined Civil Services Examination-I (Group-I) Notification No. 04/2024",
-      "document_date": "2024-03-28",
-      "clause_or_page_number": "TNPSC Annual Planner Schedule",
-      "official_download_link": "https://www.tnpsc.gov.in/Document_2024/04_2024_Eng.pdf",
-      "archive_link": "https://web.archive.org/web/tnpsc_group_1_2024.pdf",
-      "verifier_notes": "Projected 2027 cycle: Notification Mar/Apr 2027, Prelims July 2027, Mains December 2027, Interview April 2028, Final Result May 2028."
-    },
-    {
-      "audit_id": "AUD_TNPSC_GROUP_1_PHYSICAL_STANDARDS",
-      "exam_id": "TNPSC_GROUP_1",
-      "fact_type": "Physical_Standards",
-      "official_document_title": "TNPSC Combined Civil Services Examination-I (Group-I) Notification No. 04/2024",
-      "document_date": "2024-03-28",
-      "clause_or_page_number": "Para 4D Physical Qualifications, Page 7",
-      "official_download_link": "https://www.tnpsc.gov.in/Document_2024/04_2024_Eng.pdf",
-      "archive_link": "https://web.archive.org/web/tnpsc_group_1_2024.pdf",
-      "verifier_notes": "DSP Police Cadre: Height Male min 165 cm, Chest 86-91 cm (+5 cm expansion); DSP Female: Height min 155 cm."
-    },
-    {
-      "audit_id": "AUD_APPSC_GROUP_1_AGE_LIMIT",
-      "exam_id": "APPSC_GROUP_1",
-      "fact_type": "Age_Limit",
-      "official_document_title": "APPSC Group-1 Services Examination Notification No. 12/2023 & State Rules 1996",
-      "document_date": "2023-12-08",
-      "clause_or_page_number": "Para 4, Pages 4-6",
-      "official_download_link": "https://psc.ap.gov.in/Documents/Notification_12_2023.pdf",
-      "archive_link": "https://web.archive.org/web/appsc_group_1_2023.pdf",
-      "verifier_notes": "Min 18, Max 44 as of 01-07-2027 for non-uniformed posts (21 to 30 for DSP). Relaxations: SC/ST/BC/EWS AP +5 (max 49), PwBD AP +10, Ex-Servicemen +3."
-    },
-    {
-      "audit_id": "AUD_APPSC_GROUP_1_EDUCATION",
-      "exam_id": "APPSC_GROUP_1",
-      "fact_type": "Education",
-      "official_document_title": "APPSC Group-1 Services Examination Notification No. 12/2023 & State Rules 1996",
-      "document_date": "2023-12-08",
-      "clause_or_page_number": "Para 3, Page 4",
-      "official_download_link": "https://psc.ap.gov.in/Documents/Notification_12_2023.pdf",
-      "archive_link": "https://web.archive.org/web/appsc_group_1_2023.pdf",
-      "verifier_notes": "Bachelor degree of recognized university in any discipline. Final year students eligible to appear in Preliminary screening."
-    },
-    {
-      "audit_id": "AUD_APPSC_GROUP_1_SYLLABUS",
-      "exam_id": "APPSC_GROUP_1",
-      "fact_type": "Syllabus",
-      "official_document_title": "APPSC Group-1 Services Examination Notification No. 12/2023 & State Rules 1996",
-      "document_date": "2023-12-08",
-      "clause_or_page_number": "Annexure-II, Pages 12-22",
-      "official_download_link": "https://psc.ap.gov.in/Documents/Notification_12_2023.pdf",
-      "archive_link": "https://web.archive.org/web/appsc_group_1_2023.pdf",
-      "verifier_notes": "Prelims: Paper I GS (120m) + Paper II General Aptitude (120m) = 240m. Mains: Qualifying Telugu & English (SSC Std) + 5 descriptive papers of 150m each = 750m (General Essay, GS 1-4)."
-    },
-    {
-      "audit_id": "AUD_APPSC_GROUP_1_PATTERN",
-      "exam_id": "APPSC_GROUP_1",
-      "fact_type": "Pattern",
-      "official_document_title": "APPSC Group-1 Services Examination Notification No. 12/2023 & State Rules 1996",
-      "document_date": "2023-12-08",
-      "clause_or_page_number": "Annexure-II Scheme of Examination, Pages 10-12",
-      "official_download_link": "https://psc.ap.gov.in/Documents/Notification_12_2023.pdf",
-      "archive_link": "https://web.archive.org/web/appsc_group_1_2023.pdf",
-      "verifier_notes": "Prelims: 240 marks MCQ (1/3 negative). Mains: 750 marks descriptive. Interview: 75 marks. Total Merit: 825 marks."
-    },
-    {
-      "audit_id": "AUD_APPSC_GROUP_1_TIMELINE_2027",
-      "exam_id": "APPSC_GROUP_1",
-      "fact_type": "Timeline_2027",
-      "official_document_title": "APPSC Group-1 Services Examination Notification No. 12/2023 & State Rules 1996",
-      "document_date": "2023-12-08",
-      "clause_or_page_number": "APPSC Examination Schedule",
-      "official_download_link": "https://psc.ap.gov.in/Documents/Notification_12_2023.pdf",
-      "archive_link": "https://web.archive.org/web/appsc_group_1_2023.pdf",
-      "verifier_notes": "Projected 2027 cycle: Notification Dec 2026/Jan 2027, Prelims Mar/Apr 2027, Mains Aug/Sep 2027, Interview January 2028, Final Result February 2028."
-    },
-    {
-      "audit_id": "AUD_APPSC_GROUP_1_PHYSICAL_STANDARDS",
-      "exam_id": "APPSC_GROUP_1",
-      "fact_type": "Physical_Standards",
-      "official_document_title": "APPSC Group-1 Services Examination Notification No. 12/2023 & State Rules 1996",
-      "document_date": "2023-12-08",
-      "clause_or_page_number": "Para 6 Physical Requirements, Page 7",
-      "official_download_link": "https://psc.ap.gov.in/Documents/Notification_12_2023.pdf",
-      "archive_link": "https://web.archive.org/web/appsc_group_1_2023.pdf",
-      "verifier_notes": "DSP Police Cadre: Upper age capped at 30; Height Male min 167.6 cm, Chest 86.3-91.3 cm (+5 cm expansion); Female min 152.5 cm."
-    },
-    {
       "audit_id": "AUD_TSPSC_GROUP_1_AGE_LIMIT",
       "exam_id": "TSPSC_GROUP_1",
       "fact_type": "Age_Limit",
@@ -2654,7 +2296,7 @@
       "clause_or_page_number": "Annexure-II Scheme of Examination, Pages 12-14",
       "official_download_link": "https://websnew.tspsc.gov.in/preview/PRESSNOTICES/0220242202.pdf",
       "archive_link": "https://web.archive.org/web/tspsc_group_1_2024.pdf",
-      "verifier_notes": "Prelims: 150 marks MCQ. Mains: 900 marks descriptive. Oral Interview officially ABOLISHED \u2014 100% selection based on Mains 900 marks."
+      "verifier_notes": "Prelims: 150 marks MCQ. Mains: 900 marks descriptive. Oral Interview officially ABOLISHED — 100% selection based on Mains 900 marks."
     },
     {
       "audit_id": "AUD_TSPSC_GROUP_1_TIMELINE_2027",
@@ -2677,138 +2319,6 @@
       "official_download_link": "https://websnew.tspsc.gov.in/preview/PRESSNOTICES/0220242202.pdf",
       "archive_link": "https://web.archive.org/web/tspsc_group_1_2024.pdf",
       "verifier_notes": "DSP Police Cadre: Upper age capped at 30; Height Male min 167.6 cm, Chest 86.3-91.3 cm (+5 cm expansion); Female min 152.5 cm."
-    },
-    {
-      "audit_id": "AUD_WBPSC_WBCS_AGE_LIMIT",
-      "exam_id": "WBPSC_WBCS",
-      "fact_type": "Age_Limit",
-      "official_document_title": "WBPSC West Bengal Civil Service (Executive) etc. Exam Advt. No. 01/2023",
-      "document_date": "2023-02-25",
-      "clause_or_page_number": "Para 3, Pages 3-4",
-      "official_download_link": "https://psc.wb.gov.in/downloadPdf.action?noticeId=WBCS2023Advt.pdf",
-      "archive_link": "https://web.archive.org/web/wbpsc_wbcs_2023.pdf",
-      "verifier_notes": "Min 21, Max 36 as of 01-01-2027 for Group A executive posts. Relaxations: SC/ST WB +5, BC WB +3, PwBD +9 (max 45). Non-WB candidates evaluated as UR 36."
-    },
-    {
-      "audit_id": "AUD_WBPSC_WBCS_EDUCATION",
-      "exam_id": "WBPSC_WBCS",
-      "fact_type": "Education",
-      "official_document_title": "WBPSC West Bengal Civil Service (Executive) etc. Exam Advt. No. 01/2023",
-      "document_date": "2023-02-25",
-      "clause_or_page_number": "Para 4 & 5, Pages 4-5",
-      "official_download_link": "https://psc.wb.gov.in/downloadPdf.action?noticeId=WBCS2023Advt.pdf",
-      "archive_link": "https://web.archive.org/web/wbpsc_wbcs_2023.pdf",
-      "verifier_notes": "Bachelor degree of recognized university in any discipline. Compulsory ability to read, write, and speak Bengali (exempted only for mother tongue Nepali candidates). Final year eligible."
-    },
-    {
-      "audit_id": "AUD_WBPSC_WBCS_SYLLABUS",
-      "exam_id": "WBPSC_WBCS",
-      "fact_type": "Syllabus",
-      "official_document_title": "WBPSC West Bengal Civil Service (Executive) etc. Exam Advt. No. 01/2023",
-      "document_date": "2023-02-25",
-      "clause_or_page_number": "Scheme of Examination, Pages 9-18",
-      "official_download_link": "https://psc.wb.gov.in/downloadPdf.action?noticeId=WBCS2023Advt.pdf",
-      "archive_link": "https://web.archive.org/web/wbpsc_wbcs_2023.pdf",
-      "verifier_notes": "Prelims: 8 modules 200 marks. Mains: 6 compulsory papers of 200m each (Language, English, GS 1-4) + 1 optional subject of 2 papers of 200m each = 1600 marks."
-    },
-    {
-      "audit_id": "AUD_WBPSC_WBCS_PATTERN",
-      "exam_id": "WBPSC_WBCS",
-      "fact_type": "Pattern",
-      "official_document_title": "WBPSC West Bengal Civil Service (Executive) etc. Exam Advt. No. 01/2023",
-      "document_date": "2023-02-25",
-      "clause_or_page_number": "Scheme of Examination, Pages 8-11",
-      "official_download_link": "https://psc.wb.gov.in/downloadPdf.action?noticeId=WBCS2023Advt.pdf",
-      "archive_link": "https://web.archive.org/web/wbpsc_wbcs_2023.pdf",
-      "verifier_notes": "Prelims: 200 marks MCQ (1/3 negative). Mains: 1600 marks (Compulsory MCQ/Descriptive + Optionals Descriptive). Personality Test: 200 marks. Total Merit: 1800 marks."
-    },
-    {
-      "audit_id": "AUD_WBPSC_WBCS_TIMELINE_2027",
-      "exam_id": "WBPSC_WBCS",
-      "fact_type": "Timeline_2027",
-      "official_document_title": "WBPSC West Bengal Civil Service (Executive) etc. Exam Advt. No. 01/2023",
-      "document_date": "2023-02-25",
-      "clause_or_page_number": "WBPSC Examination Schedule",
-      "official_download_link": "https://psc.wb.gov.in/downloadPdf.action?noticeId=WBCS2023Advt.pdf",
-      "archive_link": "https://web.archive.org/web/wbpsc_wbcs_2023.pdf",
-      "verifier_notes": "Projected 2027 cycle: Notification Feb/Mar 2027, Prelims Jun/Jul 2027, Mains Oct/Nov 2027, Interview Mar/Apr 2028, Final Result June 2028."
-    },
-    {
-      "audit_id": "AUD_WBPSC_WBCS_PHYSICAL_STANDARDS",
-      "exam_id": "WBPSC_WBCS",
-      "fact_type": "Physical_Standards",
-      "official_document_title": "WBPSC West Bengal Civil Service (Executive) etc. Exam Advt. No. 01/2023",
-      "document_date": "2023-02-25",
-      "clause_or_page_number": "Group B Police Rules, Page 6",
-      "official_download_link": "https://psc.wb.gov.in/downloadPdf.action?noticeId=WBCS2023Advt.pdf",
-      "archive_link": "https://web.archive.org/web/wbpsc_wbcs_2023.pdf",
-      "verifier_notes": "WBCS Group B Police: Height Male min 165 cm, Female min 150 cm. Group A civil executive posts require general state medical fitness."
-    },
-    {
-      "audit_id": "AUD_KPSC_KAS_AGE_LIMIT",
-      "exam_id": "KPSC_KAS",
-      "fact_type": "Age_Limit",
-      "official_document_title": "KPSC Karnataka Gazetted Probationers Notification No. e(1) 19/2023-24 & Civil Services Rules",
-      "document_date": "2024-02-26",
-      "clause_or_page_number": "Para 4 & 5, Pages 4-6",
-      "official_download_link": "https://kpsc.kar.nic.in/Gazetted_Probationers_2024_Notification.pdf",
-      "archive_link": "https://web.archive.org/web/kpsc_kas_2024.pdf",
-      "verifier_notes": "Min 21, Max 35 as of closing date / 01-04-2027 for General Merit (relaxed to 38 in recent orders). Relaxations: OBC Cat 2A/2B/3A/3B +3, SC/ST/Cat-1 +5, PwBD +10. Attempts: GM 5, OBC 7, SC/ST unlimited."
-    },
-    {
-      "audit_id": "AUD_KPSC_KAS_EDUCATION",
-      "exam_id": "KPSC_KAS",
-      "fact_type": "Education",
-      "official_document_title": "KPSC Karnataka Gazetted Probationers Notification No. e(1) 19/2023-24 & Civil Services Rules",
-      "document_date": "2024-02-26",
-      "clause_or_page_number": "Para 6 & 8, Pages 6-8",
-      "official_download_link": "https://kpsc.kar.nic.in/Gazetted_Probationers_2024_Notification.pdf",
-      "archive_link": "https://web.archive.org/web/kpsc_kas_2024.pdf",
-      "verifier_notes": "Bachelor degree of recognized university in any discipline. Compulsory Kannada language paper: 150 marks, 35% qualifying threshold. Final year eligible."
-    },
-    {
-      "audit_id": "AUD_KPSC_KAS_SYLLABUS",
-      "exam_id": "KPSC_KAS",
-      "fact_type": "Syllabus",
-      "official_document_title": "KPSC Karnataka Gazetted Probationers Notification No. e(1) 19/2023-24 & Civil Services Rules",
-      "document_date": "2024-02-26",
-      "clause_or_page_number": "Scheme of Examination, Pages 12-22",
-      "official_download_link": "https://kpsc.kar.nic.in/Gazetted_Probationers_2024_Notification.pdf",
-      "archive_link": "https://web.archive.org/web/kpsc_kas_2024.pdf",
-      "verifier_notes": "Prelims: Paper I GS & Humanities (200m) + Paper II GS & Aptitude (200m). Mains: Kannada & English qualifying + 5 descriptive merit papers: Essay 250m, GS 1 to 4 250m each = 1250 marks."
-    },
-    {
-      "audit_id": "AUD_KPSC_KAS_PATTERN",
-      "exam_id": "KPSC_KAS",
-      "fact_type": "Pattern",
-      "official_document_title": "KPSC Karnataka Gazetted Probationers Notification No. e(1) 19/2023-24 & Civil Services Rules",
-      "document_date": "2024-02-26",
-      "clause_or_page_number": "Scheme of Examination, Pages 10-13",
-      "official_download_link": "https://kpsc.kar.nic.in/Gazetted_Probationers_2024_Notification.pdf",
-      "archive_link": "https://web.archive.org/web/kpsc_kas_2024.pdf",
-      "verifier_notes": "Prelims: 400 marks MCQ (1/4 negative). Mains: 1250 marks descriptive. Personality Test: 50 marks. Total Merit: 1300 marks."
-    },
-    {
-      "audit_id": "AUD_KPSC_KAS_TIMELINE_2027",
-      "exam_id": "KPSC_KAS",
-      "fact_type": "Timeline_2027",
-      "official_document_title": "KPSC Karnataka Gazetted Probationers Notification No. e(1) 19/2023-24 & Civil Services Rules",
-      "document_date": "2024-02-26",
-      "clause_or_page_number": "KPSC Annual Planner Schedule",
-      "official_download_link": "https://kpsc.kar.nic.in/Gazetted_Probationers_2024_Notification.pdf",
-      "archive_link": "https://web.archive.org/web/kpsc_kas_2024.pdf",
-      "verifier_notes": "Projected 2027 cycle: Notification Jan/Feb 2027, Prelims May/Jun 2027, Mains Sep/Oct 2027, Interview Feb/Mar 2028, Final Result May 2028."
-    },
-    {
-      "audit_id": "AUD_KPSC_KAS_PHYSICAL_STANDARDS",
-      "exam_id": "KPSC_KAS",
-      "fact_type": "Physical_Standards",
-      "official_document_title": "KPSC Karnataka Gazetted Probationers Notification No. e(1) 19/2023-24 & Civil Services Rules",
-      "document_date": "2024-02-26",
-      "clause_or_page_number": "Police Service Rules, Page 9",
-      "official_download_link": "https://kpsc.kar.nic.in/Gazetted_Probationers_2024_Notification.pdf",
-      "archive_link": "https://web.archive.org/web/kpsc_kas_2024.pdf",
-      "verifier_notes": "DySP Police Cadre: Height Male min 168 cm, Chest 86-91 cm (+5 cm expansion); Female min 157 cm. Non-uniformed posts require general state medical fitness."
     },
     {
       "audit_id": "AUD_PSU_ONGC_GT_AGE_LIMIT",

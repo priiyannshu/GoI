@@ -54,7 +54,7 @@ PAGES_PROXY = os.path.join(BASE_DIR, "frontend", "functions", "api", "[[catchall
 PAGES_HEADERS = os.path.join(BASE_DIR, "frontend", "public", "_headers")
 
 WORKER_BASE_URL = "https://grade-a-api.priyanshukh1201.workers.dev"
-PAGES_BASE_URL = "https://grade-a-exams.pages.dev"
+PAGES_BASE_URL = "https://goi-6hi.pages.dev"
 REQUEST_HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; GradeAIntelligenceTest/1.0)",
     "Content-Type": "application/json",
@@ -275,11 +275,11 @@ class TestM5D1SchemaAndIntegrity(unittest.TestCase):
             cur.execute(f"SELECT COUNT(*) FROM {tbl};")
             counts[tbl] = cur.fetchone()[0]
 
-        self.assertEqual(counts["exams"], 36, "Expected exactly 36 exams in D1 seed")
-        self.assertEqual(counts["eligibility_criteria"], 36, "Expected exactly 36 eligibility criteria in D1 seed")
+        self.assertEqual(counts["exams"], 31, "Expected exactly 31 exams in D1 seed")
+        self.assertEqual(counts["eligibility_criteria"], 31, "Expected exactly 31 eligibility criteria in D1 seed")
         self.assertEqual(counts["syllabus_taxonomy"], 192, "Expected exactly 192 taxonomy topics in D1 seed")
-        self.assertEqual(counts["exam_syllabus_map"], 1123, "Expected exactly 1123 stage mappings in D1 seed")
-        self.assertEqual(counts["source_audit_log"], 216, "Expected exactly 216 audit log entries in D1 seed")
+        self.assertEqual(counts["exam_syllabus_map"], 949, "Expected exactly 949 stage mappings in D1 seed")
+        self.assertEqual(counts["source_audit_log"], 186, "Expected exactly 186 audit log entries in D1 seed")
 
 
 class TestM5EdgeConfigurations(unittest.TestCase):
@@ -339,7 +339,7 @@ class TestM5LiveWorkerEndpoints(unittest.TestCase):
         self.assertEqual(res["status"], 200)
         self.assertIsNotNone(res["json"])
         self.assertTrue(res["json"].get("success"))
-        self.assertEqual(res["json"].get("count"), 36)
+        self.assertEqual(res["json"].get("count"), 31)
         self.assertEqual(res["json"].get("source"), "d1", "Live Worker must query D1 serverless database")
 
     def test_03_worker_single_exam_and_404(self):
@@ -367,7 +367,7 @@ class TestM5LiveWorkerEndpoints(unittest.TestCase):
         # Overlap matrix endpoint
         res_matrix = make_http_request(f"{WORKER_BASE_URL}/api/v1/syllabus/matrix")
         self.assertEqual(res_matrix["status"], 200)
-        self.assertEqual(res_matrix["json"]["metadata"].get("total_exams"), 36)
+        self.assertEqual(res_matrix["json"]["metadata"].get("total_exams"), 31)
         self.assertEqual(res_matrix["json"]["metadata"].get("total_topics"), 192)
 
     def test_05_worker_profile_evaluate_endpoint(self):
@@ -466,7 +466,7 @@ class TestM5LiveWorkerEndpoints(unittest.TestCase):
         # Pages reverse-proxy to Worker API
         res_proxy = make_http_request(f"{PAGES_BASE_URL}/api/v1/exams")
         self.assertEqual(res_proxy["status"], 200)
-        self.assertEqual(res_proxy["json"].get("count"), 36)
+        self.assertEqual(res_proxy["json"].get("count"), 31)
         self.assertEqual(res_proxy["json"].get("source"), "d1")
 
 

@@ -42,14 +42,9 @@ CLUSTER_MAP = {
 
     "UPPSC_PCS": "Cluster 3: State Public Service Commissions",
     "BPSC_CCE": "Cluster 3: State Public Service Commissions",
-    "MPSC_RAJYASEVA": "Cluster 3: State Public Service Commissions",
     "MPPSC_SSE": "Cluster 3: State Public Service Commissions",
     "RPSC_RAS": "Cluster 3: State Public Service Commissions",
-    "TNPSC_GROUP_1": "Cluster 3: State Public Service Commissions",
-    "APPSC_GROUP_1": "Cluster 3: State Public Service Commissions",
     "TSPSC_GROUP_1": "Cluster 3: State Public Service Commissions",
-    "WBPSC_WBCS": "Cluster 3: State Public Service Commissions",
-    "KPSC_KAS": "Cluster 3: State Public Service Commissions",
 
     "PSU_ONGC_GT": "Cluster 4: Maharatna & Navratna PSUs",
     "PSU_IOCL_ET": "Cluster 4: Maharatna & Navratna PSUs",

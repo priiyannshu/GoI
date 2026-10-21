@@ -34,6 +34,9 @@ export type ExamCategory =
   | 'PSU';
 
 export interface UserProfileInput {
+  // Identity
+  full_name?: string;
+
   // Demographics
   dob: string; // YYYY-MM-DD
   gender: Gender;

@@ -417,23 +417,6 @@ EXAMS_SPEC: Dict[str, Dict[str, Any]] = {
         },
         "description": "Bihar State administrative recruitment for Bihar Administrative Service and Police Service."
     },
-    "MPSC_RAJYASEVA": {
-        "title": "MPSC Maharashtra Gazetted Civil Services (Rajyaseva)",
-        "short_code": "MPSC Rajyaseva",
-        "category": "State-PSC",
-        "administering_body": "MPSC",
-        "frequency": "Annual",
-        "official_website": "https://mpsc.gov.in",
-        "latest_official_notification_url": "https://mpsc.gov.in/downloadFile/english/8181",
-        "latest_gazette_ref": "Advt. No. 414/2023 / Advt. No. 014/2024",
-        "tentative_timeline_2027": {
-            "notification_month": "January 2027",
-            "prelims_date": "May 2027",
-            "mains_date": "October 2027",
-            "interview_window": "February 2028"
-        },
-        "description": "Maharashtra State Gazetted recruitment with mandatory Marathi proficiency."
-    },
     "MPPSC_SSE": {
         "title": "MPPSC State Service Examination (SSE)",
         "short_code": "MPPSC SSE",
@@ -468,40 +451,6 @@ EXAMS_SPEC: Dict[str, Dict[str, Any]] = {
         },
         "description": "Rajasthan administrative entry with forward-calendar-year January 1 cutoff."
     },
-    "TNPSC_GROUP_1": {
-        "title": "TNPSC Combined Civil Services Examination - I (Group 1)",
-        "short_code": "TNPSC Group 1",
-        "category": "State-PSC",
-        "administering_body": "TNPSC",
-        "frequency": "Annual",
-        "official_website": "https://www.tnpsc.gov.in",
-        "latest_official_notification_url": "https://www.tnpsc.gov.in/Document_2024/04_2024_Eng.pdf",
-        "latest_gazette_ref": "Notification No. 04/2024 dated 28.03.2024",
-        "tentative_timeline_2027": {
-            "notification_month": "March 2027",
-            "prelims_date": "July 2027",
-            "mains_date": "December 2027",
-            "interview_window": "April 2028"
-        },
-        "description": "Tamil Nadu State executive recruitment with compulsory SSLC Tamil qualifying paper."
-    },
-    "APPSC_GROUP_1": {
-        "title": "APPSC Group-1 Services Examination",
-        "short_code": "APPSC Group 1",
-        "category": "State-PSC",
-        "administering_body": "APPSC",
-        "frequency": "Annual",
-        "official_website": "https://psc.ap.gov.in",
-        "latest_official_notification_url": "https://psc.ap.gov.in/Documents/Notification_12_2023.pdf",
-        "latest_gazette_ref": "Notification No. 12/2023 / AP State Rules 1996",
-        "tentative_timeline_2027": {
-            "notification_month": "January 2027",
-            "prelims_date": "April 2027",
-            "mains_date": "September 2027",
-            "interview_window": "January 2028"
-        },
-        "description": "Andhra Pradesh state civil services with broad 18-44 age ceiling."
-    },
     "TSPSC_GROUP_1": {
         "title": "TGPSC / TSPSC Group-1 Services Examination",
         "short_code": "TSPSC Group 1",
@@ -518,40 +467,6 @@ EXAMS_SPEC: Dict[str, Dict[str, Any]] = {
             "interview_window": "None (Abolished)"
         },
         "description": "Telangana State recruitment: 100% selection on 900-mark Mains, interview abolished."
-    },
-    "WBPSC_WBCS": {
-        "title": "West Bengal Civil Service (Executive) Examination (Group A)",
-        "short_code": "WBPSC WBCS",
-        "category": "State-PSC",
-        "administering_body": "WBPSC",
-        "frequency": "Annual",
-        "official_website": "https://psc.wb.gov.in",
-        "latest_official_notification_url": "https://psc.wb.gov.in/downloadPdf.action?noticeId=WBCS2023Advt.pdf",
-        "latest_gazette_ref": "Advt. No. 01/2023 / West Bengal Services Rules",
-        "tentative_timeline_2027": {
-            "notification_month": "February 2027",
-            "prelims_date": "June 2027",
-            "mains_date": "October 2027",
-            "interview_window": "March 2028"
-        },
-        "description": "West Bengal executive recruitment with mandatory Bengali/Nepali reading and writing."
-    },
-    "KPSC_KAS": {
-        "title": "KPSC Gazetted Probationers Examination (KAS)",
-        "short_code": "KPSC KAS",
-        "category": "State-PSC",
-        "administering_body": "KPSC",
-        "frequency": "Periodic",
-        "official_website": "https://kpsc.kar.nic.in",
-        "latest_official_notification_url": "https://kpsc.kar.nic.in/Gazetted_Probationers_2024_Notification.pdf",
-        "latest_gazette_ref": "Notification No. e(1) 19/2023-24 dated 26.02.2024",
-        "tentative_timeline_2027": {
-            "notification_month": "January 2027",
-            "prelims_date": "May 2027",
-            "mains_date": "September 2027",
-            "interview_window": "February 2028"
-        },
-        "description": "Karnataka civil recruitment with 5 GM / 7 OBC attempt limits and Kannada test."
     },
 
     # ----------------- Cluster 4: Maharatna & Navratna PSUs (11) -----------------
@@ -1029,22 +944,6 @@ ELIGIBILITY_RULES_SPEC: Dict[str, Dict[str, Any]] = {
         "physical_standards": {"DSP_Male": {"min_height_cm": 165}},
         "citation": "BPSC Advt. No. 23/2024, Para 3 & 4"
     },
-    "MPSC_RAJYASEVA": {
-        "cutoff_rule": "APRIL_1_EXAM_YEAR",
-        "min_age_gen": 19,
-        "max_age_gen": 38,
-        "relaxations": {"OBC_MH": 5, "SC_MH": 5, "ST_MH": 5, "PWBD": 7},
-        "min_education": "Bachelor",
-        "accepted_disciplines": ["ANY"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {"GEN": 6, "OBC": 9, "SC": None, "ST": None},
-        "domicile_restrictions": {"reservation_benefit": "MAHARASHTRA_DOMICILE_ONLY"},
-        "language_requirements": {"mandatory_fluency": "Marathi"},
-        "physical_standards": {"DySP_Male": {"min_height_cm": 165}},
-        "citation": "MPSC Advt. No. 414/2023, Clause 5.1-5.4"
-    },
     "MPPSC_SSE": {
         "cutoff_rule": "JANUARY_1_EXAM_YEAR",
         "min_age_gen": 21,
@@ -1078,39 +977,6 @@ ELIGIBILITY_RULES_SPEC: Dict[str, Dict[str, Any]] = {
         "physical_standards": {"RPS_Male": {"min_height_cm": 168}},
         "citation": "RPSC Advt. No. 02/2023-24, Clause 7 & 8"
     },
-    "TNPSC_GROUP_1": {
-        "cutoff_rule": "JULY_1_EXAM_YEAR",
-        "min_age_gen": 21,
-        "max_age_gen": 34,
-        "relaxations": {"SC_TN": 5, "ST_TN": 5, "MBC_TN": 5, "BC_TN": 5, "PWBD": 10},
-        "min_education": "Bachelor",
-        "accepted_disciplines": ["ANY"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": {"reservation_benefit": "TAMIL_NADU_DOMICILE_ONLY"},
-        "language_requirements": {"mandatory_fluency": "Tamil", "mandatory_qualifying": "Tamil (SSLC Standard, 40 marks)"},
-        "physical_standards": {"DSP_Male": {"min_height_cm": 165}},
-        "citation": "TNPSC Notification No. 04/2024, Para 4B-D"
-    },
-    "APPSC_GROUP_1": {
-        "cutoff_rule": "JULY_1_EXAM_YEAR",
-        "min_age_gen": 18,
-        "max_age_gen": 44, # 30 for DSP
-        "police_max_age_gen": 30,
-        "relaxations": {"SC_AP": 5, "ST_AP": 5, "BC_AP": 5, "EWS_AP": 5, "PWBD": 10},
-        "min_education": "Bachelor",
-        "accepted_disciplines": ["ANY"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": {"reservation_benefit": "ANDHRA_PRADESH_DOMICILE_ONLY"},
-        "language_requirements": {"qualifying_papers": ["Telugu", "English"]},
-        "physical_standards": {"DSP_Male": {"min_height_cm": 167.6}},
-        "citation": "APPSC Notification No. 12/2023, Para 3-4"
-    },
     "TSPSC_GROUP_1": {
         "cutoff_rule": "JULY_1_EXAM_YEAR",
         "min_age_gen": 18,
@@ -1126,38 +992,6 @@ ELIGIBILITY_RULES_SPEC: Dict[str, Dict[str, Any]] = {
         "language_requirements": {"qualifying_paper": "General English"},
         "physical_standards": {"DSP_Male": {"min_height_cm": 167.6}},
         "citation": "TSPSC Notification No. 02/2024, Para III-IV"
-    },
-    "WBPSC_WBCS": {
-        "cutoff_rule": "JANUARY_1_EXAM_YEAR",
-        "min_age_gen": 21,
-        "max_age_gen": 36,
-        "relaxations": {"SC_WB": 5, "ST_WB": 5, "BC_WB": 3, "PWBD": 9},
-        "min_education": "Bachelor",
-        "accepted_disciplines": ["ANY"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": {"reservation_benefit": "WEST_BENGAL_DOMICILE_ONLY"},
-        "language_requirements": {"mandatory_fluency": "Bengali (or native Nepali)"},
-        "physical_standards": None,
-        "citation": "WBPSC Advt. No. 01/2023, Para 3-5"
-    },
-    "KPSC_KAS": {
-        "cutoff_rule": "APRIL_1_EXAM_YEAR",
-        "min_age_gen": 21,
-        "max_age_gen": 35,
-        "relaxations": {"OBC_KA": 3, "SC_KA": 5, "ST_KA": 5, "PWBD": 10},
-        "min_education": "Bachelor",
-        "accepted_disciplines": ["ANY"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {"GEN": 5, "OBC": 7, "SC": None, "ST": None},
-        "domicile_restrictions": {"reservation_benefit": "KARNATAKA_DOMICILE_ONLY"},
-        "language_requirements": {"mandatory_fluency": "Kannada", "mandatory_qualifying": "Kannada (150 marks, 35% passing)"},
-        "physical_standards": {"DySP_Male": {"min_height_cm": 168}},
-        "citation": "KPSC Notification No. e(1) 19/2023-24, Para 4-5"
     },
 
     # ----------------- Cluster 4: Maharatna & Navratna PSUs (11) -----------------

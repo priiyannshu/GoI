@@ -199,10 +199,9 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
         self.assertEqual(v_bpsc["status"], "INELIGIBLE", f"BPSC should be ineligible: {v_bpsc}")
         self.assertTrue(any("Mapped to General" in r for r in v_bpsc["relaxations_applied"]))
 
-        # 3. MPSC: Lacks compulsory Marathi language fluency -> INELIGIBLE
-        v_mpsc = evaluate_statutory_eligibility(profile, "MPSC_RAJYASEVA")
-        self.assertEqual(v_mpsc["status"], "INELIGIBLE", f"MPSC should fail on language: {v_mpsc}")
-        self.assertTrue(any("lacks mandatory fluency" in r for r in v_mpsc["reasons"]))
+        # 3. TSPSC: Age 42 on July 1, 2027: UR limit is 44 -> ELIGIBLE
+        v_tspsc = evaluate_statutory_eligibility(profile, "TSPSC_GROUP_1")
+        self.assertEqual(v_tspsc["status"], "ELIGIBLE", f"TSPSC should be eligible: {v_tspsc}")
 
     def test_scenario3_02_general_studies_cross_state_overlap(self):
         """Measures GS common core across State PSCs."""
@@ -220,15 +219,15 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
         self.assertGreaterEqual(jaccard, 0.80, "UPPSC and BPSC share >= 80% General Studies core syllabus")
 
     def test_scenario3_03_attempt_exhaustion_cross_border_impact(self):
-        """Tests that reaching attempt limit in MPSC (Open=6) does not block entry in UPPSC (unlimited)."""
+        """Tests that reaching attempt limit in UPSC CSE (Open=6) does not block entry in UPPSC (unlimited)."""
         exhausted_profile = UserProfile(
             dob="1998-05-10", gender="Male", category="GEN", degree="Bachelor",
-            discipline="ANY", aggregate_pct=60.0, domicile_state="Maharashtra",
-            fluent_languages=["Marathi", "Hindi", "English"], prior_attempts={"MPSC_RAJYASEVA": 6}
+            discipline="ANY", aggregate_pct=60.0, domicile_state="Uttar Pradesh",
+            fluent_languages=["Hindi", "English"], prior_attempts={"UPSC_CSE": 6}
         )
 
-        v_mpsc = evaluate_statutory_eligibility(exhausted_profile, "MPSC_RAJYASEVA")
-        self.assertEqual(v_mpsc["status"], "INELIGIBLE")
+        v_upsc = evaluate_statutory_eligibility(exhausted_profile, "UPSC_CSE")
+        self.assertEqual(v_upsc["status"], "INELIGIBLE")
 
         v_uppsc = evaluate_statutory_eligibility(exhausted_profile, "UPPSC_PCS")
         self.assertEqual(v_uppsc["status"], "ELIGIBLE", "UPPSC has no attempt limit for General candidates")
@@ -259,12 +258,12 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
             fluent_languages=offline_input["fluent_languages"], height_cm=offline_input["height_cm"]
         )
 
-        # Client evaluates offline across all 36 exams without any HTTP network request
+        # Client evaluates offline across all 31 exams without any HTTP network request
         verdicts = {}
         for exam_id in EXAMS_SPEC.keys():
             verdicts[exam_id] = evaluate_statutory_eligibility(profile, exam_id)
 
-        self.assertEqual(len(verdicts), 36)
+        self.assertEqual(len(verdicts), 31)
         eligible_count = sum(1 for v in verdicts.values() if v["status"] == "ELIGIBLE")
         self.assertGreater(eligible_count, 10, "Candidate should be eligible for at least 10 Grade A exams")
 

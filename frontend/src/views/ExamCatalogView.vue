@@ -4,9 +4,6 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div>
         <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Official Examinations</h1>
-        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-          Statutory notifications, 2027 timelines, and real-time eligibility matching across 36 audited cadres.
-        </p>
       </div>
 
       <!-- Search Input -->

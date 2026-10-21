@@ -36,7 +36,7 @@
         <span>Statutory State Reservation Firewall</span>
       </div>
       <p>
-        In state civil services (UPPSC, BPSC, MPSC, MPPSC, RPSC, TNPSC, APPSC, TSPSC, WBPSC, KPSC), reservation benefits and age concessions apply <strong>strictly to candidates holding bona fide domicile</strong> of that state. Candidates from other states are classified under <strong>General (UR)</strong> with 0 age relaxation.
+        In state civil services (UPPSC, BPSC, MPPSC, RPSC, TSPSC), reservation benefits and age concessions apply <strong>strictly to candidates holding bona fide domicile</strong> of that state. Candidates from other states are classified under <strong>General (UR)</strong> with 0 age relaxation.
       </p>
     </div>
 
@@ -78,32 +78,10 @@
         </button>
       </div>
     </div>
-
-    <!-- Live Compliance Status for State Exams -->
-    <div class="bg-slate-800/40 border border-slate-700/60 rounded-xl p-4">
-      <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Mandatory State Language Gate Status</span>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3 text-xs">
-        <div 
-          v-for="gate in stateGates" 
-          :key="gate.exam"
-          class="p-2.5 rounded-lg border flex flex-col justify-between"
-          :class="gate.passed ? 'bg-emerald-950/30 border-emerald-800/50 text-emerald-300' : 'bg-rose-950/30 border-rose-800/50 text-rose-300'"
-        >
-          <div>
-            <span class="font-bold block">{{ gate.exam }}</span>
-            <span class="text-[11px] opacity-80">Req: {{ gate.req }}</span>
-          </div>
-          <span class="mt-2 text-[10px] font-semibold uppercase">
-            {{ gate.passed ? '✓ Language Cleared' : '✗ Lacks Fluency' }}
-          </span>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { useProfileStore } from '@/stores/useProfileStore';
 
 const profileStore = useProfileStore();
@@ -122,14 +100,14 @@ const unionTerritories = [
 ];
 
 const languageOptions = [
-  { id: 'Hindi', name: 'Hindi', reqTag: 'Central & North PSCs' },
+  { id: 'Hindi', name: 'Hindi', reqTag: 'Central & State PSCs' },
   { id: 'English', name: 'English', reqTag: 'Universal / Regulatory' },
-  { id: 'Marathi', name: 'Marathi', reqTag: 'Mandatory: MPSC' },
-  { id: 'Bengali', name: 'Bengali', reqTag: 'Mandatory: WBPSC' },
-  { id: 'Nepali', name: 'Nepali', reqTag: 'Accepted: WBPSC' },
-  { id: 'Kannada', name: 'Kannada', reqTag: 'Mandatory: KPSC' },
-  { id: 'Tamil', name: 'Tamil', reqTag: 'Mandatory: TNPSC' },
-  { id: 'Telugu', name: 'Telugu', reqTag: 'Mandatory: APPSC/TSPSC' },
+  { id: 'Marathi', name: 'Marathi', reqTag: null },
+  { id: 'Bengali', name: 'Bengali', reqTag: null },
+  { id: 'Nepali', name: 'Nepali', reqTag: null },
+  { id: 'Kannada', name: 'Kannada', reqTag: null },
+  { id: 'Tamil', name: 'Tamil', reqTag: null },
+  { id: 'Telugu', name: 'Telugu', reqTag: null },
   { id: 'Gujarati', name: 'Gujarati', reqTag: null },
   { id: 'Odia', name: 'Odia', reqTag: null },
   { id: 'Punjabi', name: 'Punjabi', reqTag: null },
@@ -150,11 +128,4 @@ function toggleLanguage(lang: string) {
     list.push(lang);
   }
 }
-
-const stateGates = computed(() => [
-  { exam: 'MPSC (Maharashtra)', req: 'Marathi', passed: profileStore.profile.fluent_languages.includes('Marathi') },
-  { exam: 'WBPSC (West Bengal)', req: 'Bengali / Nepali', passed: profileStore.profile.fluent_languages.includes('Bengali') || profileStore.profile.fluent_languages.includes('Nepali') },
-  { exam: 'KPSC (Karnataka)', req: 'Kannada', passed: profileStore.profile.fluent_languages.includes('Kannada') },
-  { exam: 'TNPSC (Tamil Nadu)', req: 'Tamil', passed: profileStore.profile.fluent_languages.includes('Tamil') },
-]);
 </script>

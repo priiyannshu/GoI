@@ -1,12 +1,9 @@
 <template>
   <div class="space-y-6 pb-16 max-w-full overflow-hidden">
     <!-- Header -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Hidden Examinations & Posts</h1>
-        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-          Review and restore visibility for examinations and career posts you previously disabled.
-        </p>
       </div>
 
       <!-- Quick Restore All Actions -->

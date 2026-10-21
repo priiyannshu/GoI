@@ -27,8 +27,17 @@
         </router-link>
       </div>
 
-      <!-- Right: Working Theme Toggle Only (No online tag, no profile icon) -->
-      <div class="flex items-center space-x-2.5 sm:space-x-3">
+      <!-- Right: Profile & Eligibility Link + Working Theme Toggle -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <router-link
+          to="/profile"
+          class="flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 transition-colors border border-slate-200 dark:border-slate-700/60"
+          title="Candidate Profile & Statutory Eligibility"
+        >
+          <span>👤</span>
+          <span class="hidden sm:inline font-medium max-w-[140px] truncate">{{ candidateDisplayName }}</span>
+          <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400">{{ profileStore.completionPercentage }}%</span>
+        </router-link>
         <ThemeToggle />
       </div>
     </div>
@@ -77,13 +86,13 @@
                 class="block p-3.5 rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 transition-colors group"
               >
                 <div class="flex items-center justify-between mb-2">
-                  <div class="flex items-center space-x-2">
-                    <span class="text-base">👤</span>
-                    <span class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                      Candidate Profile
+                  <div class="flex items-center space-x-2 min-w-0">
+                    <span class="text-base flex-shrink-0">👤</span>
+                    <span class="text-xs font-bold text-slate-800 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
+                      {{ candidateDisplayName }}
                     </span>
                   </div>
-                  <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                  <span class="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 flex-shrink-0">
                     {{ profileStore.completionPercentage }}%
                   </span>
                 </div>
@@ -148,10 +157,14 @@ const hiddenStore = useHiddenStore();
 
 const isDrawerOpen = ref(false);
 
+const candidateDisplayName = computed(() => {
+  return profileStore.profile.full_name?.trim() || 'Candidate Profile';
+});
+
 const appNavItems = computed(() => [
+  { title: 'Profile & Eligibility', path: '/profile', icon: '👤' },
   { title: 'Official Examinations', path: '/exams', icon: '📋' },
   { title: 'Posts & Lifestyle Perks', path: '/posts', icon: '🏛️' },
-  { title: 'Profile & Eligibility', path: '/profile', icon: '👤' },
   {
     title: 'Hidden Items',
     path: '/hidden',

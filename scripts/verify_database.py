@@ -47,10 +47,8 @@ EXPECTED_EXAM_IDS = {
     # Cluster 2: Premier Financial & Regulatory Bodies (7)
     "RBI_GRADE_B", "SEBI_GRADE_A", "NABARD_GRADE_A", "IFSCA_GRADE_A",
     "PFRDA_GRADE_A", "SIDBI_GRADE_A", "EXIM_BANK_MT",
-    # Cluster 3: State Public Service Commissions (10)
-    "UPPSC_PCS", "BPSC_CCE", "MPSC_RAJYASEVA", "MPPSC_SSE",
-    "RPSC_RAS", "TNPSC_GROUP_1", "APPSC_GROUP_1", "TSPSC_GROUP_1",
-    "WBPSC_WBCS", "KPSC_KAS",
+    # Cluster 3: State Public Service Commissions (5)
+    "UPPSC_PCS", "BPSC_CCE", "MPPSC_SSE", "RPSC_RAS", "TSPSC_GROUP_1",
     # Cluster 4: Maharatna & Navratna PSUs (11)
     "PSU_ONGC_GT", "PSU_IOCL_ET", "PSU_NTPC_EET", "PSU_BHEL_ET",
     "PSU_PGCIL_ET", "PSU_HPCL_OFFICER", "PSU_BPCL_MT", "PSU_SAIL_MTT",
@@ -213,14 +211,14 @@ class ExamMasterValidator:
         # 1. Check exams table count
         cursor.execute("SELECT COUNT(*) FROM exams;")
         exams_count = cursor.fetchone()[0]
-        if exams_count != 36:
-            errors.append(f"Expected 36 exams in 'exams' table, found {exams_count}")
+        if exams_count != 31:
+            errors.append(f"Expected 31 exams in 'exams' table, found {exams_count}")
 
         # 2. Check eligibility_criteria table count
         cursor.execute("SELECT COUNT(*) FROM eligibility_criteria;")
         elig_count = cursor.fetchone()[0]
-        if elig_count != 36:
-            errors.append(f"Expected 36 records in 'eligibility_criteria' table, found {elig_count}")
+        if elig_count != 31:
+            errors.append(f"Expected 31 records in 'eligibility_criteria' table, found {elig_count}")
 
         # 3. Check exact exam IDs
         cursor.execute("SELECT exam_id FROM exams;")
@@ -345,11 +343,11 @@ class AuditLogVerifier:
         errors = []
         cursor = self.conn.cursor()
 
-        # Check total audit records (36 exams x 6 facts = 216 records)
+        # Check total audit records (31 exams x 6 facts = 186 records)
         cursor.execute("SELECT COUNT(*) FROM source_audit_log;")
         total_audit_records = cursor.fetchone()[0]
-        if total_audit_records < 216:
-            errors.append(f"source_audit_log has only {total_audit_records} records, minimum expected 216 (6 facts per exam)")
+        if total_audit_records < 186:
+            errors.append(f"source_audit_log has only {total_audit_records} records, minimum expected 186 (6 facts per exam)")
 
         # Check 100% exam coverage
         cursor.execute("SELECT DISTINCT exam_id FROM source_audit_log;")
@@ -687,17 +685,17 @@ class EligibilityEdgeCaseHarness:
                 "profile": {"dob": "1987-06-30", "category": "GEN", "gender": "MALE", "domicile": "Uttar Pradesh"},
                 "expected_eligible": False
             },
-            # 5. Cutoff Dates: MPSC Rajyaseva (Apr 1, 2027)
+            # 5. Cutoff Dates: TSPSC Group 1 (July 1, 2027)
             {
-                "name": "MPSC Rajyaseva: Born 1989-04-01 (Open) -> Eligible on 01-04-2027 (Max 38)",
-                "exam_id": "MPSC_RAJYASEVA",
-                "profile": {"dob": "1989-04-01", "category": "GEN", "domicile": "Maharashtra", "fluent_languages": ["Marathi"]},
+                "name": "TSPSC Group 1: Born 1983-07-01 (UR) -> Eligible on 01-07-2027 (Max 44)",
+                "exam_id": "TSPSC_GROUP_1",
+                "profile": {"dob": "1983-07-01", "category": "GEN", "domicile": "Telangana", "fluent_languages": ["English", "Hindi"]},
                 "expected_eligible": True
             },
             {
-                "name": "MPSC Rajyaseva: Born 1989-03-31 (Open) -> Ineligible on 01-04-2027 (38y 1d)",
-                "exam_id": "MPSC_RAJYASEVA",
-                "profile": {"dob": "1989-03-31", "category": "GEN", "domicile": "Maharashtra", "fluent_languages": ["Marathi"]},
+                "name": "TSPSC Group 1: Born 1983-06-30 (UR) -> Ineligible on 01-07-2027 (44y 1d)",
+                "exam_id": "TSPSC_GROUP_1",
+                "profile": {"dob": "1983-06-30", "category": "GEN", "domicile": "Telangana", "fluent_languages": ["English", "Hindi"]},
                 "expected_eligible": False
             },
             # 6. Cutoff Dates: RPSC RAS (Forward-Year 01-01-2028 Cutoff)
@@ -825,11 +823,11 @@ class EligibilityEdgeCaseHarness:
                 "profile": {"dob": "1989-08-01", "category": "OBC", "gender": "MALE", "domicile": "Uttar Pradesh"},
                 "expected_eligible": False
             },
-            # 17. Compulsory Language Gate: WBPSC WBCS Bengali
+            # 17. State Domicile Firewall: Out-of-state OBC applying for UPPSC PCS
             {
-                "name": "WBPSC WBCS: Lacks Bengali -> Ineligible",
-                "exam_id": "WBPSC_WBCS",
-                "profile": {"dob": "2000-01-01", "category": "GEN", "fluent_languages": ["English", "Hindi"], "mother_tongue": "Hindi"},
+                "name": "UPPSC PCS: Bihar OBC Male age 42 -> Ineligible (Treated as UR Male without UP relaxation)",
+                "exam_id": "UPPSC_PCS",
+                "profile": {"dob": "1985-07-01", "category": "OBC", "gender": "MALE", "domicile": "Bihar"},
                 "expected_eligible": False
             },
             # 18. Physical Standards: UPPSC DSP Police Cadre Height
@@ -915,8 +913,8 @@ class SyllabusTaxonomyAndMatrixValidator:
         # 3. Validate exam_syllabus_map coverage across all 36 examinations
         cursor.execute("SELECT COUNT(DISTINCT exam_id) FROM exam_syllabus_map;")
         mapped_exams_count = cursor.fetchone()[0]
-        if mapped_exams_count != 36:
-            errors.append(f"exam_syllabus_map covers only {mapped_exams_count}/36 examinations")
+        if mapped_exams_count != 31:
+            errors.append(f"exam_syllabus_map covers only {mapped_exams_count}/31 examinations")
 
         cursor.execute("SELECT COUNT(*) FROM exam_syllabus_map;")
         total_mappings = cursor.fetchone()[0]
@@ -970,8 +968,8 @@ class SyllabusTaxonomyAndMatrixValidator:
                 with open(matrix_json_path, "r", encoding="utf-8") as f:
                     matrix_data = json.load(f)
                 p_metrics = matrix_data.get("pairwise_metrics", {})
-                if len(p_metrics) != 36:
-                    errors.append(f"{matrix_json_path} pairwise_metrics does not cover all 36 exams (found {len(p_metrics)})")
+                if len(p_metrics) != 31:
+                    errors.append(f"{matrix_json_path} pairwise_metrics does not cover all 31 exams (found {len(p_metrics)})")
                 if "disjoint_upset_combinations" not in matrix_data or "topic_frequencies" not in matrix_data:
                     errors.append(f"{matrix_json_path} missing required set analysis keys")
             except Exception as ex:

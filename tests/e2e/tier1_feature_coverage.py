@@ -218,13 +218,11 @@ class TestFeature04Cluster3StatePSCData(unittest.TestCase):
         self.assertEqual(bpsc_rule["max_age_gen"], 37)
         self.assertEqual(bpsc_rule["female_max_age_gen"], 40)
 
-    def test_f04_mpsc_rajyaseva_april_cutoff_and_marathi_rule(self):
-        mpsc_rule = ELIGIBILITY_RULES_SPEC["MPSC_RAJYASEVA"]
-        self.assertEqual(mpsc_rule["cutoff_rule"], "APRIL_1_EXAM_YEAR")
-        self.assertEqual(mpsc_rule["max_age_gen"], 38)
-        self.assertEqual(mpsc_rule["attempt_limits"]["GEN"], 6)
-        self.assertEqual(mpsc_rule["attempt_limits"]["OBC"], 9)
-        self.assertEqual(mpsc_rule["language_requirements"]["mandatory_fluency"], "Marathi")
+    def test_f04_mppsc_sse_january_cutoff_and_hindi_rule(self):
+        mppsc_rule = ELIGIBILITY_RULES_SPEC["MPPSC_SSE"]
+        self.assertEqual(mppsc_rule["cutoff_rule"], "JANUARY_1_EXAM_YEAR")
+        self.assertEqual(mppsc_rule["max_age_gen"], 40)
+        self.assertEqual(mppsc_rule["domicile_restrictions"]["reservation_benefit"], "MP_DOMICILE_ONLY")
 
     def test_f04_rpsc_ras_forward_year_january_cutoff(self):
         rpsc_rule = ELIGIBILITY_RULES_SPEC["RPSC_RAS"]
@@ -232,12 +230,11 @@ class TestFeature04Cluster3StatePSCData(unittest.TestCase):
         self.assertEqual(rpsc_rule["max_age_gen"], 40)
         self.assertEqual(rpsc_rule["domicile_restrictions"]["reservation_benefit"], "RAJASTHAN_DOMICILE_ONLY")
 
-    def test_f04_south_and_eastern_pscs_tnpsc_appsc_tspsc_wbpsc_kpsc(self):
-        for state_exam in ["TNPSC_GROUP_1", "APPSC_GROUP_1", "TSPSC_GROUP_1", "WBPSC_WBCS", "KPSC_KAS"]:
-            self.assertIn(state_exam, EXAMS_SPEC)
-            self.assertEqual(EXAMS_SPEC[state_exam]["category"], "State-PSC")
+    def test_f04_tspsc_group_1_spec(self):
+        self.assertIn("TSPSC_GROUP_1", EXAMS_SPEC)
+        self.assertEqual(EXAMS_SPEC["TSPSC_GROUP_1"]["category"], "State-PSC")
         self.assertEqual(ELIGIBILITY_RULES_SPEC["TSPSC_GROUP_1"]["max_age_gen"], 44)
-        self.assertEqual(ELIGIBILITY_RULES_SPEC["KPSC_KAS"]["attempt_limits"]["GEN"], 5)
+        self.assertEqual(ELIGIBILITY_RULES_SPEC["TSPSC_GROUP_1"]["cutoff_rule"], "JULY_1_EXAM_YEAR")
 
 
 class TestFeature05Cluster4PSUTraineeData(unittest.TestCase):
@@ -294,8 +291,8 @@ class TestFeature06VerifiableFactAuditLog(unittest.TestCase):
         cursor.execute("SELECT COUNT(DISTINCT exam_id), COUNT(*) FROM source_audit_log;")
         distinct_exams, total_audits = cursor.fetchone()
         conn.close()
-        self.assertEqual(distinct_exams, 36, f"Expected 36 distinct exams in source_audit_log, found {distinct_exams}")
-        self.assertEqual(total_audits, 216, f"Expected 216 total audit logs (6 per exam), found {total_audits}")
+        self.assertEqual(distinct_exams, 31, f"Expected 31 distinct exams in source_audit_log, found {distinct_exams}")
+        self.assertEqual(total_audits, 186, f"Expected 186 total audit logs (6 per exam), found {total_audits}")
 
     def test_f06_audit_log_fact_types_conform_to_schema(self):
         self.assertTrue(os.path.isfile(DB_PATH), f"Disk DB missing at {DB_PATH}")
@@ -375,7 +372,7 @@ class TestFeature07DataVerificationEngine(unittest.TestCase):
         cursor.execute("SELECT COUNT(*) FROM exams;")
         count = cursor.fetchone()[0]
         conn.close()
-        self.assertEqual(count, 36)
+        self.assertEqual(count, 31)
 
     def test_f07_verification_script_exit_code_zero_on_valid_data(self):
         script_path = os.path.join(BASE_DIR, "scripts", "verify_database.py")
@@ -404,7 +401,7 @@ class TestFeature08MasterJSONExport(unittest.TestCase):
         self.assertIn("metadata", data)
         self.assertIn("exams", data)
         self.assertIn("d3_visualization_index", data)
-        self.assertEqual(data["metadata"]["total_exams"], 36)
+        self.assertEqual(data["metadata"]["total_exams"], 31)
         self.assertEqual(data["metadata"]["version"], "1.0.0")
 
     def test_f08_json_export_contains_all_36_exams(self):
@@ -413,9 +410,9 @@ class TestFeature08MasterJSONExport(unittest.TestCase):
             data = json.load(f)
         exams = data["exams"]
         self.assertIsInstance(exams, list)
-        self.assertEqual(len(exams), 36)
+        self.assertEqual(len(exams), 31)
         exam_ids = {e["exam_id"] for e in exams}
-        self.assertEqual(len(exam_ids), 36)
+        self.assertEqual(len(exam_ids), 31)
         self.assertIn("UPSC_CSE", exam_ids)
         self.assertIn("RBI_GRADE_B", exam_ids)
         self.assertIn("UPPSC_PCS", exam_ids)
@@ -886,9 +883,9 @@ class TestFeature22CloudflareWorkerHonoAPI(unittest.TestCase):
         self.assertEqual(len(worker_routes), 6)
 
     def test_f22_route_get_exams_list_contract(self):
-        sample_response = {"success": True, "count": 36, "data": list(EXAMS_SPEC.values())}
+        sample_response = {"success": True, "count": 31, "data": list(EXAMS_SPEC.values())}
         self.assertTrue(sample_response["success"])
-        self.assertEqual(sample_response["count"], 36)
+        self.assertEqual(sample_response["count"], 31)
 
     def test_f22_route_get_exam_by_id_contract(self):
         sample_exam = EXAMS_SPEC["UPSC_CSE"]
@@ -992,7 +989,7 @@ class TestFeature25FinalAcceptanceVerification(unittest.TestCase):
     """Feature 25: Final Acceptance Verification."""
 
     def test_f25_all_36_grade_a_exams_covered(self):
-        self.assertEqual(len(EXAMS_SPEC), 36)
+        self.assertEqual(len(EXAMS_SPEC), 31)
 
     def test_f25_every_exam_has_official_notification_url(self):
         for eid, spec in EXAMS_SPEC.items():

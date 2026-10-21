@@ -157,15 +157,15 @@ class TestTier3PairwiseCombinations(unittest.TestCase):
         self.assertEqual(evaluate_statutory_eligibility(p, "RBI_GRADE_B")["status"], "INELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "NABARD_GRADE_A")["status"], "CONDITIONALLY_ELIGIBLE")
 
-    def test_t3_21_gen_outside_domicile_uppsc_vs_mpsc_attempts(self):
-        # Delhi General applicant: In UPPSC (unlimited attempts) -> Eligible; In MPSC (attempt cap 6) -> Ineligible if attempts=6
+    def test_t3_21_gen_outside_domicile_uppsc_vs_upsc_attempts(self):
+        # Delhi General applicant: In UPPSC (unlimited attempts) -> Eligible; In UPSC CSE (attempt cap 6) -> Ineligible if attempts=6
         p = UserProfile(
             dob="1999-01-01", gender="Male", category="GEN", degree="Bachelor",
             discipline="ANY", aggregate_pct=60.0, domicile_state="Delhi",
-            fluent_languages=["Marathi", "Hindi", "English"], prior_attempts={"MPSC_RAJYASEVA": 6}
+            fluent_languages=["Hindi", "English"], prior_attempts={"UPSC_CSE": 6}
         )
         self.assertEqual(evaluate_statutory_eligibility(p, "UPPSC_PCS")["status"], "ELIGIBLE")
-        self.assertEqual(evaluate_statutory_eligibility(p, "MPSC_RAJYASEVA")["status"], "INELIGIBLE")
+        self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_CSE")["status"], "INELIGIBLE")
 
     def test_t3_22_st_outside_domicile_bpsc_cce_relaxation_loss(self):
         # UP ST candidate applying in Bihar (BPSC CCE), age 39:

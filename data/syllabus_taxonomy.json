@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/grade-a/schema/v1/syllabus-taxonomy.json",
   "metadata": {
     "version": "1.0.0",
-    "generated_at": "2026-10-20T13:24:53.510595+00:00",
+    "generated_at": "2026-10-21T12:33:00.750233+00:00",
     "total_domains": 6,
     "total_topics": 192,
-    "total_exam_mappings": 1123
+    "total_exam_mappings": 949
   },
   "domains": [
     {
@@ -534,13 +534,13 @@
               "sub_domain": "descriptive_writing",
               "topic_title": "Descriptive Essay Formulation & Argumentative Composition",
               "description": "Structured descriptive, analytical, and argumentative essays on socio-economic, governance, and policy topics.",
-              "mapped_exams_count": 17,
-              "total_stage_appearances": 17,
+              "mapped_exams_count": 15,
+              "total_stage_appearances": 15,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 1,
                 "Advanced": 0,
-                "Analytical": 16
+                "Analytical": 14
               }
             },
             {
@@ -549,13 +549,13 @@
               "sub_domain": "descriptive_writing",
               "topic_title": "Official Correspondence: Formal Letters, Memoranda & Representations",
               "description": "Official government letters, representations, business correspondence, and internal office memoranda protocol.",
-              "mapped_exams_count": 17,
-              "total_stage_appearances": 17,
+              "mapped_exams_count": 15,
+              "total_stage_appearances": 15,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 1,
                 "Advanced": 0,
-                "Analytical": 16
+                "Analytical": 14
               }
             },
             {
@@ -564,13 +564,13 @@
               "sub_domain": "descriptive_writing",
               "topic_title": "Precis Writing: Summarization & Salient Point Retention",
               "description": "Condensing extended passages into precisely one-third length, retaining core arguments and avoiding verbatim copying.",
-              "mapped_exams_count": 17,
-              "total_stage_appearances": 17,
+              "mapped_exams_count": 15,
+              "total_stage_appearances": 15,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 1,
                 "Advanced": 0,
-                "Analytical": 16
+                "Analytical": 14
               }
             },
             {
@@ -579,13 +579,13 @@
               "sub_domain": "descriptive_writing",
               "topic_title": "Analytical Report Writing & Pro/Con Argument Drafting",
               "description": "Formal administrative event reports and writing balanced arguments for and against controversial propositions.",
-              "mapped_exams_count": 17,
-              "total_stage_appearances": 17,
+              "mapped_exams_count": 15,
+              "total_stage_appearances": 15,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 1,
                 "Advanced": 0,
-                "Analytical": 16
+                "Analytical": 14
               }
             }
           ]
@@ -600,10 +600,10 @@
               "sub_domain": "grammar_syntax",
               "topic_title": "Voice Transformation (Active/Passive) & Reported Speech",
               "description": "Active to passive voice conversions and direct speech to indirect reported speech transformations.",
-              "mapped_exams_count": 7,
-              "total_stage_appearances": 7,
+              "mapped_exams_count": 6,
+              "total_stage_appearances": 6,
               "depth_distribution": {
-                "Foundation": 3,
+                "Foundation": 2,
                 "Intermediate": 4,
                 "Advanced": 0,
                 "Analytical": 0
@@ -615,10 +615,10 @@
               "sub_domain": "grammar_syntax",
               "topic_title": "Modifiers, Dangling Participles & Parallel Structure",
               "description": "Avoiding dangling/misplaced modifiers, ensuring parallel grammatical structures, and correlative conjunctions.",
-              "mapped_exams_count": 7,
-              "total_stage_appearances": 7,
+              "mapped_exams_count": 6,
+              "total_stage_appearances": 6,
               "depth_distribution": {
-                "Foundation": 3,
+                "Foundation": 2,
                 "Intermediate": 4,
                 "Advanced": 0,
                 "Analytical": 0
@@ -630,10 +630,10 @@
               "sub_domain": "grammar_syntax",
               "topic_title": "Prepositions, Fixed Prepositional Phrases & Phrasal Verbs",
               "description": "Prepositions of time/place, fixed prepositional idioms (e.g. abide by, adhere to), and phrasal verb shifts.",
-              "mapped_exams_count": 7,
-              "total_stage_appearances": 7,
+              "mapped_exams_count": 6,
+              "total_stage_appearances": 6,
               "depth_distribution": {
-                "Foundation": 3,
+                "Foundation": 2,
                 "Intermediate": 4,
                 "Advanced": 0,
                 "Analytical": 0
@@ -645,10 +645,10 @@
               "sub_domain": "grammar_syntax",
               "topic_title": "Subject-Verb Agreement (Concord) & Pronoun Reference",
               "description": "Grammatical concord rules, collective noun agreements, compound subjects, and pronoun-antecedent agreement.",
-              "mapped_exams_count": 7,
-              "total_stage_appearances": 7,
+              "mapped_exams_count": 6,
+              "total_stage_appearances": 6,
               "depth_distribution": {
-                "Foundation": 3,
+                "Foundation": 2,
                 "Intermediate": 4,
                 "Advanced": 0,
                 "Analytical": 0
@@ -660,10 +660,10 @@
               "sub_domain": "grammar_syntax",
               "topic_title": "Tense Continuity, Sequence of Tenses & Conditionals",
               "description": "Tense sequence in complex sentences, past/present perfect, and zero, first, second, and third conditional structures.",
-              "mapped_exams_count": 7,
-              "total_stage_appearances": 7,
+              "mapped_exams_count": 6,
+              "total_stage_appearances": 6,
               "depth_distribution": {
-                "Foundation": 3,
+                "Foundation": 2,
                 "Intermediate": 4,
                 "Advanced": 0,
                 "Analytical": 0
@@ -681,10 +681,10 @@
               "sub_domain": "reading_comprehension",
               "topic_title": "Reading Comprehension: Central Idea, Primary Purpose & Factual Recall",
               "description": "Central thesis identification, primary purpose, appropriate title formulation, and explicit factual retrieval.",
-              "mapped_exams_count": 13,
-              "total_stage_appearances": 13,
+              "mapped_exams_count": 12,
+              "total_stage_appearances": 12,
               "depth_distribution": {
-                "Foundation": 5,
+                "Foundation": 4,
                 "Intermediate": 7,
                 "Advanced": 1,
                 "Analytical": 0
@@ -696,10 +696,10 @@
               "sub_domain": "reading_comprehension",
               "topic_title": "Reading Comprehension: Implicit Inferences, Mood & Author's Tone",
               "description": "Implicit meanings, contextual nuance, determining author's attitude/tone (satirical, analytical, objective), and subtext.",
-              "mapped_exams_count": 13,
-              "total_stage_appearances": 13,
+              "mapped_exams_count": 12,
+              "total_stage_appearances": 12,
               "depth_distribution": {
-                "Foundation": 5,
+                "Foundation": 4,
                 "Intermediate": 7,
                 "Advanced": 1,
                 "Analytical": 0
@@ -711,10 +711,10 @@
               "sub_domain": "reading_comprehension",
               "topic_title": "Reading Comprehension: Passage Structure, Logical Flow & Counter-Theses",
               "description": "Paragraph transitions, premise-conclusion arguments, underlying assumptions, and strengthening/weakening propositions.",
-              "mapped_exams_count": 13,
-              "total_stage_appearances": 13,
+              "mapped_exams_count": 12,
+              "total_stage_appearances": 12,
               "depth_distribution": {
-                "Foundation": 5,
+                "Foundation": 4,
                 "Intermediate": 7,
                 "Advanced": 1,
                 "Analytical": 0
@@ -988,13 +988,13 @@
               "sub_domain": "economy_gen",
               "topic_title": "Infrastructure, Industrial Policy & Manufacturing Growth",
               "description": "PM Gati Shakti, National Infrastructure Pipeline, Make in India, PLI schemes, SEZs, and industrial corridors.",
-              "mapped_exams_count": 2,
-              "total_stage_appearances": 2,
+              "mapped_exams_count": 1,
+              "total_stage_appearances": 1,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 0,
                 "Advanced": 0,
-                "Analytical": 2
+                "Analytical": 1
               }
             },
             {
@@ -1003,13 +1003,13 @@
               "sub_domain": "economy_gen",
               "topic_title": "Economic Planning, Growth Models & NITI Aayog Strategy",
               "description": "Transition from Planning Commission to NITI Aayog, sustainable development goals (SDGs), and inclusive economic growth.",
-              "mapped_exams_count": 24,
-              "total_stage_appearances": 30,
+              "mapped_exams_count": 20,
+              "total_stage_appearances": 25,
               "depth_distribution": {
                 "Foundation": 1,
-                "Intermediate": 18,
+                "Intermediate": 15,
                 "Advanced": 0,
-                "Analytical": 11
+                "Analytical": 9
               }
             },
             {
@@ -1018,13 +1018,13 @@
               "sub_domain": "economy_gen",
               "topic_title": "Poverty Alleviation, Inequality & Employment Generation",
               "description": "Poverty measurement methodologies, Multidimensional Poverty Index (MPI), Gini coefficient, PLFS data, and MGNREGA.",
-              "mapped_exams_count": 11,
-              "total_stage_appearances": 14,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 9,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 5,
+                "Intermediate": 2,
                 "Advanced": 0,
-                "Analytical": 9
+                "Analytical": 7
               }
             }
           ]
@@ -1039,13 +1039,13 @@
               "sub_domain": "environment",
               "topic_title": "Biodiversity Hotspots, In-Situ/Ex-Situ Conservation & Wildlife",
               "description": "Biodiversity hotspots in India, IUCN Red List, National Parks, Sanctuaries, Biosphere Reserves, and Project Tiger/Elephant.",
-              "mapped_exams_count": 6,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 4,
+              "total_stage_appearances": 7,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 5,
+                "Intermediate": 4,
                 "Advanced": 1,
-                "Analytical": 3
+                "Analytical": 2
               }
             },
             {
@@ -1069,13 +1069,13 @@
               "sub_domain": "environment",
               "topic_title": "Ecosystem Dynamics, Biomes & Ecological Principles",
               "description": "Trophic levels, food chains and webs, ecological pyramids, ecological succession, and biogeochemical nutrient cycles.",
-              "mapped_exams_count": 6,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 4,
+              "total_stage_appearances": 7,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 5,
+                "Intermediate": 4,
                 "Advanced": 1,
-                "Analytical": 3
+                "Analytical": 2
               }
             },
             {
@@ -1105,13 +1105,13 @@
               "sub_domain": "ethics",
               "topic_title": "Administrative Case Studies & Dilemma Resolution",
               "description": "Practical administrative ethical dilemmas, public interest vs executive pressure, conflict of interest, and case analysis.",
-              "mapped_exams_count": 8,
-              "total_stage_appearances": 8,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 1,
                 "Advanced": 0,
-                "Analytical": 7
+                "Analytical": 6
               }
             },
             {
@@ -1120,13 +1120,13 @@
               "sub_domain": "ethics",
               "topic_title": "Attitude, Moral Aptitude & Emotional Intelligence in Governance",
               "description": "Moral and political attitudes, social influence, persuasion, and emotional intelligence in civil administration.",
-              "mapped_exams_count": 8,
-              "total_stage_appearances": 8,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 1,
                 "Advanced": 0,
-                "Analytical": 7
+                "Analytical": 6
               }
             },
             {
@@ -1135,13 +1135,13 @@
               "sub_domain": "ethics",
               "topic_title": "Ethics, Human Values & Moral Philosophy",
               "description": "Determinants and consequences of ethics, moral philosophers (Indian and Western), deontological and utilitarian ethics.",
-              "mapped_exams_count": 8,
-              "total_stage_appearances": 8,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 1,
                 "Advanced": 0,
-                "Analytical": 7
+                "Analytical": 6
               }
             },
             {
@@ -1150,13 +1150,13 @@
               "sub_domain": "ethics",
               "topic_title": "Probity in Governance, Transparency & Anti-Corruption Mechanisms",
               "description": "Probity in public service, Right to Information (RTI Act 2005), Citizen's Charters, codes of conduct, and Lokpal.",
-              "mapped_exams_count": 8,
-              "total_stage_appearances": 8,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 1,
                 "Advanced": 0,
-                "Analytical": 7
+                "Analytical": 6
               }
             }
           ]
@@ -1171,11 +1171,11 @@
               "sub_domain": "geography_india_world",
               "topic_title": "Indian Monsoon, Soils & Natural Vegetation",
               "description": "South-West monsoon mechanism, western disturbances, major soil groups of India, and forest vegetation classifications.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 11,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 9,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 9,
+                "Intermediate": 7,
                 "Advanced": 1,
                 "Analytical": 1
               }
@@ -1186,11 +1186,11 @@
               "sub_domain": "geography_india_world",
               "topic_title": "Physiography of India & Drainage Systems",
               "description": "Himalayas, Indo-Gangetic plains, Peninsular plateau, coastal plains, and Himalayan and Peninsular river basins.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 11,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 9,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 9,
+                "Intermediate": 7,
                 "Advanced": 1,
                 "Analytical": 1
               }
@@ -1237,11 +1237,11 @@
               "sub_domain": "geography_physical",
               "topic_title": "Climatology, Atmospheric Circulation & Oceanography",
               "description": "Atmospheric structure, heat budget, planetary winds, cyclones, ocean currents, salinity, tides, and El Nino/La Nina/IOD.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 11,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 9,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 9,
+                "Intermediate": 7,
                 "Advanced": 1,
                 "Analytical": 1
               }
@@ -1252,11 +1252,11 @@
               "sub_domain": "geography_physical",
               "topic_title": "Geomorphology, Earth's Interior & Landform Evolution",
               "description": "Earth interior, plate tectonics, continental drift, earthquakes, volcanoes, weathering, and fluvial/glacial/aeolian landforms.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 11,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 9,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 9,
+                "Intermediate": 7,
                 "Advanced": 1,
                 "Analytical": 1
               }
@@ -1273,13 +1273,13 @@
               "sub_domain": "history",
               "topic_title": "British Colonial Expansion & Administrative Framework (1757–1857)",
               "description": "Plassey, Buxar, Subsidiary Alliance, Doctrine of Lapse, Permanent Settlement, Ryotwari, and colonial economic drain.",
-              "mapped_exams_count": 12,
-              "total_stage_appearances": 18,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 11,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 11,
+                "Intermediate": 7,
                 "Advanced": 1,
-                "Analytical": 6
+                "Analytical": 3
               }
             },
             {
@@ -1288,13 +1288,13 @@
               "sub_domain": "history",
               "topic_title": "Gandhian Era, Mass Struggles & Road to Independence",
               "description": "Non-Cooperation Movement, Civil Disobedience, Dandi March, Quit India Movement 1942, Subhas Chandra Bose, INA, and 1947 Partition.",
-              "mapped_exams_count": 12,
-              "total_stage_appearances": 18,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 11,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 11,
+                "Intermediate": 7,
                 "Advanced": 1,
-                "Analytical": 6
+                "Analytical": 3
               }
             },
             {
@@ -1303,13 +1303,13 @@
               "sub_domain": "history",
               "topic_title": "Early Nationalism, Moderate-Extremist Era & Swadeshi Movement",
               "description": "INC formation (1885), Moderate constitutionalism, Extremist resurgence, Bengal Partition (1905), and Swadeshi Movement.",
-              "mapped_exams_count": 12,
-              "total_stage_appearances": 18,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 11,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 11,
+                "Intermediate": 7,
                 "Advanced": 1,
-                "Analytical": 6
+                "Analytical": 3
               }
             },
             {
@@ -1333,13 +1333,13 @@
               "sub_domain": "history",
               "topic_title": "The 1857 Revolt & Early Resistance Movements",
               "description": "1857 Revolt causes, leadership, Government of India Act 1858, Santhal Rebellion, Munda Uprising, and peasant revolts.",
-              "mapped_exams_count": 12,
-              "total_stage_appearances": 18,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 11,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 11,
+                "Intermediate": 7,
                 "Advanced": 1,
-                "Analytical": 6
+                "Analytical": 3
               }
             },
             {
@@ -1348,13 +1348,13 @@
               "sub_domain": "history",
               "topic_title": "Socio-Religious Reform Movements & Renaissance",
               "description": "Brahmo Samaj, Arya Samaj, Ramakrishna Mission, Satyashodhak Samaj, Aligarh Movement, and anti-caste struggles.",
-              "mapped_exams_count": 12,
-              "total_stage_appearances": 18,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 11,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 11,
+                "Intermediate": 7,
                 "Advanced": 1,
-                "Analytical": 6
+                "Analytical": 3
               }
             }
           ]
@@ -1435,13 +1435,13 @@
               "sub_domain": "polity",
               "topic_title": "Constitutional Framework, Historical Underpinnings & Basic Structure",
               "description": "Preamble, Fundamental Rights, Directive Principles of State Policy, Fundamental Duties, Amendments, and Basic Structure Doctrine.",
-              "mapped_exams_count": 14,
-              "total_stage_appearances": 26,
+              "mapped_exams_count": 9,
+              "total_stage_appearances": 16,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 14,
-                "Advanced": 2,
-                "Analytical": 10
+                "Intermediate": 9,
+                "Advanced": 1,
+                "Analytical": 6
               }
             },
             {
@@ -1561,13 +1561,13 @@
               "sub_domain": "science_tech",
               "topic_title": "Emerging & Frontier Technologies",
               "description": "Artificial Intelligence, Quantum Computing, Blockchain, CRISPR gene editing, 5G/6G telecom, and nanotechnology.",
-              "mapped_exams_count": 6,
-              "total_stage_appearances": 6,
+              "mapped_exams_count": 3,
+              "total_stage_appearances": 3,
               "depth_distribution": {
                 "Foundation": 0,
                 "Intermediate": 0,
                 "Advanced": 0,
-                "Analytical": 6
+                "Analytical": 3
               }
             },
             {
@@ -1576,12 +1576,12 @@
               "sub_domain": "science_tech",
               "topic_title": "General Science, Human Biology, Nutrition & Public Health",
               "description": "Human physiology, genetics, communicable and lifestyle diseases, immunology, vaccines, antibiotics, and nutrition.",
-              "mapped_exams_count": 7,
-              "total_stage_appearances": 7,
+              "mapped_exams_count": 5,
+              "total_stage_appearances": 5,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 6,
-                "Advanced": 1,
+                "Intermediate": 5,
+                "Advanced": 0,
                 "Analytical": 0
               }
             },
@@ -1591,12 +1591,12 @@
               "sub_domain": "science_tech",
               "topic_title": "Space Technology, ISRO Missions & Satellite Architecture",
               "description": "ISRO launch vehicles (PSLV, LVM3), satellite orbits, NavIC GPS, Chandrayaan, Gaganyaan, and Aditya-L1 missions.",
-              "mapped_exams_count": 7,
-              "total_stage_appearances": 7,
+              "mapped_exams_count": 5,
+              "total_stage_appearances": 5,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 6,
-                "Advanced": 1,
+                "Intermediate": 5,
+                "Advanced": 0,
                 "Analytical": 0
               }
             }
@@ -1612,13 +1612,13 @@
               "sub_domain": "state_gk",
               "topic_title": "State Economic Profile, Sectoral Allocations & Flagship Schemes",
               "description": "State Gross Domestic Product (SGDP), state budget, fiscal deficits, regional industrial hubs, and state welfare schemes.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 12,
+              "mapped_exams_count": 5,
+              "total_stage_appearances": 6,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 8,
+                "Intermediate": 4,
                 "Advanced": 0,
-                "Analytical": 4
+                "Analytical": 2
               }
             },
             {
@@ -1627,13 +1627,13 @@
               "sub_domain": "state_gk",
               "topic_title": "State Physiography, River Basins & Environmental Profiling",
               "description": "State physical divisions, river basins, regional mineral reserves, state wildlife sanctuaries, and climatic features.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 12,
+              "mapped_exams_count": 5,
+              "total_stage_appearances": 6,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 8,
+                "Intermediate": 4,
                 "Advanced": 0,
-                "Analytical": 4
+                "Analytical": 2
               }
             },
             {
@@ -1642,13 +1642,13 @@
               "sub_domain": "state_gk",
               "topic_title": "State-Specific History, Heritage & Cultural Movements",
               "description": "State history, regional dynasties, freedom struggle contributions, regional art, literature, and local folk festivals.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 12,
+              "mapped_exams_count": 5,
+              "total_stage_appearances": 6,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 8,
+                "Intermediate": 4,
                 "Advanced": 0,
-                "Analytical": 4
+                "Analytical": 2
               }
             },
             {
@@ -1657,13 +1657,13 @@
               "sub_domain": "state_gk",
               "topic_title": "State Administrative Structure, Judiciary & Local Governance",
               "description": "State Vidhan Sabha/Parishad, Governor's role, State High Court, State Public Service Commission, and Panchayati Raj.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 12,
+              "mapped_exams_count": 5,
+              "total_stage_appearances": 6,
               "depth_distribution": {
                 "Foundation": 0,
-                "Intermediate": 8,
+                "Intermediate": 4,
                 "Advanced": 0,
-                "Analytical": 4
+                "Analytical": 2
               }
             }
           ]
@@ -1766,11 +1766,11 @@
               "sub_domain": "arithmetic",
               "topic_title": "Business Partnerships, Capital-Duration Ratio & Profit Distribution",
               "description": "Partnership investments, capital-time ratio, working versus sleeping partners, and profit-sharing computations.",
-              "mapped_exams_count": 22,
-              "total_stage_appearances": 22,
+              "mapped_exams_count": 17,
+              "total_stage_appearances": 17,
               "depth_distribution": {
-                "Foundation": 10,
-                "Intermediate": 12,
+                "Foundation": 6,
+                "Intermediate": 11,
                 "Advanced": 0,
                 "Analytical": 0
               }
@@ -1781,11 +1781,11 @@
               "sub_domain": "arithmetic",
               "topic_title": "Percentages, Profit, Loss, Mark-up & Discounts",
               "description": "Successive percentage changes, profit and loss margins, marked price, discounts, and dishonest dealer problems.",
-              "mapped_exams_count": 22,
-              "total_stage_appearances": 22,
+              "mapped_exams_count": 17,
+              "total_stage_appearances": 17,
               "depth_distribution": {
-                "Foundation": 10,
-                "Intermediate": 12,
+                "Foundation": 6,
+                "Intermediate": 11,
                 "Advanced": 0,
                 "Analytical": 0
               }
@@ -1811,11 +1811,11 @@
               "sub_domain": "arithmetic",
               "topic_title": "Simple & Compound Interest, Compounding Periods & Installments",
               "description": "Simple interest, compound interest (annual/half-yearly), difference between CI and SI, and equated loan installments.",
-              "mapped_exams_count": 22,
-              "total_stage_appearances": 22,
+              "mapped_exams_count": 17,
+              "total_stage_appearances": 17,
               "depth_distribution": {
-                "Foundation": 10,
-                "Intermediate": 12,
+                "Foundation": 6,
+                "Intermediate": 11,
                 "Advanced": 0,
                 "Analytical": 0
               }
@@ -1832,11 +1832,11 @@
               "sub_domain": "averages_ages",
               "topic_title": "Averages, Weighted Averages & Inclusions/Exclusions",
               "description": "Arithmetic mean, weighted average formula, change in average on inclusion or replacement of members, and batting averages.",
-              "mapped_exams_count": 22,
-              "total_stage_appearances": 22,
+              "mapped_exams_count": 17,
+              "total_stage_appearances": 17,
               "depth_distribution": {
-                "Foundation": 10,
-                "Intermediate": 12,
+                "Foundation": 6,
+                "Intermediate": 11,
                 "Advanced": 0,
                 "Analytical": 0
               }
@@ -1847,11 +1847,11 @@
               "sub_domain": "averages_ages",
               "topic_title": "Linear Age Relations & Time-Shift Projections",
               "description": "Formulation and solution of linear equations based on past, present, and future chronological age ratios.",
-              "mapped_exams_count": 22,
-              "total_stage_appearances": 22,
+              "mapped_exams_count": 17,
+              "total_stage_appearances": 17,
               "depth_distribution": {
-                "Foundation": 10,
-                "Intermediate": 12,
+                "Foundation": 6,
+                "Intermediate": 11,
                 "Advanced": 0,
                 "Analytical": 0
               }
@@ -2238,10 +2238,10 @@
               "sub_domain": "blood_relations",
               "topic_title": "Symbol-Coded Blood Relations & Kinship Derivations",
               "description": "Deciphering kinship relations encoded via mathematical symbols and multi-step expression evaluation.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2253,10 +2253,10 @@
               "sub_domain": "blood_relations",
               "topic_title": "Family Tree Construction & Direct Relational Puzzles",
               "description": "Narrative family tree construction, generation linking, and 'pointing to a person' relationship problems.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2274,10 +2274,10 @@
               "sub_domain": "coded_inequalities",
               "topic_title": "Coded Inequalities & Magic Box Technique",
               "description": "Solving coded inequality relationships where operators are encrypted as symbols using the Magic Box method.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2289,10 +2289,10 @@
               "sub_domain": "coded_inequalities",
               "topic_title": "Mathematical Inequalities & Chain Linkages",
               "description": "Evaluating direct algebraic inequalities involving relational operators (>, <, =, >=, <=) across multi-statement chains.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2310,10 +2310,10 @@
               "sub_domain": "coding_decoding",
               "topic_title": "Letter Shifting, Substitution & Symbol Coding",
               "description": "Letter shifts, reverse alphabet, symbol coding, conditional matrix coding, and fictitious language ciphering.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2325,10 +2325,10 @@
               "sub_domain": "coding_decoding",
               "topic_title": "Number Series, Alphanumeric Sequences & Pattern Completion",
               "description": "Arithmetic and geometric difference series, alphanumeric sequences, and wrong term identification.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2427,10 +2427,10 @@
               "sub_domain": "direction_distance",
               "topic_title": "Cardinal Directions, Turn Angles & Pythagorean Distance",
               "description": "Eight compass directions, clockwise/anticlockwise turns, displacement vectors, and Pythagoras distance.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2442,10 +2442,10 @@
               "sub_domain": "direction_distance",
               "topic_title": "Shadow Direction Dynamics & Clock Hand Orientations",
               "description": "Sun-shadow dynamics at sunrise and sunset, facing directions, and directional clock hand orientation.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2463,10 +2463,10 @@
               "sub_domain": "input_output",
               "topic_title": "Advanced Machine Input-Output: Mathematical Block Operations",
               "description": "Multi-step machine input models operating on two-digit numerical blocks via mathematical transformations.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2478,10 +2478,10 @@
               "sub_domain": "input_output",
               "topic_title": "Machine Input-Output: Word & Number Shifting Rules",
               "description": "Sequential machine processing algorithms rearranging words alphabetically and numbers in ascending/descending order.",
-              "mapped_exams_count": 9,
-              "total_stage_appearances": 9,
+              "mapped_exams_count": 7,
+              "total_stage_appearances": 7,
               "depth_distribution": {
-                "Foundation": 6,
+                "Foundation": 4,
                 "Intermediate": 3,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2565,10 +2565,10 @@
               "sub_domain": "order_ranking",
               "topic_title": "Comparative Ordering by Attributes (Height, Weight, Marks)",
               "description": "Sorting entities based on relative comparative attributes (taller/shorter, heavier/lighter, marks).",
-              "mapped_exams_count": 10,
-              "total_stage_appearances": 10,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 8,
               "depth_distribution": {
-                "Foundation": 2,
+                "Foundation": 0,
                 "Intermediate": 8,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2580,10 +2580,10 @@
               "sub_domain": "order_ranking",
               "topic_title": "Linear Order & Ranking in a Row",
               "description": "Calculating total count from left/right rankings, intermediate entity counts, and interchanged seat positions.",
-              "mapped_exams_count": 10,
-              "total_stage_appearances": 10,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 8,
               "depth_distribution": {
-                "Foundation": 2,
+                "Foundation": 0,
                 "Intermediate": 8,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2601,10 +2601,10 @@
               "sub_domain": "puzzles_seating",
               "topic_title": "Floor, Flat & Box Stacking Arrangement Puzzles",
               "description": "Multi-floor building puzzles (floors 1 to 10), flat-floor combinations, and vertical box stacking order.",
-              "mapped_exams_count": 10,
-              "total_stage_appearances": 10,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 8,
               "depth_distribution": {
-                "Foundation": 2,
+                "Foundation": 0,
                 "Intermediate": 8,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2616,10 +2616,10 @@
               "sub_domain": "puzzles_seating",
               "topic_title": "Linear & Circular/Polygonal Seating Arrangements",
               "description": "Single/double row seating facing North/South, and circular/polygonal table seating facing inward and outward.",
-              "mapped_exams_count": 10,
-              "total_stage_appearances": 10,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 8,
               "depth_distribution": {
-                "Foundation": 2,
+                "Foundation": 0,
                 "Intermediate": 8,
                 "Advanced": 0,
                 "Analytical": 0
@@ -2631,10 +2631,10 @@
               "sub_domain": "puzzles_seating",
               "topic_title": "Day, Month, Year Scheduling & Multi-Attribute Matrix Puzzles",
               "description": "Scheduling across days of the week, months and dates, and multi-attribute matrix matching grids.",
-              "mapped_exams_count": 10,
-              "total_stage_appearances": 10,
+              "mapped_exams_count": 8,
+              "total_stage_appearances": 8,
               "depth_distribution": {
-                "Foundation": 2,
+                "Foundation": 0,
                 "Intermediate": 8,
                 "Advanced": 0,
                 "Analytical": 0
@@ -3712,13 +3712,13 @@
       "sub_domain": "descriptive_writing",
       "topic_title": "Descriptive Essay Formulation & Argumentative Composition",
       "description": "Structured descriptive, analytical, and argumentative essays on socio-economic, governance, and policy topics.",
-      "mapped_exams_count": 17,
-      "total_stage_appearances": 17,
+      "mapped_exams_count": 15,
+      "total_stage_appearances": 15,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 16
+        "Analytical": 14
       }
     },
     {
@@ -3727,13 +3727,13 @@
       "sub_domain": "descriptive_writing",
       "topic_title": "Official Correspondence: Formal Letters, Memoranda & Representations",
       "description": "Official government letters, representations, business correspondence, and internal office memoranda protocol.",
-      "mapped_exams_count": 17,
-      "total_stage_appearances": 17,
+      "mapped_exams_count": 15,
+      "total_stage_appearances": 15,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 16
+        "Analytical": 14
       }
     },
     {
@@ -3742,13 +3742,13 @@
       "sub_domain": "descriptive_writing",
       "topic_title": "Precis Writing: Summarization & Salient Point Retention",
       "description": "Condensing extended passages into precisely one-third length, retaining core arguments and avoiding verbatim copying.",
-      "mapped_exams_count": 17,
-      "total_stage_appearances": 17,
+      "mapped_exams_count": 15,
+      "total_stage_appearances": 15,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 16
+        "Analytical": 14
       }
     },
     {
@@ -3757,13 +3757,13 @@
       "sub_domain": "descriptive_writing",
       "topic_title": "Analytical Report Writing & Pro/Con Argument Drafting",
       "description": "Formal administrative event reports and writing balanced arguments for and against controversial propositions.",
-      "mapped_exams_count": 17,
-      "total_stage_appearances": 17,
+      "mapped_exams_count": 15,
+      "total_stage_appearances": 15,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 16
+        "Analytical": 14
       }
     },
     {
@@ -3772,10 +3772,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Voice Transformation (Active/Passive) & Reported Speech",
       "description": "Active to passive voice conversions and direct speech to indirect reported speech transformations.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -3787,10 +3787,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Modifiers, Dangling Participles & Parallel Structure",
       "description": "Avoiding dangling/misplaced modifiers, ensuring parallel grammatical structures, and correlative conjunctions.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -3802,10 +3802,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Prepositions, Fixed Prepositional Phrases & Phrasal Verbs",
       "description": "Prepositions of time/place, fixed prepositional idioms (e.g. abide by, adhere to), and phrasal verb shifts.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -3817,10 +3817,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Subject-Verb Agreement (Concord) & Pronoun Reference",
       "description": "Grammatical concord rules, collective noun agreements, compound subjects, and pronoun-antecedent agreement.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -3832,10 +3832,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Tense Continuity, Sequence of Tenses & Conditionals",
       "description": "Tense sequence in complex sentences, past/present perfect, and zero, first, second, and third conditional structures.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -3847,10 +3847,10 @@
       "sub_domain": "reading_comprehension",
       "topic_title": "Reading Comprehension: Central Idea, Primary Purpose & Factual Recall",
       "description": "Central thesis identification, primary purpose, appropriate title formulation, and explicit factual retrieval.",
-      "mapped_exams_count": 13,
-      "total_stage_appearances": 13,
+      "mapped_exams_count": 12,
+      "total_stage_appearances": 12,
       "depth_distribution": {
-        "Foundation": 5,
+        "Foundation": 4,
         "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 0
@@ -3862,10 +3862,10 @@
       "sub_domain": "reading_comprehension",
       "topic_title": "Reading Comprehension: Implicit Inferences, Mood & Author's Tone",
       "description": "Implicit meanings, contextual nuance, determining author's attitude/tone (satirical, analytical, objective), and subtext.",
-      "mapped_exams_count": 13,
-      "total_stage_appearances": 13,
+      "mapped_exams_count": 12,
+      "total_stage_appearances": 12,
       "depth_distribution": {
-        "Foundation": 5,
+        "Foundation": 4,
         "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 0
@@ -3877,10 +3877,10 @@
       "sub_domain": "reading_comprehension",
       "topic_title": "Reading Comprehension: Passage Structure, Logical Flow & Counter-Theses",
       "description": "Paragraph transitions, premise-conclusion arguments, underlying assumptions, and strengthening/weakening propositions.",
-      "mapped_exams_count": 13,
-      "total_stage_appearances": 13,
+      "mapped_exams_count": 12,
+      "total_stage_appearances": 12,
       "depth_distribution": {
-        "Foundation": 5,
+        "Foundation": 4,
         "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 0
@@ -4117,13 +4117,13 @@
       "sub_domain": "economy_gen",
       "topic_title": "Infrastructure, Industrial Policy & Manufacturing Growth",
       "description": "PM Gati Shakti, National Infrastructure Pipeline, Make in India, PLI schemes, SEZs, and industrial corridors.",
-      "mapped_exams_count": 2,
-      "total_stage_appearances": 2,
+      "mapped_exams_count": 1,
+      "total_stage_appearances": 1,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 0,
         "Advanced": 0,
-        "Analytical": 2
+        "Analytical": 1
       }
     },
     {
@@ -4132,13 +4132,13 @@
       "sub_domain": "economy_gen",
       "topic_title": "Economic Planning, Growth Models & NITI Aayog Strategy",
       "description": "Transition from Planning Commission to NITI Aayog, sustainable development goals (SDGs), and inclusive economic growth.",
-      "mapped_exams_count": 24,
-      "total_stage_appearances": 30,
+      "mapped_exams_count": 20,
+      "total_stage_appearances": 25,
       "depth_distribution": {
         "Foundation": 1,
-        "Intermediate": 18,
+        "Intermediate": 15,
         "Advanced": 0,
-        "Analytical": 11
+        "Analytical": 9
       }
     },
     {
@@ -4147,13 +4147,13 @@
       "sub_domain": "economy_gen",
       "topic_title": "Poverty Alleviation, Inequality & Employment Generation",
       "description": "Poverty measurement methodologies, Multidimensional Poverty Index (MPI), Gini coefficient, PLFS data, and MGNREGA.",
-      "mapped_exams_count": 11,
-      "total_stage_appearances": 14,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 5,
+        "Intermediate": 2,
         "Advanced": 0,
-        "Analytical": 9
+        "Analytical": 7
       }
     },
     {
@@ -4162,13 +4162,13 @@
       "sub_domain": "environment",
       "topic_title": "Biodiversity Hotspots, In-Situ/Ex-Situ Conservation & Wildlife",
       "description": "Biodiversity hotspots in India, IUCN Red List, National Parks, Sanctuaries, Biosphere Reserves, and Project Tiger/Elephant.",
-      "mapped_exams_count": 6,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 4,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 5,
+        "Intermediate": 4,
         "Advanced": 1,
-        "Analytical": 3
+        "Analytical": 2
       }
     },
     {
@@ -4192,13 +4192,13 @@
       "sub_domain": "environment",
       "topic_title": "Ecosystem Dynamics, Biomes & Ecological Principles",
       "description": "Trophic levels, food chains and webs, ecological pyramids, ecological succession, and biogeochemical nutrient cycles.",
-      "mapped_exams_count": 6,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 4,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 5,
+        "Intermediate": 4,
         "Advanced": 1,
-        "Analytical": 3
+        "Analytical": 2
       }
     },
     {
@@ -4222,13 +4222,13 @@
       "sub_domain": "ethics",
       "topic_title": "Administrative Case Studies & Dilemma Resolution",
       "description": "Practical administrative ethical dilemmas, public interest vs executive pressure, conflict of interest, and case analysis.",
-      "mapped_exams_count": 8,
-      "total_stage_appearances": 8,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 7
+        "Analytical": 6
       }
     },
     {
@@ -4237,13 +4237,13 @@
       "sub_domain": "ethics",
       "topic_title": "Attitude, Moral Aptitude & Emotional Intelligence in Governance",
       "description": "Moral and political attitudes, social influence, persuasion, and emotional intelligence in civil administration.",
-      "mapped_exams_count": 8,
-      "total_stage_appearances": 8,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 7
+        "Analytical": 6
       }
     },
     {
@@ -4252,13 +4252,13 @@
       "sub_domain": "ethics",
       "topic_title": "Ethics, Human Values & Moral Philosophy",
       "description": "Determinants and consequences of ethics, moral philosophers (Indian and Western), deontological and utilitarian ethics.",
-      "mapped_exams_count": 8,
-      "total_stage_appearances": 8,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 7
+        "Analytical": 6
       }
     },
     {
@@ -4267,13 +4267,13 @@
       "sub_domain": "ethics",
       "topic_title": "Probity in Governance, Transparency & Anti-Corruption Mechanisms",
       "description": "Probity in public service, Right to Information (RTI Act 2005), Citizen's Charters, codes of conduct, and Lokpal.",
-      "mapped_exams_count": 8,
-      "total_stage_appearances": 8,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 7
+        "Analytical": 6
       }
     },
     {
@@ -4282,11 +4282,11 @@
       "sub_domain": "geography_india_world",
       "topic_title": "Indian Monsoon, Soils & Natural Vegetation",
       "description": "South-West monsoon mechanism, western disturbances, major soil groups of India, and forest vegetation classifications.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 11,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 9,
+        "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 1
       }
@@ -4297,11 +4297,11 @@
       "sub_domain": "geography_india_world",
       "topic_title": "Physiography of India & Drainage Systems",
       "description": "Himalayas, Indo-Gangetic plains, Peninsular plateau, coastal plains, and Himalayan and Peninsular river basins.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 11,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 9,
+        "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 1
       }
@@ -4342,11 +4342,11 @@
       "sub_domain": "geography_physical",
       "topic_title": "Climatology, Atmospheric Circulation & Oceanography",
       "description": "Atmospheric structure, heat budget, planetary winds, cyclones, ocean currents, salinity, tides, and El Nino/La Nina/IOD.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 11,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 9,
+        "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 1
       }
@@ -4357,11 +4357,11 @@
       "sub_domain": "geography_physical",
       "topic_title": "Geomorphology, Earth's Interior & Landform Evolution",
       "description": "Earth interior, plate tectonics, continental drift, earthquakes, volcanoes, weathering, and fluvial/glacial/aeolian landforms.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 11,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 9,
+        "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 1
       }
@@ -4372,13 +4372,13 @@
       "sub_domain": "history",
       "topic_title": "British Colonial Expansion & Administrative Framework (1757–1857)",
       "description": "Plassey, Buxar, Subsidiary Alliance, Doctrine of Lapse, Permanent Settlement, Ryotwari, and colonial economic drain.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       }
     },
     {
@@ -4387,13 +4387,13 @@
       "sub_domain": "history",
       "topic_title": "Gandhian Era, Mass Struggles & Road to Independence",
       "description": "Non-Cooperation Movement, Civil Disobedience, Dandi March, Quit India Movement 1942, Subhas Chandra Bose, INA, and 1947 Partition.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       }
     },
     {
@@ -4402,13 +4402,13 @@
       "sub_domain": "history",
       "topic_title": "Early Nationalism, Moderate-Extremist Era & Swadeshi Movement",
       "description": "INC formation (1885), Moderate constitutionalism, Extremist resurgence, Bengal Partition (1905), and Swadeshi Movement.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       }
     },
     {
@@ -4432,13 +4432,13 @@
       "sub_domain": "history",
       "topic_title": "The 1857 Revolt & Early Resistance Movements",
       "description": "1857 Revolt causes, leadership, Government of India Act 1858, Santhal Rebellion, Munda Uprising, and peasant revolts.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       }
     },
     {
@@ -4447,13 +4447,13 @@
       "sub_domain": "history",
       "topic_title": "Socio-Religious Reform Movements & Renaissance",
       "description": "Brahmo Samaj, Arya Samaj, Ramakrishna Mission, Satyashodhak Samaj, Aligarh Movement, and anti-caste struggles.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       }
     },
     {
@@ -4522,13 +4522,13 @@
       "sub_domain": "polity",
       "topic_title": "Constitutional Framework, Historical Underpinnings & Basic Structure",
       "description": "Preamble, Fundamental Rights, Directive Principles of State Policy, Fundamental Duties, Amendments, and Basic Structure Doctrine.",
-      "mapped_exams_count": 14,
-      "total_stage_appearances": 26,
+      "mapped_exams_count": 9,
+      "total_stage_appearances": 16,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 14,
-        "Advanced": 2,
-        "Analytical": 10
+        "Intermediate": 9,
+        "Advanced": 1,
+        "Analytical": 6
       }
     },
     {
@@ -4642,13 +4642,13 @@
       "sub_domain": "science_tech",
       "topic_title": "Emerging & Frontier Technologies",
       "description": "Artificial Intelligence, Quantum Computing, Blockchain, CRISPR gene editing, 5G/6G telecom, and nanotechnology.",
-      "mapped_exams_count": 6,
-      "total_stage_appearances": 6,
+      "mapped_exams_count": 3,
+      "total_stage_appearances": 3,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 0,
         "Advanced": 0,
-        "Analytical": 6
+        "Analytical": 3
       }
     },
     {
@@ -4657,12 +4657,12 @@
       "sub_domain": "science_tech",
       "topic_title": "General Science, Human Biology, Nutrition & Public Health",
       "description": "Human physiology, genetics, communicable and lifestyle diseases, immunology, vaccines, antibiotics, and nutrition.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 5,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 6,
-        "Advanced": 1,
+        "Intermediate": 5,
+        "Advanced": 0,
         "Analytical": 0
       }
     },
@@ -4672,12 +4672,12 @@
       "sub_domain": "science_tech",
       "topic_title": "Space Technology, ISRO Missions & Satellite Architecture",
       "description": "ISRO launch vehicles (PSLV, LVM3), satellite orbits, NavIC GPS, Chandrayaan, Gaganyaan, and Aditya-L1 missions.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 5,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 6,
-        "Advanced": 1,
+        "Intermediate": 5,
+        "Advanced": 0,
         "Analytical": 0
       }
     },
@@ -4687,13 +4687,13 @@
       "sub_domain": "state_gk",
       "topic_title": "State Economic Profile, Sectoral Allocations & Flagship Schemes",
       "description": "State Gross Domestic Product (SGDP), state budget, fiscal deficits, regional industrial hubs, and state welfare schemes.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 12,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 6,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 8,
+        "Intermediate": 4,
         "Advanced": 0,
-        "Analytical": 4
+        "Analytical": 2
       }
     },
     {
@@ -4702,13 +4702,13 @@
       "sub_domain": "state_gk",
       "topic_title": "State Physiography, River Basins & Environmental Profiling",
       "description": "State physical divisions, river basins, regional mineral reserves, state wildlife sanctuaries, and climatic features.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 12,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 6,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 8,
+        "Intermediate": 4,
         "Advanced": 0,
-        "Analytical": 4
+        "Analytical": 2
       }
     },
     {
@@ -4717,13 +4717,13 @@
       "sub_domain": "state_gk",
       "topic_title": "State-Specific History, Heritage & Cultural Movements",
       "description": "State history, regional dynasties, freedom struggle contributions, regional art, literature, and local folk festivals.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 12,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 6,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 8,
+        "Intermediate": 4,
         "Advanced": 0,
-        "Analytical": 4
+        "Analytical": 2
       }
     },
     {
@@ -4732,13 +4732,13 @@
       "sub_domain": "state_gk",
       "topic_title": "State Administrative Structure, Judiciary & Local Governance",
       "description": "State Vidhan Sabha/Parishad, Governor's role, State High Court, State Public Service Commission, and Panchayati Raj.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 12,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 6,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 8,
+        "Intermediate": 4,
         "Advanced": 0,
-        "Analytical": 4
+        "Analytical": 2
       }
     },
     {
@@ -4822,11 +4822,11 @@
       "sub_domain": "arithmetic",
       "topic_title": "Business Partnerships, Capital-Duration Ratio & Profit Distribution",
       "description": "Partnership investments, capital-time ratio, working versus sleeping partners, and profit-sharing computations.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       }
@@ -4837,11 +4837,11 @@
       "sub_domain": "arithmetic",
       "topic_title": "Percentages, Profit, Loss, Mark-up & Discounts",
       "description": "Successive percentage changes, profit and loss margins, marked price, discounts, and dishonest dealer problems.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       }
@@ -4867,11 +4867,11 @@
       "sub_domain": "arithmetic",
       "topic_title": "Simple & Compound Interest, Compounding Periods & Installments",
       "description": "Simple interest, compound interest (annual/half-yearly), difference between CI and SI, and equated loan installments.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       }
@@ -4882,11 +4882,11 @@
       "sub_domain": "averages_ages",
       "topic_title": "Averages, Weighted Averages & Inclusions/Exclusions",
       "description": "Arithmetic mean, weighted average formula, change in average on inclusion or replacement of members, and batting averages.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       }
@@ -4897,11 +4897,11 @@
       "sub_domain": "averages_ages",
       "topic_title": "Linear Age Relations & Time-Shift Projections",
       "description": "Formulation and solution of linear equations based on past, present, and future chronological age ratios.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       }
@@ -5227,10 +5227,10 @@
       "sub_domain": "blood_relations",
       "topic_title": "Symbol-Coded Blood Relations & Kinship Derivations",
       "description": "Deciphering kinship relations encoded via mathematical symbols and multi-step expression evaluation.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5242,10 +5242,10 @@
       "sub_domain": "blood_relations",
       "topic_title": "Family Tree Construction & Direct Relational Puzzles",
       "description": "Narrative family tree construction, generation linking, and 'pointing to a person' relationship problems.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5257,10 +5257,10 @@
       "sub_domain": "coded_inequalities",
       "topic_title": "Coded Inequalities & Magic Box Technique",
       "description": "Solving coded inequality relationships where operators are encrypted as symbols using the Magic Box method.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5272,10 +5272,10 @@
       "sub_domain": "coded_inequalities",
       "topic_title": "Mathematical Inequalities & Chain Linkages",
       "description": "Evaluating direct algebraic inequalities involving relational operators (>, <, =, >=, <=) across multi-statement chains.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5287,10 +5287,10 @@
       "sub_domain": "coding_decoding",
       "topic_title": "Letter Shifting, Substitution & Symbol Coding",
       "description": "Letter shifts, reverse alphabet, symbol coding, conditional matrix coding, and fictitious language ciphering.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5302,10 +5302,10 @@
       "sub_domain": "coding_decoding",
       "topic_title": "Number Series, Alphanumeric Sequences & Pattern Completion",
       "description": "Arithmetic and geometric difference series, alphanumeric sequences, and wrong term identification.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5392,10 +5392,10 @@
       "sub_domain": "direction_distance",
       "topic_title": "Cardinal Directions, Turn Angles & Pythagorean Distance",
       "description": "Eight compass directions, clockwise/anticlockwise turns, displacement vectors, and Pythagoras distance.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5407,10 +5407,10 @@
       "sub_domain": "direction_distance",
       "topic_title": "Shadow Direction Dynamics & Clock Hand Orientations",
       "description": "Sun-shadow dynamics at sunrise and sunset, facing directions, and directional clock hand orientation.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5422,10 +5422,10 @@
       "sub_domain": "input_output",
       "topic_title": "Advanced Machine Input-Output: Mathematical Block Operations",
       "description": "Multi-step machine input models operating on two-digit numerical blocks via mathematical transformations.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5437,10 +5437,10 @@
       "sub_domain": "input_output",
       "topic_title": "Machine Input-Output: Word & Number Shifting Rules",
       "description": "Sequential machine processing algorithms rearranging words alphabetically and numbers in ascending/descending order.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
@@ -5512,10 +5512,10 @@
       "sub_domain": "order_ranking",
       "topic_title": "Comparative Ordering by Attributes (Height, Weight, Marks)",
       "description": "Sorting entities based on relative comparative attributes (taller/shorter, heavier/lighter, marks).",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
@@ -5527,10 +5527,10 @@
       "sub_domain": "order_ranking",
       "topic_title": "Linear Order & Ranking in a Row",
       "description": "Calculating total count from left/right rankings, intermediate entity counts, and interchanged seat positions.",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
@@ -5542,10 +5542,10 @@
       "sub_domain": "puzzles_seating",
       "topic_title": "Floor, Flat & Box Stacking Arrangement Puzzles",
       "description": "Multi-floor building puzzles (floors 1 to 10), flat-floor combinations, and vertical box stacking order.",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
@@ -5557,10 +5557,10 @@
       "sub_domain": "puzzles_seating",
       "topic_title": "Linear & Circular/Polygonal Seating Arrangements",
       "description": "Single/double row seating facing North/South, and circular/polygonal table seating facing inward and outward.",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
@@ -5572,10 +5572,10 @@
       "sub_domain": "puzzles_seating",
       "topic_title": "Day, Month, Year Scheduling & Multi-Attribute Matrix Puzzles",
       "description": "Scheduling across days of the week, months and dates, and multi-attribute matrix matching grids.",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
@@ -7592,22 +7592,15 @@
       "sub_domain": "descriptive_writing",
       "topic_title": "Descriptive Essay Formulation & Argumentative Composition",
       "description": "Structured descriptive, analytical, and argumentative essays on socio-economic, governance, and policy topics.",
-      "mapped_exams_count": 17,
-      "total_stage_appearances": 17,
+      "mapped_exams_count": 15,
+      "total_stage_appearances": 15,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 16
+        "Analytical": 14
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains Essay",
@@ -7628,13 +7621,6 @@
           "depth_level": "Analytical",
           "is_optional": false,
           "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -7728,22 +7714,15 @@
       "sub_domain": "descriptive_writing",
       "topic_title": "Official Correspondence: Formal Letters, Memoranda & Representations",
       "description": "Official government letters, representations, business correspondence, and internal office memoranda protocol.",
-      "mapped_exams_count": 17,
-      "total_stage_appearances": 17,
+      "mapped_exams_count": 15,
+      "total_stage_appearances": 15,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 16
+        "Analytical": 14
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains Essay",
@@ -7764,13 +7743,6 @@
           "depth_level": "Analytical",
           "is_optional": false,
           "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -7864,22 +7836,15 @@
       "sub_domain": "descriptive_writing",
       "topic_title": "Precis Writing: Summarization & Salient Point Retention",
       "description": "Condensing extended passages into precisely one-third length, retaining core arguments and avoiding verbatim copying.",
-      "mapped_exams_count": 17,
-      "total_stage_appearances": 17,
+      "mapped_exams_count": 15,
+      "total_stage_appearances": 15,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 16
+        "Analytical": 14
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains Essay",
@@ -7900,13 +7865,6 @@
           "depth_level": "Analytical",
           "is_optional": false,
           "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -8000,22 +7958,15 @@
       "sub_domain": "descriptive_writing",
       "topic_title": "Analytical Report Writing & Pro/Con Argument Drafting",
       "description": "Formal administrative event reports and writing balanced arguments for and against controversial propositions.",
-      "mapped_exams_count": 17,
-      "total_stage_appearances": 17,
+      "mapped_exams_count": 15,
+      "total_stage_appearances": 15,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 16
+        "Analytical": 14
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains Essay",
@@ -8036,13 +7987,6 @@
           "depth_level": "Analytical",
           "is_optional": false,
           "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -8136,10 +8080,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Voice Transformation (Active/Passive) & Reported Speech",
       "description": "Active to passive voice conversions and direct speech to indirect reported speech transformations.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -8186,13 +8130,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 7.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
         }
       ]
     },
@@ -8202,10 +8139,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Modifiers, Dangling Participles & Parallel Structure",
       "description": "Avoiding dangling/misplaced modifiers, ensuring parallel grammatical structures, and correlative conjunctions.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -8252,13 +8189,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 7.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
         }
       ]
     },
@@ -8268,10 +8198,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Prepositions, Fixed Prepositional Phrases & Phrasal Verbs",
       "description": "Prepositions of time/place, fixed prepositional idioms (e.g. abide by, adhere to), and phrasal verb shifts.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -8318,13 +8248,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 7.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
         }
       ]
     },
@@ -8334,10 +8257,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Subject-Verb Agreement (Concord) & Pronoun Reference",
       "description": "Grammatical concord rules, collective noun agreements, compound subjects, and pronoun-antecedent agreement.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -8384,13 +8307,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 7.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
         }
       ]
     },
@@ -8400,10 +8316,10 @@
       "sub_domain": "grammar_syntax",
       "topic_title": "Tense Continuity, Sequence of Tenses & Conditionals",
       "description": "Tense sequence in complex sentences, past/present perfect, and zero, first, second, and third conditional structures.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 6,
+      "total_stage_appearances": 6,
       "depth_distribution": {
-        "Foundation": 3,
+        "Foundation": 2,
         "Intermediate": 4,
         "Advanced": 0,
         "Analytical": 0
@@ -8450,13 +8366,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 7.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
         }
       ]
     },
@@ -8466,10 +8375,10 @@
       "sub_domain": "reading_comprehension",
       "topic_title": "Reading Comprehension: Central Idea, Primary Purpose & Factual Recall",
       "description": "Central thesis identification, primary purpose, appropriate title formulation, and explicit factual retrieval.",
-      "mapped_exams_count": 13,
-      "total_stage_appearances": 13,
+      "mapped_exams_count": 12,
+      "total_stage_appearances": 12,
       "depth_distribution": {
-        "Foundation": 5,
+        "Foundation": 4,
         "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 0
@@ -8495,13 +8404,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 8.33
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -8574,10 +8476,10 @@
       "sub_domain": "reading_comprehension",
       "topic_title": "Reading Comprehension: Implicit Inferences, Mood & Author's Tone",
       "description": "Implicit meanings, contextual nuance, determining author's attitude/tone (satirical, analytical, objective), and subtext.",
-      "mapped_exams_count": 13,
-      "total_stage_appearances": 13,
+      "mapped_exams_count": 12,
+      "total_stage_appearances": 12,
       "depth_distribution": {
-        "Foundation": 5,
+        "Foundation": 4,
         "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 0
@@ -8603,13 +8505,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 8.33
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -8682,10 +8577,10 @@
       "sub_domain": "reading_comprehension",
       "topic_title": "Reading Comprehension: Passage Structure, Logical Flow & Counter-Theses",
       "description": "Paragraph transitions, premise-conclusion arguments, underlying assumptions, and strengthening/weakening propositions.",
-      "mapped_exams_count": 13,
-      "total_stage_appearances": 13,
+      "mapped_exams_count": 12,
+      "total_stage_appearances": 12,
       "depth_distribution": {
-        "Foundation": 5,
+        "Foundation": 4,
         "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 0
@@ -8711,13 +8606,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 8.33
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -9199,22 +9087,15 @@
       "sub_domain": "economy_gen",
       "topic_title": "Infrastructure, Industrial Policy & Manufacturing Growth",
       "description": "PM Gati Shakti, National Infrastructure Pipeline, Make in India, PLI schemes, SEZs, and industrial corridors.",
-      "mapped_exams_count": 2,
-      "total_stage_appearances": 2,
+      "mapped_exams_count": 1,
+      "total_stage_appearances": 1,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 0,
         "Advanced": 0,
-        "Analytical": 2
+        "Analytical": 1
       },
       "mapped_exams": [
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Mains GS Papers 1 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 25.0
-        },
         {
           "exam_id": "NABARD_GRADE_A",
           "stage_name": "Phase 2 Paper 2 (ESI & ARD)",
@@ -9230,29 +9111,15 @@
       "sub_domain": "economy_gen",
       "topic_title": "Economic Planning, Growth Models & NITI Aayog Strategy",
       "description": "Transition from Planning Commission to NITI Aayog, sustainable development goals (SDGs), and inclusive economic growth.",
-      "mapped_exams_count": 24,
-      "total_stage_appearances": 30,
+      "mapped_exams_count": 20,
+      "total_stage_appearances": 25,
       "depth_distribution": {
         "Foundation": 1,
-        "Intermediate": 18,
+        "Intermediate": 15,
         "Advanced": 0,
-        "Analytical": 11
+        "Analytical": 9
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 1 (Modern History, Culture & DI)",
@@ -9287,13 +9154,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 1 (General Studies & Humanities)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 15.0
         },
         {
           "exam_id": "MPPSC_SSE",
@@ -9373,13 +9233,6 @@
           "weightage_pct_estimate": 25.0
         },
         {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
-        {
           "exam_id": "TSPSC_GROUP_1",
           "stage_name": "Mains Papers 1 to 6",
           "depth_level": "Analytical",
@@ -9441,13 +9294,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 50.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.5
         }
       ]
     },
@@ -9457,42 +9303,21 @@
       "sub_domain": "economy_gen",
       "topic_title": "Poverty Alleviation, Inequality & Employment Generation",
       "description": "Poverty measurement methodologies, Multidimensional Poverty Index (MPI), Gini coefficient, PLFS data, and MGNREGA.",
-      "mapped_exams_count": 11,
-      "total_stage_appearances": 14,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 5,
+        "Intermediate": 2,
         "Advanced": 0,
-        "Analytical": 9
+        "Analytical": 7
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 2 (Polity, Economy & S&T)",
           "depth_level": "Analytical",
           "is_optional": false,
           "weightage_pct_estimate": 17.5
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 1 (General Studies & Humanities)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 15.0
         },
         {
           "exam_id": "MPPSC_SSE",
@@ -9514,13 +9339,6 @@
           "depth_level": "Analytical",
           "is_optional": false,
           "weightage_pct_estimate": 12.5
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
         },
         {
           "exam_id": "TSPSC_GROUP_1",
@@ -9556,13 +9374,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.5
         }
       ]
     },
@@ -9572,29 +9383,15 @@
       "sub_domain": "environment",
       "topic_title": "Biodiversity Hotspots, In-Situ/Ex-Situ Conservation & Wildlife",
       "description": "Biodiversity hotspots in India, IUCN Red List, National Parks, Sanctuaries, Biosphere Reserves, and Project Tiger/Elephant.",
-      "mapped_exams_count": 6,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 4,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 5,
+        "Intermediate": 4,
         "Advanced": 1,
-        "Analytical": 3
+        "Analytical": 2
       },
       "mapped_exams": [
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.5
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "UPPSC_PCS",
           "stage_name": "Prelims Paper 1 (General Studies I)",
@@ -9676,29 +9473,15 @@
       "sub_domain": "environment",
       "topic_title": "Ecosystem Dynamics, Biomes & Ecological Principles",
       "description": "Trophic levels, food chains and webs, ecological pyramids, ecological succession, and biogeochemical nutrient cycles.",
-      "mapped_exams_count": 6,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 4,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 5,
+        "Intermediate": 4,
         "Advanced": 1,
-        "Analytical": 3
+        "Analytical": 2
       },
       "mapped_exams": [
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.5
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "UPPSC_PCS",
           "stage_name": "Prelims Paper 1 (General Studies I)",
@@ -9780,22 +9563,15 @@
       "sub_domain": "ethics",
       "topic_title": "Administrative Case Studies & Dilemma Resolution",
       "description": "Practical administrative ethical dilemmas, public interest vs executive pressure, conflict of interest, and case analysis.",
-      "mapped_exams_count": 8,
-      "total_stage_appearances": 8,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 7
+        "Analytical": 6
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.75
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Mains GS Papers 1 to 4",
@@ -9853,22 +9629,15 @@
       "sub_domain": "ethics",
       "topic_title": "Attitude, Moral Aptitude & Emotional Intelligence in Governance",
       "description": "Moral and political attitudes, social influence, persuasion, and emotional intelligence in civil administration.",
-      "mapped_exams_count": 8,
-      "total_stage_appearances": 8,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 7
+        "Analytical": 6
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.75
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Mains GS Papers 1 to 4",
@@ -9926,22 +9695,15 @@
       "sub_domain": "ethics",
       "topic_title": "Ethics, Human Values & Moral Philosophy",
       "description": "Determinants and consequences of ethics, moral philosophers (Indian and Western), deontological and utilitarian ethics.",
-      "mapped_exams_count": 8,
-      "total_stage_appearances": 8,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 7
+        "Analytical": 6
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.75
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Mains GS Papers 1 to 4",
@@ -9999,22 +9761,15 @@
       "sub_domain": "ethics",
       "topic_title": "Probity in Governance, Transparency & Anti-Corruption Mechanisms",
       "description": "Probity in public service, Right to Information (RTI Act 2005), Citizen's Charters, codes of conduct, and Lokpal.",
-      "mapped_exams_count": 8,
-      "total_stage_appearances": 8,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 1,
         "Advanced": 0,
-        "Analytical": 7
+        "Analytical": 6
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.75
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Mains GS Papers 1 to 4",
@@ -10072,24 +9827,17 @@
       "sub_domain": "geography_india_world",
       "topic_title": "Indian Monsoon, Soils & Natural Vegetation",
       "description": "South-West monsoon mechanism, western disturbances, major soil groups of India, and forest vegetation classifications.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 11,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 9,
+        "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 1
       },
       "mapped_exams": [
         {
           "exam_id": "MPPSC_SSE",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
           "stage_name": "Prelims Paper 1 (General Studies)",
           "depth_level": "Intermediate",
           "is_optional": false,
@@ -10150,13 +9898,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.75
         }
       ]
     },
@@ -10166,24 +9907,17 @@
       "sub_domain": "geography_india_world",
       "topic_title": "Physiography of India & Drainage Systems",
       "description": "Himalayas, Indo-Gangetic plains, Peninsular plateau, coastal plains, and Himalayan and Peninsular river basins.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 11,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 9,
+        "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 1
       },
       "mapped_exams": [
         {
           "exam_id": "MPPSC_SSE",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
           "stage_name": "Prelims Paper 1 (General Studies)",
           "depth_level": "Intermediate",
           "is_optional": false,
@@ -10244,13 +9978,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.75
         }
       ]
     },
@@ -10308,24 +10035,17 @@
       "sub_domain": "geography_physical",
       "topic_title": "Climatology, Atmospheric Circulation & Oceanography",
       "description": "Atmospheric structure, heat budget, planetary winds, cyclones, ocean currents, salinity, tides, and El Nino/La Nina/IOD.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 11,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 9,
+        "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 1
       },
       "mapped_exams": [
         {
           "exam_id": "MPPSC_SSE",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
           "stage_name": "Prelims Paper 1 (General Studies)",
           "depth_level": "Intermediate",
           "is_optional": false,
@@ -10386,13 +10106,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.75
         }
       ]
     },
@@ -10402,24 +10115,17 @@
       "sub_domain": "geography_physical",
       "topic_title": "Geomorphology, Earth's Interior & Landform Evolution",
       "description": "Earth interior, plate tectonics, continental drift, earthquakes, volcanoes, weathering, and fluvial/glacial/aeolian landforms.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 11,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 9,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 9,
+        "Intermediate": 7,
         "Advanced": 1,
         "Analytical": 1
       },
       "mapped_exams": [
         {
           "exam_id": "MPPSC_SSE",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
           "stage_name": "Prelims Paper 1 (General Studies)",
           "depth_level": "Intermediate",
           "is_optional": false,
@@ -10480,13 +10186,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.75
         }
       ]
     },
@@ -10496,22 +10195,15 @@
       "sub_domain": "history",
       "topic_title": "British Colonial Expansion & Administrative Framework (1757–1857)",
       "description": "Plassey, Buxar, Subsidiary Alliance, Doctrine of Lapse, Permanent Settlement, Ryotwari, and colonial economic drain.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 1 (Modern History, Culture & DI)",
@@ -10534,36 +10226,8 @@
           "weightage_pct_estimate": 4.0
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Mains GS Papers 1 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 4.0
@@ -10614,20 +10278,6 @@
           "exam_id": "UPSC_IFOS",
           "stage_name": "Mains Paper II (General Knowledge)",
           "depth_level": "Advanced",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
         }
@@ -10639,22 +10289,15 @@
       "sub_domain": "history",
       "topic_title": "Gandhian Era, Mass Struggles & Road to Independence",
       "description": "Non-Cooperation Movement, Civil Disobedience, Dandi March, Quit India Movement 1942, Subhas Chandra Bose, INA, and 1947 Partition.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 1 (Modern History, Culture & DI)",
@@ -10677,36 +10320,8 @@
           "weightage_pct_estimate": 4.0
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Mains GS Papers 1 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 4.0
@@ -10757,20 +10372,6 @@
           "exam_id": "UPSC_IFOS",
           "stage_name": "Mains Paper II (General Knowledge)",
           "depth_level": "Advanced",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
         }
@@ -10782,22 +10383,15 @@
       "sub_domain": "history",
       "topic_title": "Early Nationalism, Moderate-Extremist Era & Swadeshi Movement",
       "description": "INC formation (1885), Moderate constitutionalism, Extremist resurgence, Bengal Partition (1905), and Swadeshi Movement.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 1 (Modern History, Culture & DI)",
@@ -10820,36 +10414,8 @@
           "weightage_pct_estimate": 4.0
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Mains GS Papers 1 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 4.0
@@ -10900,20 +10466,6 @@
           "exam_id": "UPSC_IFOS",
           "stage_name": "Mains Paper II (General Knowledge)",
           "depth_level": "Advanced",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
         }
@@ -10949,22 +10501,15 @@
       "sub_domain": "history",
       "topic_title": "The 1857 Revolt & Early Resistance Movements",
       "description": "1857 Revolt causes, leadership, Government of India Act 1858, Santhal Rebellion, Munda Uprising, and peasant revolts.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 1 (Modern History, Culture & DI)",
@@ -10987,36 +10532,8 @@
           "weightage_pct_estimate": 4.0
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Mains GS Papers 1 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 4.0
@@ -11067,20 +10584,6 @@
           "exam_id": "UPSC_IFOS",
           "stage_name": "Mains Paper II (General Knowledge)",
           "depth_level": "Advanced",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
         }
@@ -11092,22 +10595,15 @@
       "sub_domain": "history",
       "topic_title": "Socio-Religious Reform Movements & Renaissance",
       "description": "Brahmo Samaj, Arya Samaj, Ramakrishna Mission, Satyashodhak Samaj, Aligarh Movement, and anti-caste struggles.",
-      "mapped_exams_count": 12,
-      "total_stage_appearances": 18,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 11,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 11,
+        "Intermediate": 7,
         "Advanced": 1,
-        "Analytical": 6
+        "Analytical": 3
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 1 (Modern History, Culture & DI)",
@@ -11130,36 +10626,8 @@
           "weightage_pct_estimate": 4.0
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Mains GS Papers 1 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 4.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 4.0
@@ -11210,20 +10678,6 @@
           "exam_id": "UPSC_IFOS",
           "stage_name": "Mains Paper II (General Knowledge)",
           "depth_level": "Advanced",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
         }
@@ -11345,29 +10799,15 @@
       "sub_domain": "polity",
       "topic_title": "Constitutional Framework, Historical Underpinnings & Basic Structure",
       "description": "Preamble, Fundamental Rights, Directive Principles of State Policy, Fundamental Duties, Amendments, and Basic Structure Doctrine.",
-      "mapped_exams_count": 14,
-      "total_stage_appearances": 26,
+      "mapped_exams_count": 9,
+      "total_stage_appearances": 16,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 14,
-        "Advanced": 2,
-        "Analytical": 10
+        "Intermediate": 9,
+        "Advanced": 1,
+        "Analytical": 6
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 20.0
-        },
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 30.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 2 (Polity, Economy & S&T)",
@@ -11383,20 +10823,6 @@
           "weightage_pct_estimate": 15.0
         },
         {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 1 (General Studies & Humanities)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 35.0
-        },
-        {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Mains GS Papers 1 to 4",
           "depth_level": "Analytical",
@@ -11409,20 +10835,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Mains GS Papers 1 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 20.0
         },
         {
           "exam_id": "RPSC_RAS",
@@ -11434,20 +10846,6 @@
         {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 20.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Mains Papers 2 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 30.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 20.0
@@ -11521,20 +10919,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 20.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Advanced",
-          "is_optional": false,
-          "weightage_pct_estimate": 25.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 15.0
         }
       ]
     },
@@ -11726,42 +11110,21 @@
       "sub_domain": "science_tech",
       "topic_title": "Emerging & Frontier Technologies",
       "description": "Artificial Intelligence, Quantum Computing, Blockchain, CRISPR gene editing, 5G/6G telecom, and nanotechnology.",
-      "mapped_exams_count": 6,
-      "total_stage_appearances": 6,
+      "mapped_exams_count": 3,
+      "total_stage_appearances": 3,
       "depth_distribution": {
         "Foundation": 0,
         "Intermediate": 0,
         "Advanced": 0,
-        "Analytical": 6
+        "Analytical": 3
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 20.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Mains GS Paper 2 (Polity, Economy & S&T)",
           "depth_level": "Analytical",
           "is_optional": false,
           "weightage_pct_estimate": 30.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 15.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Mains GS Papers 1 to 4",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 25.0
         },
         {
           "exam_id": "PSU_BARC_NPCIL_ET",
@@ -11785,12 +11148,12 @@
       "sub_domain": "science_tech",
       "topic_title": "General Science, Human Biology, Nutrition & Public Health",
       "description": "Human physiology, genetics, communicable and lifestyle diseases, immunology, vaccines, antibiotics, and nutrition.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 5,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 6,
-        "Advanced": 1,
+        "Intermediate": 5,
+        "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
@@ -11800,13 +11163,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 20.0
         },
         {
           "exam_id": "UPSC_CAPF_AC",
@@ -11835,13 +11191,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Advanced",
-          "is_optional": false,
-          "weightage_pct_estimate": 12.5
         }
       ]
     },
@@ -11851,12 +11200,12 @@
       "sub_domain": "science_tech",
       "topic_title": "Space Technology, ISRO Missions & Satellite Architecture",
       "description": "ISRO launch vehicles (PSLV, LVM3), satellite orbits, NavIC GPS, Chandrayaan, Gaganyaan, and Aditya-L1 missions.",
-      "mapped_exams_count": 7,
-      "total_stage_appearances": 7,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 5,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 6,
-        "Advanced": 1,
+        "Intermediate": 5,
+        "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
@@ -11866,13 +11215,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 20.0
         },
         {
           "exam_id": "UPSC_CAPF_AC",
@@ -11901,13 +11243,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Advanced",
-          "is_optional": false,
-          "weightage_pct_estimate": 12.5
         }
       ]
     },
@@ -11917,49 +11252,21 @@
       "sub_domain": "state_gk",
       "topic_title": "State Economic Profile, Sectoral Allocations & Flagship Schemes",
       "description": "State Gross Domestic Product (SGDP), state budget, fiscal deficits, regional industrial hubs, and state welfare schemes.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 12,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 6,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 8,
+        "Intermediate": 4,
         "Advanced": 0,
-        "Analytical": 4
+        "Analytical": 2
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 1 (General Studies & Humanities)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 8.75
         },
         {
           "exam_id": "MPPSC_SSE",
@@ -11969,25 +11276,11 @@
           "weightage_pct_estimate": 8.75
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.25
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 8.75
         },
         {
           "exam_id": "TSPSC_GROUP_1",
@@ -12018,49 +11311,21 @@
       "sub_domain": "state_gk",
       "topic_title": "State Physiography, River Basins & Environmental Profiling",
       "description": "State physical divisions, river basins, regional mineral reserves, state wildlife sanctuaries, and climatic features.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 12,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 6,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 8,
+        "Intermediate": 4,
         "Advanced": 0,
-        "Analytical": 4
+        "Analytical": 2
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 1 (General Studies & Humanities)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 8.75
         },
         {
           "exam_id": "MPPSC_SSE",
@@ -12070,25 +11335,11 @@
           "weightage_pct_estimate": 8.75
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.25
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 8.75
         },
         {
           "exam_id": "TSPSC_GROUP_1",
@@ -12119,49 +11370,21 @@
       "sub_domain": "state_gk",
       "topic_title": "State-Specific History, Heritage & Cultural Movements",
       "description": "State history, regional dynasties, freedom struggle contributions, regional art, literature, and local folk festivals.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 12,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 6,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 8,
+        "Intermediate": 4,
         "Advanced": 0,
-        "Analytical": 4
+        "Analytical": 2
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 1 (General Studies & Humanities)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 8.75
         },
         {
           "exam_id": "MPPSC_SSE",
@@ -12171,25 +11394,11 @@
           "weightage_pct_estimate": 8.75
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.25
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 8.75
         },
         {
           "exam_id": "TSPSC_GROUP_1",
@@ -12220,49 +11429,21 @@
       "sub_domain": "state_gk",
       "topic_title": "State Administrative Structure, Judiciary & Local Governance",
       "description": "State Vidhan Sabha/Parishad, Governor's role, State High Court, State Public Service Commission, and Panchayati Raj.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 12,
+      "mapped_exams_count": 5,
+      "total_stage_appearances": 6,
       "depth_distribution": {
         "Foundation": 0,
-        "Intermediate": 8,
+        "Intermediate": 4,
         "Advanced": 0,
-        "Analytical": 4
+        "Analytical": 2
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Mains Papers 1 to 5",
-          "depth_level": "Analytical",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.25
-        },
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 1 (General Studies & Humanities)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 8.75
         },
         {
           "exam_id": "MPPSC_SSE",
@@ -12272,25 +11453,11 @@
           "weightage_pct_estimate": 8.75
         },
         {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 1 (General Studies)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.25
-        },
-        {
           "exam_id": "RPSC_RAS",
           "stage_name": "Prelims (General Knowledge & General Science)",
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 8.75
         },
         {
           "exam_id": "TSPSC_GROUP_1",
@@ -12441,22 +11608,15 @@
       "sub_domain": "arithmetic",
       "topic_title": "Business Partnerships, Capital-Duration Ratio & Profit Distribution",
       "description": "Partnership investments, capital-time ratio, working versus sleeping partners, and profit-sharing computations.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
@@ -12479,25 +11639,11 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -12563,13 +11709,6 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
           "exam_id": "UPPSC_PCS",
           "stage_name": "Prelims Paper 2 (CSAT)",
           "depth_level": "Foundation",
@@ -12596,13 +11735,6 @@
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 3.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         }
       ]
     },
@@ -12612,22 +11744,15 @@
       "sub_domain": "arithmetic",
       "topic_title": "Percentages, Profit, Loss, Mark-up & Discounts",
       "description": "Successive percentage changes, profit and loss margins, marked price, discounts, and dishonest dealer problems.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
@@ -12650,25 +11775,11 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -12734,13 +11845,6 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
           "exam_id": "UPPSC_PCS",
           "stage_name": "Prelims Paper 2 (CSAT)",
           "depth_level": "Foundation",
@@ -12767,13 +11871,6 @@
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 3.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         }
       ]
     },
@@ -12807,22 +11904,15 @@
       "sub_domain": "arithmetic",
       "topic_title": "Simple & Compound Interest, Compounding Periods & Installments",
       "description": "Simple interest, compound interest (annual/half-yearly), difference between CI and SI, and equated loan installments.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
@@ -12845,25 +11935,11 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -12929,13 +12005,6 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
           "exam_id": "UPPSC_PCS",
           "stage_name": "Prelims Paper 2 (CSAT)",
           "depth_level": "Foundation",
@@ -12962,13 +12031,6 @@
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 3.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         }
       ]
     },
@@ -12978,22 +12040,15 @@
       "sub_domain": "averages_ages",
       "topic_title": "Averages, Weighted Averages & Inclusions/Exclusions",
       "description": "Arithmetic mean, weighted average formula, change in average on inclusion or replacement of members, and batting averages.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
@@ -13016,25 +12071,11 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -13100,13 +12141,6 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
           "exam_id": "UPPSC_PCS",
           "stage_name": "Prelims Paper 2 (CSAT)",
           "depth_level": "Foundation",
@@ -13133,13 +12167,6 @@
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 3.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         }
       ]
     },
@@ -13149,22 +12176,15 @@
       "sub_domain": "averages_ages",
       "topic_title": "Linear Age Relations & Time-Shift Projections",
       "description": "Formulation and solution of linear equations based on past, present, and future chronological age ratios.",
-      "mapped_exams_count": 22,
-      "total_stage_appearances": 22,
+      "mapped_exams_count": 17,
+      "total_stage_appearances": 17,
       "depth_distribution": {
-        "Foundation": 10,
-        "Intermediate": 12,
+        "Foundation": 6,
+        "Intermediate": 11,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "BPSC_CCE",
           "stage_name": "Prelims (General Studies)",
@@ -13187,25 +12207,11 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 6.0
-        },
-        {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 10.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -13271,13 +12277,6 @@
           "weightage_pct_estimate": 5.0
         },
         {
-          "exam_id": "TNPSC_GROUP_1",
-          "stage_name": "Prelims (General Studies & Mental Ability)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
-        },
-        {
           "exam_id": "UPPSC_PCS",
           "stage_name": "Prelims Paper 2 (CSAT)",
           "depth_level": "Foundation",
@@ -13304,13 +12303,6 @@
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 3.0
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Mains Papers 3 to 6",
-          "depth_level": "Intermediate",
-          "is_optional": false,
-          "weightage_pct_estimate": 5.0
         }
       ]
     },
@@ -13901,22 +12893,15 @@
       "sub_domain": "blood_relations",
       "topic_title": "Symbol-Coded Blood Relations & Kinship Derivations",
       "description": "Deciphering kinship relations encoded via mathematical symbols and multi-step expression evaluation.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -13962,13 +12947,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -13981,22 +12959,15 @@
       "sub_domain": "blood_relations",
       "topic_title": "Family Tree Construction & Direct Relational Puzzles",
       "description": "Narrative family tree construction, generation linking, and 'pointing to a person' relationship problems.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14042,13 +13013,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14061,22 +13025,15 @@
       "sub_domain": "coded_inequalities",
       "topic_title": "Coded Inequalities & Magic Box Technique",
       "description": "Solving coded inequality relationships where operators are encrypted as symbols using the Magic Box method.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14122,13 +13079,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14141,22 +13091,15 @@
       "sub_domain": "coded_inequalities",
       "topic_title": "Mathematical Inequalities & Chain Linkages",
       "description": "Evaluating direct algebraic inequalities involving relational operators (>, <, =, >=, <=) across multi-statement chains.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14202,13 +13145,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14221,22 +13157,15 @@
       "sub_domain": "coding_decoding",
       "topic_title": "Letter Shifting, Substitution & Symbol Coding",
       "description": "Letter shifts, reverse alphabet, symbol coding, conditional matrix coding, and fictitious language ciphering.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14282,13 +13211,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14301,22 +13223,15 @@
       "sub_domain": "coding_decoding",
       "topic_title": "Number Series, Alphanumeric Sequences & Pattern Completion",
       "description": "Arithmetic and geometric difference series, alphanumeric sequences, and wrong term identification.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14362,13 +13277,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14536,22 +13444,15 @@
       "sub_domain": "direction_distance",
       "topic_title": "Cardinal Directions, Turn Angles & Pythagorean Distance",
       "description": "Eight compass directions, clockwise/anticlockwise turns, displacement vectors, and Pythagoras distance.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14597,13 +13498,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14616,22 +13510,15 @@
       "sub_domain": "direction_distance",
       "topic_title": "Shadow Direction Dynamics & Clock Hand Orientations",
       "description": "Sun-shadow dynamics at sunrise and sunset, facing directions, and directional clock hand orientation.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14677,13 +13564,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14696,22 +13576,15 @@
       "sub_domain": "input_output",
       "topic_title": "Advanced Machine Input-Output: Mathematical Block Operations",
       "description": "Multi-step machine input models operating on two-digit numerical blocks via mathematical transformations.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14757,13 +13630,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14776,22 +13642,15 @@
       "sub_domain": "input_output",
       "topic_title": "Machine Input-Output: Word & Number Shifting Rules",
       "description": "Sequential machine processing algorithms rearranging words alphabetically and numbers in ascending/descending order.",
-      "mapped_exams_count": 9,
-      "total_stage_appearances": 9,
+      "mapped_exams_count": 7,
+      "total_stage_appearances": 7,
       "depth_distribution": {
-        "Foundation": 6,
+        "Foundation": 4,
         "Intermediate": 3,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "KPSC_KAS",
-          "stage_name": "Prelims Paper 2 (General Science & Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 3.0
-        },
         {
           "exam_id": "MPPSC_SSE",
           "stage_name": "Prelims Paper 2 (General Aptitude)",
@@ -14837,13 +13696,6 @@
         {
           "exam_id": "UPSC_CSE",
           "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 1.5
-        },
-        {
-          "exam_id": "WBPSC_WBCS",
-          "stage_name": "Prelims (General Studies)",
           "depth_level": "Foundation",
           "is_optional": false,
           "weightage_pct_estimate": 1.5
@@ -14952,22 +13804,15 @@
       "sub_domain": "order_ranking",
       "topic_title": "Comparative Ordering by Attributes (Height, Weight, Marks)",
       "description": "Sorting entities based on relative comparative attributes (taller/shorter, heavier/lighter, marks).",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "EXIM_BANK_MT",
           "stage_name": "Written Stage 1 (QRE & Financial Awareness)",
@@ -14981,13 +13826,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -15039,22 +13877,15 @@
       "sub_domain": "order_ranking",
       "topic_title": "Linear Order & Ranking in a Row",
       "description": "Calculating total count from left/right rankings, intermediate entity counts, and interchanged seat positions.",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "EXIM_BANK_MT",
           "stage_name": "Written Stage 1 (QRE & Financial Awareness)",
@@ -15068,13 +13899,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -15126,22 +13950,15 @@
       "sub_domain": "puzzles_seating",
       "topic_title": "Floor, Flat & Box Stacking Arrangement Puzzles",
       "description": "Multi-floor building puzzles (floors 1 to 10), flat-floor combinations, and vertical box stacking order.",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "EXIM_BANK_MT",
           "stage_name": "Written Stage 1 (QRE & Financial Awareness)",
@@ -15155,13 +13972,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -15213,22 +14023,15 @@
       "sub_domain": "puzzles_seating",
       "topic_title": "Linear & Circular/Polygonal Seating Arrangements",
       "description": "Single/double row seating facing North/South, and circular/polygonal table seating facing inward and outward.",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "EXIM_BANK_MT",
           "stage_name": "Written Stage 1 (QRE & Financial Awareness)",
@@ -15242,13 +14045,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
@@ -15300,22 +14096,15 @@
       "sub_domain": "puzzles_seating",
       "topic_title": "Day, Month, Year Scheduling & Multi-Attribute Matrix Puzzles",
       "description": "Scheduling across days of the week, months and dates, and multi-attribute matrix matching grids.",
-      "mapped_exams_count": 10,
-      "total_stage_appearances": 10,
+      "mapped_exams_count": 8,
+      "total_stage_appearances": 8,
       "depth_distribution": {
-        "Foundation": 2,
+        "Foundation": 0,
         "Intermediate": 8,
         "Advanced": 0,
         "Analytical": 0
       },
       "mapped_exams": [
-        {
-          "exam_id": "APPSC_GROUP_1",
-          "stage_name": "Prelims Paper 2 (General Aptitude)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 10.0
-        },
         {
           "exam_id": "EXIM_BANK_MT",
           "stage_name": "Written Stage 1 (QRE & Financial Awareness)",
@@ -15329,13 +14118,6 @@
           "depth_level": "Intermediate",
           "is_optional": false,
           "weightage_pct_estimate": 5.0
-        },
-        {
-          "exam_id": "MPSC_RAJYASEVA",
-          "stage_name": "Prelims Paper 2 (CSAT)",
-          "depth_level": "Foundation",
-          "is_optional": false,
-          "weightage_pct_estimate": 7.0
         },
         {
           "exam_id": "NABARD_GRADE_A",
