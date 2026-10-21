@@ -665,6 +665,53 @@ it('IAF AFCAT enforces minimum 50% in 10+2 Physics and Mathematics for Flying Br
   assert.strictEqual(vPass.status, 'ELIGIBLE');
 });
 
+it('IAF AFCAT differentiates Flying Branch (162.5cm + cockpit anthropometrics) vs Ground Duty (157.5cm)', () => {
+  const rule = AUTHORITATIVE_EXAM_RULES['IAF_AFCAT'];
+
+  // Candidate with 160 cm height (meets Ground Duty 157.5cm, below Flying 162.5cm)
+  const pGroundOnly = {
+    dob: '2005-01-01',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_aggregate_pct: 65.0,
+    ten_plus_two_maths_pct: 60.0,
+    ten_plus_two_physics_pct: 60.0,
+    height_cm: 160.0,
+  };
+  const vGround = evaluateEligibility(pGroundOnly, rule, 2027);
+  assert.strictEqual(vGround.status, 'ELIGIBLE');
+  assert(vGround.reasons.some(r => r.includes('below Flying Branch threshold') && r.includes('eligible for Ground Duty branches only')));
+
+  // Candidate with height 165 cm but sitting height 80 cm (< 81.5 cm min)
+  const pSittingFail = {
+    dob: '2005-01-01',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_aggregate_pct: 65.0,
+    ten_plus_two_maths_pct: 60.0,
+    ten_plus_two_physics_pct: 60.0,
+    height_cm: 165.0,
+    sitting_height_cm: 80.0,
+  };
+  const vSitting = evaluateEligibility(pSittingFail, rule, 2027);
+  assert.strictEqual(vSitting.status, 'ELIGIBLE');
+  assert(vSitting.reasons.some(r => r.includes('Sitting height 80 cm outside Flying Branch cockpit safety limits')));
+
+  // Candidate below Ground Duty height (< 157.5 cm Male)
+  const pUnderHeight = {
+    dob: '2005-01-01',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_aggregate_pct: 65.0,
+    ten_plus_two_maths_pct: 60.0,
+    ten_plus_two_physics_pct: 60.0,
+    height_cm: 155.0,
+  };
+  const vUnder = evaluateEligibility(pUnderHeight, rule, 2027);
+  assert.strictEqual(vUnder.status, 'INELIGIBLE');
+  assert(vUnder.reasons.some(r => r.includes('Height 155 cm fails minimum standard')));
+});
+
 it('UPSC CAPF AC bars currently/previously appointed Assistant Commandants from reappearing', () => {
   const rule = AUTHORITATIVE_EXAM_RULES['UPSC_CAPF_AC'];
   const pPriorAC = {

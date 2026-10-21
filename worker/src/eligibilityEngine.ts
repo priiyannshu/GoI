@@ -56,10 +56,24 @@ export interface PhysicalStandardsRule {
   min_height_female_cm?: number;
   min_chest_male_cm?: number;
   min_expansion_male_cm?: number;
+  min_weight_male_kg?: number;
+  min_weight_female_kg?: number;
   disallow_color_blind?: boolean;
   lasik_allowed?: boolean;
   lasik_min_age?: number;
   lasik_wait_months?: number;
+  flying_branch_standards?: {
+    min_height_cm: number;
+    sitting_height_min_cm: number;
+    sitting_height_max_cm: number;
+    leg_length_min_cm: number;
+    leg_length_max_cm: number;
+    thigh_length_max_cm: number;
+  };
+  ground_duty_standards?: {
+    min_height_male_cm: number;
+    min_height_female_cm: number;
+  };
   DSP_Male?: { min_height_cm: number; min_chest_cm?: number; min_expansion_cm?: number };
   DSP_Female?: { min_height_cm: number; min_chest_cm?: number; min_expansion_cm?: number };
   IPS_Male?: { min_height_cm: number; min_chest_cm?: number; min_expansion_cm?: number };
@@ -133,6 +147,10 @@ export interface UserProfileInput {
   fluent_languages?: string[];
   prior_attempts?: Record<string, number>;
   height_cm?: number | null;
+  sitting_height_cm?: number | null;
+  leg_length_cm?: number | null;
+  thigh_length_cm?: number | null;
+  weight_kg?: number | null;
   chest_cm?: number | null;
   chest_expansion_cm?: number | null;
   has_color_blindness?: boolean;
@@ -298,6 +316,8 @@ export const AUTHORITATIVE_EXAM_RULES: Record<string, ExamEligibilityRule> = {
       min_height_female_cm: 157,
       min_chest_male_cm: 81,
       min_expansion_male_cm: 5,
+      min_weight_male_kg: 50,
+      min_weight_female_kg: 46,
       disallow_color_blind: true,
     },
     citation: 'UPSC Notice No. 09/2024-CPF, Clause 3(III)-(V)',
@@ -322,8 +342,20 @@ export const AUTHORITATIVE_EXAM_RULES: Record<string, ExamEligibilityRule> = {
       IMA: 'Unmarried_Male',
       OTA_Women: 'Unmarried_or_Issueless_Widow',
     },
-    physical_standards: { min_height_male_cm: 157.5, min_height_female_cm: 152 },
-    citation: 'UPSC Notice No. 11/2025.CDS-II, Clause 3(a)-(c)',
+    physical_standards: {
+      min_height_male_cm: 157.5,
+      min_height_female_cm: 152,
+      flying_branch_standards: {
+        min_height_cm: 162.5,
+        sitting_height_min_cm: 81.5,
+        sitting_height_max_cm: 96.0,
+        leg_length_min_cm: 99.0,
+        leg_length_max_cm: 120.0,
+        thigh_length_max_cm: 64.0,
+      },
+      disallow_color_blind: true,
+    },
+    citation: 'UPSC Notice No. 11/2025.CDS-II, Clause 3(a)-(c) & Appendix-IV',
   },
 
   IAF_AFCAT: {
@@ -346,12 +378,24 @@ export const AUTHORITATIVE_EXAM_RULES: Record<string, ExamEligibilityRule> = {
     physical_standards: {
       min_height_male_cm: 157.5,
       min_height_female_cm: 152.0,
+      flying_branch_standards: {
+        min_height_cm: 162.5,
+        sitting_height_min_cm: 81.5,
+        sitting_height_max_cm: 96.0,
+        leg_length_min_cm: 99.0,
+        leg_length_max_cm: 120.0,
+        thigh_length_max_cm: 64.0,
+      },
+      ground_duty_standards: {
+        min_height_male_cm: 157.5,
+        min_height_female_cm: 152.0,
+      },
       disallow_color_blind: true,
       lasik_allowed: true,
       lasik_min_age: 20,
       lasik_wait_months: 12,
     },
-    citation: 'IAF AFCAT 01/2024 Notification, Clause 3(b)',
+    citation: 'IAF AFCAT 01/2024 Notification, Clause 3(b) & Air Force Medical Standards (IAP 4303 5th Ed)',
   },
 
   UPSC_CGSE: {
@@ -1573,6 +1617,64 @@ export function evaluateEligibility(
         'Color vision defect (Color Blindness) is disqualifying for this executive uniformed/technical cadre'
       );
     }
+
+    // Cockpit Anthropometrics for Flying Branches (IAF AFCAT & CDS AFA)
+    if (phys.flying_branch_standards) {
+      const fly = phys.flying_branch_standards;
+      const flyMinH = fly.min_height_cm;
+
+      // Standing height diagnostic for Flying branch
+      if (profile.height_cm !== undefined && profile.height_cm !== null) {
+        if (profile.height_cm < flyMinH) {
+          const min_h = !isFemale ? phys.min_height_male_cm : phys.min_height_female_cm;
+          if (min_h && profile.height_cm >= min_h) {
+            reasons.push(
+              `Height ${profile.height_cm} cm is below Flying Branch threshold (${flyMinH} cm); eligible for Ground Duty branches only`
+            );
+          }
+        } else {
+          // Check cockpit anthropometric dimensions if supplied
+          const sitting = profile.sitting_height_cm;
+          const leg = profile.leg_length_cm;
+          const thigh = profile.thigh_length_cm;
+
+          if (sitting !== undefined && sitting !== null) {
+            if (sitting < fly.sitting_height_min_cm || sitting > fly.sitting_height_max_cm) {
+              reasons.push(
+                `Sitting height ${sitting} cm outside Flying Branch cockpit safety limits (${fly.sitting_height_min_cm}–${fly.sitting_height_max_cm} cm); eligible for Ground Duty only`
+              );
+            }
+          }
+
+          if (leg !== undefined && leg !== null) {
+            if (leg < fly.leg_length_min_cm || leg > fly.leg_length_max_cm) {
+              reasons.push(
+                `Leg length ${leg} cm outside Flying Branch cockpit rudder limits (${fly.leg_length_min_cm}–${fly.leg_length_max_cm} cm); eligible for Ground Duty only`
+              );
+            }
+          }
+
+          if (thigh !== undefined && thigh !== null) {
+            if (thigh > fly.thigh_length_max_cm) {
+              reasons.push(
+                `Thigh length ${thigh} cm exceeds Flying Branch ejection clearance max (${fly.thigh_length_max_cm} cm); eligible for Ground Duty only`
+              );
+            }
+          }
+        }
+      }
+    }
+
+    // Weight Standards
+    if (profile.weight_kg !== undefined && profile.weight_kg !== null) {
+      const minWeight = isFemale ? phys.min_weight_female_kg : phys.min_weight_male_kg;
+      if (minWeight && profile.weight_kg < minWeight) {
+        is_eligible = false;
+        reasons.push(
+          `Weight ${profile.weight_kg} kg fails minimum statutory weight of ${minWeight} kg for ${isFemale ? 'Female' : 'Male'}`
+        );
+      }
+    }
   }
 
   // Prior Assistant Commandant Re-appearance Disqualification
@@ -1640,6 +1742,8 @@ export function evaluateEligibility(
     reasons: !is_eligible
       ? reasons
       : is_conditional
+      ? reasons
+      : reasons.length > 0
       ? reasons
       : ['Meets all statutory eligibility criteria'],
     relaxations_applied,

@@ -245,14 +245,53 @@
                 {{ examRule?.allows_final_year ? 'Yes (Provisional proof required before Mains)' : 'No (Degree proof required on cutoff)' }}
               </span>
             </div>
-            <div v-if="examRule?.physical_standards" class="py-1.5 border-b border-slate-200 dark:border-slate-800 space-y-1">
-              <span class="text-slate-500 dark:text-slate-400 block">Physical Standards:</span>
-              <div class="text-[11px] text-slate-600 dark:text-slate-300 space-y-0.5">
-                <div v-if="examRule.physical_standards.min_height_male_cm">
-                  Height: Min {{ examRule.physical_standards.min_height_male_cm }} cm (Male) / {{ examRule.physical_standards.min_height_female_cm || 152 }} cm (Female)
+            <div v-if="examRule?.physical_standards" class="py-2 border-b border-slate-200 dark:border-slate-800 space-y-2">
+              <span class="text-slate-500 dark:text-slate-400 block font-semibold text-xs">Statutory Physical Standards:</span>
+              <div class="text-[11px] text-slate-700 dark:text-slate-300 space-y-2">
+                <!-- Cockpit Anthropometrics for Flying Branches (AFCAT / CDS AFA) -->
+                <div v-if="examRule.physical_standards.flying_branch_standards" class="p-2.5 rounded-xl bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-800/40 space-y-1">
+                  <div class="font-bold text-sky-800 dark:text-sky-300 flex items-center space-x-1">
+                    <span>✈️ Flying Branch (Cockpit Anthropometrics)</span>
+                  </div>
+                  <div class="text-slate-600 dark:text-slate-300 space-y-0.5 pl-1">
+                    <div>• Standing Height: <strong class="text-slate-800 dark:text-slate-100">Min {{ examRule.physical_standards.flying_branch_standards.min_height_cm }} cm</strong> (Male & Female, no concessions)</div>
+                    <div>• Sitting Height: <strong class="text-slate-800 dark:text-slate-100">{{ examRule.physical_standards.flying_branch_standards.sitting_height_min_cm }} – {{ examRule.physical_standards.flying_branch_standards.sitting_height_max_cm }} cm</strong></div>
+                    <div>• Leg Length: <strong class="text-slate-800 dark:text-slate-100">{{ examRule.physical_standards.flying_branch_standards.leg_length_min_cm }} – {{ examRule.physical_standards.flying_branch_standards.leg_length_max_cm }} cm</strong></div>
+                    <div>• Thigh Length: <strong class="text-slate-800 dark:text-slate-100">Max {{ examRule.physical_standards.flying_branch_standards.thigh_length_max_cm }} cm</strong></div>
+                  </div>
                 </div>
-                <div v-if="examRule.physical_standards.min_chest_male_cm">
-                  Chest: Min {{ examRule.physical_standards.min_chest_male_cm }} cm (Expansion 5 cm)
+
+                <!-- Ground Duty & Standard Standing Biometrics -->
+                <div v-if="examRule.physical_standards.min_height_male_cm" class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 space-y-1">
+                  <div class="font-bold text-slate-800 dark:text-slate-200">
+                    {{ examRule.physical_standards.flying_branch_standards ? '🎖️ Ground Duty / General Cadres' : '📏 Statutory Biometrics' }}
+                  </div>
+                  <div class="text-slate-600 dark:text-slate-300 space-y-0.5 pl-1">
+                    <div>Height: Min {{ examRule.physical_standards.min_height_male_cm }} cm (Male) / {{ examRule.physical_standards.min_height_female_cm || 152 }} cm (Female)</div>
+                    <div v-if="examRule.physical_standards.min_chest_male_cm">
+                      Chest: Min {{ examRule.physical_standards.min_chest_male_cm }} cm (Expansion 5 cm)
+                    </div>
+                    <div v-if="examRule.physical_standards.min_weight_male_kg">
+                      Weight: Min {{ examRule.physical_standards.min_weight_male_kg }} kg (Male) / {{ examRule.physical_standards.min_weight_female_kg || 46 }} kg (Female)
+                    </div>
+                  </div>
+                </div>
+
+                <!-- State Police Cadres (DSP / RPS) -->
+                <div v-if="examRule.physical_standards.DSP_Male || examRule.physical_standards.RPS_Male" class="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/40 space-y-1">
+                  <div class="font-bold text-amber-800 dark:text-amber-300">🚓 Police Service Cadres (DSP / RPS)</div>
+                  <div class="text-slate-600 dark:text-slate-300 space-y-0.5 pl-1">
+                    <div v-if="examRule.physical_standards.DSP_Male">
+                      Male Height: Min {{ examRule.physical_standards.DSP_Male.min_height_cm }} cm
+                      <span v-if="examRule.physical_standards.DSP_Male.min_chest_cm"> | Chest: {{ examRule.physical_standards.DSP_Male.min_chest_cm }} cm (+5cm)</span>
+                    </div>
+                    <div v-if="examRule.physical_standards.RPS_Male">
+                      Male Height: Min {{ examRule.physical_standards.RPS_Male.min_height_cm }} cm | Chest: {{ examRule.physical_standards.RPS_Male.min_chest_cm }} cm (+5cm)
+                    </div>
+                    <div class="text-[10px] text-slate-500 dark:text-slate-400 mt-1 italic">
+                      *Administrative cadres (SDM, Accounts, Revenue) enforce zero height/chest requirements.
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
