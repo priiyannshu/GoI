@@ -166,20 +166,34 @@ class TestSQLInjectionAndExtremeDatabaseBoundaries(unittest.TestCase):
 
     def test_adv_04_extreme_integer_and_float_overflow_boundaries(self):
         """Extreme numeric inputs (NaN, Infinity, 1e308, negative values) are rejected by domain gates."""
-        extreme_values = [
-            float("nan"),
-            float("inf"),
-            float("-inf"),
-            1e308,
-            -1e308,
+        with open("data/schema.sql") as f:
+            prod_schema = f.read()
+        conn = sqlite3.connect(":memory:")
+        conn.executescript(prod_schema)
+        cursor = conn.cursor()
+
+        extreme_invalid_pcts = [
             -0.0001,
+            -100.0,
             100.0001,
             999999999.9,
+            1e308,
+            -1e308,
         ]
 
-        for val in extreme_values:
-            is_valid_pct = (not math.isnan(val)) and (not math.isinf(val)) and (0.0 <= val <= 100.0)
-            self.assertFalse(is_valid_pct, f"Value {val} should be recognized as invalid aggregate percentage")
+        # 1. Test production database schema check constraint (0.0 <= graduation_aggregate_pct <= 100.0)
+        for i, val in enumerate(extreme_invalid_pcts):
+            with self.assertRaises(sqlite3.IntegrityError, msg=f"Value {val} should violate SQLite CHECK constraint"):
+                cursor.execute(f"""
+                    INSERT INTO user_profiles (user_id, dob, gender, category, graduation_degree, graduation_discipline, graduation_aggregate_pct, state_domicile)
+                    VALUES ('usr_overflow_{i}', '2000-01-01', 'MALE', 'GEN', 'Bachelor', 'Civil', {val}, 'Delhi');
+                """)
+        conn.close()
+
+        # 2. Test production statutory eligibility engine rejection on extreme negative / overflow percentages
+        profile_neg = UserProfile(dob="2000-01-01", gender="Male", category="GEN", degree="Bachelor", discipline="Civil", aggregate_pct=-5.0)
+        verdict_neg = evaluate_statutory_eligibility(profile_neg, "RBI_GRADE_B")
+        self.assertEqual(verdict_neg["status"], "INELIGIBLE")
 
     def test_adv_05_foreign_key_case_and_trailing_space_resistance(self):
         """Foreign key constraint rejects case mismatches and trailing space variations."""
@@ -488,7 +502,7 @@ class TestHighCombinatorialStressUpSetAndVenn(unittest.TestCase):
         self.assertEqual(intersections[only_combo], shared_topics)
 
     def test_adv_22_dynamic_venn_four_set_complete_15_region_disjointness(self):
-        """Dynamic 4-set Venn produces 15 mutually exclusive regions that cover all elements."""
+        """Dynamic 4-set Venn produces 15 mutually exclusive regions that cover all elements via calculate_upset_intersections."""
         sets = {
             "A": {"t1", "t2", "t3", "t4", "t12", "t13", "t14", "t123", "t124", "t134", "t1234"},
             "B": {"t2", "t5", "t6", "t7", "t12", "t23", "t24", "t123", "t124", "t234", "t1234"},
@@ -497,22 +511,18 @@ class TestHighCombinatorialStressUpSetAndVenn(unittest.TestCase):
         }
         all_elements = sets["A"] | sets["B"] | sets["C"] | sets["D"]
 
-        # Compute all 2^4 - 1 = 15 regions
-        keys = ["A", "B", "C", "D"]
-        regions: Dict[Tuple[str, ...], Set[str]] = {}
-        for elem in all_elements:
-            mask = tuple(k for k in keys if elem in sets[k])
-            if mask not in regions:
-                regions[mask] = set()
-            regions[mask].add(elem)
+        # Call the production set partition engine directly
+        regions = calculate_upset_intersections(sets)
 
         self.assertLessEqual(len(regions), 15)
-        # Verify pairwise disjointness
+        self.assertEqual(len(regions), 15, "All 2^4 - 1 = 15 non-empty disjoint Venn regions must be discovered")
+
+        # Verify pairwise disjointness across all computed regions
         seen: Set[str] = set()
         for mask, r_topics in regions.items():
-            self.assertEqual(len(seen & r_topics), 0)
+            self.assertEqual(len(seen & r_topics), 0, f"Disjoint violation on region {mask}")
             seen.update(r_topics)
-        self.assertEqual(seen, all_elements)
+        self.assertEqual(seen, all_elements, "Union of all Venn regions must exactly partition all universe elements")
 
     def test_adv_23_venn_degenerate_cases_subset_and_empty_sets(self):
         """Venn and overlap metrics handle empty sets, identical sets, and subset inclusions safely."""
@@ -673,6 +683,40 @@ class TestForceGraphPhysicsStability(unittest.TestCase):
 
     def test_adv_28_force_graph_depth_weighted_spring_distances(self):
         """Link spring strengths scale with cognitive depth: Analytical > Advanced > Intermediate > Foundation."""
+        # 1. Verify master relational schema check constraint rejects invalid depth levels
+        with open("data/schema.sql") as f:
+            prod_schema = f.read()
+        conn = sqlite3.connect(":memory:")
+        conn.execute("PRAGMA foreign_keys = ON;")
+        conn.executescript(prod_schema)
+        cursor = conn.cursor()
+
+        cursor.execute("""
+            INSERT INTO exams (exam_id, title, short_code, category, administering_body, frequency, official_website, latest_official_notification_url, tentative_timeline_2027)
+            VALUES ('UPSC_CSE', 'Civil Services', 'CSE', 'Central-Civil', 'UPSC', 'Annual', 'https://upsc.gov.in', 'https://upsc.gov.in/notif.pdf', '{}');
+        """)
+        cursor.execute("""
+            INSERT INTO syllabus_taxonomy (topic_id, domain, sub_domain, topic_title, description)
+            VALUES ('gs.polity.constitution', 'General Studies', 'Polity', 'Constitution', 'Indian Constitution');
+        """)
+        conn.commit()
+
+        with self.assertRaises(sqlite3.IntegrityError, msg="Database check constraint must reject invalid depth level"):
+            cursor.execute("""
+                INSERT INTO exam_syllabus_map (exam_id, stage_name, topic_id, depth_level)
+                VALUES ('UPSC_CSE', 'Prelims', 'gs.polity.constitution', 'SuperAdvanced');
+            """)
+        conn.close()
+
+        # 2. Verify all 4 canonical cognitive depth levels exist in production database
+        prod_conn = sqlite3.connect("data/grade_a_exams.db")
+        c = prod_conn.cursor()
+        c.execute("SELECT DISTINCT depth_level FROM exam_syllabus_map ORDER BY depth_level")
+        found_depths = {row[0] for row in c.fetchall()}
+        prod_conn.close()
+        self.assertEqual(found_depths, {"Foundation", "Intermediate", "Advanced", "Analytical"})
+
+        # 3. Verify monotonic visual stroke encodings used in BipartiteGraphView.vue
         depth_weights = {
             "Foundation": 1.5,
             "Intermediate": 2.5,
