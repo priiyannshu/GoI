@@ -1572,33 +1572,40 @@ export function evaluateEligibility(
             );
           }
         } else {
-          // Check cockpit anthropometric dimensions if supplied
+          // Check cockpit anthropometric dimensions if supplied or flag as needed info
           const sitting = profile.sitting_height_cm;
           const leg = profile.leg_length_cm;
           const thigh = profile.thigh_length_cm;
 
-          if (sitting !== undefined && sitting !== null) {
-            if (sitting < fly.sitting_height_min_cm || sitting > fly.sitting_height_max_cm) {
-              reasons.push(
-                `Sitting height ${sitting} cm outside Flying Branch cockpit safety limits (${fly.sitting_height_min_cm}–${fly.sitting_height_max_cm} cm); eligible for Ground Duty only`
-              );
-            }
+          const missingCockpitDetails: string[] = [];
+          if (sitting === undefined || sitting === null) {
+            missingCockpitDetails.push('Sitting height');
+          } else if (sitting < fly.sitting_height_min_cm || sitting > fly.sitting_height_max_cm) {
+            reasons.push(
+              `Sitting height ${sitting} cm outside Flying Branch cockpit safety limits (${fly.sitting_height_min_cm}–${fly.sitting_height_max_cm} cm); eligible for Ground Duty only`
+            );
           }
 
-          if (leg !== undefined && leg !== null) {
-            if (leg < fly.leg_length_min_cm || leg > fly.leg_length_max_cm) {
-              reasons.push(
-                `Leg length ${leg} cm outside Flying Branch cockpit rudder limits (${fly.leg_length_min_cm}–${fly.leg_length_max_cm} cm); eligible for Ground Duty only`
-              );
-            }
+          if (leg === undefined || leg === null) {
+            missingCockpitDetails.push('Leg length');
+          } else if (leg < fly.leg_length_min_cm || leg > fly.leg_length_max_cm) {
+            reasons.push(
+              `Leg length ${leg} cm outside Flying Branch cockpit rudder limits (${fly.leg_length_min_cm}–${fly.leg_length_max_cm} cm); eligible for Ground Duty only`
+            );
           }
 
-          if (thigh !== undefined && thigh !== null) {
-            if (thigh > fly.thigh_length_max_cm) {
-              reasons.push(
-                `Thigh length ${thigh} cm exceeds Flying Branch ejection clearance max (${fly.thigh_length_max_cm} cm); eligible for Ground Duty only`
-              );
-            }
+          if (thigh === undefined || thigh === null) {
+            missingCockpitDetails.push('Thigh length');
+          } else if (thigh > fly.thigh_length_max_cm) {
+            reasons.push(
+              `Thigh length ${thigh} cm exceeds Flying Branch ejection clearance max (${fly.thigh_length_max_cm} cm); eligible for Ground Duty only`
+            );
+          }
+
+          if (missingCockpitDetails.length > 0 && isSkippedCheckEnabled) {
+            skipped_requirements.push(
+              `IAF Flying Branch cockpit anthropometrics required (${missingCockpitDetails.join(', ')}) to verify Flying Branch eligibility`
+            );
           }
         }
       }
