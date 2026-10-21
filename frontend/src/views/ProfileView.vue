@@ -460,16 +460,27 @@
           <span class="text-xs text-slate-500 dark:text-slate-400">Relevant for CAPF, Defense & Police Cadres</span>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Height (cm)</label>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Standing Height (cm)</label>
             <input
               type="number"
               v-model.number="profile.height_cm"
               placeholder="e.g. 170 (optional)"
               class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
             />
-            <span class="text-[10px] text-slate-500">CAPF AC / Defense / Police entry</span>
+            <span class="text-[10px] text-slate-500">Aviation (162.5cm) / Uniformed</span>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Weight (kg)</label>
+            <input
+              type="number"
+              v-model.number="profile.weight_kg"
+              placeholder="e.g. 65 (optional)"
+              class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
+            />
+            <span class="text-[10px] text-slate-500">CAPF AC / State Police standard</span>
           </div>
 
           <div>
@@ -480,7 +491,7 @@
               placeholder="e.g. 84 (optional)"
               class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500"
             />
-            <span class="text-[10px] text-slate-500">Male uniformed standard: min 81–84 cm</span>
+            <span class="text-[10px] text-slate-500">Male uniformed: min 81–84 cm</span>
           </div>
 
           <div class="flex items-center space-x-3 pt-4">
@@ -492,6 +503,46 @@
               />
               <span>Color Blindness</span>
             </label>
+          </div>
+        </div>
+
+        <!-- Cockpit Anthropometrics (IAF AFCAT & CDS Flying) -->
+        <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+          <span class="text-xs font-bold text-sky-700 dark:text-sky-400 block mb-2">✈️ Cockpit Anthropometrics (AFCAT & CDS Flying Branch)</span>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">Sitting Height (cm)</label>
+              <input
+                type="number"
+                step="0.5"
+                v-model.number="profile.sitting_height_cm"
+                placeholder="81.5 – 96.0 cm"
+                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-sky-500"
+              />
+              <span class="text-[10px] text-slate-500">Cockpit canopy & seat clearance</span>
+            </div>
+            <div>
+              <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">Leg Length (cm)</label>
+              <input
+                type="number"
+                step="0.5"
+                v-model.number="profile.leg_length_cm"
+                placeholder="99.0 – 120.0 cm"
+                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-sky-500"
+              />
+              <span class="text-[10px] text-slate-500">Rudder pedal full throw reach</span>
+            </div>
+            <div>
+              <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">Thigh Length (cm)</label>
+              <input
+                type="number"
+                step="0.5"
+                v-model.number="profile.thigh_length_cm"
+                placeholder="Max 64.0 cm"
+                class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-sky-500"
+              />
+              <span class="text-[10px] text-slate-500">Ejection clearance threshold</span>
+            </div>
           </div>
         </div>
       </div>

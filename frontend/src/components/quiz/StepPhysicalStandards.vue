@@ -7,36 +7,74 @@
       </p>
     </div>
 
-    <!-- Height (cm) with Comparison Gauge -->
+    <!-- Height & Weight with Comparison Gauge -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-      <div>
-        <label for="height-input" class="block text-sm font-medium text-slate-300 mb-2">
-          Height in Centimeters (cm) <span class="text-rose-400">*</span>
-        </label>
-        <div class="relative">
-          <input
-            id="height-input"
-            type="number"
-            step="0.5"
-            min="120"
-            max="230"
-            v-model.number="profileStore.profile.height_cm"
-            placeholder="e.g. 170.0"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white pr-12 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          />
-          <span class="absolute right-4 top-2.5 text-slate-400 font-semibold text-sm">cm</span>
+      <div class="space-y-4">
+        <div>
+          <label for="height-input" class="block text-sm font-medium text-slate-300 mb-2">
+            Standing Height in Centimeters (cm) <span class="text-rose-400">*</span>
+          </label>
+          <div class="relative">
+            <input
+              id="height-input"
+              type="number"
+              step="0.5"
+              min="120"
+              max="230"
+              v-model.number="profileStore.profile.height_cm"
+              placeholder="e.g. 170.0"
+              class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white pr-12 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+            <span class="absolute right-4 top-2.5 text-slate-400 font-semibold text-sm">cm</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1.5">
+            Measured barefoot by official statutory medical board.
+          </p>
         </div>
-        <p class="text-xs text-slate-500 mt-1.5">
-          Measured barefoot by official statutory medical board.
-        </p>
+
+        <div>
+          <label for="weight-input" class="block text-sm font-medium text-slate-300 mb-2">
+            Body Weight (kg)
+          </label>
+          <div class="relative">
+            <input
+              id="weight-input"
+              type="number"
+              step="0.5"
+              min="30"
+              max="160"
+              v-model.number="profileStore.profile.weight_kg"
+              placeholder="e.g. 65.0"
+              class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white pr-12 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+            <span class="absolute right-4 top-2.5 text-slate-400 font-semibold text-sm">kg</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1.5">
+            Statutory minimum: CAPF AC (50kg M / 46kg F); UP Police (40kg F); RPSC Police (47.5kg F).
+          </p>
+        </div>
       </div>
 
       <!-- Live Uniformed Service Cutoff Meter -->
       <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-4 text-xs space-y-2">
         <span class="font-semibold text-slate-300 block uppercase tracking-wider text-[11px]">
-          Statutory Height Benchmarks ({{ profileStore.profile.gender }})
+          Statutory Standing Height Benchmarks ({{ profileStore.profile.gender }})
         </span>
         <div class="space-y-1.5">
+          <div class="flex justify-between items-center">
+            <span class="text-slate-400">IAF Flying Branch (AFCAT / CDS AFA):</span>
+            <span :class="heightMeetsFlying ? 'text-emerald-400 font-bold' : 'text-amber-400 font-semibold'">
+              162.5 cm (Both M/F)
+              ({{ heightMeetsFlying ? 'Eligible ✓' : 'Below Standard (Ground Duty Only) ✗' }})
+            </span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-slate-400">IAF Ground Duty / Defense Army & Navy:</span>
+            <span :class="heightMeetsGroundDuty ? 'text-emerald-400 font-bold' : 'text-rose-400 font-semibold'">
+              {{ profileStore.profile.gender === 'Female' ? '152 cm' : '157.5 cm' }}
+              ({{ heightMeetsGroundDuty ? 'Eligible ✓' : 'Below Standard ✗' }})
+            </span>
+          </div>
           <div class="flex justify-between items-center">
             <span class="text-slate-400">IPS / Police Services:</span>
             <span :class="heightMeetsIps ? 'text-emerald-400 font-bold' : 'text-rose-400 font-semibold'">
@@ -54,6 +92,86 @@
           <div class="flex justify-between items-center">
             <span class="text-slate-400">Civil & Regulatory (IAS, IRS, RBI, SEBI):</span>
             <span class="text-emerald-400 font-bold">No Height Requirement ✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specialized Aviation & Cockpit Anthropometrics Card (AFCAT & CDS Flying) -->
+    <div class="bg-sky-950/20 border border-sky-800/40 rounded-2xl p-5 space-y-4">
+      <div class="flex items-start justify-between gap-2">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="text-base font-bold text-sky-400">✈️ IAF Cockpit Anthropometrics</span>
+            <span class="px-2 py-0.5 rounded-full bg-sky-900/60 text-sky-300 text-[10px] font-semibold border border-sky-700/50">AFCAT & CDS AFA Flying Branch</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">
+            Mandatory ejection seat clearance and rudder pedal reach standards under <em>Air Force Medical Regulations (IAP 4303 5th Edition)</em>.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Sitting Height -->
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Sitting Height (cm)</label>
+          <div class="relative">
+            <input
+              type="number"
+              step="0.5"
+              v-model.number="profileStore.profile.sitting_height_cm"
+              placeholder="e.g. 88.0"
+              class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white pr-10 focus:ring-2 focus:ring-sky-500"
+            />
+            <span class="absolute right-3 top-2 text-slate-400 text-xs">cm</span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] mt-1">
+            <span class="text-slate-500">Range: 81.5 – 96.0 cm</span>
+            <span v-if="profileStore.profile.sitting_height_cm" :class="sittingHeightValid ? 'text-emerald-400 font-bold' : 'text-rose-400 font-semibold'">
+              {{ sittingHeightValid ? 'Safe ✓' : (profileStore.profile.sitting_height_cm < 81.5 ? 'Too Short ✗' : 'Too Tall ✗') }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Leg Length -->
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Leg Length (cm)</label>
+          <div class="relative">
+            <input
+              type="number"
+              step="0.5"
+              v-model.number="profileStore.profile.leg_length_cm"
+              placeholder="e.g. 108.0"
+              class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white pr-10 focus:ring-2 focus:ring-sky-500"
+            />
+            <span class="absolute right-3 top-2 text-slate-400 text-xs">cm</span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] mt-1">
+            <span class="text-slate-500">Range: 99.0 – 120.0 cm</span>
+            <span v-if="profileStore.profile.leg_length_cm" :class="legLengthValid ? 'text-emerald-400 font-bold' : 'text-rose-400 font-semibold'">
+              {{ legLengthValid ? 'Safe ✓' : (profileStore.profile.leg_length_cm < 99.0 ? 'Below Pedal Reach ✗' : 'Exceeds Cockpit ✗') }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Thigh Length -->
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Thigh Length (cm)</label>
+          <div class="relative">
+            <input
+              type="number"
+              step="0.5"
+              v-model.number="profileStore.profile.thigh_length_cm"
+              placeholder="e.g. 58.0"
+              class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white pr-10 focus:ring-2 focus:ring-sky-500"
+            />
+            <span class="absolute right-3 top-2 text-slate-400 text-xs">cm</span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] mt-1">
+            <span class="text-slate-500">Max limit: 64.0 cm</span>
+            <span v-if="profileStore.profile.thigh_length_cm" :class="thighLengthValid ? 'text-emerald-400 font-bold' : 'text-rose-400 font-semibold'">
+              {{ thighLengthValid ? 'Safe ✓' : 'Exceeds Ejection Limit ✗' }}
+            </span>
           </div>
         </div>
       </div>
@@ -184,6 +302,16 @@ import { useProfileStore } from '@/stores/useProfileStore';
 
 const profileStore = useProfileStore();
 
+const heightMeetsFlying = computed(() => {
+  if (!profileStore.profile.height_cm) return false;
+  return profileStore.profile.height_cm >= 162.5;
+});
+
+const heightMeetsGroundDuty = computed(() => {
+  if (!profileStore.profile.height_cm) return false;
+  return profileStore.profile.gender === 'Female' ? profileStore.profile.height_cm >= 152.0 : profileStore.profile.height_cm >= 157.5;
+});
+
 const heightMeetsIps = computed(() => {
   if (!profileStore.profile.height_cm) return false;
   return profileStore.profile.gender === 'Female' ? profileStore.profile.height_cm >= 150 : profileStore.profile.height_cm >= 165;
@@ -192,5 +320,23 @@ const heightMeetsIps = computed(() => {
 const heightMeetsCapf = computed(() => {
   if (!profileStore.profile.height_cm) return false;
   return profileStore.profile.gender === 'Female' ? profileStore.profile.height_cm >= 157 : profileStore.profile.height_cm >= 165;
+});
+
+const sittingHeightValid = computed(() => {
+  const s = profileStore.profile.sitting_height_cm;
+  if (s === undefined || s === null) return true;
+  return s >= 81.5 && s <= 96.0;
+});
+
+const legLengthValid = computed(() => {
+  const l = profileStore.profile.leg_length_cm;
+  if (l === undefined || l === null) return true;
+  return l >= 99.0 && l <= 120.0;
+});
+
+const thighLengthValid = computed(() => {
+  const t = profileStore.profile.thigh_length_cm;
+  if (t === undefined || t === null) return true;
+  return t <= 64.0;
 });
 </script>
