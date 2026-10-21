@@ -35,7 +35,7 @@
         class="py-1.5 px-4 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5"
         :class="activeTab === 'posts' ? 'bg-emerald-500 text-white shadow' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
       >
-        <span>🏛️ Hidden Posts & Cadres</span>
+        <span class="flex items-center gap-1.5"><span class="w-3.5 h-3.5 inline-block"><AppEmblem class="w-full h-full" /></span> Hidden Posts & Cadres</span>
         <span class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
           {{ hiddenStore.hiddenPostsCount }}
         </span>
@@ -101,7 +101,9 @@
     <!-- TAB 2: HIDDEN POSTS -->
     <div v-else-if="activeTab === 'posts'" class="space-y-4">
       <div v-if="hiddenPostsList.length === 0" class="p-12 text-center bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
-        <span class="text-3xl block">🏛️</span>
+        <div class="w-12 h-12 mx-auto rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center p-2 text-sky-400 mb-2">
+          <AppEmblem class="w-full h-full" />
+        </div>
         <h3 class="text-base font-bold text-slate-900 dark:text-white">No Career Posts Currently Hidden</h3>
         <p class="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto">
           In the Posts & Lifestyle section, you can click '🚫 Hide Post' on any cadre or designation you wish to filter out of your active career options.
@@ -160,6 +162,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
+import AppEmblem from '@/components/common/AppEmblem.vue';
 import { useHiddenStore } from '@/stores/useHiddenStore';
 import { useExamMasterStore } from '@/stores/useExamMasterStore';
 import { AUDITED_POSTS_DATA, GovernmentPost } from '@/data/postsData';

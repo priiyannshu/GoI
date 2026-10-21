@@ -298,6 +298,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
+import AppEmblem from '@/components/common/AppEmblem.vue';
 import { AUDITED_POSTS_DATA, COMMON_GOVERNMENT_BENEFITS } from '@/data/postsData';
 import { useHiddenStore } from '@/stores/useHiddenStore';
 
