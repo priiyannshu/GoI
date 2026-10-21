@@ -91,7 +91,7 @@ export const useSyllabusVisualizationStore = defineStore('syllabusViz', () => {
   const selectedDomain = ref<string>('ALL');
   const minDepthLevel = ref<DepthLevel>('Foundation');
   const searchQuery = ref<string>('');
-  const activeTab = ref<'upset' | 'venn' | 'bipartite'>('bipartite');
+  const activeTab = ref<'matrix' | 'upset'>('matrix');
 
   // Loading & Cache State
   const isLoading = ref<boolean>(false);
@@ -417,8 +417,8 @@ export const useSyllabusVisualizationStore = defineStore('syllabusViz', () => {
       }
       return false;
     } else {
-      // Enforce maximum cap of 4 exams (Venn diagram limit)
-      if (selectedExamIds.value.length < 4) {
+      // Allow selecting up to 10 exams
+      if (selectedExamIds.value.length < 10) {
         selectedExamIds.value.push(examId);
         return true;
       }
@@ -427,8 +427,8 @@ export const useSyllabusVisualizationStore = defineStore('syllabusViz', () => {
   }
 
   function setExamSelection(examIds: string[]) {
-    // Clamp to 2..4 items
-    const valid = Array.from(new Set(examIds)).slice(0, 4);
+    // Clamp to 2..10 items
+    const valid = Array.from(new Set(examIds)).slice(0, 10);
     if (valid.length >= 2) {
       selectedExamIds.value = valid;
     }

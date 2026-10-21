@@ -7,7 +7,7 @@
           <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
           <h2 class="text-lg font-bold text-white tracking-wide">UpSet Overlap Matrix View</h2>
           <span class="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded">
-            Alexander Lex Set Model
+            Disjoint Combinations
           </span>
         </div>
         <p class="text-xs text-slate-400 mt-1">

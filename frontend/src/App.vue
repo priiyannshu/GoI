@@ -5,7 +5,7 @@
     <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
-          <keep-alive include="ProfileQuizView,SyllabusExplorerView">
+          <keep-alive include="ProfileView,SyllabusExplorerView,ExamCatalogView">
             <component :is="Component" />
           </keep-alive>
         </transition>

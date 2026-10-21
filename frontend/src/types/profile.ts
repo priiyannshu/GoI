@@ -72,14 +72,17 @@ export interface UserProfileInput {
   lasik_age: number | null;
   lasik_wait_months: number | null;
   has_commercial_pilot_license: boolean;
+  enable_skipped_check?: boolean;
+  skipped_fields?: string[];
 }
 
 export interface EligibilityVerdict {
   exam_id: string;
-  status: 'ELIGIBLE' | 'CONDITIONALLY_ELIGIBLE' | 'INELIGIBLE';
+  status: 'ELIGIBLE' | 'CONDITIONALLY_ELIGIBLE' | 'NEEDS_INFO' | 'INELIGIBLE';
   reasons: string[];
   relaxations_applied: string[];
   statutory_citation: string;
+  skipped_requirements?: string[];
 }
 
 export interface ExamRecord {

@@ -4,8 +4,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/HomeView.vue'),
-    meta: { title: 'Grade-A: Indian Government Examinations Intelligence Platform' },
+    component: () => import('@/views/ExamCatalogView.vue'),
+    meta: { title: 'Grade-A: Audited Indian Government Examinations' },
   },
   {
     path: '/exams',
@@ -15,22 +15,30 @@ const routes: Array<RouteRecordRaw> = [
     meta: { title: 'Exam Catalog (36 Grade A Posts) - Grade-A' },
   },
   {
+    path: '/exams/:id',
+    name: 'exam-detail',
+    component: () => import('@/views/ExamDetailView.vue'),
+    meta: { title: 'Examination Audit Details - Grade-A' },
+  },
+  {
     path: '/syllabus',
     name: 'syllabus',
     component: () => import('@/views/SyllabusExplorerView.vue'),
-    meta: { title: 'Universal Syllabus Overlap Explorer - Grade-A' },
+    meta: { title: 'Syllabus Overlap Explorer - Grade-A' },
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('@/views/ProfileView.vue'),
+    meta: { title: 'Candidate Profile & Eligibility - Grade-A' },
   },
   {
     path: '/quiz',
-    name: 'quiz',
-    component: () => import('@/views/ProfileQuizView.vue'),
-    meta: { title: 'Eligibility Profile Intake Quiz - Grade-A' },
+    redirect: '/profile',
   },
   {
     path: '/report',
-    name: 'report',
-    component: () => import('@/views/EligibilityReportView.vue'),
-    meta: { title: 'Statutory Eligibility Report Card - Grade-A' },
+    redirect: '/profile',
   },
   {
     path: '/:pathMatch(.*)*',

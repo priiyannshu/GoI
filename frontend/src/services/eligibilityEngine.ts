@@ -33,7 +33,7 @@
 // 1. TYPE DEFINITIONS & CONTRACT INTERFACES
 // ==============================================================================
 
-export type EligibilityStatus = 'ELIGIBLE' | 'CONDITIONALLY_ELIGIBLE' | 'INELIGIBLE';
+export type EligibilityStatus = 'ELIGIBLE' | 'CONDITIONALLY_ELIGIBLE' | 'NEEDS_INFO' | 'INELIGIBLE';
 
 export type GenderType = 'MALE' | 'FEMALE' | 'OTHER' | 'Male' | 'Female' | 'Other' | string;
 
@@ -121,15 +121,15 @@ export interface UserProfileInput {
   category: SocialCategory;
   is_ex_serviceman?: boolean;
   ex_service_years?: number;
-  graduation_degree?: string;
-  degree?: string; // Schema alias
-  graduation_discipline?: string;
-  discipline?: string; // Schema alias
-  graduation_aggregate_pct?: number;
-  aggregate_pct?: number; // Schema alias
+  graduation_degree?: string | null;
+  degree?: string | null; // Schema alias
+  graduation_discipline?: string | null;
+  discipline?: string | null; // Schema alias
+  graduation_aggregate_pct?: number | null;
+  aggregate_pct?: number | null; // Schema alias
   is_final_year?: boolean;
-  state_domicile?: string;
-  domicile_state?: string; // Schema alias
+  state_domicile?: string | null;
+  domicile_state?: string | null; // Schema alias
   fluent_languages?: string[];
   prior_attempts?: Record<string, number>;
   height_cm?: number | null;
@@ -145,6 +145,8 @@ export interface UserProfileInput {
   prior_selected_as_ac?: boolean;
   marital_status?: 'Unmarried' | 'Married' | 'Widow' | 'Divorcee' | string;
   has_children?: boolean;
+  enable_skipped_check?: boolean;
+  skipped_fields?: string[];
 }
 
 export interface EligibilityVerdict {
@@ -153,6 +155,7 @@ export interface EligibilityVerdict {
   reasons: string[];
   relaxations_applied: string[];
   statutory_citation: string;
+  skipped_requirements?: string[];
 }
 
 // ==============================================================================
@@ -1311,20 +1314,33 @@ export function evaluateEligibility(
 ): EligibilityVerdict {
   const reasons: string[] = [];
   const relaxations_applied: string[] = [];
+  const skipped_requirements: string[] = [];
   let is_eligible = true;
   let is_conditional = false;
 
   // ----------------------------------------------------------------------------
   // A. Profile Property Normalization & Schema Fault-Tolerance
   // ----------------------------------------------------------------------------
+  const isSkippedCheckEnabled =
+    profile.enable_skipped_check === true ||
+    (Array.isArray(profile.skipped_fields) && profile.skipped_fields.length > 0);
+
   const normalizedGender = (profile.gender || 'MALE').trim().toUpperCase();
   const isFemale = normalizedGender === 'FEMALE';
   const rawCategory = (profile.category || 'GEN').trim().toUpperCase();
-  const discipline = profile.graduation_discipline ?? profile.discipline ?? 'ANY';
-  const degree = profile.graduation_degree ?? profile.degree ?? 'Bachelor';
-  const aggregate_pct = profile.graduation_aggregate_pct ?? profile.aggregate_pct ?? 0.0;
+  const rawDiscipline = profile.graduation_discipline ?? profile.discipline;
+  const rawDegree = profile.graduation_degree ?? profile.degree;
+  const rawPct = profile.graduation_aggregate_pct ?? profile.aggregate_pct;
+
+  const discipline = isSkippedCheckEnabled ? (rawDiscipline ?? '') : (rawDiscipline ?? 'ANY');
+  const degree = isSkippedCheckEnabled ? (rawDegree ?? '') : (rawDegree ?? 'Bachelor');
+  const aggregate_pct = isSkippedCheckEnabled
+    ? (rawPct !== undefined && rawPct !== null ? Number(rawPct) : null)
+    : (rawPct !== undefined && rawPct !== null ? Number(rawPct) : 0.0);
   const domicile_state = (profile.state_domicile ?? profile.domicile_state ?? '').trim();
-  const fluent_languages = profile.fluent_languages ?? ['Hindi', 'English'];
+  const fluent_languages = isSkippedCheckEnabled
+    ? (profile.fluent_languages ?? [])
+    : (profile.fluent_languages ?? ['Hindi', 'English']);
   const prior_attempts = profile.prior_attempts ?? {};
 
   // ----------------------------------------------------------------------------
@@ -1461,87 +1477,109 @@ export function evaluateEligibility(
   // ----------------------------------------------------------------------------
   // D. Statutory Dimension 1: Cutoff Date & Exact Statutory Birth Window
   // ----------------------------------------------------------------------------
-  const cutoff_date = getCutoffDate(rule.cutoff_rule, examYear);
-  const [bY, bM, bD] = profile.dob.split('-').map(Number);
-  const dob = new Date(Date.UTC(bY, bM - 1, bD));
+  if (!profile.dob) {
+    if (isSkippedCheckEnabled) {
+      skipped_requirements.push('Date of birth required for age verification');
+    }
+  } else {
+    const cutoff_date = getCutoffDate(rule.cutoff_rule, examYear);
+    const [bY, bM, bD] = profile.dob.split('-').map(Number);
+    const dob = new Date(Date.UTC(bY, bM - 1, bD));
 
-  const { minDob, maxDob } = getStatutoryBirthWindow(rule, allowed_max_age, examYear);
+    const { minDob, maxDob } = getStatutoryBirthWindow(rule, allowed_max_age, examYear);
 
-  if (dob < minDob) {
-    is_eligible = false;
-    reasons.push(
-      `Age exceeds maximum limit of ${allowed_max_age} years on ${cutoff_date} (Born before ${formatDateISO(minDob)})`
-    );
-  } else if (dob > maxDob) {
-    is_eligible = false;
-    reasons.push(
-      `Age is below minimum limit of ${rule.min_age_gen} years on ${cutoff_date} (Born after ${formatDateISO(maxDob)})`
-    );
+    if (dob < minDob) {
+      is_eligible = false;
+      reasons.push(
+        `Age exceeds maximum limit of ${allowed_max_age} years on ${cutoff_date} (Born before ${formatDateISO(minDob)})`
+      );
+    } else if (dob > maxDob) {
+      is_eligible = false;
+      reasons.push(
+        `Age is below minimum limit of ${rule.min_age_gen} years on ${cutoff_date} (Born after ${formatDateISO(maxDob)})`
+      );
+    }
   }
 
   // ----------------------------------------------------------------------------
   // E. Statutory Dimension 3: Degree & Discipline Validation
   // ----------------------------------------------------------------------------
   const accepted_disc = rule.accepted_disciplines || ['ANY'];
-  if (!accepted_disc.includes('ANY')) {
-    const isMasterAnyAllowed =
-      accepted_disc.some(d => d.toLowerCase() === 'master_any' || d.toLowerCase() === 'master any') &&
-      ['Master', 'Dual_UG_and_MBA'].includes(degree);
-
-    if (!isMasterAnyAllowed) {
-      const normProfDisc = normalizeDiscipline(discipline);
-      const isMatched = accepted_disc.some(d => {
-        const normAccepted = normalizeDiscipline(d);
-        return (
-          normProfDisc === normAccepted ||
-          normProfDisc.includes(normAccepted) ||
-          normAccepted.includes(normProfDisc)
-        );
-      });
-
-      if (!isMatched) {
+  if (!degree) {
+    if (isSkippedCheckEnabled) {
+      skipped_requirements.push(`Graduation degree required (${rule.min_education || 'Bachelor'})`);
+    }
+  } else {
+    // Minimum Education Level Hierarchy
+    if (rule.min_education === 'Master') {
+      if (!['Master', 'Dual_UG_and_MBA'].includes(degree)) {
         is_eligible = false;
-        reasons.push(
-          `Graduation discipline '${discipline}' is not accepted. Required: ${JSON.stringify(accepted_disc)}`
-        );
+        reasons.push(`Degree '${degree}' does not meet Master's requirement for this post`);
+      }
+    } else if (rule.min_education === 'Master_or_Professional') {
+      const profDisciplines = [
+        'Law',
+        'Engineering',
+        'Computer_Science',
+        'Information_Technology',
+        'CA',
+        'CFA',
+        'CS',
+        'Civil',
+        'Mechanical',
+        'Electrical',
+      ].map(s => normalizeDiscipline(s));
+
+      const is_prof = discipline ? profDisciplines.includes(normalizeDiscipline(discipline)) : false;
+      const is_post_grad = ['Master', 'Dual_UG_and_MBA'].includes(degree);
+
+      if (!is_prof && !is_post_grad) {
+        if (!discipline && isSkippedCheckEnabled) {
+          skipped_requirements.push("Graduation discipline required to verify Master's or Professional status");
+        } else {
+          is_eligible = false;
+          reasons.push(
+            `Degree '${degree}' in '${discipline}' does not meet Master's or Professional requirement for this post`
+          );
+        }
+      }
+    } else if (rule.min_education === 'Dual_UG_and_MBA') {
+      const is_dual = degree === 'Dual_UG_and_MBA' || (discipline && normalizeDiscipline(discipline) === 'ca');
+      if (!is_dual) {
+        is_eligible = false;
+        reasons.push(`Degree '${degree}' does not meet Dual UG and MBA requirement`);
       }
     }
   }
 
-  // Minimum Education Level Hierarchy
-  if (rule.min_education === 'Master') {
-    if (!['Master', 'Dual_UG_and_MBA'].includes(degree)) {
-      is_eligible = false;
-      reasons.push(`Degree '${degree}' does not meet Master's requirement for this post`);
-    }
-  } else if (rule.min_education === 'Master_or_Professional') {
-    const profDisciplines = [
-      'Law',
-      'Engineering',
-      'Computer_Science',
-      'Information_Technology',
-      'CA',
-      'CFA',
-      'CS',
-      'Civil',
-      'Mechanical',
-      'Electrical',
-    ].map(s => normalizeDiscipline(s));
+  if (!accepted_disc.includes('ANY')) {
+    if (!discipline) {
+      if (isSkippedCheckEnabled) {
+        skipped_requirements.push(`Graduation discipline required (Accepted: ${accepted_disc.join(', ')})`);
+      }
+    } else {
+      const isMasterAnyAllowed =
+        accepted_disc.some(d => d.toLowerCase() === 'master_any' || d.toLowerCase() === 'master any') &&
+        ['Master', 'Dual_UG_and_MBA'].includes(degree);
 
-    const is_prof = profDisciplines.includes(normalizeDiscipline(discipline));
-    const is_post_grad = ['Master', 'Dual_UG_and_MBA'].includes(degree);
+      if (!isMasterAnyAllowed) {
+        const normProfDisc = normalizeDiscipline(discipline);
+        const isMatched = accepted_disc.some(d => {
+          const normAccepted = normalizeDiscipline(d);
+          return (
+            normProfDisc === normAccepted ||
+            normProfDisc.includes(normAccepted) ||
+            normAccepted.includes(normProfDisc)
+          );
+        });
 
-    if (!is_prof && !is_post_grad) {
-      is_eligible = false;
-      reasons.push(
-        `Degree '${degree}' in '${discipline}' does not meet Master's or Professional requirement for this post`
-      );
-    }
-  } else if (rule.min_education === 'Dual_UG_and_MBA') {
-    const is_dual = degree === 'Dual_UG_and_MBA' || normalizeDiscipline(discipline) === 'ca';
-    if (!is_dual) {
-      is_eligible = false;
-      reasons.push(`Degree '${degree}' does not meet Dual UG and MBA requirement`);
+        if (!isMatched) {
+          is_eligible = false;
+          reasons.push(
+            `Graduation discipline '${discipline}' is not accepted. Required: ${JSON.stringify(accepted_disc)}`
+          );
+        }
+      }
     }
   }
 
@@ -1552,8 +1590,11 @@ export function evaluateEligibility(
   const min_pct = isReserved ? rule.min_pct_res : rule.min_pct_gen;
 
   if (min_pct > 0.0) {
-    // Non-rounding raw comparison
-    if (aggregate_pct < min_pct) {
+    if (aggregate_pct === null || aggregate_pct === undefined || isNaN(aggregate_pct)) {
+      if (isSkippedCheckEnabled) {
+        skipped_requirements.push(`Graduation percentage required (Min: ${min_pct.toFixed(2)}%)`);
+      }
+    } else if (aggregate_pct < min_pct) {
       is_eligible = false;
       reasons.push(
         `Aggregate ${aggregate_pct.toFixed(2)}% is below strict threshold of ${min_pct.toFixed(2)}% (No rounding off allowed)`
@@ -1562,7 +1603,7 @@ export function evaluateEligibility(
   }
 
   // Dual Threshold (e.g. EXIM Bank MT 60% in BOTH UG and PG)
-  if (rule.requires_dual_threshold && aggregate_pct < min_pct) {
+  if (rule.requires_dual_threshold && aggregate_pct !== null && aggregate_pct < min_pct) {
     // Already flagged above, provides statutory clause context
   }
 
@@ -1607,24 +1648,18 @@ export function evaluateEligibility(
   // ----------------------------------------------------------------------------
   const phys = rule.physical_standards;
   if (phys) {
-    // Height Standard
-    if (profile.height_cm !== undefined && profile.height_cm !== null) {
-      let min_h: number | undefined;
-      if (!isFemale) {
-        min_h =
-          phys.min_height_male_cm ||
-          phys.DSP_Male?.min_height_cm ||
-          phys.IPS_Male?.min_height_cm ||
-          phys.RPS_Male?.min_height_cm ||
-          phys.DySP_Male?.min_height_cm;
-      } else {
-        min_h =
-          phys.min_height_female_cm ||
-          phys.DSP_Female?.min_height_cm ||
-          phys.IPS_Female?.min_height_cm;
-      }
+    const min_h = !isFemale
+      ? phys.min_height_male_cm
+      : phys.min_height_female_cm;
 
-      if (min_h && profile.height_cm < min_h) {
+    if (min_h) {
+      if (profile.height_cm === undefined || profile.height_cm === null) {
+        if (isSkippedCheckEnabled) {
+          skipped_requirements.push(
+            `Height measurement required for uniformed entry (Min: ${min_h} cm for ${isFemale ? 'Female' : 'Male'})`
+          );
+        }
+      } else if (profile.height_cm < min_h) {
         is_eligible = false;
         reasons.push(
           `Height ${profile.height_cm} cm fails minimum standard of ${min_h} cm for ${isFemale ? 'Female' : 'Male'}`
@@ -1633,21 +1668,23 @@ export function evaluateEligibility(
     }
 
     // Chest Measurement & Expansion (Male Uniformed)
-    if (!isFemale && profile.chest_cm !== undefined && profile.chest_cm !== null) {
-      const min_chest = phys.min_chest_male_cm || phys.IPS_Male?.min_chest_cm || phys.DSP_Male?.min_chest_cm;
-      if (min_chest && profile.chest_cm < min_chest) {
+    if (!isFemale && phys.min_chest_male_cm) {
+      const min_chest = phys.min_chest_male_cm;
+      if (profile.chest_cm === undefined || profile.chest_cm === null) {
+        if (isSkippedCheckEnabled) {
+          skipped_requirements.push(`Chest measurement standard required (Min: ${min_chest} cm)`);
+        }
+      } else if (profile.chest_cm < min_chest) {
         is_eligible = false;
         reasons.push(`Chest measurement ${profile.chest_cm} cm fails minimum standard of ${min_chest} cm`);
       }
-    }
 
-    if (!isFemale && profile.chest_expansion_cm !== undefined && profile.chest_expansion_cm !== null) {
-      const min_exp =
-        phys.min_expansion_male_cm ||
-        phys.IPS_Male?.min_expansion_cm ||
-        phys.DSP_Male?.min_expansion_cm ||
-        (phys.min_chest_male_cm ? 5 : undefined);
-      if (min_exp && profile.chest_expansion_cm < min_exp) {
+      const min_exp = phys.min_expansion_male_cm || 5;
+      if (profile.chest_expansion_cm === undefined || profile.chest_expansion_cm === null) {
+        if (isSkippedCheckEnabled) {
+          skipped_requirements.push(`Chest expansion standard required (Min: ${min_exp} cm)`);
+        }
+      } else if (profile.chest_expansion_cm < min_exp) {
         is_eligible = false;
         reasons.push(
           `Chest expansion ${profile.chest_expansion_cm} cm fails minimum mandatory expansion of ${min_exp} cm`
@@ -1695,12 +1732,16 @@ export function evaluateEligibility(
   const lang_req = rule.language_requirements;
   if (lang_req && lang_req.mandatory_fluency) {
     const req_lang = lang_req.mandatory_fluency;
-    const isLangOk =
-      fluent_languages.includes(req_lang) ||
-      (req_lang === 'Bengali' && fluent_languages.includes('Nepali'));
-    if (!isLangOk) {
-      is_eligible = false;
-      reasons.push(`Candidate lacks mandatory fluency/reading/writing proficiency in '${req_lang}'`);
+    if (isSkippedCheckEnabled && (!profile.fluent_languages || profile.fluent_languages.length === 0)) {
+      skipped_requirements.push(`Language fluency required in '${req_lang}'`);
+    } else {
+      const isLangOk =
+        fluent_languages.includes(req_lang) ||
+        (req_lang === 'Bengali' && fluent_languages.includes('Nepali'));
+      if (!isLangOk) {
+        is_eligible = false;
+        reasons.push(`Candidate lacks mandatory fluency/reading/writing proficiency in '${req_lang}'`);
+      }
     }
   }
 
@@ -1708,9 +1749,15 @@ export function evaluateEligibility(
   // K. Specialized Cadre Gates (AFCAT 10+2 & CDS Marital Status)
   // ----------------------------------------------------------------------------
   if (rule.requires_10plus2_physics_maths) {
-    if (
-      (profile.ten_plus_two_maths_pct != null && profile.ten_plus_two_maths_pct < 50.0) ||
-      (profile.ten_plus_two_physics_pct != null && profile.ten_plus_two_physics_pct < 50.0)
+    if (profile.ten_plus_two_maths_pct == null || profile.ten_plus_two_physics_pct == null) {
+      if (isSkippedCheckEnabled) {
+        skipped_requirements.push(
+          `10+2 Physics & Mathematics percentage required (Min: ${rule.min_10plus2_subject_pct || 50}%)`
+        );
+      }
+    } else if (
+      profile.ten_plus_two_maths_pct < 50.0 ||
+      profile.ten_plus_two_physics_pct < 50.0
     ) {
       is_eligible = false;
       reasons.push(
@@ -1737,19 +1784,34 @@ export function evaluateEligibility(
   // ----------------------------------------------------------------------------
   let status: EligibilityStatus = 'INELIGIBLE';
   if (is_eligible) {
-    status = is_conditional ? 'CONDITIONALLY_ELIGIBLE' : 'ELIGIBLE';
+    if (skipped_requirements.length > 0) {
+      status = 'NEEDS_INFO';
+    } else {
+      status = is_conditional ? 'CONDITIONALLY_ELIGIBLE' : 'ELIGIBLE';
+    }
+  }
+
+  const finalReasons: string[] = [];
+  if (!is_eligible) {
+    finalReasons.push(...reasons);
+  } else if (skipped_requirements.length > 0) {
+    finalReasons.push(...skipped_requirements.map(s => `Needs Info: ${s}`));
+    if (is_conditional) {
+      finalReasons.push(...reasons);
+    }
+  } else if (is_conditional) {
+    finalReasons.push(...reasons);
+  } else {
+    finalReasons.push('Meets all statutory eligibility criteria');
   }
 
   return {
     exam_id: rule.exam_id,
     status,
-    reasons: !is_eligible
-      ? reasons
-      : is_conditional
-      ? reasons
-      : ['Meets all statutory eligibility criteria'],
+    reasons: finalReasons,
     relaxations_applied,
     statutory_citation: rule.citation || 'Official Gazette Notification',
+    skipped_requirements,
   };
 }
 
@@ -1807,6 +1869,19 @@ export function filterIneligibleExams(
   const result: Record<string, EligibilityVerdict> = {};
   for (const [k, v] of Object.entries(verdicts)) {
     if (v.status === 'INELIGIBLE') result[k] = v;
+  }
+  return result;
+}
+
+/**
+ * Filters evaluation results returning only exams that require additional user profile information.
+ */
+export function filterNeedsInfoExams(
+  verdicts: Record<string, EligibilityVerdict>
+): Record<string, EligibilityVerdict> {
+  const result: Record<string, EligibilityVerdict> = {};
+  for (const [k, v] of Object.entries(verdicts)) {
+    if (v.status === 'NEEDS_INFO') result[k] = v;
   }
   return result;
 }

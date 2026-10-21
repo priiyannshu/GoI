@@ -41,6 +41,8 @@ export const DEFAULT_PROFILE: UserProfileInput = {
   lasik_age: null,
   lasik_wait_months: null,
   has_commercial_pilot_license: false,
+  enable_skipped_check: true,
+  skipped_fields: [],
 };
 
 function calculateAgeOn(cutoffStr: string, dobStr: string): number {
@@ -140,6 +142,34 @@ export const useProfileStore = defineStore('userProfile', () => {
     Math.round(((currentStep.value - 1) / totalSteps.value) * 100)
   );
 
+  const completionPercentage = computed(() => {
+    let filled = 0;
+    const p = profile.value;
+    if (p.dob && p.gender && p.category) filled++;
+    if (p.graduation_degree && p.graduation_discipline) filled++;
+    if (p.state_domicile) filled++;
+    if (p.height_cm != null || p.skipped_fields?.includes('physical_standards')) filled++;
+    if (p.prior_attempts) filled++;
+    return Math.round((filled / 5) * 100);
+  });
+
+  function toggleFieldSkipped(field: string) {
+    if (!profile.value.skipped_fields) {
+      profile.value.skipped_fields = [];
+    }
+    const idx = profile.value.skipped_fields.indexOf(field);
+    if (idx >= 0) {
+      profile.value.skipped_fields.splice(idx, 1);
+    } else {
+      profile.value.skipped_fields.push(field);
+    }
+    triggerDebouncedSave();
+  }
+
+  function isFieldSkipped(field: string): boolean {
+    return profile.value.skipped_fields?.includes(field) ?? false;
+  }
+
   // --- Actions ---
 
   async function loadInitialProfile() {
@@ -217,6 +247,9 @@ export const useProfileStore = defineStore('userProfile', () => {
     isStepValid,
     canProceed,
     progressPercentage,
+    completionPercentage,
+    toggleFieldSkipped,
+    isFieldSkipped,
     loadInitialProfile,
     loadPersistedProfile,
     saveProgress,

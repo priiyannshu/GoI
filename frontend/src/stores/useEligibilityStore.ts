@@ -29,6 +29,9 @@ export const useEligibilityStore = defineStore('eligibilityReport', () => {
   const conditionallyEligibleCount = computed(
     () => verdictList.value.filter((v) => v.status === 'CONDITIONALLY_ELIGIBLE').length
   );
+  const needsInfoCount = computed(
+    () => verdictList.value.filter((v) => v.status === 'NEEDS_INFO').length
+  );
   const ineligibleCount = computed(
     () => verdictList.value.filter((v) => v.status === 'INELIGIBLE').length
   );
@@ -67,8 +70,8 @@ export const useEligibilityStore = defineStore('eligibilityReport', () => {
       // Sorting
       return [...result].sort((a, b) => {
         if (sortBy.value === 'STATUS') {
-          const weight = { ELIGIBLE: 1, CONDITIONALLY_ELIGIBLE: 2, INELIGIBLE: 3 };
-          return weight[a.status] - weight[b.status];
+          const weight: Record<string, number> = { ELIGIBLE: 1, CONDITIONALLY_ELIGIBLE: 2, NEEDS_INFO: 3, INELIGIBLE: 4 };
+          return (weight[a.status] || 99) - (weight[b.status] || 99);
         }
         if (sortBy.value === 'NAME') {
           const titleA = map[a.exam_id]?.title || a.exam_id;
@@ -134,6 +137,7 @@ export const useEligibilityStore = defineStore('eligibilityReport', () => {
     verdictList,
     eligibleCount,
     conditionallyEligibleCount,
+    needsInfoCount,
     ineligibleCount,
     totalCount,
     filteredVerdicts,

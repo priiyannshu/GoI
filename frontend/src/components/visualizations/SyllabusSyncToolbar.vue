@@ -9,12 +9,12 @@
             <span class="text-slate-400 font-semibold uppercase tracking-wider text-[11px]">Selected Examinations</span>
             <span
               class="px-2 py-0.5 rounded-full font-mono font-medium text-[10px]"
-              :class="store.selectedExamIds.length === 4 ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : 'bg-slate-800 text-slate-300 border border-slate-700'"
+              :class="store.selectedExamIds.length === 10 ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : 'bg-slate-800 text-slate-300 border border-slate-700'"
             >
-              {{ store.selectedExamIds.length }} / 4 Max
+              {{ store.selectedExamIds.length }} / 10 Max
             </span>
           </div>
-          <span class="text-slate-500 text-[11px] hidden sm:inline">Min 2, Max 4 for cross-set topology</span>
+          <span class="text-slate-500 text-[11px] hidden sm:inline">Min 2, Max 10 for multi-exam analysis</span>
         </div>
 
         <div class="flex flex-wrap items-center gap-2">
@@ -45,10 +45,10 @@
           <div class="relative inline-block" ref="dropdownRef">
             <button
               @click="isExamDropdownOpen = !isExamDropdownOpen"
-              :disabled="store.selectedExamIds.length >= 4"
+              :disabled="store.selectedExamIds.length >= 10"
               class="px-3 py-1.5 rounded-xl border text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-sm"
               :class="
-                store.selectedExamIds.length >= 4
+                store.selectedExamIds.length >= 10
                   ? 'bg-slate-800/40 border-slate-800 text-slate-600 cursor-not-allowed'
                   : 'bg-emerald-500/10 hover:bg-emerald-500/20 border-emerald-500/30 text-emerald-400 hover:text-emerald-300'
               "
@@ -194,25 +194,18 @@
       <!-- View Switcher Tabs (3 cols) -->
       <div class="lg:col-span-3 flex rounded-xl bg-slate-800 p-1 border border-slate-700/80">
         <button
+          @click="store.activeTab = 'matrix'"
+          class="flex-1 py-1 px-2 rounded-lg text-xs font-semibold transition-colors text-center"
+          :class="store.activeTab === 'matrix' ? 'bg-emerald-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'"
+        >
+          Overlap Matrix
+        </button>
+        <button
           @click="store.activeTab = 'upset'"
-          class="flex-1 py-1 rounded-lg text-xs font-semibold transition-colors text-center"
+          class="flex-1 py-1 px-2 rounded-lg text-xs font-semibold transition-colors text-center"
           :class="store.activeTab === 'upset' ? 'bg-emerald-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'"
         >
-          UpSet Matrix
-        </button>
-        <button
-          @click="store.activeTab = 'venn'"
-          class="flex-1 py-1 rounded-lg text-xs font-semibold transition-colors text-center"
-          :class="store.activeTab === 'venn' ? 'bg-emerald-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'"
-        >
-          Venn (2–4)
-        </button>
-        <button
-          @click="store.activeTab = 'bipartite'"
-          class="flex-1 py-1 rounded-lg text-xs font-semibold transition-colors text-center"
-          :class="store.activeTab === 'bipartite' ? 'bg-emerald-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'"
-        >
-          Network
+          UpSet Intersections
         </button>
       </div>
     </div>
