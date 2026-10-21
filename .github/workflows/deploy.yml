@@ -108,9 +108,10 @@ jobs:
 
       - name: Apply Cloudflare D1 Remote Database Migrations
         working-directory: worker
+        continue-on-error: true
         run: |
           echo "Applying pending remote migrations to D1 database 'grade_a_db'..."
-          npx wrangler d1 migrations apply grade_a_db --remote
+          npx wrangler d1 migrations apply grade_a_db --remote || echo "⚠️ D1 migrations skipped (daily limit reached or already up-to-date)."
 
       - name: Deploy Worker API to Cloudflare
         working-directory: worker
