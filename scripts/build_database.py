@@ -292,18 +292,18 @@ def verify_database_counts_and_integrity(conn: sqlite3.Connection):
 
     logger.info(f"Database Counts -> exams: {exams_count}, eligibility_criteria: {eligibility_count}, source_audit_log: {audit_count}, taxonomy: {tax_count}, map: {map_count}, mapped_exams: {mapped_exams}, orphan_topics: {orphan_count}")
 
-    if exams_count != 31:
-        raise ValueError(f"Expected exactly 31 exams, got {exams_count}")
-    if eligibility_count != 31:
-        raise ValueError(f"Expected exactly 31 eligibility criteria, got {eligibility_count}")
-    if audit_count != 186:
-        raise ValueError(f"Expected exactly 186 audit logs (6 per exam), got {audit_count}")
+    if exams_count != 25:
+        raise ValueError(f"Expected exactly 25 exams, got {exams_count}")
+    if eligibility_count != 25:
+        raise ValueError(f"Expected exactly 25 eligibility criteria, got {eligibility_count}")
+    if audit_count != 150:
+        raise ValueError(f"Expected exactly 150 audit logs (6 per exam), got {audit_count}")
     if tax_count < 120:
         raise ValueError(f"Expected >= 120 taxonomy topics, got {tax_count}")
     if map_count < 300:
         raise ValueError(f"Expected >= 300 stage mappings, got {map_count}")
-    if mapped_exams != 31:
-        raise ValueError(f"Expected all 31 exams mapped in exam_syllabus_map, got {mapped_exams}")
+    if mapped_exams != 25:
+        raise ValueError(f"Expected all 25 exams mapped in exam_syllabus_map, got {mapped_exams}")
     if orphan_count > 0:
         raise ValueError(f"Expected 0 orphan topics in syllabus_taxonomy, got {orphan_count}")
 

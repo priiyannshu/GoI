@@ -62,8 +62,8 @@ export const PRESET_OPTIONS: QuickPreset[] = [
   {
     id: 'regulatory_trio',
     label: 'Regulatory Financial Trio',
-    description: 'Premier regulators: RBI Grade B, SEBI Grade A & NABARD Grade A',
-    examIds: ['RBI_GRADE_B', 'SEBI_GRADE_A', 'NABARD_GRADE_A'],
+    description: 'Premier regulators: RBI Grade B, NABARD Grade A & SIDBI Grade A',
+    examIds: ['RBI_GRADE_B', 'NABARD_GRADE_A', 'SIDBI_GRADE_A'],
   },
   {
     id: 'defense_trifecta',

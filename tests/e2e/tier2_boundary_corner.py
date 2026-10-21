@@ -187,22 +187,22 @@ class TestFeature03Cluster2FinancialRegulatoryBoundaries(unittest.TestCase):
         v_obc = evaluate_statutory_eligibility(p_obc, "RBI_GRADE_B")
         self.assertEqual(v_obc["status"], "ELIGIBLE")
 
-    def test_f03_sebi_plain_bachelor_arts_commerce_rejection(self):
-        # Plain 3-year BA without Master's degree or professional qualification is disqualified
+    def test_f03_sidbi_plain_bachelor_arts_commerce_rejection(self):
+        # Plain 3-year BA without Law/Engineering or Master's qualification is disqualified
         profile = UserProfile(
             dob="2001-01-01", gender="Male", category="GEN", degree="Bachelor",
             discipline="Arts_History", aggregate_pct=70.0
         )
-        verdict = evaluate_statutory_eligibility(profile, "SEBI_GRADE_A")
+        verdict = evaluate_statutory_eligibility(profile, "SIDBI_GRADE_A")
         self.assertEqual(verdict["status"], "INELIGIBLE")
 
-    def test_f03_exim_dual_threshold_ug_58_pg_72_rejection(self):
-        # EXIM Bank mandates 60% in BOTH UG and PG. 58.5% in UG disqualifies
+    def test_f03_sidbi_strict_non_rounding_percentage_rejection(self):
+        # SIDBI mandates 60.0% aggregate. 59.99% in Engineering disqualifies
         profile = UserProfile(
-            dob="2001-01-01", gender="Male", category="GEN", degree="Dual_UG_and_MBA",
-            discipline="MBA_Finance", aggregate_pct=58.5
+            dob="2001-01-01", gender="Male", category="GEN", degree="Bachelor",
+            discipline="Engineering", aggregate_pct=59.99
         )
-        verdict = evaluate_statutory_eligibility(profile, "EXIM_BANK_MT")
+        verdict = evaluate_statutory_eligibility(profile, "SIDBI_GRADE_A")
         self.assertEqual(verdict["status"], "INELIGIBLE")
 
     def test_f03_rbi_final_year_strict_disallowance(self):

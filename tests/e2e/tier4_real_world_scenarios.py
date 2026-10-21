@@ -108,17 +108,15 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
         )
 
         v_rbi = evaluate_statutory_eligibility(profile, "RBI_GRADE_B")
-        v_sebi = evaluate_statutory_eligibility(profile, "SEBI_GRADE_A")
         v_nabard = evaluate_statutory_eligibility(profile, "NABARD_GRADE_A")
-        v_exim = evaluate_statutory_eligibility(profile, "EXIM_BANK_MT")
+        v_sidbi = evaluate_statutory_eligibility(profile, "SIDBI_GRADE_A")
 
         self.assertEqual(v_rbi["status"], "ELIGIBLE", f"RBI failed: {v_rbi['reasons']}")
-        self.assertEqual(v_sebi["status"], "ELIGIBLE", f"SEBI failed: {v_sebi['reasons']}")
         self.assertEqual(v_nabard["status"], "ELIGIBLE", f"NABARD failed: {v_nabard['reasons']}")
-        self.assertEqual(v_exim["status"], "ELIGIBLE", f"EXIM failed: {v_exim['reasons']}")
+        self.assertEqual(v_sidbi["status"], "ELIGIBLE", f"SIDBI failed: {v_sidbi['reasons']}")
 
     def test_scenario2_02_upset_intersection_matrix_across_trio(self):
-        """Calculates UpSet intersections among RBI Grade B, SEBI Grade A, and NABARD Grade A."""
+        """Calculates UpSet intersections among RBI Grade B, SIDBI Grade A, and NABARD Grade A."""
         rbi_topics = {
             "econ_fin.macro.national_income_monetary",
             "econ_fin.fin_markets.capital_money_derivatives",
@@ -128,7 +126,7 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
             "quant.arithmetic.percentages_profit_loss",
             "reasoning.analytical.seating_puzzles"
         }
-        sebi_topics = {
+        sidbi_topics = {
             "econ_fin.fin_markets.capital_money_derivatives",
             "econ_fin.accounting.financial_statements_ratios",
             "econ_fin.mgmt_corp.governance_leadership",
@@ -146,12 +144,12 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
 
         intersections = calculate_upset_intersections({
             "RBI": rbi_topics,
-            "SEBI": sebi_topics,
+            "SIDBI": sidbi_topics,
             "NABARD": nabard_topics
         })
 
         # Core tripartite intersection: topics shared by ALL THREE
-        tripartite = intersections.get(("NABARD", "RBI", "SEBI"), set())
+        tripartite = intersections.get(("NABARD", "RBI", "SIDBI"), set())
         self.assertIn("english.descriptive.essay_precis_drafting", tripartite)
         self.assertIn("quant.arithmetic.percentages_profit_loss", tripartite)
         self.assertIn("reasoning.analytical.seating_puzzles", tripartite)
@@ -258,12 +256,12 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
             fluent_languages=offline_input["fluent_languages"], height_cm=offline_input["height_cm"]
         )
 
-        # Client evaluates offline across all 31 exams without any HTTP network request
+        # Client evaluates offline across all 25 exams without any HTTP network request
         verdicts = {}
         for exam_id in EXAMS_SPEC.keys():
             verdicts[exam_id] = evaluate_statutory_eligibility(profile, exam_id)
 
-        self.assertEqual(len(verdicts), 31)
+        self.assertEqual(len(verdicts), 25)
         eligible_count = sum(1 for v in verdicts.values() if v["status"] == "ELIGIBLE")
         self.assertGreater(eligible_count, 10, "Candidate should be eligible for at least 10 Grade A exams")
 
@@ -341,7 +339,7 @@ class TestTier4RealWorldScenarios(unittest.TestCase):
 
     def test_scenario5_02_bipartite_network_natural_clustering(self):
         """Verifies modular clustering in bipartite graph: Financial bodies link to Econ-Fin, Defense to Science/Quant."""
-        reg_exams = ["RBI_GRADE_B", "SEBI_GRADE_A", "NABARD_GRADE_A"]
+        reg_exams = ["RBI_GRADE_B", "NABARD_GRADE_A", "SIDBI_GRADE_A"]
         defense_exams = ["UPSC_CDS", "IAF_AFCAT", "UPSC_CAPF_AC"]
 
         # Ensure distinct administering bodies and categories

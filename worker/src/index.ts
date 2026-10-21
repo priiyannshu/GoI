@@ -40,6 +40,9 @@ const STATIC_TAXONOMY_LOOKUP: Record<string, any> = (rawTaxonomy as any).lookup_
 const STATIC_TAXONOMY_DOMAINS: any[] = (rawTaxonomy as any).domains || [];
 const STATIC_MATRIX: any = rawMatrix;
 
+// Canonical active exam IDs
+const ACTIVE_EXAM_IDS = new Set(STATIC_EXAMS.map((e: any) => e.exam_id));
+
 // Root / Health check
 app.get('/', (c) => {
   return c.json({
@@ -85,11 +88,14 @@ app.get('/api/v1/exams', async (c) => {
       const examRows = await examStmt.all();
 
       if (examRows.results && examRows.results.length > 0) {
+        // Filter out any exams not in active canonical catalog
+        const filteredExamResults = examRows.results.filter((e: any) => ACTIVE_EXAM_IDS.has(e.exam_id));
+
         // Fetch eligibility criteria to assemble complete records
         const eligRows = await c.env.DB.prepare('SELECT * FROM eligibility_criteria').all();
         const eligMap = new Map((eligRows.results || []).map((row: any) => [row.exam_id, row]));
 
-        const combined = examRows.results.map((e: any) => {
+        const combined = filteredExamResults.map((e: any) => {
           let timeline = e.tentative_timeline_2027;
           if (typeof timeline === 'string') {
             try {
@@ -161,7 +167,7 @@ app.get('/api/v1/exams/:id', async (c) => {
         .bind(upperId, upperId)
         .first();
 
-      if (examRow) {
+      if (examRow && ACTIVE_EXAM_IDS.has((examRow as any).exam_id)) {
         const eligRow = await c.env.DB.prepare(
           'SELECT * FROM eligibility_criteria WHERE exam_id = ?'
         )

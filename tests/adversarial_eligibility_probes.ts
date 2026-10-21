@@ -354,68 +354,55 @@ for (const psc of statePscExams) {
 // ==============================================================================
 console.log('--- RUNNING SECTION 4: Dual Threshold & Degrees ---');
 
-// EXIM Bank MT: Requires Dual_UG_and_MBA (or CA) with 60% aggregate
-const eximRule = AUTHORITATIVE_EXAM_RULES.EXIM_BANK_MT;
+// SIDBI Grade A: Requires Engineering/Law/Master or CA/CS with 60% aggregate
+const sidbiRule = AUTHORITATIVE_EXAM_RULES.SIDBI_GRADE_A;
 
 assertProbe(
-  'Dual Threshold Degree',
-  'EXIM Bank MT: Plain Bachelor degree -> INELIGIBLE (Requires Dual UG and MBA)',
+  'Degree & Discipline Gate',
+  'SIDBI Grade A: Plain Bachelor in Arts -> INELIGIBLE (Requires Law/Engg/Master/CA/CS)',
   evaluateEligibility(
-    { ...baseValidProfile, graduation_degree: 'Bachelor', graduation_discipline: 'MBA_Finance', graduation_aggregate_pct: 65.0 },
-    eximRule
+    { ...baseValidProfile, graduation_degree: 'Bachelor', graduation_discipline: 'Arts_History', graduation_aggregate_pct: 65.0 },
+    sidbiRule
   ).status,
   'INELIGIBLE'
 );
 
 assertProbe(
-  'Dual Threshold Degree',
-  'EXIM Bank MT: Dual UG and MBA with 58.5% -> INELIGIBLE (< 60%)',
+  'Degree & Discipline Gate',
+  'SIDBI Grade A: Engineering with 58.5% -> INELIGIBLE (< 60%)',
   evaluateEligibility(
-    { ...baseValidProfile, graduation_degree: 'Dual_UG_and_MBA', graduation_discipline: 'MBA_Finance', graduation_aggregate_pct: 58.5 },
-    eximRule
+    { ...baseValidProfile, graduation_degree: 'Bachelor', graduation_discipline: 'Engineering', graduation_aggregate_pct: 58.5 },
+    sidbiRule
   ).status,
   'INELIGIBLE'
 );
 
 assertProbe(
-  'Dual Threshold Degree',
-  'EXIM Bank MT: Dual UG and MBA with 65.0% -> ELIGIBLE',
+  'Degree & Discipline Gate',
+  'SIDBI Grade A: Engineering with 65.0% -> ELIGIBLE',
   evaluateEligibility(
-    { ...baseValidProfile, graduation_degree: 'Dual_UG_and_MBA', graduation_discipline: 'MBA_Finance', graduation_aggregate_pct: 65.0 },
-    eximRule
+    { ...baseValidProfile, graduation_degree: 'Bachelor', graduation_discipline: 'Engineering', graduation_aggregate_pct: 65.0 },
+    sidbiRule
   ).status,
   'ELIGIBLE'
 );
 
 assertProbe(
-  'Dual Threshold Degree',
-  'EXIM Bank MT: CA qualification with 60.0% -> ELIGIBLE',
+  'Degree & Discipline Gate',
+  'SIDBI Grade A: CA qualification with 60.0% -> ELIGIBLE',
   evaluateEligibility(
     { ...baseValidProfile, graduation_degree: 'Bachelor', graduation_discipline: 'CA', graduation_aggregate_pct: 60.0 },
-    eximRule
+    sidbiRule
   ).status,
   'ELIGIBLE'
 );
 
-// SEBI Grade A: Requires Master or Professional qualification
-const sebiRule = AUTHORITATIVE_EXAM_RULES.SEBI_GRADE_A;
-
 assertProbe(
   'Degree Hierarchy',
-  'SEBI Grade A: Bachelor in Arts (non-professional) -> INELIGIBLE',
-  evaluateEligibility(
-    { ...baseValidProfile, graduation_degree: 'Bachelor', graduation_discipline: 'Arts_History', graduation_aggregate_pct: 70.0 },
-    sebiRule
-  ).status,
-  'INELIGIBLE'
-);
-
-assertProbe(
-  'Degree Hierarchy',
-  'SEBI Grade A: Bachelor in Law (LLB, professional) -> ELIGIBLE',
+  'SIDBI Grade A: Bachelor in Law (LLB, professional) -> ELIGIBLE',
   evaluateEligibility(
     { ...baseValidProfile, graduation_degree: 'Bachelor', graduation_discipline: 'Law', graduation_aggregate_pct: 70.0 },
-    sebiRule
+    sidbiRule
   ).status,
   'ELIGIBLE'
 );

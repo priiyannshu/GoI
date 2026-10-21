@@ -38,20 +38,20 @@ class TestTier3PairwiseCombinations(unittest.TestCase):
         self.assertEqual(evaluate_statutory_eligibility(p, "BPSC_CCE")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_ESE")["status"], "INELIGIBLE")
 
-    def test_t3_04_st_male_bcom_finance_rbi_vs_nabard_vs_sebi(self):
+    def test_t3_04_st_male_bcom_finance_rbi_vs_nabard_vs_sidbi(self):
         # ST Male B.Com, age 27, 56% aggregate:
         # RBI Gr B reserved threshold is 50% -> Eligible
         # NABARD Gr A reserved threshold is 55% -> Eligible
-        # SEBI Gr A requires Master's in any discipline or Law/Engg -> Ineligible
+        # SIDBI Gr A requires Law, Engineering, Master_Any, CA/CS/CFA -> Ineligible
         p = UserProfile(dob="2000-03-01", gender="Male", category="ST", degree="Bachelor", discipline="Commerce", aggregate_pct=56.0)
         self.assertEqual(evaluate_statutory_eligibility(p, "RBI_GRADE_B")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "NABARD_GRADE_A")["status"], "ELIGIBLE")
-        self.assertEqual(evaluate_statutory_eligibility(p, "SEBI_GRADE_A")["status"], "INELIGIBLE")
+        self.assertEqual(evaluate_statutory_eligibility(p, "SIDBI_GRADE_A")["status"], "INELIGIBLE")
 
     def test_t3_05_ews_male_btech_cs_regulatory_it_vs_gate(self):
-        # EWS Male B.Tech CS, age 25, 75%: Eligible for SEBI IT, ONGC CS, IOCL CS
+        # EWS Male B.Tech CS, age 25, 75%: Eligible for SIDBI Engineering, ONGC CS, IOCL CS
         p = UserProfile(dob="2002-02-10", gender="Male", category="EWS", degree="Bachelor", discipline="Computer_Science", aggregate_pct=75.0)
-        self.assertEqual(evaluate_statutory_eligibility(p, "SEBI_GRADE_A")["status"], "ELIGIBLE")
+        self.assertEqual(evaluate_statutory_eligibility(p, "SIDBI_GRADE_A")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "PSU_ONGC_GT")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "PSU_IOCL_ET")["status"], "ELIGIBLE")
 
@@ -91,36 +91,35 @@ class TestTier3PairwiseCombinations(unittest.TestCase):
         v = evaluate_statutory_eligibility(p, "UPSC_CAPF_AC")
         self.assertEqual(v["status"], "ELIGIBLE")
 
-    def test_t3_11_gen_llb_law_sebi_vs_state_psc_sub_registrar(self):
-        # General LL.B. Law graduate: Eligible for SEBI Gr A (Law stream accepts LL.B.) and UPPSC PCS
+    def test_t3_11_gen_llb_law_sidbi_vs_state_psc_sub_registrar(self):
+        # General LL.B. Law graduate: Eligible for SIDBI Gr A (Law stream accepts LL.B.) and UPPSC PCS
         p = UserProfile(dob="2000-02-15", gender="Male", category="GEN", degree="Bachelor", discipline="Law", aggregate_pct=64.0)
-        self.assertEqual(evaluate_statutory_eligibility(p, "SEBI_GRADE_A")["status"], "ELIGIBLE")
+        self.assertEqual(evaluate_statutory_eligibility(p, "SIDBI_GRADE_A")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "UPPSC_PCS")["status"], "ELIGIBLE")
 
-    def test_t3_12_ews_msc_physics_cgse_vs_barc(self):
-        # EWS M.Sc. Physics, age 24: Eligible for CGSE (Geophysicist stream) and BARC OCES Physics
-        p = UserProfile(dob="2003-01-10", gender="Male", category="EWS", degree="Master", discipline="Physics", aggregate_pct=70.0)
-        self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_CGSE")["status"], "ELIGIBLE")
+    def test_t3_12_ews_msc_physics_cse_vs_barc(self):
+        # EWS M.Sc. Physics, age 24: Eligible for UPSC CSE and BARC OCES Physics
+        p = UserProfile(dob="2003-01-10", gender="Male", category="EWS", degree="Bachelor", discipline="Physics", aggregate_pct=70.0)
+        self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_CSE")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "PSU_BARC_OCES")["status"], "ELIGIBLE")
 
-    def test_t3_13_sc_ma_economics_rbi_depr_vs_ies(self):
-        # SC M.A. Economics, age 33: Eligible for UPSC IES (cap 35 for SC) and RBI Gr B DEPR (cap 35 for SC)
-        p = UserProfile(dob="1994-02-20", gender="Male", category="SC", degree="Master", discipline="Economics", aggregate_pct=58.0)
-        self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_IES_ISS")["status"], "ELIGIBLE")
+    def test_t3_13_sc_ma_economics_rbi_depr_vs_cse(self):
+        # SC Economics graduate, age 33: Eligible for UPSC CSE (cap 37 for SC) and RBI Gr B (cap 35 for SC)
+        p = UserProfile(dob="1994-02-20", gender="Male", category="SC", degree="Bachelor", discipline="Economics", aggregate_pct=58.0)
+        self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_CSE")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "RBI_GRADE_B")["status"], "ELIGIBLE")
 
-    def test_t3_14_st_msc_statistics_rbi_dsim_vs_iss(self):
-        # ST M.Sc. Statistics, age 29: Eligible for UPSC ISS and RBI Gr B DSIM
-        p = UserProfile(dob="1998-04-12", gender="Male", category="ST", degree="Master", discipline="Statistics", aggregate_pct=55.0)
-        self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_IES_ISS")["status"], "ELIGIBLE")
+    def test_t3_14_st_msc_statistics_rbi_dsim_vs_cse(self):
+        # ST Statistics graduate, age 29: Eligible for UPSC CSE and RBI Gr B
+        p = UserProfile(dob="1998-04-12", gender="Male", category="ST", degree="Bachelor", discipline="Statistics", aggregate_pct=55.0)
+        self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_CSE")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "RBI_GRADE_B")["status"], "ELIGIBLE")
 
-    def test_t3_15_gen_mba_finance_exim_vs_rbi_vs_sebi(self):
-        # Gen MBA Finance (UG 65%, PG 70%): Eligible for EXIM Bank MT, RBI Grade B, and SEBI Grade A
-        p = UserProfile(dob="2001-08-10", gender="Male", category="GEN", degree="Dual_UG_and_MBA", discipline="MBA_Finance", aggregate_pct=65.0)
-        self.assertEqual(evaluate_statutory_eligibility(p, "EXIM_BANK_MT")["status"], "ELIGIBLE")
+    def test_t3_15_gen_mba_finance_sidbi_vs_rbi(self):
+        # Gen MBA Finance with 65% aggregate: Eligible for SIDBI Grade A and RBI Grade B
+        p = UserProfile(dob="2001-08-10", gender="Male", category="GEN", degree="Master", discipline="Master_Any", aggregate_pct=65.0)
+        self.assertEqual(evaluate_statutory_eligibility(p, "SIDBI_GRADE_A")["status"], "ELIGIBLE")
         self.assertEqual(evaluate_statutory_eligibility(p, "RBI_GRADE_B")["status"], "ELIGIBLE")
-        self.assertEqual(evaluate_statutory_eligibility(p, "SEBI_GRADE_A")["status"], "ELIGIBLE")
 
     def test_t3_16_obc_btech_electrical_powergrid_vs_ntpc(self):
         # OBC B.Tech Electrical, age 29: PGCIL ET max 31 for OBC (Eligible), NTPC EET max 30 for OBC (Eligible)
@@ -182,12 +181,13 @@ class TestTier3PairwiseCombinations(unittest.TestCase):
         v = evaluate_statutory_eligibility(p, "PSU_IOCL_ET")
         self.assertEqual(v["status"], "ELIGIBLE")
 
-    def test_t3_24_gen_59_99_bcom_rbi_ineligible_sebi_eligible(self):
-        # Gen with 59.99% B.Com and Master's degree:
-        # RBI Gr B requires 60.00% UG or 55.00% PG (ineligible if PG not available)
-        # SEBI Gr A General requires Master's in any discipline without percentage barrier -> Eligible
-        p = UserProfile(dob="2000-01-01", gender="Male", category="GEN", degree="Master", discipline="Master_Any", aggregate_pct=59.99)
-        self.assertEqual(evaluate_statutory_eligibility(p, "SEBI_GRADE_A")["status"], "ELIGIBLE")
+    def test_t3_24_gen_59_99_bcom_rbi_ineligible_cse_eligible(self):
+        # Gen with 59.99% B.Com:
+        # RBI Gr B requires 60.00% without rounding -> Ineligible
+        # UPSC CSE requires Graduation with passing marks -> Eligible
+        p = UserProfile(dob="2000-01-01", gender="Male", category="GEN", degree="Bachelor", discipline="Commerce", aggregate_pct=59.99)
+        self.assertEqual(evaluate_statutory_eligibility(p, "RBI_GRADE_B")["status"], "INELIGIBLE")
+        self.assertEqual(evaluate_statutory_eligibility(p, "UPSC_CSE")["status"], "ELIGIBLE")
 
     def test_t3_25_gen_64_99_btech_iocl_ineligible_ongc_eligible(self):
         # Gen B.Tech Civil with 64.99%:

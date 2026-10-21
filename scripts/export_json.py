@@ -29,16 +29,10 @@ CLUSTER_MAP = {
     "UPSC_CAPF_AC": "Cluster 1: Central All-India & Uniformed",
     "UPSC_CDS": "Cluster 1: Central All-India & Uniformed",
     "IAF_AFCAT": "Cluster 1: Central All-India & Uniformed",
-    "UPSC_CGSE": "Cluster 1: Central All-India & Uniformed",
-    "UPSC_IES_ISS": "Cluster 1: Central All-India & Uniformed",
 
     "RBI_GRADE_B": "Cluster 2: Premier Financial & Regulatory",
-    "SEBI_GRADE_A": "Cluster 2: Premier Financial & Regulatory",
     "NABARD_GRADE_A": "Cluster 2: Premier Financial & Regulatory",
-    "IFSCA_GRADE_A": "Cluster 2: Premier Financial & Regulatory",
-    "PFRDA_GRADE_A": "Cluster 2: Premier Financial & Regulatory",
     "SIDBI_GRADE_A": "Cluster 2: Premier Financial & Regulatory",
-    "EXIM_BANK_MT": "Cluster 2: Premier Financial & Regulatory",
 
     "UPPSC_PCS": "Cluster 3: State Public Service Commissions",
     "BPSC_CCE": "Cluster 3: State Public Service Commissions",

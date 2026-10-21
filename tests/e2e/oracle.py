@@ -229,39 +229,6 @@ EXAMS_SPEC: Dict[str, Dict[str, Any]] = {
         },
         "description": "Officer recruitment for Flying Branch and Ground Duty (Technical & Non-Technical) branches."
     },
-    "UPSC_CGSE": {
-        "title": "UPSC Combined Geo-Scientist Examination",
-        "short_code": "CGSE",
-        "category": "Central-Civil",
-        "administering_body": "UPSC",
-        "frequency": "Annual",
-        "official_website": "https://upsc.gov.in",
-        "latest_official_notification_url": "https://upsc.gov.in/sites/default/files/Notif-GEOL-25-engl-040924.pdf",
-        "latest_gazette_ref": "Ministry of Mines Notification dated 04.09.2024",
-        "tentative_timeline_2027": {
-            "notification_month": "September 2026",
-            "prelims_date": "February 14, 2027",
-            "mains_date": "June 19-20, 2027",
-            "interview_window": "October - December 2027"
-        },
-        "description": "Class-1 Geologists, Geophysicists, Chemists, and Hydrogeologists for GSI and CGWB."
-    },
-    "UPSC_IES_ISS": {
-        "title": "UPSC Indian Economic Service / Indian Statistical Service",
-        "short_code": "IES/ISS",
-        "category": "Central-Civil",
-        "administering_body": "UPSC",
-        "frequency": "Annual",
-        "official_website": "https://upsc.gov.in",
-        "latest_official_notification_url": "https://upsc.gov.in/sites/default/files/Notif-IES-ISS-24-engl-100424.pdf",
-        "latest_gazette_ref": "MoSPI / Ministry of Finance (DEA) Notification dated 10.04.2024",
-        "tentative_timeline_2027": {
-            "notification_month": "April 2027",
-            "written_exam_date": "June 18-20, 2027",
-            "interview_window": "November - December 2027"
-        },
-        "description": "Group A civil services specializing in econometric analysis and official statistical governance."
-    },
 
     # ----------------- Cluster 2: Premier Financial & Regulatory Bodies (7) -----------------
     "RBI_GRADE_B": {
@@ -281,23 +248,6 @@ EXAMS_SPEC: Dict[str, Dict[str, Any]] = {
         },
         "description": "Flagship entry into central bank monetary policy, financial regulation, and supervision."
     },
-    "SEBI_GRADE_A": {
-        "title": "SEBI Officer Grade 'A' (Assistant Manager)",
-        "short_code": "SEBI Gr A",
-        "category": "Regulatory",
-        "administering_body": "Securities and Exchange Board of India",
-        "frequency": "Annual",
-        "official_website": "https://sebi.gov.in",
-        "latest_official_notification_url": "https://www.sebi.gov.in/sebiweb/other/careerdetail.jsp?careerId=334",
-        "latest_gazette_ref": "SEBI (Employees' Service) Regulations 2001",
-        "tentative_timeline_2027": {
-            "notification_month": "March 2027",
-            "phase_1_exam": "May 15, 2027",
-            "phase_2_exam": "June 19, 2027",
-            "interview_window": "August - September 2027"
-        },
-        "description": "Capital market surveillance, securities regulation, and corporate finance enforcement."
-    },
     "NABARD_GRADE_A": {
         "title": "NABARD Assistant Manager in Grade 'A' (RDBS/Rajbhasha)",
         "short_code": "NABARD Gr A",
@@ -315,40 +265,6 @@ EXAMS_SPEC: Dict[str, Dict[str, Any]] = {
         },
         "description": "Apex development financial institution for agriculture and rural infrastructure."
     },
-    "IFSCA_GRADE_A": {
-        "title": "IFSCA Officer Grade 'A' (Assistant Manager)",
-        "short_code": "IFSCA Gr A",
-        "category": "Regulatory",
-        "administering_body": "IFSCA",
-        "frequency": "Annual",
-        "official_website": "https://ifsca.gov.in",
-        "latest_official_notification_url": "https://ifsca.gov.in/Careers",
-        "latest_gazette_ref": "IFSCA Act 2019 / Officer Grade A Regulations 2024",
-        "tentative_timeline_2027": {
-            "notification_month": "March 2027",
-            "phase_1_exam": "May 2027",
-            "phase_2_exam": "June 2027",
-            "interview_window": "August 2027"
-        },
-        "description": "Unified regulatory authority for international financial services centers (GIFT City)."
-    },
-    "PFRDA_GRADE_A": {
-        "title": "PFRDA Officer Grade 'A' (Assistant Manager)",
-        "short_code": "PFRDA Gr A",
-        "category": "Regulatory",
-        "administering_body": "PFRDA",
-        "frequency": "Periodic",
-        "official_website": "https://pfrda.org.in",
-        "latest_official_notification_url": "https://www.pfrda.org.in/index1.cshtml?lsid=16",
-        "latest_gazette_ref": "PFRDA Act 2013 / Service Regulations 2022",
-        "tentative_timeline_2027": {
-            "notification_month": "May 2027",
-            "phase_1_exam": "July 2027",
-            "phase_2_exam": "August 2027",
-            "interview_window": "October 2027"
-        },
-        "description": "Regulatory authority for pension schemes, National Pension System, and APY."
-    },
     "SIDBI_GRADE_A": {
         "title": "SIDBI Assistant Manager in Grade 'A' (General Stream)",
         "short_code": "SIDBI Gr A",
@@ -364,22 +280,6 @@ EXAMS_SPEC: Dict[str, Dict[str, Any]] = {
             "interview_window": "February 2028"
         },
         "description": "Principal financial institution for promotion, financing, and development of MSME sector."
-    },
-    "EXIM_BANK_MT": {
-        "title": "India Exim Bank Management Trainee (Grade A / Deputy Manager)",
-        "short_code": "EXIM Bank MT",
-        "category": "Regulatory",
-        "administering_body": "Export-Import Bank of India",
-        "frequency": "Annual",
-        "official_website": "https://eximbankindia.in",
-        "latest_official_notification_url": "https://www.eximbankindia.in/careers",
-        "latest_gazette_ref": "Advt. No. HRM/ MT/ 2024-25/ 01",
-        "tentative_timeline_2027": {
-            "notification_month": "August 2027",
-            "written_exam_date": "October 2027",
-            "interview_window": "December 2027"
-        },
-        "description": "Apex export credit agency supporting India's foreign trade and international investments."
     },
 
     # ----------------- Cluster 3: State Public Service Commissions (10) -----------------
@@ -759,38 +659,6 @@ ELIGIBILITY_RULES_SPEC: Dict[str, Dict[str, Any]] = {
         "physical_standards": {"min_height_male_flying_cm": 162.5, "min_height_ground_cm": 157.5, "lasik_min_age": 20, "lasik_wait_months": 12},
         "citation": "IAF AFCAT 01/2024 Notification, Clause 3(b)"
     },
-    "UPSC_CGSE": {
-        "cutoff_rule": "JANUARY_1_EXAM_YEAR",
-        "min_age_gen": 21,
-        "max_age_gen": 32,
-        "relaxations": {"OBC": 3, "SC": 5, "ST": 5, "PWBD_GEN": 10},
-        "min_education": "Master",
-        "accepted_disciplines": ["Geology", "Applied_Geology", "Geophysics", "Physics", "Applied_Physics", "Chemistry", "Analytical_Chemistry"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": None,
-        "language_requirements": None,
-        "physical_standards": None,
-        "citation": "UPSC Notice No. 01/2025-GEOL, Clause 3(ii)-(iii)"
-    },
-    "UPSC_IES_ISS": {
-        "cutoff_rule": "AUGUST_1_EXAM_YEAR",
-        "min_age_gen": 21,
-        "max_age_gen": 30,
-        "relaxations": {"OBC": 3, "SC": 5, "ST": 5, "PWBD_GEN": 10},
-        "min_education": "Master_or_Bachelor_Stats",
-        "accepted_disciplines": ["Economics", "Applied_Economics", "Econometrics", "Statistics", "Mathematical_Statistics"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": None,
-        "language_requirements": None,
-        "physical_standards": None,
-        "citation": "UPSC Notice No. 07/2024-IES/ISS, Clause 3(ii)-(iii)"
-    },
 
     # ----------------- Cluster 2: Regulatory Bodies (7) -----------------
     "RBI_GRADE_B": {
@@ -810,22 +678,6 @@ ELIGIBILITY_RULES_SPEC: Dict[str, Dict[str, Any]] = {
         "physical_standards": None,
         "citation": "RBI Advt. No. 2A/2024-25, Section II.1-3"
     },
-    "SEBI_GRADE_A": {
-        "cutoff_rule": "MARCH_31_EXAM_YEAR",
-        "min_age_gen": 18,
-        "max_age_gen": 30,
-        "relaxations": {"OBC": 3, "SC": 5, "ST": 5, "PWBD_GEN": 10},
-        "min_education": "Master_or_Professional",
-        "accepted_disciplines": ["Master_Any", "MBA_Finance", "Law", "Engineering", "Computer_Science", "Information_Technology", "CA", "CFA", "CS"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": None,
-        "language_requirements": None,
-        "physical_standards": None,
-        "citation": "SEBI Recruitment Notice 2024, Section I & II"
-    },
     "NABARD_GRADE_A": {
         "cutoff_rule": "JULY_1_EXAM_YEAR",
         "min_age_gen": 21,
@@ -843,45 +695,13 @@ ELIGIBILITY_RULES_SPEC: Dict[str, Dict[str, Any]] = {
         "physical_standards": None,
         "citation": "NABARD Advt. No. 01/Grade A/2024-25"
     },
-    "IFSCA_GRADE_A": {
-        "cutoff_rule": "FEBRUARY_1_EXAM_YEAR",
-        "min_age_gen": 18,
-        "max_age_gen": 30,
-        "relaxations": {"OBC": 3, "SC": 5, "ST": 5, "PWBD_GEN": 10},
-        "min_education": "Master_or_Professional",
-        "accepted_disciplines": ["Master_Economics", "Commerce", "Finance", "Law", "IT", "CA", "CFA"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": None,
-        "language_requirements": None,
-        "physical_standards": None,
-        "citation": "IFSCA Officer Grade A Notification 2024"
-    },
-    "PFRDA_GRADE_A": {
-        "cutoff_rule": "AUGUST_1_EXAM_YEAR",
-        "min_age_gen": 18,
-        "max_age_gen": 30,
-        "relaxations": {"OBC": 3, "SC": 5, "ST": 5, "PWBD_GEN": 10},
-        "min_education": "Master_or_Professional",
-        "accepted_disciplines": ["Master_Any", "Law", "Engineering", "CA", "CFA", "CS"],
-        "min_pct_gen": 0.0,
-        "min_pct_res": 0.0,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": None,
-        "language_requirements": None,
-        "physical_standards": None,
-        "citation": "PFRDA Advt. No. 02/2022"
-    },
     "SIDBI_GRADE_A": {
         "cutoff_rule": "NOVEMBER_1_EXAM_YEAR",
         "min_age_gen": 21,
         "max_age_gen": 30,
         "relaxations": {"OBC": 3, "SC": 5, "ST": 5, "PWBD_GEN": 10},
         "min_education": "Bachelor_or_Master",
-        "accepted_disciplines": ["Law", "Engineering", "Master_Any", "CA", "CS", "CFA"],
+        "accepted_disciplines": ["Law", "Engineering", "Computer_Science", "Master_Any", "MBA_Finance", "CA", "CS", "CFA"],
         "min_pct_gen": 60.0,
         "min_pct_res": 55.0,
         "strict_non_rounding": True,
@@ -891,23 +711,6 @@ ELIGIBILITY_RULES_SPEC: Dict[str, Dict[str, Any]] = {
         "language_requirements": None,
         "physical_standards": None,
         "citation": "SIDBI Grade A Notification 2024"
-    },
-    "EXIM_BANK_MT": {
-        "cutoff_rule": "AUGUST_1_EXAM_YEAR",
-        "min_age_gen": 21,
-        "max_age_gen": 28,
-        "relaxations": {"OBC": 3, "SC": 5, "ST": 5, "PWBD_GEN": 10},
-        "min_education": "Dual_UG_and_MBA",
-        "accepted_disciplines": ["MBA_Finance", "PGDBA_Finance", "CA"],
-        "min_pct_gen": 60.0, # Requires 60% in BOTH UG and PG
-        "min_pct_res": 55.0,
-        "requires_dual_threshold": True,
-        "allows_final_year": True,
-        "attempt_limits": {},
-        "domicile_restrictions": None,
-        "language_requirements": None,
-        "physical_standards": None,
-        "citation": "India Exim Bank Advt. HRM/MT/2024-25/01"
     },
 
     # ----------------- Cluster 3: State PSCs (10) -----------------

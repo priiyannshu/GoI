@@ -39,14 +39,13 @@ CYAN = "\033[96m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
 
-# Canonical Catalog of 31 Grade A Examinations
+# Canonical Catalog of 25 Grade A Examinations
 EXPECTED_EXAM_IDS = {
-    # Cluster 1: Central All-India & Uniformed Services (8)
+    # Cluster 1: Central All-India & Uniformed Services (6)
     "UPSC_CSE", "UPSC_ESE", "UPSC_IFOS", "UPSC_CAPF_AC",
-    "UPSC_CDS", "IAF_AFCAT", "UPSC_CGSE", "UPSC_IES_ISS",
-    # Cluster 2: Premier Financial & Regulatory Bodies (7)
-    "RBI_GRADE_B", "SEBI_GRADE_A", "NABARD_GRADE_A", "IFSCA_GRADE_A",
-    "PFRDA_GRADE_A", "SIDBI_GRADE_A", "EXIM_BANK_MT",
+    "UPSC_CDS", "IAF_AFCAT",
+    # Cluster 2: Premier Financial & Regulatory Bodies (3)
+    "RBI_GRADE_B", "NABARD_GRADE_A", "SIDBI_GRADE_A",
     # Cluster 3: State Public Service Commissions (5)
     "UPPSC_PCS", "BPSC_CCE", "MPPSC_SSE", "RPSC_RAS", "TSPSC_GROUP_1",
     # Cluster 4: Maharatna & Navratna PSUs (11)
@@ -211,14 +210,14 @@ class ExamMasterValidator:
         # 1. Check exams table count
         cursor.execute("SELECT COUNT(*) FROM exams;")
         exams_count = cursor.fetchone()[0]
-        if exams_count != 31:
-            errors.append(f"Expected 31 exams in 'exams' table, found {exams_count}")
+        if exams_count != 25:
+            errors.append(f"Expected 25 exams in 'exams' table, found {exams_count}")
 
         # 2. Check eligibility_criteria table count
         cursor.execute("SELECT COUNT(*) FROM eligibility_criteria;")
         elig_count = cursor.fetchone()[0]
-        if elig_count != 31:
-            errors.append(f"Expected 31 records in 'eligibility_criteria' table, found {elig_count}")
+        if elig_count != 25:
+            errors.append(f"Expected 25 records in 'eligibility_criteria' table, found {elig_count}")
 
         # 3. Check exact exam IDs
         cursor.execute("SELECT exam_id FROM exams;")
@@ -343,11 +342,11 @@ class AuditLogVerifier:
         errors = []
         cursor = self.conn.cursor()
 
-        # Check total audit records (31 exams x 6 facts = 186 records)
+        # Check total audit records (25 exams x 6 facts = 150 records)
         cursor.execute("SELECT COUNT(*) FROM source_audit_log;")
         total_audit_records = cursor.fetchone()[0]
-        if total_audit_records < 186:
-            errors.append(f"source_audit_log has only {total_audit_records} records, minimum expected 186 (6 facts per exam)")
+        if total_audit_records < 150:
+            errors.append(f"source_audit_log has only {total_audit_records} records, minimum expected 150 (6 facts per exam)")
 
         # Check 100% exam coverage
         cursor.execute("SELECT DISTINCT exam_id FROM source_audit_log;")
@@ -899,11 +898,11 @@ class SyllabusTaxonomyAndMatrixValidator:
             if not title or not title.strip():
                 errors.append(f"Empty topic_title for topic_id '{tid}'")
 
-        # 3. Validate exam_syllabus_map coverage across all 31 examinations
+        # 3. Validate exam_syllabus_map coverage across all 25 examinations
         cursor.execute("SELECT COUNT(DISTINCT exam_id) FROM exam_syllabus_map;")
         mapped_exams_count = cursor.fetchone()[0]
-        if mapped_exams_count != 31:
-            errors.append(f"exam_syllabus_map covers only {mapped_exams_count}/31 examinations")
+        if mapped_exams_count != 25:
+            errors.append(f"exam_syllabus_map covers only {mapped_exams_count}/25 examinations")
 
         cursor.execute("SELECT COUNT(*) FROM exam_syllabus_map;")
         total_mappings = cursor.fetchone()[0]
@@ -957,8 +956,8 @@ class SyllabusTaxonomyAndMatrixValidator:
                 with open(matrix_json_path, "r", encoding="utf-8") as f:
                     matrix_data = json.load(f)
                 p_metrics = matrix_data.get("pairwise_metrics", {})
-                if len(p_metrics) != 31:
-                    errors.append(f"{matrix_json_path} pairwise_metrics does not cover all 31 exams (found {len(p_metrics)})")
+                if len(p_metrics) != 25:
+                    errors.append(f"{matrix_json_path} pairwise_metrics does not cover all 25 exams (found {len(p_metrics)})")
                 if "disjoint_upset_combinations" not in matrix_data or "topic_frequencies" not in matrix_data:
                     errors.append(f"{matrix_json_path} missing required set analysis keys")
             except Exception as ex:
@@ -1011,7 +1010,7 @@ def main():
         print(f"  {GREEN}PASSED (PRAGMA integrity_check 'ok', 0 FK violations, all tables/indexes intact){RESET}")
 
     # 2. Exam Master & Eligibility Criteria Checks
-    print(f"\n{BOLD}[2/5] Checking 31 Exams Master & Eligibility Non-Null/JSON Schema...{RESET}")
+    print(f"\n{BOLD}[2/5] Checking 25 Exams Master & Eligibility Non-Null/JSON Schema...{RESET}")
     master_validator = ExamMasterValidator(conn)
     master_errors = master_validator.verify()
     if master_errors:
@@ -1020,7 +1019,7 @@ def main():
         for err in master_errors:
             print(f"    - {err}")
     else:
-        print(f"  {GREEN}PASSED (All 31 exams verified with non-null constraints and valid JSON structures){RESET}")
+        print(f"  {GREEN}PASSED (All 25 exams verified with non-null constraints and valid JSON structures){RESET}")
 
     # 3. Source Audit Log & URL Checks
     print(f"\n{BOLD}[3/5] Checking 100% Source Audit Log Coverage & URL Formatting...{RESET}")
@@ -1037,7 +1036,7 @@ def main():
         for err in audit_errors:
             print(f"    - {err}")
     else:
-        print(f"  {GREEN}PASSED (100% exam coverage, 216 audit logs, all citations and HTTP/HTTPS URLs syntactically valid){RESET}")
+        print(f"  {GREEN}PASSED (100% exam coverage, 150 audit logs, all citations and HTTP/HTTPS URLs syntactically valid){RESET}")
 
     # 4. Multi-Vector Eligibility Edge Case Test Harness
     print(f"\n{BOLD}[4/5] Executing Algorithmic Eligibility Edge-Case Test Harness...{RESET}")
@@ -1052,7 +1051,7 @@ def main():
         print(f"  {GREEN}PASSED (All 20+ multi-vector statutory edge cases passed perfectly){RESET}")
 
     # 5. Syllabus Taxonomy & Overlap Matrix Checks (Milestone 2)
-    print(f"\n{BOLD}[5/5] Checking Syllabus Taxonomy, 31 Exams Stage Mapping & Matrix Exports...{RESET}")
+    print(f"\n{BOLD}[5/5] Checking Syllabus Taxonomy, 25 Exams Stage Mapping & Matrix Exports...{RESET}")
     syllabus_validator = SyllabusTaxonomyAndMatrixValidator(conn, project_root)
     syllabus_errors = syllabus_validator.verify()
     if syllabus_errors:
@@ -1061,7 +1060,7 @@ def main():
         for err in syllabus_errors:
             print(f"    - {err}")
     else:
-        print(f"  {GREEN}PASSED (>=120 topics, 6 domains, all 31 exams mapped with valid depth levels, 0 orphans, valid JSON matrix){RESET}")
+        print(f"  {GREEN}PASSED (>=120 topics, 6 domains, all 25 exams mapped with valid depth levels, 0 orphans, valid JSON matrix){RESET}")
 
     conn.close()
 

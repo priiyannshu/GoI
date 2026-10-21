@@ -556,7 +556,7 @@ class TestCrossViewStateSynchronizationIntegrity(unittest.TestCase):
             return False
 
         self.assertTrue(toggle_add("UPPSC_PCS"))  # 3
-        self.assertTrue(toggle_add("SEBI_GRADE_A"))  # 4
+        self.assertTrue(toggle_add("SIDBI_GRADE_A"))  # 4
         self.assertFalse(toggle_add("NABARD_GRADE_A"))  # Rejected at 4
         self.assertEqual(len(selected), 4)
 
@@ -763,7 +763,7 @@ class TestM4AdversarialBoundaryConditions(unittest.TestCase):
 
     def test_adversarial_probe_7_venn_max_four_exams_capping(self):
         """Probe 7: Venn max 4 exams capping: selecting > 4 exams triggers warning banner and prompts to UpSet."""
-        selected_exams = ["UPSC_CSE", "RBI_GRADE_B", "UPPSC_PCS", "SEBI_GRADE_A", "NABARD_GRADE_A", "UPSC_ESE"]
+        selected_exams = ["UPSC_CSE", "RBI_GRADE_B", "UPPSC_PCS", "SIDBI_GRADE_A", "NABARD_GRADE_A", "UPSC_ESE"]
         self.assertEqual(len(selected_exams), 6)
 
         # Venn component enforces 4 exams ceiling

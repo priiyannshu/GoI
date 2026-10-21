@@ -463,7 +463,7 @@ class TestHighCombinatorialStressUpSetAndVenn(unittest.TestCase):
             exam_topic_map[eid].add(tid)
             all_unique_topics.add(tid)
 
-        self.assertEqual(len(exam_topic_map), 31)
+        self.assertEqual(len(exam_topic_map), 25)
         intersections = calculate_upset_intersections(exam_topic_map)
         self.assertGreater(len(intersections), 0)
 

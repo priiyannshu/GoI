@@ -161,7 +161,7 @@ class TestFeature02Cluster1CentralUniformedData(unittest.TestCase):
 
 
 class TestFeature03Cluster2FinancialRegulatoryData(unittest.TestCase):
-    """Feature 3: Cluster 2 Research Data (7 Premier Financial/Regulatory bodies)."""
+    """Feature 3: Cluster 2 Research Data (Premier Financial/Regulatory bodies)."""
 
     def test_f03_rbi_grade_b_general_qualification_and_timeline(self):
         rbi_rule = ELIGIBILITY_RULES_SPEC["RBI_GRADE_B"]
@@ -171,13 +171,13 @@ class TestFeature03Cluster2FinancialRegulatoryData(unittest.TestCase):
         self.assertEqual(rbi_rule["attempt_limits"]["GEN"], 6)
         self.assertIsNone(rbi_rule["attempt_limits"]["OBC"])
 
-    def test_f03_sebi_grade_a_post_graduate_or_professional_law_engg(self):
-        sebi_rule = ELIGIBILITY_RULES_SPEC["SEBI_GRADE_A"]
-        self.assertEqual(sebi_rule["cutoff_rule"], "MARCH_31_EXAM_YEAR")
-        self.assertEqual(sebi_rule["max_age_gen"], 30)
-        self.assertIn("Law", sebi_rule["accepted_disciplines"])
-        self.assertIn("Engineering", sebi_rule["accepted_disciplines"])
-        self.assertIn("CA", sebi_rule["accepted_disciplines"])
+    def test_f03_sidbi_grade_a_professional_law_engg_qualifications(self):
+        sidbi_rule = ELIGIBILITY_RULES_SPEC["SIDBI_GRADE_A"]
+        self.assertEqual(sidbi_rule["cutoff_rule"], "NOVEMBER_1_EXAM_YEAR")
+        self.assertEqual(sidbi_rule["max_age_gen"], 30)
+        self.assertIn("Law", sidbi_rule["accepted_disciplines"])
+        self.assertIn("Engineering", sidbi_rule["accepted_disciplines"])
+        self.assertIn("CA", sidbi_rule["accepted_disciplines"])
 
     def test_f03_nabard_grade_a_rdbs_qualification(self):
         nabard_rule = ELIGIBILITY_RULES_SPEC["NABARD_GRADE_A"]
@@ -185,21 +185,18 @@ class TestFeature03Cluster2FinancialRegulatoryData(unittest.TestCase):
         self.assertEqual(nabard_rule["min_pct_gen"], 60.0)
         self.assertEqual(nabard_rule["min_pct_res"], 55.0)
 
-    def test_f03_ifsca_grade_a_gift_city_regulatory_cadre(self):
-        ifsca = EXAMS_SPEC["IFSCA_GRADE_A"]
-        ifsca_rule = ELIGIBILITY_RULES_SPEC["IFSCA_GRADE_A"]
-        self.assertEqual(ifsca["administering_body"], "IFSCA")
-        self.assertEqual(ifsca_rule["cutoff_rule"], "FEBRUARY_1_EXAM_YEAR")
-        self.assertEqual(ifsca_rule["max_age_gen"], 30)
+    def test_f03_regulatory_cluster_spec_and_administration(self):
+        rbi = EXAMS_SPEC["RBI_GRADE_B"]
+        nabard = EXAMS_SPEC["NABARD_GRADE_A"]
+        self.assertEqual(rbi["administering_body"], "Reserve Bank of India")
+        self.assertEqual(nabard["administering_body"], "NABARD")
+        self.assertEqual(rbi["category"], "Regulatory")
+        self.assertEqual(nabard["category"], "Regulatory")
 
-    def test_f03_pfrda_sidbi_exim_regulatory_framework(self):
-        pfrda = EXAMS_SPEC["PFRDA_GRADE_A"]
+    def test_f03_sidbi_regulatory_framework(self):
         sidbi = EXAMS_SPEC["SIDBI_GRADE_A"]
-        exim = EXAMS_SPEC["EXIM_BANK_MT"]
-        self.assertEqual(pfrda["category"], "Regulatory")
         self.assertEqual(sidbi["category"], "Regulatory")
-        self.assertEqual(exim["category"], "Regulatory")
-        self.assertEqual(ELIGIBILITY_RULES_SPEC["EXIM_BANK_MT"]["min_pct_gen"], 60.0)
+        self.assertEqual(ELIGIBILITY_RULES_SPEC["SIDBI_GRADE_A"]["min_pct_gen"], 60.0)
 
 
 class TestFeature04Cluster3StatePSCData(unittest.TestCase):
@@ -291,8 +288,8 @@ class TestFeature06VerifiableFactAuditLog(unittest.TestCase):
         cursor.execute("SELECT COUNT(DISTINCT exam_id), COUNT(*) FROM source_audit_log;")
         distinct_exams, total_audits = cursor.fetchone()
         conn.close()
-        self.assertEqual(distinct_exams, 31, f"Expected 31 distinct exams in source_audit_log, found {distinct_exams}")
-        self.assertEqual(total_audits, 186, f"Expected 186 total audit logs (6 per exam), found {total_audits}")
+        self.assertEqual(distinct_exams, 25, f"Expected 25 distinct exams in source_audit_log, found {distinct_exams}")
+        self.assertEqual(total_audits, 150, f"Expected 150 total audit logs (6 per exam), found {total_audits}")
 
     def test_f06_audit_log_fact_types_conform_to_schema(self):
         self.assertTrue(os.path.isfile(DB_PATH), f"Disk DB missing at {DB_PATH}")
@@ -372,7 +369,7 @@ class TestFeature07DataVerificationEngine(unittest.TestCase):
         cursor.execute("SELECT COUNT(*) FROM exams;")
         count = cursor.fetchone()[0]
         conn.close()
-        self.assertEqual(count, 31)
+        self.assertEqual(count, 25)
 
     def test_f07_verification_script_exit_code_zero_on_valid_data(self):
         script_path = os.path.join(BASE_DIR, "scripts", "verify_database.py")
@@ -401,7 +398,7 @@ class TestFeature08MasterJSONExport(unittest.TestCase):
         self.assertIn("metadata", data)
         self.assertIn("exams", data)
         self.assertIn("d3_visualization_index", data)
-        self.assertEqual(data["metadata"]["total_exams"], 31)
+        self.assertEqual(data["metadata"]["total_exams"], 25)
         self.assertEqual(data["metadata"]["version"], "1.0.0")
 
     def test_f08_json_export_contains_all_36_exams(self):
@@ -410,9 +407,9 @@ class TestFeature08MasterJSONExport(unittest.TestCase):
             data = json.load(f)
         exams = data["exams"]
         self.assertIsInstance(exams, list)
-        self.assertEqual(len(exams), 31)
+        self.assertEqual(len(exams), 25)
         exam_ids = {e["exam_id"] for e in exams}
-        self.assertEqual(len(exam_ids), 31)
+        self.assertEqual(len(exam_ids), 25)
         self.assertIn("UPSC_CSE", exam_ids)
         self.assertIn("RBI_GRADE_B", exam_ids)
         self.assertIn("UPPSC_PCS", exam_ids)
@@ -883,9 +880,9 @@ class TestFeature22CloudflareWorkerHonoAPI(unittest.TestCase):
         self.assertEqual(len(worker_routes), 6)
 
     def test_f22_route_get_exams_list_contract(self):
-        sample_response = {"success": True, "count": 31, "data": list(EXAMS_SPEC.values())}
+        sample_response = {"success": True, "count": 25, "data": list(EXAMS_SPEC.values())}
         self.assertTrue(sample_response["success"])
-        self.assertEqual(sample_response["count"], 31)
+        self.assertEqual(sample_response["count"], 25)
 
     def test_f22_route_get_exam_by_id_contract(self):
         sample_exam = EXAMS_SPEC["UPSC_CSE"]
@@ -989,7 +986,7 @@ class TestFeature25FinalAcceptanceVerification(unittest.TestCase):
     """Feature 25: Final Acceptance Verification."""
 
     def test_f25_all_36_grade_a_exams_covered(self):
-        self.assertEqual(len(EXAMS_SPEC), 31)
+        self.assertEqual(len(EXAMS_SPEC), 25)
 
     def test_f25_every_exam_has_official_notification_url(self):
         for eid, spec in EXAMS_SPEC.items():

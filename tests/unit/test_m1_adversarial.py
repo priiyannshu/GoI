@@ -350,34 +350,30 @@ class TestM1AdversarialEligibilityBoundaries(unittest.TestCase):
         el, _ = self.harness.evaluate("UPSC_CSE", prof_1992)
         self.assertFalse(el)
 
-        # 4. Born 2004-02-29 applying for IFSCA (Feb 1, 2027 -> Age 22 -> Eligible)
+        # 4. Born 2004-02-29 applying for UPPSC (Jul 1, 2027 -> Age 23 -> Eligible)
         prof_2004 = {"dob": "2004-02-29", "category": "GEN", "graduation_aggregate_pct": 55.0}
-        el, _ = self.harness.evaluate("IFSCA_GRADE_A", prof_2004)
-        self.assertTrue(el)
-
-        # 5. Born 2004-02-29 applying for SEBI (Mar 31, 2027 -> Age 23 -> Eligible)
-        el, _ = self.harness.evaluate("SEBI_GRADE_A", prof_2004)
+        el, _ = self.harness.evaluate("UPPSC_PCS", prof_2004)
         self.assertTrue(el)
 
     def test_lower_age_boundary_exact_days(self):
         """Verify minimum age boundary on exact day and exact day + 1."""
-        # SEBI Grade A (Cutoff: March 31, 2027, Min Age: 21)
-        # Born 2006-03-31 turns 21 on March 31, 2027 -> Eligible
-        el_exact, _ = self.harness.evaluate("SEBI_GRADE_A", {"dob": "2006-03-31", "category": "GEN", "graduation_aggregate_pct": 55.0})
+        # UPSC ESE (Cutoff: January 1, 2027, Min Age: 21)
+        # Born 2006-01-01 turns 21 on January 1, 2027 -> Eligible
+        el_exact, _ = self.harness.evaluate("UPSC_ESE", {"dob": "2006-01-01", "category": "GEN", "graduation_aggregate_pct": 55.0})
         self.assertTrue(el_exact)
 
-        # Born 2006-04-01 is 20 years 364 days on March 31, 2027 -> Ineligible
-        el_under, _ = self.harness.evaluate("SEBI_GRADE_A", {"dob": "2006-04-01", "category": "GEN", "graduation_aggregate_pct": 55.0})
+        # Born 2006-01-02 is 20 years 364 days on January 1, 2027 -> Ineligible
+        el_under, _ = self.harness.evaluate("UPSC_ESE", {"dob": "2006-01-02", "category": "GEN", "graduation_aggregate_pct": 55.0})
         self.assertFalse(el_under)
 
-        # IFSCA Grade A (Cutoff: February 1, 2027, Min Age: 21)
-        # Born 2006-02-01 turns 21 on Feb 1 -> Eligible
-        el_ifsca_exact, _ = self.harness.evaluate("IFSCA_GRADE_A", {"dob": "2006-02-01", "category": "GEN", "graduation_aggregate_pct": 55.0})
-        self.assertTrue(el_ifsca_exact)
+        # UPPSC PCS (Cutoff: July 1, 2027, Min Age: 21)
+        # Born 2006-07-01 turns 21 on July 1 -> Eligible
+        el_uppsc_exact, _ = self.harness.evaluate("UPPSC_PCS", {"dob": "2006-07-01", "category": "GEN", "graduation_aggregate_pct": 55.0})
+        self.assertTrue(el_uppsc_exact)
 
-        # Born 2006-02-02 is underage on Feb 1 -> Ineligible
-        el_ifsca_under, _ = self.harness.evaluate("IFSCA_GRADE_A", {"dob": "2006-02-02", "category": "GEN", "graduation_aggregate_pct": 55.0})
-        self.assertFalse(el_ifsca_under)
+        # Born 2006-07-02 is underage on July 1 -> Ineligible
+        el_uppsc_under, _ = self.harness.evaluate("UPPSC_PCS", {"dob": "2006-07-02", "category": "GEN", "graduation_aggregate_pct": 55.0})
+        self.assertFalse(el_uppsc_under)
 
     def test_strict_percentage_thresholds(self):
         """Verify strict non-rounding: 59.99% and 59.9999% fail 60.0% threshold."""

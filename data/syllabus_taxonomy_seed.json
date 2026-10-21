@@ -924,48 +924,6 @@
     "description": "Phases of business cycles, output gap, potential GDP, and exogenous/endogenous growth models (Solow, Harrod-Domar)."
   },
   {
-    "topic_id": "econ_fin.monetary_policy.rbi_framework_instruments",
-    "domain": "Economics & Finance",
-    "sub_domain": "monetary_policy",
-    "topic_title": "RBI Monetary Policy Framework, MPC & Inflation Targeting",
-    "description": "RBI Act 1934 provisions, Monetary Policy Committee (MPC) voting, and statutory Flexible Inflation Targeting (4±2%)."
-  },
-  {
-    "topic_id": "econ_fin.monetary_policy.liquidity_operations",
-    "domain": "Economics & Finance",
-    "sub_domain": "monetary_policy",
-    "topic_title": "Liquidity Management Instruments: Repo, SDF, MSF & Reserve Ratios",
-    "description": "Policy Repo Rate, Standing Deposit Facility (SDF), Marginal Standing Facility (MSF), CRR, SLR, and OMO operations."
-  },
-  {
-    "topic_id": "econ_fin.monetary_policy.money_supply_aggregates",
-    "domain": "Economics & Finance",
-    "sub_domain": "monetary_policy",
-    "topic_title": "Monetary Aggregates, High-Powered Money & Money Multiplier",
-    "description": "Reserve money (M0), narrow money (M1), broad money (M3), currency-deposit ratio, and money multiplier mechanics."
-  },
-  {
-    "topic_id": "econ_fin.fiscal_policy.union_budget_deficits",
-    "domain": "Economics & Finance",
-    "sub_domain": "fiscal_policy",
-    "topic_title": "Union Budget Concepts, Deficit Metrics & FRBM Act",
-    "description": "Revenue and Capital accounts, Revenue/Fiscal/Primary Deficits, and FRBM Act 2003 fiscal targets."
-  },
-  {
-    "topic_id": "econ_fin.fiscal_policy.taxation_direct_indirect",
-    "domain": "Economics & Finance",
-    "sub_domain": "fiscal_policy",
-    "topic_title": "Tax Policy, Direct Taxes & GST Framework",
-    "description": "Canons of taxation, Corporate income tax, Goods and Services Tax (GST) architecture, GST Council, and Input Tax Credit."
-  },
-  {
-    "topic_id": "econ_fin.fiscal_policy.public_debt_finance_commission",
-    "domain": "Economics & Finance",
-    "sub_domain": "fiscal_policy",
-    "topic_title": "Public Debt Management & Finance Commission Transfers",
-    "description": "Internal and external public debt, debt-to-GDP ratios, Finance Commission horizontal/vertical devolution criteria."
-  },
-  {
     "topic_id": "econ_fin.financial_markets.money_market_instruments",
     "domain": "Economics & Finance",
     "sub_domain": "financial_markets",
@@ -1022,20 +980,6 @@
     "description": "RBI Priority Sector Lending (PSL) mandates, PM Jan Dhan Yojana, PM Mudra Yojana, and Financial Inclusion Index."
   },
   {
-    "topic_id": "econ_fin.regulatory_bodies.pension_architecture_pfrda",
-    "domain": "Economics & Finance",
-    "sub_domain": "regulatory_bodies",
-    "topic_title": "Pension Regulatory Framework, PFRDA & National Pension System (NPS)",
-    "description": "PFRDA Act 2013, National Pension System (NPS) architecture, Tier I/II accounts, and Atal Pension Yojana (APY)."
-  },
-  {
-    "topic_id": "econ_fin.regulatory_bodies.ifsca_gift_city",
-    "domain": "Economics & Finance",
-    "sub_domain": "regulatory_bodies",
-    "topic_title": "International Financial Services Centres Authority (IFSCA) & GIFT City",
-    "description": "IFSCA Act 2019, GIFT City ecosystem, offshore banking units, bullion exchange, and aircraft/ship leasing rules."
-  },
-  {
     "topic_id": "econ_fin.regulatory_bodies.nabard_rural_credit",
     "domain": "Economics & Finance",
     "sub_domain": "regulatory_bodies",
@@ -1064,25 +1008,11 @@
     "description": "Current/Quick ratios, Debt-to-Equity, Interest Coverage, Return on Equity (ROE), ROCE, and DuPont analysis."
   },
   {
-    "topic_id": "econ_fin.corporate_finance.capital_budgeting_cost_of_capital",
-    "domain": "Economics & Finance",
-    "sub_domain": "corporate_finance",
-    "topic_title": "Capital Budgeting Evaluation & Weighted Average Cost of Capital (WACC)",
-    "description": "Capital budgeting (NPV, IRR, Payback Period), Cost of Equity (CAPM), and Weighted Average Cost of Capital (WACC)."
-  },
-  {
     "topic_id": "econ_fin.accounting_costing.accounting_standards_indas",
     "domain": "Economics & Finance",
     "sub_domain": "accounting_costing",
     "topic_title": "Accounting Principles, Indian Accounting Standards (Ind AS) & Auditing",
     "description": "Fundamental accounting assumptions, Ind AS aligned with IFRS, revenue recognition rules, and statutory auditing."
-  },
-  {
-    "topic_id": "econ_fin.accounting_costing.cost_accounting_marginal",
-    "domain": "Economics & Finance",
-    "sub_domain": "accounting_costing",
-    "topic_title": "Cost Accounting, Marginal Costing & Break-Even Analysis",
-    "description": "Elements of cost, Marginal Costing, Cost-Volume-Profit (CVP) analysis, Contribution margin, and Break-Even Point (BEP)."
   },
   {
     "topic_id": "econ_fin.management_org.management_principles_theories",
@@ -1300,47 +1230,5 @@
     "sub_domain": "geology_geophysics",
     "topic_title": "Crystallography, Optical Mineralogy & Petrology",
     "description": "Crystal symmetry classes, optical properties of minerals, petrology of igneous/sedimentary/metamorphic rocks."
-  },
-  {
-    "topic_id": "tech.geology_geophysics.economic_hydrogeology",
-    "domain": "Technical",
-    "sub_domain": "geology_geophysics",
-    "topic_title": "Economic Geology, Mineral Deposits of India & Hydrogeology",
-    "description": "Ore forming processes, mineral deposits of India, groundwater hydrology, aquifer types, and well hydraulics."
-  },
-  {
-    "topic_id": "tech.geology_geophysics.applied_geophysics",
-    "domain": "Technical",
-    "sub_domain": "geology_geophysics",
-    "topic_title": "Applied Exploration Geophysics: Seismic, Gravity, Magnetic & Electrical",
-    "description": "Seismic reflection/refraction, gravity and magnetic prospecting, electrical resistivity surveys, and well logging."
-  },
-  {
-    "topic_id": "tech.statistics_econometrics.probability_distributions",
-    "domain": "Technical",
-    "sub_domain": "statistics_econometrics",
-    "topic_title": "Probability Distributions, Random Variables & Limit Theorems",
-    "description": "Random variables, Binomial, Poisson, Normal, Exponential distributions, Central Limit Theorem, and Chebyshev inequality."
-  },
-  {
-    "topic_id": "tech.statistics_econometrics.statistical_inference_tests",
-    "domain": "Technical",
-    "sub_domain": "statistics_econometrics",
-    "topic_title": "Statistical Inference, Estimation & Hypothesis Testing",
-    "description": "Point and interval estimation, Maximum Likelihood, hypothesis testing (z, t, F, Chi-Square tests), and ANOVA."
-  },
-  {
-    "topic_id": "tech.statistics_econometrics.sampling_design",
-    "domain": "Technical",
-    "sub_domain": "statistics_econometrics",
-    "topic_title": "Survey Sampling Theory & Experimental Designs",
-    "description": "Simple random sampling, stratified sampling, cluster sampling, systematic sampling, and randomized block designs."
-  },
-  {
-    "topic_id": "tech.statistics_econometrics.regression_econometric_models",
-    "domain": "Technical",
-    "sub_domain": "statistics_econometrics",
-    "topic_title": "Econometrics, Multiple Regression & Time Series Forecasting",
-    "description": "Classical linear regression (OLS), Gauss-Markov theorem, multicollinearity, heteroscedasticity, and ARIMA models."
   }
 ]

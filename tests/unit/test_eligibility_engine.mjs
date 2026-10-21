@@ -44,16 +44,16 @@ function it(description, fn) {
 // ----------------------------------------------------------------------------
 console.log('\n[TEST GROUP 1] Catalog Registration & Parity');
 
-it('All 31 Official Grade A examinations are registered in AUTHORITATIVE_EXAM_RULES', () => {
+it('All 25 Official Grade A examinations are registered in AUTHORITATIVE_EXAM_RULES', () => {
   const dbExams = [
-    'BPSC_CCE', 'EXIM_BANK_MT', 'IAF_AFCAT', 'IFSCA_GRADE_A',
-    'MPPSC_SSE', 'NABARD_GRADE_A', 'PFRDA_GRADE_A',
+    'BPSC_CCE', 'IAF_AFCAT',
+    'MPPSC_SSE', 'NABARD_GRADE_A',
     'PSU_BARC_NPCIL_ET', 'PSU_BHEL_ET', 'PSU_BPCL_MT', 'PSU_COAL_INDIA_MT',
     'PSU_GAIL_ET', 'PSU_HPCL_OFFICER', 'PSU_IOCL_ET', 'PSU_NTPC_EET',
     'PSU_ONGC_GT', 'PSU_PGCIL_ET', 'PSU_SAIL_MTT', 'RBI_GRADE_B', 'RPSC_RAS',
-    'SEBI_GRADE_A', 'SIDBI_GRADE_A', 'TSPSC_GROUP_1',
-    'UPPSC_PCS', 'UPSC_CAPF_AC', 'UPSC_CDS', 'UPSC_CGSE', 'UPSC_CSE',
-    'UPSC_ESE', 'UPSC_IES_ISS', 'UPSC_IFOS'
+    'SIDBI_GRADE_A', 'TSPSC_GROUP_1',
+    'UPPSC_PCS', 'UPSC_CAPF_AC', 'UPSC_CDS', 'UPSC_CSE',
+    'UPSC_ESE', 'UPSC_IFOS'
   ];
 
   for (const id of dbExams) {
@@ -748,7 +748,7 @@ it('evaluateAllExams evaluates all registered exams and filtering methods partit
 
   const verdicts = evaluateAllExams(candidate);
   const totalExamCount = Object.keys(verdicts).length;
-  assert(totalExamCount >= 31, `Expected >= 31 exams, got ${totalExamCount}`);
+  assert(totalExamCount >= 25, `Expected >= 25 exams, got ${totalExamCount}`);
 
   const eligible = filterEligibleExams(verdicts);
   const conditional = filterConditionallyEligibleExams(verdicts);
