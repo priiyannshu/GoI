@@ -1359,6 +1359,10 @@ export function evaluateEligibility(
         'Civil',
         'Mechanical',
         'Electrical',
+        'Electronics',
+        'Chemical',
+        'Mining',
+        'Geoinformatics',
       ].map(s => normalizeDiscipline(s));
 
       const is_prof = discipline ? profDisciplines.includes(normalizeDiscipline(discipline)) : false;
@@ -1404,6 +1408,60 @@ export function evaluateEligibility(
           ) {
             return true;
           }
+
+          // Engineering umbrella matching: If the post accepts 'Engineering', all recognized engineering disciplines qualify
+          const engKeywords = [
+            'engineering',
+            'civil',
+            'mechanical',
+            'electrical',
+            'electronics',
+            'telecommunication',
+            'computer science',
+            'information technology',
+            'chemical',
+            'mining',
+            'metallurgy',
+            'instrumentation',
+            'geoinformatics',
+            'geomatics',
+            'gis',
+            'aerospace',
+            'aeronautical',
+            'production',
+            'biotechnology',
+            'environmental',
+            'marine',
+            'petroleum',
+            'automobile',
+            'btech',
+            'be',
+          ];
+          const isProfEng = engKeywords.some(k => normProfDisc.includes(k));
+          if (isProfEng && (normAccepted === 'engineering' || normAccepted === 'engineer')) {
+            return true;
+          }
+
+          // Science umbrella matching: If the post accepts 'Science', recognized science disciplines qualify
+          const sciKeywords = [
+            'science',
+            'physics',
+            'chemistry',
+            'mathematics',
+            'statistics',
+            'geology',
+            'botany',
+            'zoology',
+            'agriculture',
+            'forestry',
+            'geoinformatics',
+            'geomatics',
+          ];
+          const isProfSci = sciKeywords.some(k => normProfDisc.includes(k));
+          if (isProfSci && normAccepted === 'science') {
+            return true;
+          }
+
           // Geoinformatics is officially an allied engineering discipline to Civil Engineering, Geology & General Engineering
           if (
             (normProfDisc.includes('geoinformatics') || normProfDisc.includes('geomatics') || normProfDisc.includes('gis')) &&

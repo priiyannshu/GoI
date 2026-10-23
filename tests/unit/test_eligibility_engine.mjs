@@ -778,6 +778,63 @@ it('UPSC CAPF AC bars currently/previously appointed Assistant Commandants from 
   assert(v.reasons.some(r => r.includes('appointed Assistant Commandants cannot re-appear')));
 });
 
+it('UPSC IFoS accepts Bachelor in Engineering branches (Civil, Mechanical, Geoinformatics) and rejects non-science', () => {
+  const ifosRule = AUTHORITATIVE_EXAM_RULES['UPSC_IFOS'];
+
+  // 1. Civil Engineering
+  const pCivil = {
+    dob: '2000-05-15',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_degree: 'Bachelor',
+    graduation_discipline: 'Civil',
+    graduation_aggregate_pct: 65.0,
+    enable_skipped_check: false,
+  };
+  const vCivil = evaluateEligibility(pCivil, ifosRule, 2027);
+  assert.strictEqual(vCivil.status, 'ELIGIBLE');
+
+  // 2. Geoinformatics / Remote Sensing
+  const pGeo = {
+    dob: '2000-05-15',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_degree: 'Bachelor',
+    graduation_discipline: 'Geoinformatics',
+    graduation_aggregate_pct: 65.0,
+    enable_skipped_check: false,
+  };
+  const vGeo = evaluateEligibility(pGeo, ifosRule, 2027);
+  assert.strictEqual(vGeo.status, 'ELIGIBLE');
+
+  // 3. Mechanical Engineering
+  const pMech = {
+    dob: '2000-05-15',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_degree: 'Bachelor',
+    graduation_discipline: 'Mechanical',
+    graduation_aggregate_pct: 65.0,
+    enable_skipped_check: false,
+  };
+  const vMech = evaluateEligibility(pMech, ifosRule, 2027);
+  assert.strictEqual(vMech.status, 'ELIGIBLE');
+
+  // 4. Ineligible discipline (Arts / History)
+  const pArts = {
+    dob: '2000-05-15',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_degree: 'Bachelor',
+    graduation_discipline: 'Arts_History',
+    graduation_aggregate_pct: 65.0,
+    enable_skipped_check: false,
+  };
+  const vArts = evaluateEligibility(pArts, ifosRule, 2027);
+  assert.strictEqual(vArts.status, 'INELIGIBLE');
+  assert(vArts.reasons.some(r => r.includes('discipline') && r.includes('not accepted')));
+});
+
 // ----------------------------------------------------------------------------
 // 12. Batch Pipeline & Filtering Functions
 // ----------------------------------------------------------------------------

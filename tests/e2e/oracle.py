@@ -1308,7 +1308,35 @@ def evaluate_statutory_eligibility(profile: UserProfile, exam_id: str, exam_year
     # 2. Check Degree & Discipline
     accepted_disc = rule["accepted_disciplines"]
     if "ANY" not in accepted_disc:
-        if profile.discipline not in accepted_disc:
+        eng_keywords = [
+            "engineering", "civil", "mechanical", "electrical", "electronics",
+            "telecommunication", "computer_science", "information_technology",
+            "chemical", "mining", "metallurgy", "instrumentation",
+            "geoinformatics", "geomatics", "gis", "aerospace", "aeronautical",
+            "production", "biotechnology", "environmental", "btech", "be"
+        ]
+        sci_keywords = [
+            "science", "physics", "chemistry", "mathematics", "statistics",
+            "geology", "botany", "zoology", "agriculture", "forestry",
+            "geoinformatics", "geomatics"
+        ]
+        disc_lower = (profile.discipline or "").lower().replace("-", "_").replace(" ", "_")
+        is_prof_eng = any(k in disc_lower for k in eng_keywords)
+        is_prof_sci = any(k in disc_lower for k in sci_keywords)
+
+        def disc_matches(acc: str) -> bool:
+            acc_lower = acc.lower().replace("-", "_").replace(" ", "_")
+            if profile.discipline == acc or disc_lower == acc_lower or disc_lower in acc_lower or acc_lower in disc_lower:
+                return True
+            if acc_lower in ["engineering", "engineer"] and is_prof_eng:
+                return True
+            if acc_lower == "science" and is_prof_sci:
+                return True
+            if any(g in disc_lower for g in ["geoinformatics", "geomatics", "gis"]) and acc_lower in ["civil", "engineering", "science", "geology"]:
+                return True
+            return False
+
+        if not any(disc_matches(d) for d in accepted_disc):
             is_eligible = False
             reasons.append(f"Graduation discipline '{profile.discipline}' is not accepted. Required: {accepted_disc}")
 
