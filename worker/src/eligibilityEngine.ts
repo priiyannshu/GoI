@@ -1523,36 +1523,50 @@ export function evaluateEligibility(
               `Height ${profile.height_cm} cm is below Flying Branch threshold (${flyMinH} cm); eligible for Ground Duty branches only`
             );
           }
-        } else {
-          // Check cockpit anthropometric dimensions if supplied
-          const sitting = profile.sitting_height_cm;
-          const leg = profile.leg_length_cm;
-          const thigh = profile.thigh_length_cm;
-
-          if (sitting !== undefined && sitting !== null) {
-            if (sitting < fly.sitting_height_min_cm || sitting > fly.sitting_height_max_cm) {
-              reasons.push(
-                `Sitting height ${sitting} cm outside Flying Branch cockpit safety limits (${fly.sitting_height_min_cm}–${fly.sitting_height_max_cm} cm); eligible for Ground Duty only`
-              );
-            }
-          }
-
-          if (leg !== undefined && leg !== null) {
-            if (leg < fly.leg_length_min_cm || leg > fly.leg_length_max_cm) {
-              reasons.push(
-                `Leg length ${leg} cm outside Flying Branch cockpit rudder limits (${fly.leg_length_min_cm}–${fly.leg_length_max_cm} cm); eligible for Ground Duty only`
-              );
-            }
-          }
-
-          if (thigh !== undefined && thigh !== null) {
-            if (thigh > fly.thigh_length_max_cm) {
-              reasons.push(
-                `Thigh length ${thigh} cm exceeds Flying Branch ejection clearance max (${fly.thigh_length_max_cm} cm); eligible for Ground Duty only`
-              );
-            }
-          }
         }
+      }
+
+      // Check cockpit anthropometric dimensions
+      const sitting = profile.sitting_height_cm;
+      const leg = profile.leg_length_cm;
+      const thigh = profile.thigh_length_cm;
+
+      const isSittingMissing =
+        sitting === undefined || sitting === null || sitting === ('' as any) || isNaN(Number(sitting)) || Number(sitting) <= 0;
+      const isLegMissing =
+        leg === undefined || leg === null || leg === ('' as any) || isNaN(Number(leg)) || Number(leg) <= 0;
+      const isThighMissing =
+        thigh === undefined || thigh === null || thigh === ('' as any) || isNaN(Number(thigh)) || Number(thigh) <= 0;
+
+      const missingCockpitDetails: string[] = [];
+      if (isSittingMissing) {
+        missingCockpitDetails.push('Sitting height');
+      } else if (Number(sitting) < fly.sitting_height_min_cm || Number(sitting) > fly.sitting_height_max_cm) {
+        reasons.push(
+          `Sitting height ${sitting} cm outside Flying Branch cockpit safety limits (${fly.sitting_height_min_cm}–${fly.sitting_height_max_cm} cm); eligible for Ground Duty only`
+        );
+      }
+
+      if (isLegMissing) {
+        missingCockpitDetails.push('Leg length');
+      } else if (Number(leg) < fly.leg_length_min_cm || Number(leg) > fly.leg_length_max_cm) {
+        reasons.push(
+          `Leg length ${leg} cm outside Flying Branch cockpit rudder limits (${fly.leg_length_min_cm}–${fly.leg_length_max_cm} cm); eligible for Ground Duty only`
+        );
+      }
+
+      if (isThighMissing) {
+        missingCockpitDetails.push('Thigh length');
+      } else if (Number(thigh) > fly.thigh_length_max_cm) {
+        reasons.push(
+          `Thigh length ${thigh} cm exceeds Flying Branch ejection clearance max (${fly.thigh_length_max_cm} cm); eligible for Ground Duty only`
+        );
+      }
+
+      if (missingCockpitDetails.length > 0 && (profile as any).enable_skipped_check) {
+        reasons.push(
+          `IAF Flying Branch cockpit anthropometrics required (${missingCockpitDetails.join(', ')}) to verify Flying Branch eligibility`
+        );
       }
     }
 

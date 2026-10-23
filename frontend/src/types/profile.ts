@@ -82,6 +82,10 @@ export interface UserProfileInput {
   has_commercial_pilot_license: boolean;
   enable_skipped_check?: boolean;
   skipped_fields?: string[];
+
+  // Cloud Synchronization: Hidden Items
+  hidden_exams?: string[];
+  hidden_posts?: string[];
 }
 
 export interface EligibilityVerdict {

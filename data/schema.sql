@@ -114,6 +114,8 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     chest_cm REAL,
     vision_specs TEXT,
     prior_attempts_json JSON CHECK (prior_attempts_json IS NULL OR json_valid(prior_attempts_json)),
+    hidden_exams_json JSON DEFAULT '[]' CHECK (hidden_exams_json IS NULL OR json_valid(hidden_exams_json)),
+    hidden_posts_json JSON DEFAULT '[]' CHECK (hidden_posts_json IS NULL OR json_valid(hidden_posts_json)),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

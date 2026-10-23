@@ -260,15 +260,20 @@ function goToExam(examId: string) {
 
 function formatTimeline(timeline: any): string {
   if (!timeline) return 'Tentative 2027';
+  let t = timeline;
   if (typeof timeline === 'string') {
     try {
-      const parsed = JSON.parse(timeline);
-      return parsed.prelims_stage_1 || parsed.prelims_date || parsed.prelims_or_interview || parsed.notification_month || 'Tentative 2027';
+      t = JSON.parse(timeline);
     } catch {
       return timeline;
     }
   }
-  return timeline.prelims_stage_1 || timeline.prelims_date || timeline.prelims_or_interview || timeline.notification_month || 'Tentative 2027';
+  // Check for bi-annual or cycle sub-objects (e.g. CDS, AFCAT)
+  if (t.cds_1?.exam_date) return `CDS I: ${t.cds_1.exam_date}`;
+  if (t.afcat_1?.exam_date) return `AFCAT I: ${t.afcat_1.exam_date}`;
+  if (t.exam_date) return t.exam_date;
+  if (t.cbt_exam) return t.cbt_exam;
+  return t.prelims_stage_1 || t.prelims_date || t.prelims_or_interview || t.phase_1_exam || t.written_exam_date || t.notification_month || 'Tentative 2027';
 }
 
 function formatCategory(category?: string): string {

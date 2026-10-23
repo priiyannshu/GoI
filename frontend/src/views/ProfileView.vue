@@ -375,10 +375,35 @@
 
         <!-- Cockpit Anthropometrics (IAF AFCAT & CDS Flying) -->
         <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
-          <span class="text-xs font-bold text-sky-700 dark:text-sky-400 block mb-2">✈️ Cockpit Anthropometrics (AFCAT & CDS Flying Branch)</span>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold text-sky-700 dark:text-sky-400 block">✈️ Cockpit Anthropometrics (AFCAT & CDS Flying Branch)</span>
+            <span class="text-[10px] text-slate-500 dark:text-slate-400 hidden sm:inline">Tap arrow on each field for measuring guide</span>
+          </div>
+
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Sitting Height -->
             <div>
-              <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">Sitting Height (cm)</label>
+              <div class="flex items-center justify-between mb-1">
+                <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400">Sitting Height (cm)</label>
+                <button
+                  type="button"
+                  @click="toggleMetricGuide('sitting')"
+                  class="p-1 -mr-1 rounded-md text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center space-x-1"
+                  aria-label="Toggle Sitting Height Guide"
+                  title="Tap to toggle measuring rules"
+                >
+                  <span class="text-[10px] font-medium text-sky-600 dark:text-sky-400">Guide</span>
+                  <svg
+                    class="w-3.5 h-3.5 transform transition-transform duration-200"
+                    :class="expandedMetrics.sitting ? 'rotate-180 text-sky-600 dark:text-sky-400' : ''"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
               <input
                 type="number"
                 step="0.5"
@@ -386,10 +411,48 @@
                 placeholder="81.5 – 96.0 cm"
                 class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-sky-500"
               />
-              <span class="text-[10px] text-slate-500">Cockpit canopy & seat clearance</span>
+              <span class="text-[10px] text-slate-500 block mt-0.5">Cockpit canopy & seat clearance</span>
+
+              <!-- Expandable rules under sitting height -->
+              <div
+                v-if="expandedMetrics.sitting"
+                class="mt-2 p-2.5 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 text-xs text-slate-700 dark:text-slate-300 space-y-1.5"
+              >
+                <div class="font-bold text-[11px] text-sky-800 dark:text-sky-300 flex items-center space-x-1">
+                  <span>📐 How to measure Sitting Height (81.5 – 96.0 cm):</span>
+                </div>
+                <ul class="text-[11px] space-y-1 list-disc pl-4 text-slate-600 dark:text-slate-300">
+                  <li>Sit flat on a hard floor or chair with your buttocks and upper back pressed against a wall.</li>
+                  <li>Look straight ahead (don't slouch or tilt your chin). Place a flat book on top of your head touching the wall at 90°.</li>
+                  <li>Measure vertically from the sitting surface up to the book mark.</li>
+                  <li class="italic text-[10px] text-sky-700 dark:text-sky-400">Includes head, spine, and pelvic cushion (not just torso)—usually ~52–53% of your total standing height!</li>
+                </ul>
+              </div>
             </div>
+
+            <!-- Leg Length -->
             <div>
-              <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">Leg Length (cm)</label>
+              <div class="flex items-center justify-between mb-1">
+                <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400">Leg Length (cm)</label>
+                <button
+                  type="button"
+                  @click="toggleMetricGuide('leg')"
+                  class="p-1 -mr-1 rounded-md text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center space-x-1"
+                  aria-label="Toggle Leg Length Guide"
+                  title="Tap to toggle measuring rules"
+                >
+                  <span class="text-[10px] font-medium text-sky-600 dark:text-sky-400">Guide</span>
+                  <svg
+                    class="w-3.5 h-3.5 transform transition-transform duration-200"
+                    :class="expandedMetrics.leg ? 'rotate-180 text-sky-600 dark:text-sky-400' : ''"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
               <input
                 type="number"
                 step="0.5"
@@ -397,10 +460,48 @@
                 placeholder="99.0 – 120.0 cm"
                 class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-sky-500"
               />
-              <span class="text-[10px] text-slate-500">Rudder pedal full throw reach</span>
+              <span class="text-[10px] text-slate-500 block mt-0.5">Rudder pedal full throw reach</span>
+
+              <!-- Expandable rules under leg length -->
+              <div
+                v-if="expandedMetrics.leg"
+                class="mt-2 p-2.5 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 text-xs text-slate-700 dark:text-slate-300 space-y-1.5"
+              >
+                <div class="font-bold text-[11px] text-sky-800 dark:text-sky-300 flex items-center space-x-1">
+                  <span>📐 How to measure Leg Length (99.0 – 120.0 cm):</span>
+                </div>
+                <ul class="text-[11px] space-y-1 list-disc pl-4 text-slate-600 dark:text-slate-300">
+                  <li>Sit on the floor with your back and buttocks pressed firmly against the wall.</li>
+                  <li>Stretch legs straight forward flat on the floor, knees locked, with toes flexed straight up at 90°.</li>
+                  <li>Measure horizontally along the floor from the wall behind your butt all the way to the bottom of your heel.</li>
+                  <li class="italic text-[10px] text-sky-700 dark:text-sky-400">NOT standing pant inseam! It measures rudder reach starting from behind your hips, so it's 10–15 cm longer than standing leg length.</li>
+                </ul>
+              </div>
             </div>
+
+            <!-- Thigh Length -->
             <div>
-              <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400 mb-1">Thigh Length (cm)</label>
+              <div class="flex items-center justify-between mb-1">
+                <label class="block text-[11px] font-medium text-slate-600 dark:text-slate-400">Thigh Length (cm)</label>
+                <button
+                  type="button"
+                  @click="toggleMetricGuide('thigh')"
+                  class="p-1 -mr-1 rounded-md text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center space-x-1"
+                  aria-label="Toggle Thigh Length Guide"
+                  title="Tap to toggle measuring rules"
+                >
+                  <span class="text-[10px] font-medium text-sky-600 dark:text-sky-400">Guide</span>
+                  <svg
+                    class="w-3.5 h-3.5 transform transition-transform duration-200"
+                    :class="expandedMetrics.thigh ? 'rotate-180 text-sky-600 dark:text-sky-400' : ''"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
               <input
                 type="number"
                 step="0.5"
@@ -408,7 +509,23 @@
                 placeholder="Max 64.0 cm"
                 class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-sky-500"
               />
-              <span class="text-[10px] text-slate-500">Ejection clearance threshold</span>
+              <span class="text-[10px] text-slate-500 block mt-0.5">Ejection clearance threshold</span>
+
+              <!-- Expandable rules under thigh length -->
+              <div
+                v-if="expandedMetrics.thigh"
+                class="mt-2 p-2.5 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 text-xs text-slate-700 dark:text-slate-300 space-y-1.5"
+              >
+                <div class="font-bold text-[11px] text-sky-800 dark:text-sky-300 flex items-center space-x-1">
+                  <span>📐 How to measure Thigh Length (Max 64.0 cm):</span>
+                </div>
+                <ul class="text-[11px] space-y-1 list-disc pl-4 text-slate-600 dark:text-slate-300">
+                  <li>Sit on a chair or the floor with your back and buttocks touching the wall, knees bent at 90°.</li>
+                  <li>Measure horizontally along the top of your thigh from the wall behind your hips to the front curve of your kneecap.</li>
+                  <li>Must be 64.0 cm or less to safely clear ejection seat handles and the dashboard.</li>
+                  <li class="italic text-[10px] text-sky-700 dark:text-sky-400">If your total standing height is under 180 cm, you will easily fall below this 64 cm limit.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -590,6 +707,16 @@ const activeTab = ref<'profile' | 'summary'>('profile');
 const statusFilter = ref<string>('ALL');
 const isSavingProfile = ref(false);
 const saveMessage = ref<string | null>(null);
+
+const expandedMetrics = ref<Record<string, boolean>>({
+  sitting: false,
+  leg: false,
+  thigh: false,
+});
+
+function toggleMetricGuide(metric: string) {
+  expandedMetrics.value[metric] = !expandedMetrics.value[metric];
+}
 
 const profile = profileStore.profile;
 

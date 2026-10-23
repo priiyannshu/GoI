@@ -114,7 +114,27 @@
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <!-- Sitting Height -->
         <div>
-          <label class="block text-xs font-medium text-slate-300 mb-1">Sitting Height (cm)</label>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-medium text-slate-300">Sitting Height (cm)</label>
+            <button
+              type="button"
+              @click="toggleMetricGuide('sitting')"
+              class="p-1 -mr-1 rounded-md text-slate-400 hover:text-sky-400 hover:bg-slate-800 transition-colors flex items-center space-x-1"
+              aria-label="Toggle Sitting Height Guide"
+              title="Tap to toggle measuring rules"
+            >
+              <span class="text-[10px] font-medium text-sky-400">Guide</span>
+              <svg
+                class="w-3.5 h-3.5 transform transition-transform duration-200"
+                :class="expandedMetrics.sitting ? 'rotate-180 text-sky-400' : ''"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
           <div class="relative">
             <input
               type="number"
@@ -131,11 +151,47 @@
               {{ sittingHeightValid ? 'Safe ✓' : (profileStore.profile.sitting_height_cm < 81.5 ? 'Too Short ✗' : 'Too Tall ✗') }}
             </span>
           </div>
+
+          <!-- Expandable rules under sitting height -->
+          <div
+            v-if="expandedMetrics.sitting"
+            class="mt-2.5 p-3 rounded-xl bg-sky-950/40 border border-sky-800/60 text-xs text-slate-300 space-y-1.5"
+          >
+            <div class="font-bold text-[11px] text-sky-300 flex items-center space-x-1">
+              <span>📐 How to measure Sitting Height (81.5 – 96.0 cm):</span>
+            </div>
+            <ul class="text-[11px] space-y-1 list-disc pl-4 text-slate-300">
+              <li>Sit flat on a hard floor or chair with your buttocks and upper back pressed against a wall.</li>
+              <li>Look straight ahead without slouching. Place a flat book on top of your head against the wall at 90°.</li>
+              <li>Measure vertically from the sitting surface up to the book mark.</li>
+              <li class="italic text-[10px] text-sky-400">Includes head, spine, and pelvic cushion (not just torso)—usually ~52–53% of standing height!</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Leg Length -->
         <div>
-          <label class="block text-xs font-medium text-slate-300 mb-1">Leg Length (cm)</label>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-medium text-slate-300">Leg Length (cm)</label>
+            <button
+              type="button"
+              @click="toggleMetricGuide('leg')"
+              class="p-1 -mr-1 rounded-md text-slate-400 hover:text-sky-400 hover:bg-slate-800 transition-colors flex items-center space-x-1"
+              aria-label="Toggle Leg Length Guide"
+              title="Tap to toggle measuring rules"
+            >
+              <span class="text-[10px] font-medium text-sky-400">Guide</span>
+              <svg
+                class="w-3.5 h-3.5 transform transition-transform duration-200"
+                :class="expandedMetrics.leg ? 'rotate-180 text-sky-400' : ''"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
           <div class="relative">
             <input
               type="number"
@@ -152,11 +208,47 @@
               {{ legLengthValid ? 'Safe ✓' : (profileStore.profile.leg_length_cm < 99.0 ? 'Below Pedal Reach ✗' : 'Exceeds Cockpit ✗') }}
             </span>
           </div>
+
+          <!-- Expandable rules under leg length -->
+          <div
+            v-if="expandedMetrics.leg"
+            class="mt-2.5 p-3 rounded-xl bg-sky-950/40 border border-sky-800/60 text-xs text-slate-300 space-y-1.5"
+          >
+            <div class="font-bold text-[11px] text-sky-300 flex items-center space-x-1">
+              <span>📐 How to measure Leg Length (99.0 – 120.0 cm):</span>
+            </div>
+            <ul class="text-[11px] space-y-1 list-disc pl-4 text-slate-300">
+              <li>Sit on the floor with your back and buttocks pressed firmly against the wall.</li>
+              <li>Stretch legs straight forward flat on the floor, knees locked, with toes flexed straight up at 90°.</li>
+              <li>Measure horizontally along the floor from the wall behind your butt all the way to the bottom of your heel.</li>
+              <li class="italic text-[10px] text-sky-400">NOT standing pant inseam! It measures rudder reach starting behind hips, so it's 10–15 cm longer than standing leg length.</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Thigh Length -->
         <div>
-          <label class="block text-xs font-medium text-slate-300 mb-1">Thigh Length (cm)</label>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-medium text-slate-300">Thigh Length (cm)</label>
+            <button
+              type="button"
+              @click="toggleMetricGuide('thigh')"
+              class="p-1 -mr-1 rounded-md text-slate-400 hover:text-sky-400 hover:bg-slate-800 transition-colors flex items-center space-x-1"
+              aria-label="Toggle Thigh Length Guide"
+              title="Tap to toggle measuring rules"
+            >
+              <span class="text-[10px] font-medium text-sky-400">Guide</span>
+              <svg
+                class="w-3.5 h-3.5 transform transition-transform duration-200"
+                :class="expandedMetrics.thigh ? 'rotate-180 text-sky-400' : ''"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
           <div class="relative">
             <input
               type="number"
@@ -172,6 +264,22 @@
             <span v-if="profileStore.profile.thigh_length_cm" :class="thighLengthValid ? 'text-emerald-400 font-bold' : 'text-rose-400 font-semibold'">
               {{ thighLengthValid ? 'Safe ✓' : 'Exceeds Ejection Limit ✗' }}
             </span>
+          </div>
+
+          <!-- Expandable rules under thigh length -->
+          <div
+            v-if="expandedMetrics.thigh"
+            class="mt-2.5 p-3 rounded-xl bg-sky-950/40 border border-sky-800/60 text-xs text-slate-300 space-y-1.5"
+          >
+            <div class="font-bold text-[11px] text-sky-300 flex items-center space-x-1">
+              <span>📐 How to measure Thigh Length (Max 64.0 cm):</span>
+            </div>
+            <ul class="text-[11px] space-y-1 list-disc pl-4 text-slate-300">
+              <li>Sit on a chair or the floor with your back and buttocks touching the wall, knees bent at 90°.</li>
+              <li>Measure horizontally along the top of your thigh from the wall behind your hips to the front curve of your kneecap.</li>
+              <li>Must be 64.0 cm or less to safely clear ejection seat handles and the dashboard.</li>
+              <li class="italic text-[10px] text-sky-400">If your total standing height is under 180 cm, you will easily fall below this 64 cm limit.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -297,10 +405,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 import { useProfileStore } from '@/stores/useProfileStore';
 
 const profileStore = useProfileStore();
+
+const expandedMetrics = ref<Record<string, boolean>>({
+  sitting: false,
+  leg: false,
+  thigh: false,
+});
+
+function toggleMetricGuide(metric: string) {
+  expandedMetrics.value[metric] = !expandedMetrics.value[metric];
+}
 
 const heightMeetsFlying = computed(() => {
   if (!profileStore.profile.height_cm) return false;

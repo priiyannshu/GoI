@@ -710,6 +710,59 @@ it('IAF AFCAT differentiates Flying Branch (162.5cm + cockpit anthropometrics) v
   const vUnder = evaluateEligibility(pUnderHeight, rule, 2027);
   assert.strictEqual(vUnder.status, 'INELIGIBLE');
   assert(vUnder.reasons.some(r => r.includes('Height 155 cm fails minimum standard')));
+
+  // Candidate with missing flying anthropometrics when skipped check enabled -> NEEDS_INFO
+  const pMissingAnthro = {
+    dob: '2005-01-01',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_degree: 'Bachelor',
+    graduation_discipline: 'Engineering',
+    graduation_aggregate_pct: 65.0,
+    ten_plus_two_maths_pct: 60.0,
+    ten_plus_two_physics_pct: 60.0,
+    height_cm: 170.0,
+    enable_skipped_check: true,
+  };
+  const vMissing = evaluateEligibility(pMissingAnthro, rule, 2027);
+  assert.strictEqual(vMissing.status, 'NEEDS_INFO');
+  assert(vMissing.skipped_requirements.some(r => r.includes('cockpit anthropometrics required')));
+
+  // Even if eligible for Ground Duty (height 160cm), missing anthropometrics flags NEEDS_INFO
+  const pGroundMissingAnthro = {
+    dob: '2005-01-01',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_degree: 'Bachelor',
+    graduation_discipline: 'Engineering',
+    graduation_aggregate_pct: 65.0,
+    ten_plus_two_maths_pct: 60.0,
+    ten_plus_two_physics_pct: 60.0,
+    height_cm: 160.0,
+    enable_skipped_check: true,
+  };
+  const vGroundMissing = evaluateEligibility(pGroundMissingAnthro, rule, 2027);
+  assert.strictEqual(vGroundMissing.status, 'NEEDS_INFO');
+  assert(vGroundMissing.skipped_requirements.some(r => r.includes('cockpit anthropometrics required')));
+
+  // Candidate providing all cockpit anthropometrics -> ELIGIBLE
+  const pCompleteAnthro = {
+    dob: '2005-01-01',
+    gender: 'MALE',
+    category: 'GEN',
+    graduation_degree: 'Bachelor',
+    graduation_discipline: 'Engineering',
+    graduation_aggregate_pct: 65.0,
+    ten_plus_two_maths_pct: 60.0,
+    ten_plus_two_physics_pct: 60.0,
+    height_cm: 170.0,
+    sitting_height_cm: 88.0,
+    leg_length_cm: 105.0,
+    thigh_length_cm: 58.0,
+    enable_skipped_check: true,
+  };
+  const vComplete = evaluateEligibility(pCompleteAnthro, rule, 2027);
+  assert.strictEqual(vComplete.status, 'ELIGIBLE');
 });
 
 it('UPSC CAPF AC bars currently/previously appointed Assistant Commandants from reappearing', () => {

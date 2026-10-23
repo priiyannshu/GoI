@@ -3,7 +3,32 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Hidden Examinations & Posts</h1>
+        <div class="flex items-center gap-2">
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Hidden Examinations & Posts</h1>
+          <span
+            v-if="authStore.candidateId"
+            class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60"
+            :title="'Synced to Candidate ID ' + authStore.candidateId"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Cloud Synced
+          </span>
+          <span
+            v-else
+            class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border border-slate-300 dark:border-slate-700"
+            title="Sign in to sync your hidden items across devices"
+          >
+            Local Only
+          </span>
+        </div>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <span v-if="authStore.candidateId">
+            Items hidden here automatically sync to your cloud profile (Candidate: <strong>{{ authStore.candidateName }}</strong>) across all your devices.
+          </span>
+          <span v-else>
+            Hidden items are currently stored on this device. <router-link to="/login" class="text-emerald-600 dark:text-emerald-400 underline font-medium">Sign in with your Candidate PIN</router-link> to sync them everywhere.
+          </span>
+        </p>
       </div>
 
       <!-- Quick Restore All Actions -->
@@ -165,11 +190,13 @@ import { ref, computed, onMounted } from 'vue';
 import AppEmblem from '@/components/common/AppEmblem.vue';
 import { useHiddenStore } from '@/stores/useHiddenStore';
 import { useExamMasterStore } from '@/stores/useExamMasterStore';
+import { useAuthStore } from '@/stores/useAuthStore';
 import { AUDITED_POSTS_DATA, GovernmentPost } from '@/data/postsData';
 import type { ExamRecord } from '@/types/profile';
 
 const hiddenStore = useHiddenStore();
 const examStore = useExamMasterStore();
+const authStore = useAuthStore();
 
 const activeTab = ref<'exams' | 'posts'>('exams');
 

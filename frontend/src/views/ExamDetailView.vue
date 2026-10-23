@@ -505,7 +505,64 @@ const timelineEntries = computed(() => {
   if (!t) return [];
   const entries: { label: string; value: string }[] = [];
 
-  if (t.notification_month) entries.push({ label: 'Notification Window', value: t.notification_month });
+  // Handle multi-cycle examinations (CDS, AFCAT)
+  if (t.cds_1 || t.cds_2) {
+    if (t.cds_1) {
+      if (t.cds_1.notification_date || t.cds_1.notification_month) {
+        entries.push({ label: 'CDS (I) Notification Date', value: t.cds_1.notification_date || t.cds_1.notification_month });
+      }
+      if (t.cds_1.application_window) {
+        entries.push({ label: 'CDS (I) Application Window', value: t.cds_1.application_window });
+      }
+      if (t.cds_1.exam_date) {
+        entries.push({ label: 'CDS (I) Examination Date', value: t.cds_1.exam_date });
+      }
+      if (t.cds_1.ssb_interview) {
+        entries.push({ label: 'CDS (I) SSB Interview', value: t.cds_1.ssb_interview });
+      }
+      if (t.cds_1.course_commencement) {
+        entries.push({ label: 'CDS (I) Course Commencement', value: t.cds_1.course_commencement });
+      }
+    }
+    if (t.cds_2) {
+      if (t.cds_2.notification_date || t.cds_2.notification_month) {
+        entries.push({ label: 'CDS (II) Notification Date', value: t.cds_2.notification_date || t.cds_2.notification_month });
+      }
+      if (t.cds_2.application_window) {
+        entries.push({ label: 'CDS (II) Application Window', value: t.cds_2.application_window });
+      }
+      if (t.cds_2.exam_date) {
+        entries.push({ label: 'CDS (II) Examination Date', value: t.cds_2.exam_date });
+      }
+      if (t.cds_2.ssb_interview) {
+        entries.push({ label: 'CDS (II) SSB Interview', value: t.cds_2.ssb_interview });
+      }
+      if (t.cds_2.course_commencement) {
+        entries.push({ label: 'CDS (II) Course Commencement', value: t.cds_2.course_commencement });
+      }
+    }
+    return entries;
+  }
+
+  if (t.afcat_1 || t.afcat_2) {
+    if (t.afcat_1) {
+      if (t.afcat_1.notification_month) entries.push({ label: 'AFCAT (1) Notification', value: t.afcat_1.notification_month });
+      if (t.afcat_1.application_window) entries.push({ label: 'AFCAT (1) Application Window', value: t.afcat_1.application_window });
+      if (t.afcat_1.exam_date) entries.push({ label: 'AFCAT (1) Exam Window', value: t.afcat_1.exam_date });
+      if (t.afcat_1.afsb_interview) entries.push({ label: 'AFCAT (1) AFSB Interview', value: t.afcat_1.afsb_interview });
+      if (t.afcat_1.course_commencement) entries.push({ label: 'AFCAT (1) Course Commencement', value: t.afcat_1.course_commencement });
+    }
+    if (t.afcat_2) {
+      if (t.afcat_2.notification_month) entries.push({ label: 'AFCAT (2) Notification', value: t.afcat_2.notification_month });
+      if (t.afcat_2.application_window) entries.push({ label: 'AFCAT (2) Application Window', value: t.afcat_2.application_window });
+      if (t.afcat_2.exam_date) entries.push({ label: 'AFCAT (2) Exam Window', value: t.afcat_2.exam_date });
+      if (t.afcat_2.afsb_interview) entries.push({ label: 'AFCAT (2) AFSB Interview', value: t.afcat_2.afsb_interview });
+      if (t.afcat_2.course_commencement) entries.push({ label: 'AFCAT (2) Course Commencement', value: t.afcat_2.course_commencement });
+    }
+    return entries;
+  }
+
+  if (t.notification_date || t.notification_month) entries.push({ label: 'Notification Window', value: t.notification_date || t.notification_month });
   if (t.application_window) entries.push({ label: 'Application Window', value: t.application_window });
   if (t.prelims_stage_1 || t.prelims_date) entries.push({ label: 'Prelims / Phase 1 Exam', value: t.prelims_stage_1 || t.prelims_date });
   if (t.mains_stage_2 || t.mains_date) entries.push({ label: 'Mains / Phase 2 Exam', value: t.mains_stage_2 || t.mains_date });

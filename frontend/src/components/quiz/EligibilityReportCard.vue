@@ -52,8 +52,8 @@
           <span class="text-xs font-medium text-emerald-300 uppercase tracking-wider mt-1 block">Fully Eligible</span>
         </div>
         <div class="bg-amber-950/30 border border-amber-800/40 rounded-2xl p-4 text-center">
-          <span class="block text-2xl sm:text-3xl font-extrabold text-amber-400">{{ conditionallyEligibleCount }}</span>
-          <span class="text-xs font-medium text-amber-300 uppercase tracking-wider mt-1 block">Conditionally Eligible</span>
+          <span class="block text-2xl sm:text-3xl font-extrabold text-amber-400">{{ needsInfoCount }}</span>
+          <span class="text-xs font-medium text-amber-300 uppercase tracking-wider mt-1 block">Missing Info</span>
         </div>
         <div class="bg-rose-950/30 border border-rose-800/40 rounded-2xl p-4 text-center">
           <span class="block text-2xl sm:text-3xl font-extrabold text-rose-400">{{ ineligibleCount }}</span>
@@ -158,14 +158,14 @@
               class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
               :class="[
                 verdict.status === 'ELIGIBLE' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
-                verdict.status === 'CONDITIONALLY_ELIGIBLE' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' :
+                (verdict.status === 'NEEDS_INFO' || verdict.status === 'CONDITIONALLY_ELIGIBLE') ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' :
                 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
               ]"
             >
               <span class="w-1.5 h-1.5 rounded-full mr-1.5"
                 :class="[
                   verdict.status === 'ELIGIBLE' ? 'bg-emerald-400' :
-                  verdict.status === 'CONDITIONALLY_ELIGIBLE' ? 'bg-amber-400' :
+                  (verdict.status === 'NEEDS_INFO' || verdict.status === 'CONDITIONALLY_ELIGIBLE') ? 'bg-amber-400' :
                   'bg-rose-400'
                 ]"
               ></span>
@@ -193,10 +193,10 @@
               v-for="(reason, idx) in verdict.reasons"
               :key="idx"
               class="text-xs flex items-start"
-              :class="verdict.status === 'INELIGIBLE' ? 'text-rose-300' : verdict.status === 'CONDITIONALLY_ELIGIBLE' ? 'text-amber-300' : 'text-slate-300'"
+              :class="verdict.status === 'INELIGIBLE' ? 'text-rose-300' : (verdict.status === 'NEEDS_INFO' || verdict.status === 'CONDITIONALLY_ELIGIBLE') ? 'text-amber-300' : 'text-slate-300'"
             >
               <span class="mr-2 flex-shrink-0">
-                {{ verdict.status === 'ELIGIBLE' ? '✓' : verdict.status === 'CONDITIONALLY_ELIGIBLE' ? 'ℹ️' : '✗' }}
+                {{ verdict.status === 'ELIGIBLE' ? '✓' : (verdict.status === 'NEEDS_INFO' || verdict.status === 'CONDITIONALLY_ELIGIBLE') ? '⚠️' : '✗' }}
               </span>
               <span>{{ reason }}</span>
             </li>
@@ -268,6 +268,7 @@ const eligibilityStore = useEligibilityStore();
 
 const totalCount = computed(() => eligibilityStore.totalCount);
 const eligibleCount = computed(() => eligibilityStore.eligibleCount);
+const needsInfoCount = computed(() => eligibilityStore.needsInfoCount);
 const conditionallyEligibleCount = computed(() => eligibilityStore.conditionallyEligibleCount);
 const ineligibleCount = computed(() => eligibilityStore.ineligibleCount);
 
@@ -281,6 +282,7 @@ const searchQuery = computed({
 const statusFilters = [
   { id: 'ALL', label: 'All Verdicts' },
   { id: 'ELIGIBLE', label: 'Eligible' },
+  { id: 'NEEDS_INFO', label: 'Missing Info' },
   { id: 'CONDITIONALLY_ELIGIBLE', label: 'Conditionally Eligible' },
   { id: 'INELIGIBLE', label: 'Ineligible' },
 ];
@@ -311,6 +313,7 @@ function formatStatus(status: string): string {
   switch (status) {
     case 'ELIGIBLE': return 'Eligible';
     case 'CONDITIONALLY_ELIGIBLE': return 'Conditionally Eligible';
+    case 'NEEDS_INFO': return 'Missing Info';
     case 'INELIGIBLE': return 'Ineligible';
     default: return status;
   }

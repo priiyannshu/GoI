@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
+import { useAuthStore } from './useAuthStore';
+import { syncProfileToEdge } from '../services/apiWorkerClient';
 
 const STORAGE_KEY_EXAMS = 'goi_hidden_exams';
 const STORAGE_KEY_POSTS = 'goi_hidden_posts';
@@ -8,6 +10,9 @@ export const useHiddenStore = defineStore('hiddenItems', () => {
   const hiddenExamIds = ref<string[]>([]);
   const hiddenPostIds = ref<string[]>([]);
   const isLoaded = ref<boolean>(false);
+  const isSyncing = ref<boolean>(false);
+
+  const authStore = useAuthStore();
 
   function loadHiddenItems() {
     if (typeof window === 'undefined') return;
@@ -30,11 +35,65 @@ export const useHiddenStore = defineStore('hiddenItems', () => {
     if (typeof window !== 'undefined') {
       localStorage.setItem(STORAGE_KEY_EXAMS, JSON.stringify(hiddenExamIds.value));
     }
+    triggerCloudSync();
   }
 
   function persistPosts() {
     if (typeof window !== 'undefined') {
       localStorage.setItem(STORAGE_KEY_POSTS, JSON.stringify(hiddenPostIds.value));
+    }
+    triggerCloudSync();
+  }
+
+  // Trigger sync of hidden items to cloud profile if logged in
+  let cloudSyncTimer: any = null;
+  function triggerCloudSync() {
+    if (!authStore.candidateId) return;
+    if (cloudSyncTimer) clearTimeout(cloudSyncTimer);
+    cloudSyncTimer = setTimeout(async () => {
+      if (typeof navigator !== 'undefined' && !navigator.onLine) return;
+      try {
+        isSyncing.value = true;
+        // Import useProfileStore dynamically or read profile payload
+        const { useProfileStore } = await import('./useProfileStore');
+        const profileStore = useProfileStore();
+        if (profileStore.isProfileCompleteForD1) {
+          const payload = profileStore.getD1Payload();
+          await syncProfileToEdge(payload);
+        }
+      } catch (err) {
+        console.warn('Failed to sync hidden items to cloud:', err);
+      } finally {
+        isSyncing.value = false;
+      }
+    }, 400);
+  }
+
+  /**
+   * Set hidden items directly from cloud profile (e.g. after login or profile load)
+   */
+  function setHiddenItemsFromRemote(exams?: string[], posts?: string[]) {
+    if (Array.isArray(exams)) {
+      hiddenExamIds.value = [...new Set(exams)];
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(STORAGE_KEY_EXAMS, JSON.stringify(hiddenExamIds.value));
+      }
+    }
+    if (Array.isArray(posts)) {
+      hiddenPostIds.value = [...new Set(posts)];
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(STORAGE_KEY_POSTS, JSON.stringify(hiddenPostIds.value));
+      }
+    }
+    isLoaded.value = true;
+  }
+
+  function clearHiddenItemsLocal() {
+    hiddenExamIds.value = [];
+    hiddenPostIds.value = [];
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem(STORAGE_KEY_EXAMS);
+      localStorage.removeItem(STORAGE_KEY_POSTS);
     }
   }
 
@@ -115,7 +174,11 @@ export const useHiddenStore = defineStore('hiddenItems', () => {
     hiddenExamIds,
     hiddenPostIds,
     isLoaded,
+    isSyncing,
     loadHiddenItems,
+    triggerCloudSync,
+    setHiddenItemsFromRemote,
+    clearHiddenItemsLocal,
     hideExam,
     unhideExam,
     isExamHidden,

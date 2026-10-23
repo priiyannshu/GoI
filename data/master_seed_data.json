@@ -66,7 +66,7 @@
       "official_website": "https://upsc.gov.in",
       "latest_official_notification_url": "https://upsc.gov.in/sites/default/files/Notif-CDSI-24-engl-201223.pdf",
       "latest_gazette_ref": "Ministry of Defence Statutory Notifications published in The Gazette of India Extraordinary for CDS-I & CDS-II cycles",
-      "tentative_timeline_2027": "{\"cds_1\": {\"notification_month\": \"December 2026\", \"exam_date\": \"April 18, 2027\", \"ssb_interview\": \"July \\u2013 September 2027\", \"course_commencement\": \"January 2028\"}, \"cds_2\": {\"notification_month\": \"May 2027\", \"exam_date\": \"September 5, 2027\", \"ssb_interview\": \"January \\u2013 March 2028\", \"course_commencement\": \"July 2028\"}}",
+      "tentative_timeline_2027": "{\"cds_1\": {\"notification_date\": \"December 2, 2026\", \"application_window\": \"December 2, 2026 \\u2013 December 22, 2026\", \"exam_date\": \"April 11, 2027\", \"ssb_interview\": \"July \\u2013 September 2027\", \"course_commencement\": \"January 2028\"}, \"cds_2\": {\"notification_date\": \"May 12, 2027\", \"application_window\": \"May 12, 2027 \\u2013 June 1, 2027\", \"exam_date\": \"September 19, 2027\", \"ssb_interview\": \"January \\u2013 March 2028\", \"course_commencement\": \"July 2028\"}}",
       "description": "Commissioned officer entry into Indian Military Academy (IMA), Naval Academy (INA), Air Force Academy (AFA), and Officers Training Academy (OTA)."
     },
     {
@@ -1120,12 +1120,12 @@
       "audit_id": "AUD_UPSC_CDS_TIMELINE_2027",
       "exam_id": "UPSC_CDS",
       "fact_type": "Timeline_2027",
-      "official_document_title": "UPSC Combined Defence Services Examination (I & II) Notices & MoD Statutory Rules",
-      "document_date": "2024-05-28",
-      "clause_or_page_number": "UPSC Biannual Calendar Schedule",
+      "official_document_title": "UPSC Annual Programme of Examinations / Recruitment Tests (RTs) - 2027 Calendar",
+      "document_date": "2026-05-20",
+      "clause_or_page_number": "UPSC Calendar 2027, Items for CDS Exam (I) & (II) 2027",
       "official_download_link": "https://upsc.gov.in/sites/default/files/Notif-CDSI-24-engl-201223.pdf",
       "archive_link": "https://web.archive.org/web/upsc_cds_2024.pdf",
-      "verifier_notes": "CDS-I 2027: Notif Dec 2026, Exam Apr 18, 2027, SSB Jul-Sep 2027; CDS-II 2027: Notif May 2027, Exam Sep 5, 2027, SSB Jan-Mar 2028."
+      "verifier_notes": "CDS (I) 2027: Notif Dec 2, 2026, Apply by Dec 22, 2026, Exam Apr 11, 2027; CDS (II) 2027: Notif May 12, 2027, Apply by Jun 1, 2027, Exam Sep 19, 2027."
     },
     {
       "audit_id": "AUD_UPSC_CDS_PHYSICAL_STANDARDS",
